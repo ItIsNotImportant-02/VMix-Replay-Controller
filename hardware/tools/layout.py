@@ -309,7 +309,7 @@ def block_mcu(d, ox, oy):
     b = B(d, ox, oy)
     d.block("2  MCU RP2040", g(ox), g(oy), g(ox + 72), g(oy + 70),
             note="GPIO: viz PINMAP.md. SPI0 = W5500 (jako W5500-EVB-Pico), I2C1 = LED budiče + expandéry,\n"
-                 "SPI1 = páka (MT6701 SSI), GP2/GP3 = jog A/B pro PIO kvadraturní dekodér, GP29 = měření 5 V.")
+                 "SPI1 = páka (MT6701 SSI), GP2-4 = jog (MT6701 SSI přes PIO, příp. ABZ), GP29 = měření 5 V.")
     U = "U3"
     b.place(U, 40, 40)
     # power pins on top: +3V3 rail and +1V1 rail

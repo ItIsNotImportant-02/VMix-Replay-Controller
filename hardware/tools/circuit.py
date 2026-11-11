@@ -113,8 +113,8 @@ def build(prj):
     # ======================================================================
     s = prj.sheet("MCU", "mcu.kicad_sch", "RP2040, flash, krystal, debug")
     s.note("GPIO: viz hardware/DESIGN.md. SPI0 = W5500 (jako W5500-EVB-Pico), I2C1 = LED budiče + expandéry,\n"
-           "SPI1 = páka (MT6701 SSI), GP2/GP3 = jog A/B pro PIO kvadraturní dekodér.")
-    gp = {0: "UART_TX", 1: "UART_RX", 2: "JOG_A", 3: "JOG_B", 4: "JOG_Z", 5: "JOG_MODE", 6: "I2C_SDA",
+           "SPI1 = páka (MT6701 SSI), GP2-4 = jog (MT6701 SSI přes PIO).")
+    gp = {0: "UART_TX", 1: "UART_RX", 2: "JOG_DO", 3: "JOG_CLK", 4: "JOG_CSN", 5: "JOG_MODE", 6: "I2C_SDA",
           7: "I2C_SCL", 8: "LED_SDB", 9: "BTN_INT", 10: "GP10", 11: "GP11", 12: "LEV_DO", 13: "LEV_CSN",
           14: "LEV_CLK", 15: "LEV_MODE", 16: "ETH_MISO", 17: "ETH_CS", 18: "ETH_SCK", 19: "ETH_MOSI",
           20: "ETH_RST", 21: "ETH_INT", 22: "GP22", 23: "GP23", 24: "GP24", 25: "STATUS_LED",
@@ -294,7 +294,7 @@ def build(prj):
     n = 80
     rn = 60
     for pre, ref, nets in (("LEV", "J5", ("LEV_MODE", "LEV_DO", "LEV_CLK", "LEV_CSN", "LEV_OUT")),
-                           ("JOG", "J6", ("JOG_MODE", "JOG_A", "JOG_B", "JOG_Z", "JOG_OUT"))):
+                           ("JOG", "J6", ("JOG_MODE", "JOG_DO", "JOG_CLK", "JOG_CSN", "JOG_OUT"))):
         mode, p6, p7, p8, out = nets
         s.add(Part(ref, "Connector_Generic_MountingPin:Conn_01x08_MountingPin", "LEVER" if pre == "LEV" else "JOG",
                    "Connector_JST:JST_PH_S8B-PH-SM4-TB_1x08-1MP_P2.00mm_Horizontal",

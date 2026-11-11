@@ -6,9 +6,9 @@
 |---|---|
 | GP0 | `UART_TX` |
 | GP1 | `UART_RX` |
-| GP2 | `JOG_A` |
-| GP3 | `JOG_B` |
-| GP4 | `JOG_Z` |
+| GP2 | `JOG_DO` |
+| GP3 | `JOG_CLK` |
+| GP4 | `JOG_CSN` |
 | GP5 | `JOG_MODE` |
 | GP6 | `I2C_SDA` |
 | GP7 | `I2C_SCL` |

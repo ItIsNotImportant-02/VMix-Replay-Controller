@@ -15897,7 +15897,7 @@
 		)
 		(uuid "e2c8d71a-cfea-5db1-a825-a46e18bc6688")
 	)
-	(text "GPIO: viz PINMAP.md. SPI0 = W5500 (jako W5500-EVB-Pico), I2C1 = LED budiče + expandéry,\nSPI1 = páka (MT6701 SSI), GP2/GP3 = jog A/B pro PIO kvadraturní dekodér, GP29 = měření 5 V."
+	(text "GPIO: viz PINMAP.md. SPI0 = W5500 (jako W5500-EVB-Pico), I2C1 = LED budiče + expandéry,\nSPI1 = páka (MT6701 SSI), GP2-4 = jog (MT6701 SSI přes PIO, příp. ABZ), GP29 = měření 5 V."
 		(exclude_from_sim no)
 		(at 213.36 185.3 0)
 		(effects
@@ -16517,7 +16517,7 @@
 		)
 		(uuid "64ca07ee-3b80-5ce2-882c-914790404d88")
 	)
-	(label "JOG_A"
+	(label "JOG_DO"
 		(at 342.9 81.28 0)
 		(effects
 			(font
@@ -16527,7 +16527,7 @@
 		)
 		(uuid "8ee0cedf-2ff6-5bb9-a49f-16cf4f7fb5be")
 	)
-	(label "JOG_B"
+	(label "JOG_CLK"
 		(at 342.9 83.82 0)
 		(effects
 			(font
@@ -16537,7 +16537,7 @@
 		)
 		(uuid "b8e87069-49e5-5558-a3e1-17028d8dcbac")
 	)
-	(label "JOG_Z"
+	(label "JOG_CSN"
 		(at 342.9 86.36 0)
 		(effects
 			(font
@@ -41196,7 +41196,7 @@
 			)
 		)
 	)
-	(label "JOG_A"
+	(label "JOG_DO"
 		(at 133.35 279.4 180)
 		(effects
 			(font
@@ -41301,7 +41301,7 @@
 			)
 		)
 	)
-	(label "JOG_B"
+	(label "JOG_CLK"
 		(at 133.35 287.02 180)
 		(effects
 			(font
@@ -41406,7 +41406,7 @@
 			)
 		)
 	)
-	(label "JOG_Z"
+	(label "JOG_CSN"
 		(at 133.35 294.64 180)
 		(effects
 			(font
