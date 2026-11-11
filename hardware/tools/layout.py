@@ -401,9 +401,10 @@ def block_ethernet(d, ox, oy):
             d.flag(*b.P(nx + 1, py))
     b.caprow(["C40", "C41", "C42", "C43", "C44", "C45", "C46"], 12, 9)
     b.caprow(["C47", "C56"], 40, 9, pitch=3.5)
-    b.v2("R22", 48, 9, Lb=1)
-    b.v2("R23", 51, 9, Lb=1)
-    b.v2("R20", 56, 9, Lt=1)
+    b.v2("R22", 47, 9, Lb=1)
+    b.v2("R23", 50, 9, Lb=1)
+    b.v2("R35", 53, 9, Lb=1)
+    b.v2("R20", 57, 9, Lt=1)
     b.v2("C48", 61, 9, Lt=1)
     b.v2("C49", 66, 9, Lt=1)
     # the chip: everything by labels

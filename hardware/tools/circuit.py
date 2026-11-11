@@ -189,21 +189,22 @@ def build(prj):
     s.add(R("R20", "12.4k 1%", "W_EXRES", "GND"))
     s.add(Part("Y2", "Device:Crystal_GND24", "25MHz", "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
                pins={"1": "W_XI", "3": "W_XO", "2": "GND", "4": "GND"}, lcsc="C9006", mpn="X322525MOB4SI (CL 12 pF)"))
-    s.add(C("C%d" % n, "15pF", "W_XI")); n += 1    # CL 12 pF crystal
-    s.add(C("C%d" % n, "15pF", "W_XO")); n += 1
+    s.add(C("C%d" % n, "18pF", "W_XI")); n += 1    # CL 12 pF: 18/2 + ~3 pF = 12 pF (jako WIZ850io)
+    s.add(C("C%d" % n, "18pF", "W_XO")); n += 1
     s.add(R("R21", "1M", "W_XI", "W_XO"))
     s.add(R("R22", "10k", "+3V3", "ETH_INT"))
     s.add(R("R23", "10k", "+3V3", "ETH_RST"))
+    s.add(R("R35", "10k", "+3V3", "ETH_CS"))   # W5500 odpojený od SPI, dokud RP2040 nenastaví GPIO
     # TX
-    s.add(R("R24", "33R", "W_TXP", "ETH_TDP"))
-    s.add(R("R25", "33R", "W_TXN", "ETH_TDN"))
+    s.add(R("R24", "3.3R", "W_TXP", "ETH_TDP"))
+    s.add(R("R25", "3.3R", "W_TXN", "ETH_TDN"))
     s.add(R("R26", "49.9R 1%", "ETH_TDP", "+3V3A"))
     s.add(R("R27", "49.9R 1%", "ETH_TDN", "+3V3A"))
     s.add(R("R28", "10R", "+3V3A", "ETH_TCT"))
     s.add(C("C%d" % n, "22nF", "ETH_TCT")); n += 1
     # RX
-    s.add(R("R29", "33R", "W_RXP", "ETH_RXP_T"))
-    s.add(R("R30", "33R", "W_RXN", "ETH_RXN_T"))
+    s.add(R("R29", "3.3R", "W_RXP", "ETH_RXP_T"))
+    s.add(R("R30", "3.3R", "W_RXN", "ETH_RXN_T"))
     s.add(R("R31", "49.9R 1%", "ETH_RXP_T", "ETH_RCT"))
     s.add(R("R32", "49.9R 1%", "ETH_RXN_T", "ETH_RCT"))
     s.add(C("C%d" % n, "6.8nF", "ETH_RXP_T", "ETH_RDP")); n += 1
