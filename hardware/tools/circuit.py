@@ -40,27 +40,29 @@ def TPt(ref, net):
 
 # ---------------------------------------------------------------------------
 # Buttons: name, TCA9555 (chip, port pin), LED driver channels
-PB26 = ["MENU", "SHIFT", "CLEAR", "ENTER", "CAM_A", "CAM_B", "CAM_C", "CAM_D", "PLST", "BROWSE",
-        "IN", "OUT", "TAKE", "PLAY", "LAST_CUE", "MARK", "RECORD", "PRV_CTL"]
+# Order matters: the first 11 go to the left/centre LED driver U6, the rest to U7 (see LED_MAP).
+PB26 = ["MENU", "SHIFT", "CAM_A", "CAM_B", "CAM_C", "CAM_D", "PLST", "BROWSE", "IN", "OUT", "TAKE",
+        "CLEAR", "ENTER", "PLAY", "LAST_CUE", "MARK", "RECORD", "PRV_CTL"]
+U6_BUTTONS = 11
 FKEYS = ["F%d" % i for i in range(1, 11)]
 
 TCA_PORTS = ["P00", "P01", "P02", "P03", "P04", "P05", "P06", "P07",
              "P10", "P11", "P12", "P13", "P14", "P15", "P16", "P17"]
-# U8 (0x20): PB26 #1-16 ; U9 (0x21): PB26 #17-18, F1-F10, 4 spare
-BTN_INPUTS = PB26 + FKEYS
+# U8 (0x20): left/centre buttons + F1-F5 ; U9 (0x21): right buttons + F6-F10, 4 spare
+BTN_INPUTS = PB26[:U6_BUTTONS] + FKEYS[:5] + PB26[U6_BUTTONS:] + FKEYS[5:]
 TCA_MAP = {}
 for i, name in enumerate(BTN_INPUTS):
     TCA_MAP[name] = ("U8", TCA_PORTS[i]) if i < 16 else ("U9", TCA_PORTS[i - 16])
 SPARE_EXP = [("U9", p) for p in TCA_PORTS[12:]]
 
-# LED channels: U6 (0x3C) OUT1-36 = PB26 #1-12 (R,G,B) ; U7 (0x3F) OUT1-18 = PB26 #13-18, OUT19-28 = F1-F10
+# LED channels: U6 (0x3C) OUT1-33 = first 11 PB26 (R,G,B) ; U7 (0x3F) OUT1-21 = other 7 PB26, OUT22-31 = F1-F10
 LED_MAP = {}
 for i, name in enumerate(PB26):
-    chip, base = ("U6", 3 * i) if i < 12 else ("U7", 3 * (i - 12))
+    chip, base = ("U6", 3 * i) if i < U6_BUTTONS else ("U7", 3 * (i - U6_BUTTONS))
     for k, col in enumerate("RGB"):
         LED_MAP["LED_%s_%s" % (name, col)] = (chip, base + k + 1)
 for i, name in enumerate(FKEYS):
-    LED_MAP["LED_%s" % name] = ("U7", 19 + i)
+    LED_MAP["LED_%s" % name] = ("U7", 3 * (len(PB26) - U6_BUTTONS) + 1 + i)
 
 
 def build(prj):

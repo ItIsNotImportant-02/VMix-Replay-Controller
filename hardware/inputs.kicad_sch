@@ -1765,7 +1765,7 @@
 		)
 		(uuid "3ff3d765-4f5e-5d2e-913d-03721edff5fe")
 	)
-	(global_label "BTN_CLEAR"
+	(global_label "BTN_CAM_A"
 		(shape bidirectional)
 		(at 86.36 50.8 0)
 		(fields_autoplaced yes)
@@ -1797,7 +1797,7 @@
 		)
 		(uuid "ad0a4224-e67b-56fd-b45e-191d5bd38f5a")
 	)
-	(global_label "BTN_ENTER"
+	(global_label "BTN_CAM_B"
 		(shape bidirectional)
 		(at 86.36 53.34 0)
 		(fields_autoplaced yes)
@@ -1829,7 +1829,7 @@
 		)
 		(uuid "a3ef3518-adee-5b0f-b72d-e5a793400310")
 	)
-	(global_label "BTN_CAM_A"
+	(global_label "BTN_CAM_C"
 		(shape bidirectional)
 		(at 86.36 55.88 0)
 		(fields_autoplaced yes)
@@ -1861,7 +1861,7 @@
 		)
 		(uuid "4ae94d98-f644-5ca7-b8da-031596e03844")
 	)
-	(global_label "BTN_CAM_B"
+	(global_label "BTN_CAM_D"
 		(shape bidirectional)
 		(at 86.36 58.42 0)
 		(fields_autoplaced yes)
@@ -1893,7 +1893,7 @@
 		)
 		(uuid "436f5ab2-fee4-5ce7-bfbe-8be2f09f4d4e")
 	)
-	(global_label "BTN_CAM_C"
+	(global_label "BTN_PLST"
 		(shape bidirectional)
 		(at 86.36 60.96 0)
 		(fields_autoplaced yes)
@@ -1925,7 +1925,7 @@
 		)
 		(uuid "47fa8b5a-0577-5b52-8acd-08f39b33b97e")
 	)
-	(global_label "BTN_CAM_D"
+	(global_label "BTN_BROWSE"
 		(shape bidirectional)
 		(at 86.36 63.5 0)
 		(fields_autoplaced yes)
@@ -1957,7 +1957,7 @@
 		)
 		(uuid "47bcbbdc-2b5f-5e99-96de-c189514df47a")
 	)
-	(global_label "BTN_PLST"
+	(global_label "BTN_IN"
 		(shape bidirectional)
 		(at 86.36 68.58 0)
 		(fields_autoplaced yes)
@@ -1989,7 +1989,7 @@
 		)
 		(uuid "79c7f23c-318a-5307-9ceb-1b5530ec6a7a")
 	)
-	(global_label "BTN_BROWSE"
+	(global_label "BTN_OUT"
 		(shape bidirectional)
 		(at 86.36 71.12 0)
 		(fields_autoplaced yes)
@@ -2021,7 +2021,7 @@
 		)
 		(uuid "30973e24-f809-55bb-ad3b-db890b8b0ffd")
 	)
-	(global_label "BTN_IN"
+	(global_label "BTN_TAKE"
 		(shape bidirectional)
 		(at 86.36 73.66 0)
 		(fields_autoplaced yes)
@@ -2053,7 +2053,7 @@
 		)
 		(uuid "0d5e147d-f132-522e-bad0-e97803c6b971")
 	)
-	(global_label "BTN_OUT"
+	(global_label "BTN_F1"
 		(shape bidirectional)
 		(at 86.36 76.2 0)
 		(fields_autoplaced yes)
@@ -2085,7 +2085,7 @@
 		)
 		(uuid "642f416f-cce8-5233-9f02-2ecf3511a23c")
 	)
-	(global_label "BTN_TAKE"
+	(global_label "BTN_F2"
 		(shape bidirectional)
 		(at 86.36 78.74 0)
 		(fields_autoplaced yes)
@@ -2117,7 +2117,7 @@
 		)
 		(uuid "f93217f5-1dae-5b42-846f-86b74bb304d9")
 	)
-	(global_label "BTN_PLAY"
+	(global_label "BTN_F3"
 		(shape bidirectional)
 		(at 86.36 81.28 0)
 		(fields_autoplaced yes)
@@ -2149,7 +2149,7 @@
 		)
 		(uuid "c4990a28-a8db-550a-ba2d-bb50e6482b52")
 	)
-	(global_label "BTN_LAST_CUE"
+	(global_label "BTN_F4"
 		(shape bidirectional)
 		(at 86.36 83.82 0)
 		(fields_autoplaced yes)
@@ -2181,7 +2181,7 @@
 		)
 		(uuid "1ecd4d77-55dd-5dc7-acfa-350aa84b20d8")
 	)
-	(global_label "BTN_MARK"
+	(global_label "BTN_F5"
 		(shape bidirectional)
 		(at 86.36 86.36 0)
 		(fields_autoplaced yes)
@@ -2859,7 +2859,7 @@
 		)
 		(uuid "9e6901d5-9ec3-504f-8c9b-beec76a2408f")
 	)
-	(global_label "BTN_RECORD"
+	(global_label "BTN_CLEAR"
 		(shape bidirectional)
 		(at 167.64 45.72 0)
 		(fields_autoplaced yes)
@@ -2891,7 +2891,7 @@
 		)
 		(uuid "fa21c6ab-34bd-5645-81b7-b0e64bf25cb8")
 	)
-	(global_label "BTN_PRV_CTL"
+	(global_label "BTN_ENTER"
 		(shape bidirectional)
 		(at 167.64 48.26 0)
 		(fields_autoplaced yes)
@@ -2923,7 +2923,7 @@
 		)
 		(uuid "f34c9e24-8e9d-5f53-9938-e1eabd7b6650")
 	)
-	(global_label "BTN_F1"
+	(global_label "BTN_PLAY"
 		(shape bidirectional)
 		(at 167.64 50.8 0)
 		(fields_autoplaced yes)
@@ -2955,7 +2955,7 @@
 		)
 		(uuid "618b30f7-db34-54c6-a62e-b92fdceb0bb0")
 	)
-	(global_label "BTN_F2"
+	(global_label "BTN_LAST_CUE"
 		(shape bidirectional)
 		(at 167.64 53.34 0)
 		(fields_autoplaced yes)
@@ -2987,7 +2987,7 @@
 		)
 		(uuid "a1a237fb-796d-54c8-b61e-988293b0c08e")
 	)
-	(global_label "BTN_F3"
+	(global_label "BTN_MARK"
 		(shape bidirectional)
 		(at 167.64 55.88 0)
 		(fields_autoplaced yes)
@@ -3019,7 +3019,7 @@
 		)
 		(uuid "4f10bbaf-20a9-5055-8622-dc0e615ae63d")
 	)
-	(global_label "BTN_F4"
+	(global_label "BTN_RECORD"
 		(shape bidirectional)
 		(at 167.64 58.42 0)
 		(fields_autoplaced yes)
@@ -3051,7 +3051,7 @@
 		)
 		(uuid "383f4cfc-44ba-576e-b3cb-bbee84bdbd91")
 	)
-	(global_label "BTN_F5"
+	(global_label "BTN_PRV_CTL"
 		(shape bidirectional)
 		(at 167.64 60.96 0)
 		(fields_autoplaced yes)

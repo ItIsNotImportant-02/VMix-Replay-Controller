@@ -2346,7 +2346,7 @@
 		)
 		(uuid "e1f0896e-5442-59f7-bbc3-2e78fe959745")
 	)
-	(global_label "LED_CLEAR_R"
+	(global_label "LED_CAM_A_R"
 		(shape bidirectional)
 		(at 74.93 57.15 0)
 		(fields_autoplaced yes)
@@ -2378,7 +2378,7 @@
 		)
 		(uuid "2e7da6f5-98cf-5d18-a059-b763d063633d")
 	)
-	(global_label "LED_CLEAR_G"
+	(global_label "LED_CAM_A_G"
 		(shape bidirectional)
 		(at 74.93 59.69 0)
 		(fields_autoplaced yes)
@@ -2410,7 +2410,7 @@
 		)
 		(uuid "5981d77b-58e1-5e11-8e8b-1f1cb586a81d")
 	)
-	(global_label "LED_CLEAR_B"
+	(global_label "LED_CAM_A_B"
 		(shape bidirectional)
 		(at 74.93 62.23 0)
 		(fields_autoplaced yes)
@@ -2442,7 +2442,7 @@
 		)
 		(uuid "ddf11a36-7a85-5825-a492-6436dc696a56")
 	)
-	(global_label "LED_ENTER_R"
+	(global_label "LED_CAM_B_R"
 		(shape bidirectional)
 		(at 74.93 64.77 0)
 		(fields_autoplaced yes)
@@ -2474,7 +2474,7 @@
 		)
 		(uuid "1ec60013-62c7-55ad-b61f-3861000d4417")
 	)
-	(global_label "LED_ENTER_G"
+	(global_label "LED_CAM_B_G"
 		(shape bidirectional)
 		(at 74.93 67.31 0)
 		(fields_autoplaced yes)
@@ -2506,7 +2506,7 @@
 		)
 		(uuid "a6e6f071-d72d-5665-990c-14f4a9bb3639")
 	)
-	(global_label "LED_ENTER_B"
+	(global_label "LED_CAM_B_B"
 		(shape bidirectional)
 		(at 74.93 69.85 0)
 		(fields_autoplaced yes)
@@ -2538,7 +2538,7 @@
 		)
 		(uuid "44477558-d39c-5e0a-8fd1-66df8971c221")
 	)
-	(global_label "LED_CAM_A_R"
+	(global_label "LED_CAM_C_R"
 		(shape bidirectional)
 		(at 74.93 72.39 0)
 		(fields_autoplaced yes)
@@ -2570,7 +2570,7 @@
 		)
 		(uuid "4d01bb1a-29a5-5a3a-8f04-71f7badb1d43")
 	)
-	(global_label "LED_CAM_A_G"
+	(global_label "LED_CAM_C_G"
 		(shape bidirectional)
 		(at 74.93 74.93 0)
 		(fields_autoplaced yes)
@@ -2602,7 +2602,7 @@
 		)
 		(uuid "a3021f74-f490-5d17-b34c-532befa4f406")
 	)
-	(global_label "LED_CAM_A_B"
+	(global_label "LED_CAM_C_B"
 		(shape bidirectional)
 		(at 74.93 77.47 0)
 		(fields_autoplaced yes)
@@ -2634,7 +2634,7 @@
 		)
 		(uuid "44723416-df04-5d12-ae72-1c0e5d4dc2dd")
 	)
-	(global_label "LED_CAM_B_R"
+	(global_label "LED_CAM_D_R"
 		(shape bidirectional)
 		(at 74.93 80.01 0)
 		(fields_autoplaced yes)
@@ -2666,7 +2666,7 @@
 		)
 		(uuid "c7470c84-3eef-505d-936b-299d22334e89")
 	)
-	(global_label "LED_CAM_B_G"
+	(global_label "LED_CAM_D_G"
 		(shape bidirectional)
 		(at 74.93 82.55 0)
 		(fields_autoplaced yes)
@@ -2698,7 +2698,7 @@
 		)
 		(uuid "aaa7b39a-45a9-5cc8-b122-595cbee71f2f")
 	)
-	(global_label "LED_CAM_B_B"
+	(global_label "LED_CAM_D_B"
 		(shape bidirectional)
 		(at 74.93 85.09 0)
 		(fields_autoplaced yes)
@@ -2730,7 +2730,7 @@
 		)
 		(uuid "9291ecdb-c73e-524a-81ee-710414c31c1f")
 	)
-	(global_label "LED_CAM_C_R"
+	(global_label "LED_PLST_R"
 		(shape bidirectional)
 		(at 74.93 87.63 0)
 		(fields_autoplaced yes)
@@ -2762,7 +2762,7 @@
 		)
 		(uuid "e1ae3e1d-999b-5e46-909e-eddd5c455b3e")
 	)
-	(global_label "LED_CAM_C_G"
+	(global_label "LED_PLST_G"
 		(shape bidirectional)
 		(at 74.93 90.17 0)
 		(fields_autoplaced yes)
@@ -2794,7 +2794,7 @@
 		)
 		(uuid "519819fe-c605-597b-b59a-c44c79a87039")
 	)
-	(global_label "LED_CAM_C_B"
+	(global_label "LED_PLST_B"
 		(shape bidirectional)
 		(at 74.93 92.71 0)
 		(fields_autoplaced yes)
@@ -2826,7 +2826,7 @@
 		)
 		(uuid "8bac37bf-660f-5971-ad79-42eff59042df")
 	)
-	(global_label "LED_CAM_D_R"
+	(global_label "LED_BROWSE_R"
 		(shape bidirectional)
 		(at 74.93 95.25 0)
 		(fields_autoplaced yes)
@@ -2858,7 +2858,7 @@
 		)
 		(uuid "ca7525da-348e-5119-b44e-b77c3c6ebddc")
 	)
-	(global_label "LED_CAM_D_G"
+	(global_label "LED_BROWSE_G"
 		(shape bidirectional)
 		(at 74.93 97.79 0)
 		(fields_autoplaced yes)
@@ -2890,7 +2890,7 @@
 		)
 		(uuid "2518f173-624c-5d97-9bc9-3ee5dcfebed3")
 	)
-	(global_label "LED_CAM_D_B"
+	(global_label "LED_BROWSE_B"
 		(shape bidirectional)
 		(at 74.93 100.33 0)
 		(fields_autoplaced yes)
@@ -2922,7 +2922,7 @@
 		)
 		(uuid "97852b3e-1798-56b4-a785-b32b003055fc")
 	)
-	(global_label "LED_PLST_R"
+	(global_label "LED_IN_R"
 		(shape bidirectional)
 		(at 74.93 102.87 0)
 		(fields_autoplaced yes)
@@ -2954,7 +2954,7 @@
 		)
 		(uuid "536e14a8-7575-507a-8c43-a611a3c54d1a")
 	)
-	(global_label "LED_PLST_G"
+	(global_label "LED_IN_G"
 		(shape bidirectional)
 		(at 74.93 105.41 0)
 		(fields_autoplaced yes)
@@ -2986,7 +2986,7 @@
 		)
 		(uuid "5d3afc90-fd5a-5483-ba18-b8dd7a27d899")
 	)
-	(global_label "LED_PLST_B"
+	(global_label "LED_IN_B"
 		(shape bidirectional)
 		(at 74.93 107.95 0)
 		(fields_autoplaced yes)
@@ -3018,7 +3018,7 @@
 		)
 		(uuid "58a57889-a3d0-54ca-968e-733a8f644bdc")
 	)
-	(global_label "LED_BROWSE_R"
+	(global_label "LED_OUT_R"
 		(shape bidirectional)
 		(at 74.93 110.49 0)
 		(fields_autoplaced yes)
@@ -3050,7 +3050,7 @@
 		)
 		(uuid "a940904b-202f-57e1-b4d4-d41f8d9ca607")
 	)
-	(global_label "LED_BROWSE_G"
+	(global_label "LED_OUT_G"
 		(shape bidirectional)
 		(at 74.93 113.03 0)
 		(fields_autoplaced yes)
@@ -3082,7 +3082,7 @@
 		)
 		(uuid "4cedbf7d-49c5-50c0-aef7-eea2980af7bc")
 	)
-	(global_label "LED_BROWSE_B"
+	(global_label "LED_OUT_B"
 		(shape bidirectional)
 		(at 74.93 115.57 0)
 		(fields_autoplaced yes)
@@ -3114,7 +3114,7 @@
 		)
 		(uuid "20756424-b9a4-5775-a808-fe89a2e41543")
 	)
-	(global_label "LED_IN_R"
+	(global_label "LED_TAKE_R"
 		(shape bidirectional)
 		(at 74.93 118.11 0)
 		(fields_autoplaced yes)
@@ -3146,7 +3146,7 @@
 		)
 		(uuid "0a8458ec-7f74-5a12-b80c-bf7c0c210e29")
 	)
-	(global_label "LED_IN_G"
+	(global_label "LED_TAKE_G"
 		(shape bidirectional)
 		(at 74.93 120.65 0)
 		(fields_autoplaced yes)
@@ -3178,7 +3178,7 @@
 		)
 		(uuid "a59e9fa2-8658-5356-b60f-7785648fecb6")
 	)
-	(global_label "LED_IN_B"
+	(global_label "LED_TAKE_B"
 		(shape bidirectional)
 		(at 74.93 123.19 0)
 		(fields_autoplaced yes)
@@ -3199,101 +3199,17 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 72.39 125.73)
-			(xy 74.93 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1484f0c0-d445-5c00-b078-dacbe30ef958")
+	(no_connect
+		(at 72.39 125.73)
+		(uuid "0264c675-b43d-557f-a529-cb2642bf789b")
 	)
-	(global_label "LED_OUT_R"
-		(shape bidirectional)
-		(at 74.93 125.73 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "d7d08f2e-023c-573a-9209-bae3f333b97f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 74.93 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
+	(no_connect
+		(at 72.39 128.27)
+		(uuid "f3a9ffb9-3845-52ba-b192-141921198332")
 	)
-	(wire
-		(pts
-			(xy 72.39 128.27)
-			(xy 74.93 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2050d992-2639-5eac-849b-a620d5906388")
-	)
-	(global_label "LED_OUT_G"
-		(shape bidirectional)
-		(at 74.93 128.27 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "77666f2e-0672-5b8c-9b4c-9df664cc06a3")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 74.93 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 72.39 130.81)
-			(xy 74.93 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "268a8f27-0768-5fab-ad86-f805769a83c7")
-	)
-	(global_label "LED_OUT_B"
-		(shape bidirectional)
-		(at 74.93 130.81 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "ad94378b-1af8-59d8-abf3-b024b0714492")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 74.93 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
+	(no_connect
+		(at 72.39 130.81)
+		(uuid "159d85cb-8642-5bda-bc75-21bd18a57f97")
 	)
 	(symbol
 		(lib_id "vrc:IS31FL3236A-QFN44")
@@ -3916,7 +3832,7 @@
 		)
 		(uuid "9c13bef5-e08a-5afe-a8a4-951609f1566d")
 	)
-	(global_label "LED_TAKE_R"
+	(global_label "LED_CLEAR_R"
 		(shape bidirectional)
 		(at 140.97 41.91 0)
 		(fields_autoplaced yes)
@@ -3948,7 +3864,7 @@
 		)
 		(uuid "a74053bb-86e6-5e67-b923-19a27feaf634")
 	)
-	(global_label "LED_TAKE_G"
+	(global_label "LED_CLEAR_G"
 		(shape bidirectional)
 		(at 140.97 44.45 0)
 		(fields_autoplaced yes)
@@ -3980,7 +3896,7 @@
 		)
 		(uuid "16199663-3730-523a-9183-062a58e5a387")
 	)
-	(global_label "LED_TAKE_B"
+	(global_label "LED_CLEAR_B"
 		(shape bidirectional)
 		(at 140.97 46.99 0)
 		(fields_autoplaced yes)
@@ -4012,7 +3928,7 @@
 		)
 		(uuid "58ce752c-86d3-5ae8-892d-aa6f09a518bb")
 	)
-	(global_label "LED_PLAY_R"
+	(global_label "LED_ENTER_R"
 		(shape bidirectional)
 		(at 140.97 49.53 0)
 		(fields_autoplaced yes)
@@ -4044,7 +3960,7 @@
 		)
 		(uuid "3594e146-9be6-54fd-b599-4c7e840c4985")
 	)
-	(global_label "LED_PLAY_G"
+	(global_label "LED_ENTER_G"
 		(shape bidirectional)
 		(at 140.97 52.07 0)
 		(fields_autoplaced yes)
@@ -4076,7 +3992,7 @@
 		)
 		(uuid "4fee5d54-f7a7-5aeb-b0aa-234ed173166f")
 	)
-	(global_label "LED_PLAY_B"
+	(global_label "LED_ENTER_B"
 		(shape bidirectional)
 		(at 140.97 54.61 0)
 		(fields_autoplaced yes)
@@ -4108,7 +4024,7 @@
 		)
 		(uuid "6b6801aa-97db-571b-bcd6-b23af11dbead")
 	)
-	(global_label "LED_LAST_CUE_R"
+	(global_label "LED_PLAY_R"
 		(shape bidirectional)
 		(at 140.97 57.15 0)
 		(fields_autoplaced yes)
@@ -4140,7 +4056,7 @@
 		)
 		(uuid "55302064-1a18-50c5-b6c7-c5eb45e3f3f6")
 	)
-	(global_label "LED_LAST_CUE_G"
+	(global_label "LED_PLAY_G"
 		(shape bidirectional)
 		(at 140.97 59.69 0)
 		(fields_autoplaced yes)
@@ -4172,7 +4088,7 @@
 		)
 		(uuid "6193755e-0cc7-5a19-ad73-6350f75b091b")
 	)
-	(global_label "LED_LAST_CUE_B"
+	(global_label "LED_PLAY_B"
 		(shape bidirectional)
 		(at 140.97 62.23 0)
 		(fields_autoplaced yes)
@@ -4204,7 +4120,7 @@
 		)
 		(uuid "deaa769f-6b36-5be2-aba7-e681cb2a2b92")
 	)
-	(global_label "LED_MARK_R"
+	(global_label "LED_LAST_CUE_R"
 		(shape bidirectional)
 		(at 140.97 64.77 0)
 		(fields_autoplaced yes)
@@ -4236,7 +4152,7 @@
 		)
 		(uuid "3d70452f-dc4b-5c96-abf6-0a983898c699")
 	)
-	(global_label "LED_MARK_G"
+	(global_label "LED_LAST_CUE_G"
 		(shape bidirectional)
 		(at 140.97 67.31 0)
 		(fields_autoplaced yes)
@@ -4268,7 +4184,7 @@
 		)
 		(uuid "7798d203-63dd-5530-a85d-2f70017bb250")
 	)
-	(global_label "LED_MARK_B"
+	(global_label "LED_LAST_CUE_B"
 		(shape bidirectional)
 		(at 140.97 69.85 0)
 		(fields_autoplaced yes)
@@ -4300,7 +4216,7 @@
 		)
 		(uuid "566e6b7d-80c4-5f32-a5d0-937805cdc9c7")
 	)
-	(global_label "LED_RECORD_R"
+	(global_label "LED_MARK_R"
 		(shape bidirectional)
 		(at 140.97 72.39 0)
 		(fields_autoplaced yes)
@@ -4332,7 +4248,7 @@
 		)
 		(uuid "a937e173-7b82-50a2-a9fc-d4f924aa7bc3")
 	)
-	(global_label "LED_RECORD_G"
+	(global_label "LED_MARK_G"
 		(shape bidirectional)
 		(at 140.97 74.93 0)
 		(fields_autoplaced yes)
@@ -4364,7 +4280,7 @@
 		)
 		(uuid "3b59d483-c5aa-58f8-86b4-7d543cc70375")
 	)
-	(global_label "LED_RECORD_B"
+	(global_label "LED_MARK_B"
 		(shape bidirectional)
 		(at 140.97 77.47 0)
 		(fields_autoplaced yes)
@@ -4396,7 +4312,7 @@
 		)
 		(uuid "78714931-ad50-5c27-b2b4-cb569bcae409")
 	)
-	(global_label "LED_PRV_CTL_R"
+	(global_label "LED_RECORD_R"
 		(shape bidirectional)
 		(at 140.97 80.01 0)
 		(fields_autoplaced yes)
@@ -4428,7 +4344,7 @@
 		)
 		(uuid "361fc848-0307-5601-8b6c-f83a7e76744e")
 	)
-	(global_label "LED_PRV_CTL_G"
+	(global_label "LED_RECORD_G"
 		(shape bidirectional)
 		(at 140.97 82.55 0)
 		(fields_autoplaced yes)
@@ -4460,7 +4376,7 @@
 		)
 		(uuid "0229c32c-f1be-5e73-aaf4-b0df9dd027cc")
 	)
-	(global_label "LED_PRV_CTL_B"
+	(global_label "LED_RECORD_B"
 		(shape bidirectional)
 		(at 140.97 85.09 0)
 		(fields_autoplaced yes)
@@ -4492,7 +4408,7 @@
 		)
 		(uuid "6104903e-de59-5439-b94f-1507d6243d2b")
 	)
-	(global_label "LED_F1"
+	(global_label "LED_PRV_CTL_R"
 		(shape bidirectional)
 		(at 140.97 87.63 0)
 		(fields_autoplaced yes)
@@ -4524,7 +4440,7 @@
 		)
 		(uuid "76de8754-bf5e-5b15-a280-9e965cf3832e")
 	)
-	(global_label "LED_F2"
+	(global_label "LED_PRV_CTL_G"
 		(shape bidirectional)
 		(at 140.97 90.17 0)
 		(fields_autoplaced yes)
@@ -4556,7 +4472,7 @@
 		)
 		(uuid "a501be4b-27ab-5945-9097-0611c931e7cb")
 	)
-	(global_label "LED_F3"
+	(global_label "LED_PRV_CTL_B"
 		(shape bidirectional)
 		(at 140.97 92.71 0)
 		(fields_autoplaced yes)
@@ -4588,7 +4504,7 @@
 		)
 		(uuid "afce38f7-0e96-547e-ab52-344d1902f3fb")
 	)
-	(global_label "LED_F4"
+	(global_label "LED_F1"
 		(shape bidirectional)
 		(at 140.97 95.25 0)
 		(fields_autoplaced yes)
@@ -4620,7 +4536,7 @@
 		)
 		(uuid "9823a957-c7f0-57cf-b479-fea8e486b831")
 	)
-	(global_label "LED_F5"
+	(global_label "LED_F2"
 		(shape bidirectional)
 		(at 140.97 97.79 0)
 		(fields_autoplaced yes)
@@ -4652,7 +4568,7 @@
 		)
 		(uuid "1f0f29eb-734b-5c0c-b68e-c007c8199389")
 	)
-	(global_label "LED_F6"
+	(global_label "LED_F3"
 		(shape bidirectional)
 		(at 140.97 100.33 0)
 		(fields_autoplaced yes)
@@ -4684,7 +4600,7 @@
 		)
 		(uuid "fb0d7dbb-5f4d-5785-afb8-ec355d8d0bd2")
 	)
-	(global_label "LED_F7"
+	(global_label "LED_F4"
 		(shape bidirectional)
 		(at 140.97 102.87 0)
 		(fields_autoplaced yes)
@@ -4716,7 +4632,7 @@
 		)
 		(uuid "79584481-1ce8-596a-a35d-b47789ed90fb")
 	)
-	(global_label "LED_F8"
+	(global_label "LED_F5"
 		(shape bidirectional)
 		(at 140.97 105.41 0)
 		(fields_autoplaced yes)
@@ -4748,7 +4664,7 @@
 		)
 		(uuid "79660965-f77a-5d31-9f4b-b0730a69751d")
 	)
-	(global_label "LED_F9"
+	(global_label "LED_F6"
 		(shape bidirectional)
 		(at 140.97 107.95 0)
 		(fields_autoplaced yes)
@@ -4780,7 +4696,7 @@
 		)
 		(uuid "ec67ad06-cb39-5bdf-9308-b4f75b9e59b0")
 	)
-	(global_label "LED_F10"
+	(global_label "LED_F7"
 		(shape bidirectional)
 		(at 140.97 110.49 0)
 		(fields_autoplaced yes)
@@ -4801,17 +4717,101 @@
 			)
 		)
 	)
-	(no_connect
-		(at 138.43 113.03)
-		(uuid "514c0bf9-17c6-57a0-b992-7220f57ed5c8")
+	(wire
+		(pts
+			(xy 138.43 113.03)
+			(xy 140.97 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1e2eea6-5045-5686-b1bb-cfc78ed051eb")
 	)
-	(no_connect
-		(at 138.43 115.57)
-		(uuid "fbbd1adb-1c9b-5e13-93ce-1ea266170f51")
+	(global_label "LED_F8"
+		(shape bidirectional)
+		(at 140.97 113.03 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2adcae5c-9d16-583c-8a3c-9d047a2b0cd8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 140.97 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(no_connect
-		(at 138.43 118.11)
-		(uuid "6e960d3e-ed3b-585f-bd8d-8873f6fae2c6")
+	(wire
+		(pts
+			(xy 138.43 115.57)
+			(xy 140.97 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4f869e1-449c-5d47-aa8a-c7400ac886b0")
+	)
+	(global_label "LED_F9"
+		(shape bidirectional)
+		(at 140.97 115.57 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "82dbc839-0d78-5be0-9bc3-0cbd952c4fb1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 140.97 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 138.43 118.11)
+			(xy 140.97 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7962914d-b209-5fae-a285-c07c866fbde1")
+	)
+	(global_label "LED_F10"
+		(shape bidirectional)
+		(at 140.97 118.11 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0f52989d-b698-552a-b9f3-5aea87466e38")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 140.97 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
 	(no_connect
 		(at 138.43 120.65)

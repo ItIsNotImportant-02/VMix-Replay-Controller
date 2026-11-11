@@ -1181,7 +1181,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CLEAR"
+		(property "Value" "CAM_A"
 			(at 193.04 40.64 0)
 			(effects
 				(font
@@ -1343,7 +1343,7 @@
 		)
 		(uuid "176068fe-d9f9-5d5b-8e6b-2ea61f9d6bcd")
 	)
-	(global_label "BTN_CLEAR"
+	(global_label "BTN_CAM_A"
 		(shape bidirectional)
 		(at 171.45 44.45 180)
 		(fields_autoplaced yes)
@@ -1411,7 +1411,7 @@
 		)
 		(uuid "94487b87-0dfc-5e3d-83f3-aa4fb7a40c89")
 	)
-	(global_label "LED_CLEAR_R"
+	(global_label "LED_CAM_A_R"
 		(shape bidirectional)
 		(at 194.31 44.45 0)
 		(fields_autoplaced yes)
@@ -1443,7 +1443,7 @@
 		)
 		(uuid "feccd15e-2a70-5f5c-b933-1eff5972e238")
 	)
-	(global_label "LED_CLEAR_G"
+	(global_label "LED_CAM_A_G"
 		(shape bidirectional)
 		(at 194.31 46.99 0)
 		(fields_autoplaced yes)
@@ -1475,7 +1475,7 @@
 		)
 		(uuid "fe181408-1be7-5a30-a741-b136053dcb8e")
 	)
-	(global_label "LED_CLEAR_B"
+	(global_label "LED_CAM_A_B"
 		(shape bidirectional)
 		(at 194.31 49.53 0)
 		(fields_autoplaced yes)
@@ -1515,7 +1515,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "ENTER"
+		(property "Value" "CAM_B"
 			(at 256.54 40.64 0)
 			(effects
 				(font
@@ -1677,7 +1677,7 @@
 		)
 		(uuid "2d75dd7d-41d2-5415-81e2-e18f31e7f65c")
 	)
-	(global_label "BTN_ENTER"
+	(global_label "BTN_CAM_B"
 		(shape bidirectional)
 		(at 234.95 44.45 180)
 		(fields_autoplaced yes)
@@ -1745,7 +1745,7 @@
 		)
 		(uuid "f5a9c957-ac7c-5b24-9d78-610774528da8")
 	)
-	(global_label "LED_ENTER_R"
+	(global_label "LED_CAM_B_R"
 		(shape bidirectional)
 		(at 257.81 44.45 0)
 		(fields_autoplaced yes)
@@ -1777,7 +1777,7 @@
 		)
 		(uuid "52ed1233-2522-5023-ae91-6f02f0e2a828")
 	)
-	(global_label "LED_ENTER_G"
+	(global_label "LED_CAM_B_G"
 		(shape bidirectional)
 		(at 257.81 46.99 0)
 		(fields_autoplaced yes)
@@ -1809,7 +1809,7 @@
 		)
 		(uuid "c59f03e2-796e-5e79-aef1-72f30cc3c0c4")
 	)
-	(global_label "LED_ENTER_B"
+	(global_label "LED_CAM_B_B"
 		(shape bidirectional)
 		(at 257.81 49.53 0)
 		(fields_autoplaced yes)
@@ -1849,7 +1849,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CAM_A"
+		(property "Value" "CAM_C"
 			(at 320.04 40.64 0)
 			(effects
 				(font
@@ -2011,7 +2011,7 @@
 		)
 		(uuid "c14a923f-962f-5a37-b511-74041a815497")
 	)
-	(global_label "BTN_CAM_A"
+	(global_label "BTN_CAM_C"
 		(shape bidirectional)
 		(at 298.45 44.45 180)
 		(fields_autoplaced yes)
@@ -2079,7 +2079,7 @@
 		)
 		(uuid "ee8567ba-6cd8-577c-875c-0a773ae3c4b1")
 	)
-	(global_label "LED_CAM_A_R"
+	(global_label "LED_CAM_C_R"
 		(shape bidirectional)
 		(at 321.31 44.45 0)
 		(fields_autoplaced yes)
@@ -2111,7 +2111,7 @@
 		)
 		(uuid "b688e3f6-4f47-5ce6-8c6c-386daf3e1375")
 	)
-	(global_label "LED_CAM_A_G"
+	(global_label "LED_CAM_C_G"
 		(shape bidirectional)
 		(at 321.31 46.99 0)
 		(fields_autoplaced yes)
@@ -2143,7 +2143,7 @@
 		)
 		(uuid "7cf49d7b-5447-5dc0-9986-ebf0450dc78d")
 	)
-	(global_label "LED_CAM_A_B"
+	(global_label "LED_CAM_C_B"
 		(shape bidirectional)
 		(at 321.31 49.53 0)
 		(fields_autoplaced yes)
@@ -2183,7 +2183,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CAM_B"
+		(property "Value" "CAM_D"
 			(at 66.04 66.04 0)
 			(effects
 				(font
@@ -2345,7 +2345,7 @@
 		)
 		(uuid "8ab07264-b1dd-5aa8-8f08-1426ae11064f")
 	)
-	(global_label "BTN_CAM_B"
+	(global_label "BTN_CAM_D"
 		(shape bidirectional)
 		(at 44.45 69.85 180)
 		(fields_autoplaced yes)
@@ -2413,7 +2413,7 @@
 		)
 		(uuid "0f1e6ba7-be2a-5049-82b4-b23e40982878")
 	)
-	(global_label "LED_CAM_B_R"
+	(global_label "LED_CAM_D_R"
 		(shape bidirectional)
 		(at 67.31 69.85 0)
 		(fields_autoplaced yes)
@@ -2445,7 +2445,7 @@
 		)
 		(uuid "2a0acf20-991c-50df-abab-52ab59bbdb69")
 	)
-	(global_label "LED_CAM_B_G"
+	(global_label "LED_CAM_D_G"
 		(shape bidirectional)
 		(at 67.31 72.39 0)
 		(fields_autoplaced yes)
@@ -2477,7 +2477,7 @@
 		)
 		(uuid "2ceb3d71-e148-55a0-ae00-f5b2115b753b")
 	)
-	(global_label "LED_CAM_B_B"
+	(global_label "LED_CAM_D_B"
 		(shape bidirectional)
 		(at 67.31 74.93 0)
 		(fields_autoplaced yes)
@@ -2517,7 +2517,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CAM_C"
+		(property "Value" "PLST"
 			(at 132.08 66.04 0)
 			(effects
 				(font
@@ -2679,7 +2679,7 @@
 		)
 		(uuid "bc6802e7-321a-5bec-a672-c7e6bdd20f2a")
 	)
-	(global_label "BTN_CAM_C"
+	(global_label "BTN_PLST"
 		(shape bidirectional)
 		(at 110.49 69.85 180)
 		(fields_autoplaced yes)
@@ -2747,7 +2747,7 @@
 		)
 		(uuid "5bb86766-199e-5ea9-9550-36c5aedebf70")
 	)
-	(global_label "LED_CAM_C_R"
+	(global_label "LED_PLST_R"
 		(shape bidirectional)
 		(at 133.35 69.85 0)
 		(fields_autoplaced yes)
@@ -2779,7 +2779,7 @@
 		)
 		(uuid "0a1ebf07-4a44-5ee5-957a-2226f2c46b6b")
 	)
-	(global_label "LED_CAM_C_G"
+	(global_label "LED_PLST_G"
 		(shape bidirectional)
 		(at 133.35 72.39 0)
 		(fields_autoplaced yes)
@@ -2811,7 +2811,7 @@
 		)
 		(uuid "e493f072-c8b9-5860-999e-603da03ae4ee")
 	)
-	(global_label "LED_CAM_C_B"
+	(global_label "LED_PLST_B"
 		(shape bidirectional)
 		(at 133.35 74.93 0)
 		(fields_autoplaced yes)
@@ -2851,7 +2851,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CAM_D"
+		(property "Value" "BROWSE"
 			(at 193.04 66.04 0)
 			(effects
 				(font
@@ -3013,7 +3013,7 @@
 		)
 		(uuid "a23149d5-b5de-5084-b4c6-e09c77b5dac4")
 	)
-	(global_label "BTN_CAM_D"
+	(global_label "BTN_BROWSE"
 		(shape bidirectional)
 		(at 171.45 69.85 180)
 		(fields_autoplaced yes)
@@ -3081,7 +3081,7 @@
 		)
 		(uuid "e32676d8-c12f-5e0b-819f-5ec54ff1b7c3")
 	)
-	(global_label "LED_CAM_D_R"
+	(global_label "LED_BROWSE_R"
 		(shape bidirectional)
 		(at 194.31 69.85 0)
 		(fields_autoplaced yes)
@@ -3113,7 +3113,7 @@
 		)
 		(uuid "4170778a-9632-5324-a1cb-79a404973cb5")
 	)
-	(global_label "LED_CAM_D_G"
+	(global_label "LED_BROWSE_G"
 		(shape bidirectional)
 		(at 194.31 72.39 0)
 		(fields_autoplaced yes)
@@ -3145,7 +3145,7 @@
 		)
 		(uuid "041e62f4-fac3-5d03-85ba-73d81bfeeb57")
 	)
-	(global_label "LED_CAM_D_B"
+	(global_label "LED_BROWSE_B"
 		(shape bidirectional)
 		(at 194.31 74.93 0)
 		(fields_autoplaced yes)
@@ -3185,7 +3185,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "PLST"
+		(property "Value" "IN"
 			(at 256.54 66.04 0)
 			(effects
 				(font
@@ -3347,7 +3347,7 @@
 		)
 		(uuid "5f1f94f9-ba80-55cc-a563-9eb06fcf75ec")
 	)
-	(global_label "BTN_PLST"
+	(global_label "BTN_IN"
 		(shape bidirectional)
 		(at 234.95 69.85 180)
 		(fields_autoplaced yes)
@@ -3415,7 +3415,7 @@
 		)
 		(uuid "321e9434-5a2e-5d43-953b-e369767d1155")
 	)
-	(global_label "LED_PLST_R"
+	(global_label "LED_IN_R"
 		(shape bidirectional)
 		(at 257.81 69.85 0)
 		(fields_autoplaced yes)
@@ -3447,7 +3447,7 @@
 		)
 		(uuid "3132314c-328a-5ba8-9e4a-3db6484e56bd")
 	)
-	(global_label "LED_PLST_G"
+	(global_label "LED_IN_G"
 		(shape bidirectional)
 		(at 257.81 72.39 0)
 		(fields_autoplaced yes)
@@ -3479,7 +3479,7 @@
 		)
 		(uuid "2c53627f-6e6d-5e26-ae50-57e3e26932b6")
 	)
-	(global_label "LED_PLST_B"
+	(global_label "LED_IN_B"
 		(shape bidirectional)
 		(at 257.81 74.93 0)
 		(fields_autoplaced yes)
@@ -3519,7 +3519,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BROWSE"
+		(property "Value" "OUT"
 			(at 320.04 66.04 0)
 			(effects
 				(font
@@ -3681,7 +3681,7 @@
 		)
 		(uuid "77a118b2-a051-54a6-9d49-275c2d367278")
 	)
-	(global_label "BTN_BROWSE"
+	(global_label "BTN_OUT"
 		(shape bidirectional)
 		(at 298.45 69.85 180)
 		(fields_autoplaced yes)
@@ -3749,7 +3749,7 @@
 		)
 		(uuid "9828051c-7036-5291-b304-a28d7cfa26ad")
 	)
-	(global_label "LED_BROWSE_R"
+	(global_label "LED_OUT_R"
 		(shape bidirectional)
 		(at 321.31 69.85 0)
 		(fields_autoplaced yes)
@@ -3781,7 +3781,7 @@
 		)
 		(uuid "1a57990d-017b-51d6-b8ab-df86a00be6c1")
 	)
-	(global_label "LED_BROWSE_G"
+	(global_label "LED_OUT_G"
 		(shape bidirectional)
 		(at 321.31 72.39 0)
 		(fields_autoplaced yes)
@@ -3813,7 +3813,7 @@
 		)
 		(uuid "c84bef13-e32f-5be1-8e28-9600d2cd6172")
 	)
-	(global_label "LED_BROWSE_B"
+	(global_label "LED_OUT_B"
 		(shape bidirectional)
 		(at 321.31 74.93 0)
 		(fields_autoplaced yes)
@@ -3853,7 +3853,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "IN"
+		(property "Value" "TAKE"
 			(at 66.04 96.52 0)
 			(effects
 				(font
@@ -4015,7 +4015,7 @@
 		)
 		(uuid "def4d7a3-1210-5c37-9cf0-faaaa43ccdf5")
 	)
-	(global_label "BTN_IN"
+	(global_label "BTN_TAKE"
 		(shape bidirectional)
 		(at 44.45 100.33 180)
 		(fields_autoplaced yes)
@@ -4083,7 +4083,7 @@
 		)
 		(uuid "522092db-aaa3-5eb2-aa3e-a29574e8f00c")
 	)
-	(global_label "LED_IN_R"
+	(global_label "LED_TAKE_R"
 		(shape bidirectional)
 		(at 67.31 100.33 0)
 		(fields_autoplaced yes)
@@ -4115,7 +4115,7 @@
 		)
 		(uuid "70512eab-75be-5660-960a-fbc90f4aaee6")
 	)
-	(global_label "LED_IN_G"
+	(global_label "LED_TAKE_G"
 		(shape bidirectional)
 		(at 67.31 102.87 0)
 		(fields_autoplaced yes)
@@ -4147,7 +4147,7 @@
 		)
 		(uuid "a6eea0bb-048c-5e4e-b26c-53726b993ab6")
 	)
-	(global_label "LED_IN_B"
+	(global_label "LED_TAKE_B"
 		(shape bidirectional)
 		(at 67.31 105.41 0)
 		(fields_autoplaced yes)
@@ -4187,7 +4187,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "OUT"
+		(property "Value" "CLEAR"
 			(at 132.08 96.52 0)
 			(effects
 				(font
@@ -4349,7 +4349,7 @@
 		)
 		(uuid "f46064c4-de2d-548c-a037-ed63d05b6bd9")
 	)
-	(global_label "BTN_OUT"
+	(global_label "BTN_CLEAR"
 		(shape bidirectional)
 		(at 110.49 100.33 180)
 		(fields_autoplaced yes)
@@ -4417,7 +4417,7 @@
 		)
 		(uuid "2958d1b6-e222-5c38-8e8f-a0469a2820e2")
 	)
-	(global_label "LED_OUT_R"
+	(global_label "LED_CLEAR_R"
 		(shape bidirectional)
 		(at 133.35 100.33 0)
 		(fields_autoplaced yes)
@@ -4449,7 +4449,7 @@
 		)
 		(uuid "062f337c-212b-5489-8fe7-4b8ad91dc38a")
 	)
-	(global_label "LED_OUT_G"
+	(global_label "LED_CLEAR_G"
 		(shape bidirectional)
 		(at 133.35 102.87 0)
 		(fields_autoplaced yes)
@@ -4481,7 +4481,7 @@
 		)
 		(uuid "b107f624-178e-59fb-a718-5311f5de96f8")
 	)
-	(global_label "LED_OUT_B"
+	(global_label "LED_CLEAR_B"
 		(shape bidirectional)
 		(at 133.35 105.41 0)
 		(fields_autoplaced yes)
@@ -4521,7 +4521,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TAKE"
+		(property "Value" "ENTER"
 			(at 193.04 96.52 0)
 			(effects
 				(font
@@ -4683,7 +4683,7 @@
 		)
 		(uuid "9fac3b27-4393-523e-8cf6-788be0fcaf79")
 	)
-	(global_label "BTN_TAKE"
+	(global_label "BTN_ENTER"
 		(shape bidirectional)
 		(at 171.45 100.33 180)
 		(fields_autoplaced yes)
@@ -4751,7 +4751,7 @@
 		)
 		(uuid "fd9f3705-f9c2-504c-af12-9dc7a1e825bf")
 	)
-	(global_label "LED_TAKE_R"
+	(global_label "LED_ENTER_R"
 		(shape bidirectional)
 		(at 194.31 100.33 0)
 		(fields_autoplaced yes)
@@ -4783,7 +4783,7 @@
 		)
 		(uuid "e51c8a69-e58d-52b7-880c-fe5d28aedbe3")
 	)
-	(global_label "LED_TAKE_G"
+	(global_label "LED_ENTER_G"
 		(shape bidirectional)
 		(at 194.31 102.87 0)
 		(fields_autoplaced yes)
@@ -4815,7 +4815,7 @@
 		)
 		(uuid "0609f659-f8eb-53f0-a86b-a6967856cef0")
 	)
-	(global_label "LED_TAKE_B"
+	(global_label "LED_ENTER_B"
 		(shape bidirectional)
 		(at 194.31 105.41 0)
 		(fields_autoplaced yes)

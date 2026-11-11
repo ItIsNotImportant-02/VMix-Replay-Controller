@@ -46,7 +46,7 @@ SMD = ["F.Cu", "F.Paste", "F.Mask"]
 def qfn44():
     items, pitch, n = [], 0.4, 11
     # VERIFY lead/EP dimensions against the Lumissil package drawing (pitch 0.4 mm confirmed).
-    pl, pw, pc = 0.85, 0.22, 2.425      # pad length, width, centre distance from body centre
+    pl, pw, pc = 0.7, 0.2, 2.6         # pads 2.25..2.95 mm from centre (inner end trimmed for corner clearance)
     for i in range(44):
         side, k = divmod(i, n)
         off = (k - (n - 1) / 2) * pitch
@@ -71,9 +71,11 @@ def qfn44():
               _line(b - 0.4, b, b, b, "F.SilkS"), _line(b, b, b, b - 0.4, "F.SilkS"),
               [Sym("fp_circle"), [Sym("center"), -3.1, -2.6], [Sym("end"), -3.0, -2.6],
                [Sym("stroke"), [Sym("width"), 0.2], [Sym("type"), Sym("solid")]], [Sym("fill"), Sym("yes")], [Sym("layer"), "F.SilkS"]],
-              _rect(-b, -b, b, b, "F.Fab", 0.1), _rect(-3.1, -3.1, 3.1, 3.1, "F.CrtYd", 0.05)]
-    return footprint("QFN-44-1EP_5x5mm_P0.4mm", "QFN-44 5x5 mm, pitch 0.4 mm, EP 3.2 mm (IS31FL3236A-QFLS2). VERIFY vs datasheet.",
-                     ["smd"], items, 6.2)
+              _rect(-b, -b, b, b, "F.Fab", 0.1), _rect(-3.2, -3.2, 3.2, 3.2, "F.CrtYd", 0.05)]
+    fp = footprint("QFN-44-1EP_5x5mm_P0.4mm", "QFN-44 5x5 mm, pitch 0.4 mm, EP 3.2 mm (IS31FL3236A-QFLS2). VERIFY vs datasheet.",
+                   ["smd"], items, 6.2)
+    fp.insert(7, [Sym("clearance"), 0.12])
+    return fp
 
 
 def pb26():
