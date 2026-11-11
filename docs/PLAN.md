@@ -192,7 +192,7 @@ Kontrola desky, ruční pájení, nahrání firmwaru, test s vMixem, ladění.
 ## Hlavní rizika
 
 - **Typ EVS tlačítek** (rozměr, zapojení LED) určuje footprinty i budiče LED. Bez inventáře (0.3) nejde kreslit schéma.
-- **Plynulost páky a jogu ve vMixu** je největší neznámá na straně softwaru. Proto prototyp 7.1 před objednávkou desky.
+- **Plynulost páky a jogu ve vMixu** je největší neznámá na straně softwaru. Prototyp se nedělá (rozhodnuto 11. 11.), ověří se až na hotové desce; je to ale věc firmwaru, ne hardwaru. Deska proto dostane testovací body, SWD/UART konektor, rezervní GPIO a senzory páky a jogu na samostatných destičkách.
 - **Dostupnost dílů v JLCPCB**: preferovat Basic díly, Extended jen kde je to nutné (příplatek za díl).
 
 ## Co je potřeba od tebe teď
