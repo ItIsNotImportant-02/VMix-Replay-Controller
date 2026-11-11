@@ -44,37 +44,42 @@ SMD = ["F.Cu", "F.Paste", "F.Mask"]
 
 
 def qfn44():
+    """Land pattern 1:1 podle doporučení v datasheetu IS31FL3236A Rev. I (str. 16):
+    pady 0,25 x 1,00 mm, rozteč 0,4, vnitřní hrany ve vzdálenosti 4,0 mm (střed padu 2,5 mm),
+    rohové pady zkrácené na 0,8 mm se zaoblením R0,125 (mezera mezi rohy ~0,2 mm), EP 2,45 x 2,45 mm."""
     items, pitch, n = [], 0.4, 11
-    # VERIFY lead/EP dimensions against the Lumissil package drawing (pitch 0.4 mm confirmed).
-    pl, pw, pc = 0.7, 0.2, 2.6         # pads 2.25..2.95 mm from centre (inner end trimmed for corner clearance)
+    pw = 0.25
     for i in range(44):
         side, k = divmod(i, n)
         off = (k - (n - 1) / 2) * pitch
-        if side == 0:   x, y, w, h = -pc, off, pl, pw          # left, top->bottom
+        corner = k in (0, n - 1)
+        pl = 0.8 if corner else 1.0
+        pc = 3.0 - pl / 2             # outer edge always 3,0 mm from centre
+        if side == 0:   x, y, w, h = -pc, off, pl, pw          # left, top->bottom (pin 1 top-left)
         elif side == 1: x, y, w, h = off, pc, pw, pl           # bottom, left->right
         elif side == 2: x, y, w, h = pc, -off, pl, pw          # right, bottom->top
         else:           x, y, w, h = -off, -pc, pw, pl         # top, right->left
         items.append(_pad(str(i + 1), "smd", "roundrect", round(x, 4), round(y, 4), w, h, SMD,
-                          extra=[[Sym("roundrect_rratio"), 0.25]]))
-    ep = 3.2
+                          extra=[[Sym("roundrect_rratio"), 0.5 if corner else 0.25]]))
+    ep = 2.45
     items.append(_pad("45", "smd", "rect", 0, 0, ep, ep, ["F.Cu", "F.Mask"]))
-    for dx in (-0.8, 0.8):
-        for dy in (-0.8, 0.8):
-            items.append(_pad("", "smd", "roundrect", dx, dy, 1.3, 1.3, ["F.Paste"], extra=[[Sym("roundrect_rratio"), 0.25]]))
-    for dx in (-1.0, 0, 1.0):
-        for dy in (-1.0, 0, 1.0):
-            items.append(_pad("45", "thru_hole", "circle", dx, dy, 0.5, 0.5, ["*.Cu"], drill=0.25))
+    # paste 4 okna 0,9 x 0,9 (~54 % plochy EP), mezi nimi kříž prokovů do GND
+    for dx in (-0.65, 0.65):
+        for dy in (-0.65, 0.65):
+            items.append(_pad("", "smd", "roundrect", dx, dy, 0.9, 0.9, ["F.Paste"], extra=[[Sym("roundrect_rratio"), 0.25]]))
+    for dx, dy in ((0, 0), (-0.65, 0), (0.65, 0), (0, -0.65), (0, 0.65)):
+        items.append(_pad("45", "thru_hole", "circle", dx, dy, 0.4, 0.4, ["*.Cu"], drill=0.2))
     b = 2.5
     items += [_line(-b, -b + 0.4, -b, -b, "F.SilkS"), _line(-b, -b, -b + 0.4, -b, "F.SilkS"),
               _line(b - 0.4, -b, b, -b, "F.SilkS"), _line(b, -b, b, -b + 0.4, "F.SilkS"),
               _line(-b, b - 0.4, -b, b, "F.SilkS"), _line(-b, b, -b + 0.4, b, "F.SilkS"),
               _line(b - 0.4, b, b, b, "F.SilkS"), _line(b, b, b, b - 0.4, "F.SilkS"),
-              [Sym("fp_circle"), [Sym("center"), -3.1, -2.6], [Sym("end"), -3.0, -2.6],
+              [Sym("fp_circle"), [Sym("center"), -3.3, -2.6], [Sym("end"), -3.2, -2.6],
                [Sym("stroke"), [Sym("width"), 0.2], [Sym("type"), Sym("solid")]], [Sym("fill"), Sym("yes")], [Sym("layer"), "F.SilkS"]],
-              _rect(-b, -b, b, b, "F.Fab", 0.1), _rect(-3.2, -3.2, 3.2, 3.2, "F.CrtYd", 0.05)]
-    fp = footprint("QFN-44-1EP_5x5mm_P0.4mm", "QFN-44 5x5 mm, pitch 0.4 mm, EP 3.2 mm (IS31FL3236A-QFLS2). VERIFY vs datasheet.",
+              _rect(-b, -b, b, b, "F.Fab", 0.1), _rect(-3.25, -3.25, 3.25, 3.25, "F.CrtYd", 0.05)]
+    fp = footprint("QFN-44-1EP_5x5mm_P0.4mm", "QFN-44 5x5 mm, pitch 0.4 mm, EP 2.45 mm, land pattern per IS31FL3236A datasheet Rev. I",
                    ["smd"], items, 6.2)
-    fp.insert(7, [Sym("clearance"), 0.12])
+    fp.insert(7, [Sym("clearance"), 0.1])
     return fp
 
 

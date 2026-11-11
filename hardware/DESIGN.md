@@ -30,11 +30,11 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 - **W5500 (ověřeno proti datasheetu v1.1.0):** TOCAP 4,7 µF, 1V2O 10 nF, EXRES1 12,4k 1 %, VBG nezapojený, PMODE = 111 (auto-negotiation), RSVD 23 na GND. RSVD 38–42 jsou od revize 1.0.2 „NC“ (dřív „tie to GND“), na GND zůstávají, vyhovuje to oběma revizím. LED výstupy jsou aktivní v nule a snesou ~8 mA, proto 330R. Krystal 25 MHz X322525MOB4SI (CL 12 pF, ±10 ppm) s 2× 18 pF a 1M paralelně jako WIZ850io. Analogová část 1:1 podle WIZ850io V1.1 (sériově 3,3R, TX 49,9R na +3V3A, TCT 10R + 22 nF, RX 6,8 nF v sérii, 49,9R + 49,9R do RCT + 10 nF). Pull-upy na INT, RST a CS.
 - **HR911105A (ověřeno z výkresu HanRun):** P1 TD+, P2 TD−, P3 RD+, P6 RD−, P4 TCT, P5 RCT (oddělené), P7 NC, P8 CHS GND (interní 4× 75R + 1000 pF/2 kV, „connect to PCB ground“). Zelená LED: anoda 9, katoda 10; žlutá: anoda 12, katoda 11. Pozor: WIZnet reference s J1B1211CCD má zelenou obráceně, nekopírovat. W5500 neumí auto-MDIX; PC i switche ho mají, takže to nevadí.
 - **FB1 (ferit pro LED):** Bourns MH3261-601Y (2 A, 100 mΩ). Původní GZ2012D601TF (C1017) má jen 500 mA a 300 mΩ, při plném proudu LED by byl přetížený.
+- **IS31FL3236A (ověřeno proti datasheetu Rev. I, 10/2024):** pinout QFN-44 sedí se symbolem. Footprint je 1:1 podle doporučeného land patternu (pady 0,25 × 1,0, rohové 0,8 se zaoblením, EP 2,45 mm). I_MAX = 58,5 × 1,3 V / R_EXT, 3,9k → 19,5 mA (datasheet: min. R_EXT 2k, max. 38 mA). OUTx max VCC + 0,3 V → VCC = +5V_LED. Logika VIH 1,4 V pevně, I2C max 400 kHz. 1 µF + 100 nF na VCC a 100k pull-down na SDB jako v aplikačním zapojení. θJA 32,7 °C/W: při všech LED naplno bílé by jeden čip ztrácel ~1,5 W (+50 °C); firmware omezuje celkový proud, PWM 22 kHz (méně pískání MLCC, datasheet to doporučuje).
 - **Firmware kompatibilita:** W5500 na stejných pinech jako WIZnet W5500-EVB-Pico (SPI0, GP16–21), takže jdou použít jejich knihovny beze změn.
 
 ## Co je ještě potřeba ověřit před objednávkou
 
 1. **Footprinty PB26-13M a TS5** (vlastní, `lib/vrc.pretty`): rozteče vývodů podle popisu prodejce, ověří se vytištěním 1:1 a přiložením skutečného tlačítka.
-2. **Footprint QFN-44 5×5 pro IS31FL3236A**: podle výkresu z datasheetu.
 3. **LCSC čísla** označená `?` v `circuit.py` (pasivní součástky, krystaly, LDO, polyswitch, TVS, ferity, JST): doplnit a zkontrolovat skladovost a Basic/Extended.
 6. **Polarita pinu MODE u MT6701** (datasheet ji v textu neuvádí); deska to řeší tím, že MODE řídí MCU.

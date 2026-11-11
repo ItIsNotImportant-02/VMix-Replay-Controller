@@ -20,3 +20,9 @@ Sbírka požadavků z datasheetů a referenčních návrhů, které se projeví 
 - Blokovací kondenzátory +3V3A u AVDD pinů, FB2 odděluje +3V3 a +3V3A.
 - TX/RX páry (TXP/TXN, RXP/RXN) jako diferenciální 100 Ω, krátké, symetrické, terminace 49,9 Ω blízko W5500.
 - Pod magnetikou/RJ45 nevést signály; stínění J4 na GND.
+
+## IS31FL3236A (blok 5)
+- Footprint podle land patternu z datasheetu; EP 2,45 mm má 5 prokovů 0,2 mm (kříž mezi okny pasty). Pod EP na vnitřní GND vrstvě souvislá plocha, čip ztrácí až ~1,5 W.
+- C60–C63 (1 µF + 100 nF) těsně u VCC (pin 38), R40/R41 u R_EXT (pin 40), krátká zem.
+- Výstupy OUTx vedou proud LED (max ~20 mA) – stačí běžné signálové cesty.
+- Pozor na rotaci v CPL pro JLCPCB: pin 1 je v našem footprintu vlevo nahoře; JLC knihovna (EasyEDA) má pouzdro otočené o 90°. Před objednávkou zkontrolovat náhled osazení v JLCPCB.
