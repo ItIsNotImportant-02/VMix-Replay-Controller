@@ -32,6 +32,7 @@ Hardware, firmware, vMix a mechanika běží po rozhodnutí o architektuře **pa
 
 - **Zhruba 15 RGB tlačítek** PB26-13M, přesný počet určí layout (viz [hardware/buttons-PB26-13M-RGB.md](hardware/buttons-PB26-13M-RGB.md)).
 - **Páka bez motoru**, se snímačem polohy. Navržený snímač: bezkontaktní magnetický snímač úhlu (např. AS5600) na čepu páky, bez opotřebení. Kalibrace jako u EVS: po zapnutí sjet pákou dolů a nahoru, firmware si zapamatuje rozsah. Poslední kalibrace se uloží do flash jako záloha, kdyby se krok vynechal.
+- **Komunikace: Ethernet (W5500) přímo na vMix TCP API**, USB-C pro napájení a servis ([ADR-001](decisions/ADR-001-komunikace.md)).
 - **Napájení z USB-C 5 V**, žádných 230 V uvnitř krabičky. Odhad spotřeby: 15 × 3 × ~8 mA ≈ 0,36 A pro LED, celkem pod 0,5 A, takže stačí běžný USB port.
 
 ## Výsledky Deep Research #1
@@ -86,7 +87,7 @@ Rozhodnutí o komunikaci, MCU, napájení, layoutu panelu a mapování funkcí.
 
 | # | Krok | Kdo | Stav | Poznámka |
 |---|---|---|---|---|
-| 2.1 | Rozhodnutí: komunikace s vMixem | Oba | `todo` | USB MIDI vs. USB + bridge aplikace na TCP API (port 8099) vs. Ethernet přímo na TCP API (jako SKAARHOJ). Zaznamenat jako ADR. |
+| 2.1 | Rozhodnutí: komunikace s vMixem | Oba | `done` | USB MIDI vs. USB + bridge aplikace na TCP API (port 8099) vs. Ethernet přímo na TCP API (jako SKAARHOJ). Zaznamenat jako ADR. |
 | 2.2 | Rozhodnutí: MCU a napájení | Oba | `todo` | RP2040/RP2350 vs. ESP32-S3 vs. STM32. Napájení z USB-C 5 V, případně externí 12 V kvůli motoru, ochrany. |
 | 2.3 | Rozhodnutí: páka a jog | Oba | `todo` | Lineární potenciometr vs. motorizovaný fader vs. 3D tištěná páka s magnetickým (hall) senzorem; jog jako optický/mechanický enkodér s detenty nebo bez. |
 | 2.4 | Layout panelu ve stylu EVS | Claude | `todo` | Návrh rozmístění tlačítek, páky a jogu (SVG/PDF 1:1), schválíš a případně vytiskneš na papír. |
