@@ -67,8 +67,15 @@ HOME.update({"C70": "U8", "C71": "U9", "R50": "U9", "R42": "U6", "R43": "U8", "R
              "R6": "U2", "R7": "U2", "C8": "U2", "FB1": "U2", "C3": "U2", "C4": "U2", "C5": "U2",
              "C1": "J1", "C2": "J1", "D1": "J1", "F1": "J1", "C6": "U2", "C7": "U2", "R13": "U3", "D3": "U3",
              "R12": "U3", "R11": "U4", "R22": "U5", "R23": "U5"})
-for r in ("R24", "R25", "R26", "R27", "R28", "R29", "R30", "R31", "R32", "R33", "R34", "C51", "C52", "C53", "C54"):
+# W5500: series R + 49.9R terminations near the chip (LAYOUT-NOTES), LED resistors near the jack
+for r in ("R20", "R21", "R24", "R25", "R26", "R27", "R28", "R29", "R30", "R31", "R32", "R35",
+          "C48", "C49", "C50", "C51", "C52", "C53", "C54", "C56"):
+    HOME[r] = "U5"
+for r in ("R33", "R34"):
     HOME[r] = "J4"
+# button pull-up arrays next to their expander (U8: first 16 inputs = RN1-RN4, U9: RN5-RN7)
+for i in range(1, 8):
+    HOME["RN%d" % i] = "U8" if i <= 4 else "U9"
 
 POWER_NETS = {"GND", "+3V3", "+5V", "+5V_LED", "VBUS", "+1V1", "+3V3A"}
 NETCLASS_POWER = {"+5V", "+5V_LED", "VBUS", "+3V3", "+3V3A", "+1V1", "GND"}
@@ -182,7 +189,7 @@ def setup_board(board):
     ds.m_TrackMinWidth = mm(0.127)
     ds.m_MinClearance = mm(0.127)
     ds.m_ViasMinSize = mm(0.45)
-    ds.m_MinThroughDrill = mm(0.25)
+    ds.m_MinThroughDrill = mm(0.2)   # QFN-44 EP vias 0.2 mm (JLC 4-layer min 0.15)
     ds.m_ViasMinAnnularWidth = mm(0.1)
     ds.m_HoleClearance = mm(0.25)
     ds.m_HoleToHoleMin = mm(0.25)
@@ -385,7 +392,30 @@ def place():
     print("placed", len(fps), "footprints")
 
 
+def write_project_rules():
+    """KiCad 9 keeps design rules and net classes in the .kicad_pro, not in the board file."""
+    import json
+    pro = os.path.join(HW, "vmix-replay-controller.kicad_pro")
+    d = json.load(open(pro, encoding="utf-8"))
+    rules = {"min_clearance": 0.127, "min_track_width": 0.127, "min_via_diameter": 0.45,
+             "min_through_hole_diameter": 0.2, "min_via_annular_width": 0.1, "min_hole_clearance": 0.25,
+             "min_hole_to_hole": 0.25, "min_copper_edge_clearance": 0.3, "min_silk_clearance": 0.0,
+             "min_resolved_spokes": 1}
+    d.setdefault("board", {}).setdefault("design_settings", {}).setdefault("rules", {}).update(rules)
+
+    def nc(name, track, via_d, via_drill, prio):
+        return {"name": name, "clearance": 0.15, "track_width": track, "via_diameter": via_d, "via_drill": via_drill,
+                "diff_pair_width": 0.2, "diff_pair_gap": 0.25, "microvia_diameter": 0.3, "microvia_drill": 0.1,
+                "wire_width": 6, "bus_width": 12, "line_style": 0, "priority": prio,
+                "pcb_color": "rgba(0, 0, 0, 0.000)", "schematic_color": "rgba(0, 0, 0, 0.000)"}
+    d["net_settings"] = {"meta": {"version": 4},
+                         "classes": [nc("Default", 0.2, 0.6, 0.3, 2147483647), nc("Power", 0.5, 0.8, 0.4, 0)],
+                         "netclass_patterns": [{"netclass": "Power", "pattern": n} for n in sorted(NETCLASS_POWER)]}
+    json.dump(d, open(pro, "w", encoding="utf-8"), indent=2)
+
+
 def finish():
+    write_project_rules()
     board = pcbnew.LoadBoard(os.path.join(HW, "build", "placed.kicad_pcb"))
     ses = os.path.join(HW, "build", "board.ses")
     if os.path.exists(ses):
