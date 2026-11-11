@@ -1,0 +1,312 @@
+(kicad_sch
+	(version 20250114)
+	(generator "vrc_schgen")
+	(generator_version "9.0")
+	(uuid "28d4050f-b2c6-5ca3-b680-f42181077030")
+	(paper "A4")
+	(title_block
+		(title "vMix Replay Controller")
+		(rev "1.0")
+	)
+	(lib_symbols)
+	(sheet
+		(at 25.4 40.64)
+		(size 76.2 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "7da8877d-7701-57f2-b541-094ee914bbc4")
+		(property "Sheetname" "Power and USB"
+			(at 25.4 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 25.4 66.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 121.92 40.64)
+		(size 76.2 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "4c5d353c-506f-5d27-8864-2c69f4b16fd8")
+		(property "Sheetname" "MCU"
+			(at 121.92 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 121.92 66.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 218.44 40.64)
+		(size 76.2 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3cda8f90-7f45-584e-bed7-da5845ee0f7c")
+		(property "Sheetname" "Ethernet"
+			(at 218.44 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ethernet.kicad_sch"
+			(at 218.44 66.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 314.96 40.64)
+		(size 76.2 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "a590356c-845f-5e8b-92bf-abd2bcdbda1e")
+		(property "Sheetname" "LED drivers"
+			(at 314.96 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "leds.kicad_sch"
+			(at 314.96 66.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 91.44)
+		(size 76.2 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "02de0205-124e-5114-bf2f-eb41b8d0e34f")
+		(property "Sheetname" "Buttons"
+			(at 25.4 90.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "buttons.kicad_sch"
+			(at 25.4 117.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 121.92 91.44)
+		(size 76.2 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "43f5d96b-ec1d-5824-862b-79b41c935e44")
+		(property "Sheetname" "Inputs"
+			(at 121.92 90.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "inputs.kicad_sch"
+			(at 121.92 117.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 218.44 91.44)
+		(size 76.2 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "b313ae29-fe0c-5a74-a791-bc7ce6a3466e")
+		(property "Sheetname" "Sensors"
+			(at 218.44 90.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sensors.kicad_sch"
+			(at 218.44 117.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "vrc")(type "KiCad")(uri "${KIPRJMOD}/lib/vrc.pretty")(options "")(descr "vMix Replay Controller project footprints"))
+)

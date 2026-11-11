@@ -1,3 +1,8 @@
-# Hardware (KiCad)
+# Hardware (KiCad 9)
 
-KiCad 9 projekt desky ovladače. Specifikace: [../docs/SPEC-v1.md](../docs/SPEC-v1.md). Výrobní data pro JLCPCB budou v `hardware/production/`.
+Hlavní deska ovladače. Popis návrhu a otevřené body: [DESIGN.md](DESIGN.md), piny a mapování tlačítek/LED: [PINMAP.md](PINMAP.md).
+
+- `vmix-replay-controller.kicad_pro` a `*.kicad_sch`: projekt a schéma (generované z `tools/circuit.py`, needitovat ručně)
+- `lib/`: vlastní symboly a footprinty (PB26, TS5, IS31FL3236A QFN-44)
+- `tools/`: generátor schématu a footprintů
+- `production/`: výrobní data pro JLCPCB (Gerber, BOM, CPL), doplní se po návrhu desky

@@ -7,3 +7,7 @@ _autosave-*
 # Firmware builds
 firmware/build/
 .pio/
+
+# KiCad generated outputs
+hardware/build/
+hardware/*.rpt

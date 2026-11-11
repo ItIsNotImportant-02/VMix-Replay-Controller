@@ -1,0 +1,10142 @@
+(kicad_sch
+	(version 20250114)
+	(generator "vrc_schgen")
+	(generator_version "9.0")
+	(uuid "f6854dd1-0608-5b2b-819a-29f00d448e49")
+	(paper "A3")
+	(title_block
+		(title "Tlačítka PB26 RGB a TS5")
+		(rev "1.0")
+	)
+	(lib_symbols
+		(symbol "vrc:PB26-13M-RGB"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at -6.35 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "PB26-13M-RGB"
+				(at -6.35 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "vrc:PB26-13M-RGB"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Honyone PB26-13M 15x15 mm push button, SPDT, RGB LED common anode (hand soldered)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PB26-13M-RGB_0_1"
+				(rectangle
+					(start -6.35 6.35)
+					(end 6.35 -6.35)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "PB26-13M-RGB_1_1"
+				(pin passive line
+					(at -8.89 3.81 0)
+					(length 2.54)
+					(name "COM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -8.89 1.27 0)
+					(length 2.54)
+					(name "NO"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -8.89 -1.27 0)
+					(length 2.54)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 3.81 180)
+					(length 2.54)
+					(name "LED+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 1.27 180)
+					(length 2.54)
+					(name "R-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "R"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 -1.27 180)
+					(length 2.54)
+					(name "G-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 -3.81 180)
+					(length 2.54)
+					(name "B-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "power:GND"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0)
+						(xy 0 -1.27)
+						(xy 1.27 -1.27)
+						(xy 0 -2.54)
+						(xy -1.27 -1.27)
+						(xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "vrc:TS5-LED"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at -5.08 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TS5"
+				(at -5.08 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "vrc:TS5-9.2mm-LED"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Honyone TS5 9.2x9.2 mm tact switch with LED (hand soldered)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TS5-LED_0_1"
+				(rectangle
+					(start -5.08 6.35)
+					(end 5.08 -6.35)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "TS5-LED_1_1"
+				(pin passive line
+					(at -7.62 3.81 0)
+					(length 2.54)
+					(name "S1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 1.27 0)
+					(length 2.54)
+					(name "S1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 -1.27 0)
+					(length 2.54)
+					(name "S2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 -3.81 0)
+					(length 2.54)
+					(name "S2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 3.81 180)
+					(length 2.54)
+					(name "LED+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 1.27 180)
+					(length 2.54)
+					(name "LED-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 55.88 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1c30b6bf-f946-51a0-8b80-f5f1158911f6")
+		(property "Reference" "SW10"
+			(at 66.04 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MENU"
+			(at 66.04 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 55.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 55.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 55.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8606a220-0754-51e6-9950-6d27c2d4b2fc")
+		)
+		(pin "2"
+			(uuid "13885952-9e65-5045-b4cf-026278fe79fa")
+		)
+		(pin "3"
+			(uuid "4858a7c5-d9b0-5e62-a233-6a936ea04b24")
+		)
+		(pin "A"
+			(uuid "7b77c34f-360f-52a5-8c2f-ab49ca51f14f")
+		)
+		(pin "R"
+			(uuid "f3ec288f-da66-5275-8334-2ca6361d274c")
+		)
+		(pin "G"
+			(uuid "ffca8e26-264c-5d25-81de-4556880871a0")
+		)
+		(pin "B"
+			(uuid "9926348d-3b7e-53d9-93e0-e0394d5a1f64")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 46.99 41.91)
+			(xy 44.45 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "00cac49b-073b-52df-b91d-e37d4fc21db6")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 44.45 41.91 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "5c37354a-46df-5615-8bed-cc21b1b85707")
+		(property "Reference" "#PWR6001"
+			(at 44.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 44.45 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 44.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f7c39046-8cea-5175-9580-6f979d1c65de")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6001")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 46.99 44.45)
+			(xy 44.45 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e77e028-55b6-514e-b518-b6bebaeaf1ca")
+	)
+	(global_label "BTN_MENU"
+		(shape bidirectional)
+		(at 44.45 44.45 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a0cef16d-2a4e-55b4-b8c8-91cc1ea18575")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 44.45 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 46.99 46.99)
+		(uuid "091bb12a-d3ec-5af4-b3ce-7672e6de6e21")
+	)
+	(wire
+		(pts
+			(xy 64.77 41.91)
+			(xy 67.31 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "35059c5c-366f-5be8-a3cc-041dd8ea6e30")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 67.31 41.91 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "beaa6557-5572-5c84-9c4f-249db6289f22")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 44.45)
+			(xy 67.31 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "207832ce-f269-5fc4-8011-cddaa227d2a2")
+	)
+	(global_label "LED_MENU_R"
+		(shape bidirectional)
+		(at 67.31 44.45 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f1848b5a-5358-5f50-9d5e-ab7b5e9825c1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 46.99)
+			(xy 67.31 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0340372c-4b6e-5d41-ac52-894e092fa60d")
+	)
+	(global_label "LED_MENU_G"
+		(shape bidirectional)
+		(at 67.31 46.99 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b2766b25-d0e1-5490-8894-6b98f9ae20c5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 49.53)
+			(xy 67.31 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "389b8394-603b-5b56-a00a-5c11e0b85b89")
+	)
+	(global_label "LED_MENU_B"
+		(shape bidirectional)
+		(at 67.31 49.53 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "974ed24a-d89d-56e9-86ba-13816fa2ed28")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 121.92 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c8fc1608-68fb-57cc-a7fb-23f272cd4d37")
+		(property "Reference" "SW11"
+			(at 132.08 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SHIFT"
+			(at 132.08 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 121.92 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 121.92 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 121.92 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 121.92 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 121.92 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7dd19127-5228-5ac5-b242-c66893cfc7ab")
+		)
+		(pin "2"
+			(uuid "7d2a5730-aa6e-5839-a0e2-d8b8f62e80c9")
+		)
+		(pin "3"
+			(uuid "18de87cb-dffe-51f0-b4fc-534a23831fc7")
+		)
+		(pin "A"
+			(uuid "a1b58da9-a878-5d13-81fd-e41831253f90")
+		)
+		(pin "R"
+			(uuid "c1bbd019-554a-56f9-986d-6dcc15dc7453")
+		)
+		(pin "G"
+			(uuid "dc8906f2-745b-53b8-96df-27da8846e899")
+		)
+		(pin "B"
+			(uuid "bbc4a7a8-3fe1-56df-bc94-5e646d6c5843")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 113.03 41.91)
+			(xy 110.49 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce6e4aeb-3117-5b16-aba0-fd26478fd4bb")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 110.49 41.91 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "86299cc7-c790-52c7-8465-8e3b3a6e5bd7")
+		(property "Reference" "#PWR6002"
+			(at 110.49 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 110.49 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 110.49 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 110.49 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ce87a6d3-b6c7-5427-8483-1724557e8111")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6002")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 113.03 44.45)
+			(xy 110.49 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79c1eb40-7047-55e7-9eb5-1eb18963c5f6")
+	)
+	(global_label "BTN_SHIFT"
+		(shape bidirectional)
+		(at 110.49 44.45 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "47c00f02-bbad-5735-8199-b0f0f6543c66")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 110.49 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 113.03 46.99)
+		(uuid "0fe1f8f5-bd2f-53d0-a420-b5efac3950d6")
+	)
+	(wire
+		(pts
+			(xy 130.81 41.91)
+			(xy 133.35 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f62dce5d-48d9-552c-844d-683d1a09ecca")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 133.35 41.91 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1fc6beec-274a-5f75-85ce-c0271c5a18a3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 44.45)
+			(xy 133.35 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "494820b9-ad50-5841-b24d-ff07103ae321")
+	)
+	(global_label "LED_SHIFT_R"
+		(shape bidirectional)
+		(at 133.35 44.45 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "bc4f15fc-ecf4-5d6d-9b66-298c08e6f2aa")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 46.99)
+			(xy 133.35 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a2405b8-b176-5ae9-9f30-b6fe26ce101f")
+	)
+	(global_label "LED_SHIFT_G"
+		(shape bidirectional)
+		(at 133.35 46.99 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c385b863-e551-5fa7-a320-f08a2e9053f9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 49.53)
+			(xy 133.35 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ada99e92-b7d7-54bb-a400-62ed8794d8ed")
+	)
+	(global_label "LED_SHIFT_B"
+		(shape bidirectional)
+		(at 133.35 49.53 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ddd2465b-0139-5697-9d9d-71784df872ab")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 182.88 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ec54ee80-beeb-5b93-a455-f36439290528")
+		(property "Reference" "SW12"
+			(at 193.04 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CLEAR"
+			(at 193.04 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 182.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 182.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 182.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 182.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1e2b1b62-de63-54a6-956f-666fc3a4537c")
+		)
+		(pin "2"
+			(uuid "afdefc81-30b6-5e89-aff9-0cd72fc709e3")
+		)
+		(pin "3"
+			(uuid "a8e451c4-6fb3-554d-9f17-6c0bc5debb0d")
+		)
+		(pin "A"
+			(uuid "a1f6ffa7-3c11-5ecb-8bb8-2adf199ba1d5")
+		)
+		(pin "R"
+			(uuid "bbeebe7e-fdf3-56f3-a065-b921f74de171")
+		)
+		(pin "G"
+			(uuid "da20f1f4-7c50-5043-87c6-cef4877311c6")
+		)
+		(pin "B"
+			(uuid "9a3aea95-640d-55d7-8fd5-5f2a3ae70e69")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 41.91)
+			(xy 171.45 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8eb72198-044b-57fe-a2f6-bd1a27aedc54")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 171.45 41.91 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "e6c03c1d-6654-587e-b8b5-91f97b5e092a")
+		(property "Reference" "#PWR6003"
+			(at 171.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 171.45 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "61f68e75-f1f5-5d18-95be-56a34456b7e9")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6003")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 44.45)
+			(xy 171.45 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "176068fe-d9f9-5d5b-8e6b-2ea61f9d6bcd")
+	)
+	(global_label "BTN_CLEAR"
+		(shape bidirectional)
+		(at 171.45 44.45 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e29172c4-0c71-5061-a7e9-3db8112e4a06")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 171.45 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 173.99 46.99)
+		(uuid "55de8b59-4211-5105-b376-f69ee4511da4")
+	)
+	(wire
+		(pts
+			(xy 191.77 41.91)
+			(xy 194.31 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8efcf3dd-42fc-51e0-82ab-aa1456afa5a9")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 194.31 41.91 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0e5f87d6-e95b-5556-ba49-cf98a12e8a0b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 44.45)
+			(xy 194.31 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94487b87-0dfc-5e3d-83f3-aa4fb7a40c89")
+	)
+	(global_label "LED_CLEAR_R"
+		(shape bidirectional)
+		(at 194.31 44.45 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e0312672-d4ba-5fcf-9dc3-a537d13e6f26")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 46.99)
+			(xy 194.31 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "feccd15e-2a70-5f5c-b933-1eff5972e238")
+	)
+	(global_label "LED_CLEAR_G"
+		(shape bidirectional)
+		(at 194.31 46.99 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "66d784d8-8264-5b9f-baeb-079a5be99812")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 49.53)
+			(xy 194.31 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe181408-1be7-5a30-a741-b136053dcb8e")
+	)
+	(global_label "LED_CLEAR_B"
+		(shape bidirectional)
+		(at 194.31 49.53 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "bafd99ea-2ce7-5300-94b9-60462dbf5c41")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 246.38 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "73d75844-516a-57d2-be61-05ef164b9b80")
+		(property "Reference" "SW13"
+			(at 256.54 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "ENTER"
+			(at 256.54 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 246.38 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 246.38 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 246.38 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 246.38 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 246.38 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a231db48-df9b-5ba3-adb5-f375d4bdd4b6")
+		)
+		(pin "2"
+			(uuid "4a4c39e9-709e-588c-8064-ec21e6ab8608")
+		)
+		(pin "3"
+			(uuid "d74574a9-6dc0-56f6-9c18-2ec5d7be2a48")
+		)
+		(pin "A"
+			(uuid "bb619a5f-a4e8-5fe0-b8bb-9618cca74d97")
+		)
+		(pin "R"
+			(uuid "0c0e1863-40bb-5d02-93d5-ab1ac155d067")
+		)
+		(pin "G"
+			(uuid "182d6394-de83-5e59-a1bb-4738db17e340")
+		)
+		(pin "B"
+			(uuid "47d24222-ee8f-5df2-a980-ab3cf9640ab7")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 237.49 41.91)
+			(xy 234.95 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f102975-03a8-550a-86cb-70aa78076a94")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 234.95 41.91 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "fc49b147-cc1e-5eb3-bcc3-18fe8a9c98b9")
+		(property "Reference" "#PWR6004"
+			(at 234.95 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 234.95 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 234.95 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 234.95 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "deaae68b-7bb0-5b50-a0ad-18162f4975e8")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6004")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 237.49 44.45)
+			(xy 234.95 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d75dd7d-41d2-5415-81e2-e18f31e7f65c")
+	)
+	(global_label "BTN_ENTER"
+		(shape bidirectional)
+		(at 234.95 44.45 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "affe3739-4588-583d-997f-162336570b2e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 234.95 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 237.49 46.99)
+		(uuid "00b19895-6f55-5145-a78f-d51e49cd56fe")
+	)
+	(wire
+		(pts
+			(xy 255.27 41.91)
+			(xy 257.81 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a642665c-742b-5d48-a982-ce9d092fd2ec")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 257.81 41.91 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a69f8a2e-9955-56bf-aefe-f489f11f2302")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 44.45)
+			(xy 257.81 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5a9c957-ac7c-5b24-9d78-610774528da8")
+	)
+	(global_label "LED_ENTER_R"
+		(shape bidirectional)
+		(at 257.81 44.45 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0c944f34-fb5b-584d-ae57-02ac8d28e5d2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 46.99)
+			(xy 257.81 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52ed1233-2522-5023-ae91-6f02f0e2a828")
+	)
+	(global_label "LED_ENTER_G"
+		(shape bidirectional)
+		(at 257.81 46.99 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7c16d960-5814-5f5c-8719-7691b096d7dc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 49.53)
+			(xy 257.81 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c59f03e2-796e-5e79-aef1-72f30cc3c0c4")
+	)
+	(global_label "LED_ENTER_B"
+		(shape bidirectional)
+		(at 257.81 49.53 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "bc39b627-90db-568d-a937-69c66899df00")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 309.88 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1c8e6e85-e5f2-5406-ba44-6cddad2bcb0e")
+		(property "Reference" "SW14"
+			(at 320.04 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CAM_A"
+			(at 320.04 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 309.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 309.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 309.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 309.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 309.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5836fbb3-aaa7-5f77-934b-36b9ad7c633d")
+		)
+		(pin "2"
+			(uuid "326aa21b-40e4-51dc-8bf2-f2d403db7cf3")
+		)
+		(pin "3"
+			(uuid "8ef5044b-2d79-5ef3-b328-f42103e4fb27")
+		)
+		(pin "A"
+			(uuid "13ad71bc-06fc-53a1-ad99-b13ba42dd5b9")
+		)
+		(pin "R"
+			(uuid "c83f67dd-175d-562a-8691-874fd2fc8f2e")
+		)
+		(pin "G"
+			(uuid "4fd6041c-0e0c-5760-9424-1327c1aef5db")
+		)
+		(pin "B"
+			(uuid "5d10569d-688c-5990-836b-85e6538136de")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 300.99 41.91)
+			(xy 298.45 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f86925e1-d64d-5ba4-92ee-7e52e8e3d8e0")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 298.45 41.91 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "ab4a6286-c31f-53e9-bbf7-f8a6f5803554")
+		(property "Reference" "#PWR6005"
+			(at 298.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 298.45 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 298.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 298.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c1ac1acc-613c-546e-b7c8-1025b41cfc38")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6005")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 300.99 44.45)
+			(xy 298.45 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c14a923f-962f-5a37-b511-74041a815497")
+	)
+	(global_label "BTN_CAM_A"
+		(shape bidirectional)
+		(at 298.45 44.45 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "91bb594d-63fb-56b1-8aff-586e81e0071a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 298.45 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 300.99 46.99)
+		(uuid "22ac9ee5-75b0-503f-94ea-bef369b4ba4c")
+	)
+	(wire
+		(pts
+			(xy 318.77 41.91)
+			(xy 321.31 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cb146526-f00e-5cf9-84c0-8f733604af47")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 321.31 41.91 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "37d4e991-93b1-535e-a7dd-b87bbcc35b6e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 44.45)
+			(xy 321.31 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee8567ba-6cd8-577c-875c-0a773ae3c4b1")
+	)
+	(global_label "LED_CAM_A_R"
+		(shape bidirectional)
+		(at 321.31 44.45 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6d329dd7-3bc3-5abf-94c7-b1bdd39b617a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 46.99)
+			(xy 321.31 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b688e3f6-4f47-5ce6-8c6c-386daf3e1375")
+	)
+	(global_label "LED_CAM_A_G"
+		(shape bidirectional)
+		(at 321.31 46.99 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "02cc7bff-6cd8-5e35-a000-ba687d213e6d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 49.53)
+			(xy 321.31 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cf49d7b-5447-5dc0-9986-ebf0450dc78d")
+	)
+	(global_label "LED_CAM_A_B"
+		(shape bidirectional)
+		(at 321.31 49.53 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "24f8ca60-be18-5bc0-9b49-6701fe1a239e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 55.88 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "431e8c5f-9184-5a89-96ea-8a1e33b6216a")
+		(property "Reference" "SW15"
+			(at 66.04 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CAM_B"
+			(at 66.04 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 55.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 55.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 55.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7c24526b-804f-5ce4-b920-f30c24edc265")
+		)
+		(pin "2"
+			(uuid "ac8df3da-0d87-52ff-a9c4-75e0168b8a16")
+		)
+		(pin "3"
+			(uuid "65ba5ca1-dca9-580b-9d78-ef0596fc6047")
+		)
+		(pin "A"
+			(uuid "7b5cfba0-0f34-5afe-a183-61708c2f760b")
+		)
+		(pin "R"
+			(uuid "99bc5f45-66f7-5fed-af83-6a43ce3571d7")
+		)
+		(pin "G"
+			(uuid "a80c0261-bcea-502d-b8e6-6c5de695dad2")
+		)
+		(pin "B"
+			(uuid "b3671480-3dd7-59bb-9e7f-04f1b0c97c43")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 46.99 67.31)
+			(xy 44.45 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fa0f05a-c8da-5396-a82a-992bf626179b")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 44.45 67.31 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "eb8420d3-f722-5d9e-931f-b908191bb8e7")
+		(property "Reference" "#PWR6006"
+			(at 44.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 44.45 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 44.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f97a22df-e801-583d-a09e-552f5ab21445")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6006")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 46.99 69.85)
+			(xy 44.45 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ab07264-b1dd-5aa8-8f08-1426ae11064f")
+	)
+	(global_label "BTN_CAM_B"
+		(shape bidirectional)
+		(at 44.45 69.85 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "976b721f-adc6-593d-81b9-4ee8e6a988d3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 44.45 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 46.99 72.39)
+		(uuid "ae33a836-a26d-5364-95c2-dfea1fe3432f")
+	)
+	(wire
+		(pts
+			(xy 64.77 67.31)
+			(xy 67.31 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad0693f9-b3dd-53bd-802d-3a9882017ac1")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 67.31 67.31 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "19ddad67-7922-5f72-bdbd-558dcacb4e0f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 69.85)
+			(xy 67.31 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f1e6ba7-be2a-5049-82b4-b23e40982878")
+	)
+	(global_label "LED_CAM_B_R"
+		(shape bidirectional)
+		(at 67.31 69.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0c109a6b-d9b8-569b-8e87-91b4fec5e8a0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 72.39)
+			(xy 67.31 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a0acf20-991c-50df-abab-52ab59bbdb69")
+	)
+	(global_label "LED_CAM_B_G"
+		(shape bidirectional)
+		(at 67.31 72.39 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "30de9e13-bbe6-5d85-99ef-6156475ce269")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 74.93)
+			(xy 67.31 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ceb3d71-e148-55a0-ae00-f5b2115b753b")
+	)
+	(global_label "LED_CAM_B_B"
+		(shape bidirectional)
+		(at 67.31 74.93 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1e024364-64ab-5ef2-ba12-e0886f525efa")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 121.92 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d16809a1-1f59-5f9d-94c2-3b98f7fc3c76")
+		(property "Reference" "SW16"
+			(at 132.08 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CAM_C"
+			(at 132.08 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 121.92 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 121.92 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 121.92 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 121.92 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 121.92 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "35b251fe-a1ac-534e-934e-d97e74e87a59")
+		)
+		(pin "2"
+			(uuid "4cab8ca6-ed7f-5b7d-8b16-c82c15382e57")
+		)
+		(pin "3"
+			(uuid "e3ee610d-44fa-5011-9c2c-700ffd824cfd")
+		)
+		(pin "A"
+			(uuid "4a8be49d-badd-5ff6-9328-58e45ed965b1")
+		)
+		(pin "R"
+			(uuid "5d481677-c3b2-5433-8dfe-60d0de21be1d")
+		)
+		(pin "G"
+			(uuid "c284d941-612e-5de5-9495-6db2830c7854")
+		)
+		(pin "B"
+			(uuid "dc97f7a7-f88d-51ca-8a8a-3785e7a89296")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 113.03 67.31)
+			(xy 110.49 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b83cf36c-148c-5632-9c93-6786270a44f5")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 110.49 67.31 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "cf7ec566-10bd-5736-ae88-1b77a2c30313")
+		(property "Reference" "#PWR6007"
+			(at 110.49 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 110.49 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 110.49 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 110.49 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "deca6b7a-4778-5110-be85-360a8d67e3bb")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6007")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 113.03 69.85)
+			(xy 110.49 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc6802e7-321a-5bec-a672-c7e6bdd20f2a")
+	)
+	(global_label "BTN_CAM_C"
+		(shape bidirectional)
+		(at 110.49 69.85 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "bd1030f9-6366-5ea6-a045-406618f50ebb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 110.49 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 113.03 72.39)
+		(uuid "bc7f4c6a-59a9-56a1-a7b6-ade801aebb98")
+	)
+	(wire
+		(pts
+			(xy 130.81 67.31)
+			(xy 133.35 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79221d98-7c4b-53a8-bfcb-8df8c915e74c")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 133.35 67.31 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "bcb7b022-21d5-5f06-be87-7a4c65819c89")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 69.85)
+			(xy 133.35 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5bb86766-199e-5ea9-9550-36c5aedebf70")
+	)
+	(global_label "LED_CAM_C_R"
+		(shape bidirectional)
+		(at 133.35 69.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ac9e03cc-2580-5554-a7ce-e69d1671d3e0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 72.39)
+			(xy 133.35 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0a1ebf07-4a44-5ee5-957a-2226f2c46b6b")
+	)
+	(global_label "LED_CAM_C_G"
+		(shape bidirectional)
+		(at 133.35 72.39 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "74f4d669-b845-54e5-b838-1b9a0415833b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 74.93)
+			(xy 133.35 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e493f072-c8b9-5860-999e-603da03ae4ee")
+	)
+	(global_label "LED_CAM_C_B"
+		(shape bidirectional)
+		(at 133.35 74.93 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "158e5d4d-79f0-5ab5-a522-615952ed3a9e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 182.88 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c008603a-b99f-5696-9242-435888a33bb9")
+		(property "Reference" "SW17"
+			(at 193.04 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "CAM_D"
+			(at 193.04 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 182.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 182.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 182.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 182.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4aa13540-b431-5a0c-b3a3-0680a0bd0597")
+		)
+		(pin "2"
+			(uuid "d874f49a-fabc-5264-aacc-81b53f0a0032")
+		)
+		(pin "3"
+			(uuid "3326d28a-d7bd-5db8-996e-6ff48d537260")
+		)
+		(pin "A"
+			(uuid "8233fd82-e2d6-5836-88ed-f63afb9be82a")
+		)
+		(pin "R"
+			(uuid "28d416cb-8536-5414-b750-35a81fc8f86b")
+		)
+		(pin "G"
+			(uuid "ce20fc71-789c-5f07-b845-a967c99aa889")
+		)
+		(pin "B"
+			(uuid "ebfbfc27-83fc-5609-b0c0-b9d1d3cb121f")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 67.31)
+			(xy 171.45 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f3f5790-1211-5dd8-99a3-e50ad165ff76")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 171.45 67.31 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "b64f7d93-2f82-592c-808e-f3392408500a")
+		(property "Reference" "#PWR6008"
+			(at 171.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 171.45 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "40cf36fd-9c1d-516b-8098-932503329e71")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6008")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 69.85)
+			(xy 171.45 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a23149d5-b5de-5084-b4c6-e09c77b5dac4")
+	)
+	(global_label "BTN_CAM_D"
+		(shape bidirectional)
+		(at 171.45 69.85 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b00572ea-4222-576b-8637-c5d088e1a8d4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 171.45 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 173.99 72.39)
+		(uuid "3023b6df-ac0f-52e1-819e-e1010c35e71a")
+	)
+	(wire
+		(pts
+			(xy 191.77 67.31)
+			(xy 194.31 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ab18815-bfc2-536f-b29e-9c7e3024cab9")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 194.31 67.31 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e983ded3-c206-5755-96a3-6b28dde1e884")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 69.85)
+			(xy 194.31 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e32676d8-c12f-5e0b-819f-5ec54ff1b7c3")
+	)
+	(global_label "LED_CAM_D_R"
+		(shape bidirectional)
+		(at 194.31 69.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1f8f243c-636f-5153-b8f6-0b6eab12f1c7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 72.39)
+			(xy 194.31 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4170778a-9632-5324-a1cb-79a404973cb5")
+	)
+	(global_label "LED_CAM_D_G"
+		(shape bidirectional)
+		(at 194.31 72.39 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ec00dd3e-e7b4-5e92-8d00-61993331c745")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 74.93)
+			(xy 194.31 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "041e62f4-fac3-5d03-85ba-73d81bfeeb57")
+	)
+	(global_label "LED_CAM_D_B"
+		(shape bidirectional)
+		(at 194.31 74.93 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5db442c9-95a7-587d-ba87-2dc876594e5f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 246.38 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0fc01430-067f-565c-9f9e-588849f15717")
+		(property "Reference" "SW18"
+			(at 256.54 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "PLST"
+			(at 256.54 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 246.38 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 246.38 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 246.38 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 246.38 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 246.38 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f0af11d8-d87e-5518-99bf-1e3cb7fb43ca")
+		)
+		(pin "2"
+			(uuid "e218c632-92e9-5684-acec-7050f97dcb9d")
+		)
+		(pin "3"
+			(uuid "4a9af1d1-2bd9-505e-a15e-129fef941de2")
+		)
+		(pin "A"
+			(uuid "432bf24e-cb31-5a8b-8c54-de1b56d0ef28")
+		)
+		(pin "R"
+			(uuid "ad53e047-97d5-5211-9eda-acb6af03ee72")
+		)
+		(pin "G"
+			(uuid "e44a81c0-cf3b-548f-8d12-93d1efcf81c9")
+		)
+		(pin "B"
+			(uuid "ec874a85-294c-53f5-b05b-d51235d02966")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 237.49 67.31)
+			(xy 234.95 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2379e569-e0bc-532f-8a9f-fba196f5c676")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 234.95 67.31 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "3012a7a1-a264-59a7-a8ff-959d67d164ae")
+		(property "Reference" "#PWR6009"
+			(at 234.95 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 234.95 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 234.95 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 234.95 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2cc4b8df-30d0-5f52-bd0b-91227ff41a42")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6009")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 237.49 69.85)
+			(xy 234.95 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f1f94f9-ba80-55cc-a563-9eb06fcf75ec")
+	)
+	(global_label "BTN_PLST"
+		(shape bidirectional)
+		(at 234.95 69.85 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a27ef5a3-4c7c-5d31-a50a-9e72e8a5ed13")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 234.95 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 237.49 72.39)
+		(uuid "72a527ab-cc42-50c9-89f9-037aef2f4ea1")
+	)
+	(wire
+		(pts
+			(xy 255.27 67.31)
+			(xy 257.81 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9885fc74-bdde-58a5-9dbf-e7560dbd18e4")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 257.81 67.31 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "17e19628-efe0-53f7-aaa4-d85e8f1224b0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 69.85)
+			(xy 257.81 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "321e9434-5a2e-5d43-953b-e369767d1155")
+	)
+	(global_label "LED_PLST_R"
+		(shape bidirectional)
+		(at 257.81 69.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b1a16b13-c917-557b-ac21-8a9b5d267a6c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 72.39)
+			(xy 257.81 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3132314c-328a-5ba8-9e4a-3db6484e56bd")
+	)
+	(global_label "LED_PLST_G"
+		(shape bidirectional)
+		(at 257.81 72.39 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "cab7fe52-f2b7-5ad6-a726-e2039d639154")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 74.93)
+			(xy 257.81 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c53627f-6e6d-5e26-ae50-57e3e26932b6")
+	)
+	(global_label "LED_PLST_B"
+		(shape bidirectional)
+		(at 257.81 74.93 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3496fa02-fa2e-5596-b8cd-50f377a2b28d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 309.88 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "74cb5bb7-d9be-5e44-8ad8-ece7483bb377")
+		(property "Reference" "SW19"
+			(at 320.04 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BROWSE"
+			(at 320.04 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 309.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 309.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 309.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 309.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 309.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "87611b95-318d-55df-9349-05de8dd20940")
+		)
+		(pin "2"
+			(uuid "51f7025b-f83c-5c76-b14a-ea8dee42c465")
+		)
+		(pin "3"
+			(uuid "4f08733f-00de-5e6d-87d3-639f2592bc38")
+		)
+		(pin "A"
+			(uuid "5aa36839-3c47-5148-8443-a5bc46aaa813")
+		)
+		(pin "R"
+			(uuid "3bfb2404-e638-5ce3-b60c-d76b7f7d3301")
+		)
+		(pin "G"
+			(uuid "1c72f227-72a0-5b55-ac75-7cbe1bab74d5")
+		)
+		(pin "B"
+			(uuid "5db8ef0a-ee88-5853-bc3f-ecfbb524cc30")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 300.99 67.31)
+			(xy 298.45 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eceb467b-1de4-5c58-8b8b-0751d584683a")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 298.45 67.31 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "0086b06b-57da-5de5-b9c9-3e75294b1777")
+		(property "Reference" "#PWR6010"
+			(at 298.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 298.45 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 298.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 298.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9b30c854-66f8-5a96-a7df-ccf45e3b0ebf")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 300.99 69.85)
+			(xy 298.45 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77a118b2-a051-54a6-9d49-275c2d367278")
+	)
+	(global_label "BTN_BROWSE"
+		(shape bidirectional)
+		(at 298.45 69.85 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c2bd6122-ce4a-53c1-8b50-17af62920b68")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 298.45 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 300.99 72.39)
+		(uuid "d94e6f92-8cf3-5ff5-909d-982ae6500f79")
+	)
+	(wire
+		(pts
+			(xy 318.77 67.31)
+			(xy 321.31 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08ace6bd-16dc-5f87-a02d-ce49aa1397cb")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 321.31 67.31 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "88f9c0b1-f774-5486-8424-08ace2caa46d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 69.85)
+			(xy 321.31 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9828051c-7036-5291-b304-a28d7cfa26ad")
+	)
+	(global_label "LED_BROWSE_R"
+		(shape bidirectional)
+		(at 321.31 69.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "57a82829-5281-5873-9064-5087d4512093")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 72.39)
+			(xy 321.31 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a57990d-017b-51d6-b8ab-df86a00be6c1")
+	)
+	(global_label "LED_BROWSE_G"
+		(shape bidirectional)
+		(at 321.31 72.39 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "eb7c6d18-2243-5dea-85a0-9a800549b864")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 74.93)
+			(xy 321.31 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c84bef13-e32f-5be1-8e28-9600d2cd6172")
+	)
+	(global_label "LED_BROWSE_B"
+		(shape bidirectional)
+		(at 321.31 74.93 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "397e0421-1d7a-5e09-b201-88143a7a4cb8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 55.88 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "85156641-c784-51d0-9c04-0bfe02af1678")
+		(property "Reference" "SW20"
+			(at 66.04 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "IN"
+			(at 66.04 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 55.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 55.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 55.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8eb2b347-c98f-5fb2-a811-e9fca61c2890")
+		)
+		(pin "2"
+			(uuid "a58c842b-e043-5196-a6ea-559ebd54e036")
+		)
+		(pin "3"
+			(uuid "c68cbd90-252a-5128-95fb-7624964fab66")
+		)
+		(pin "A"
+			(uuid "8f2e86f0-9d30-59e4-b4ff-ff285ca28659")
+		)
+		(pin "R"
+			(uuid "6db54da6-06fe-5b8b-baf4-573d46f3450c")
+		)
+		(pin "G"
+			(uuid "a764be7b-c89b-58b5-b95d-6314fe85f9e5")
+		)
+		(pin "B"
+			(uuid "a3222d6e-e72d-54c5-83a2-d83638c187a5")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 46.99 97.79)
+			(xy 44.45 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82be2fa0-d2d5-52c7-8b0b-5979c0c3a8d3")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 44.45 97.79 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "32ce282a-9041-5f2f-bf22-af76281185ae")
+		(property "Reference" "#PWR6011"
+			(at 44.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 44.45 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 44.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "713c3660-d2f9-5da2-8181-9820970fc626")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 46.99 100.33)
+			(xy 44.45 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "def4d7a3-1210-5c37-9cf0-faaaa43ccdf5")
+	)
+	(global_label "BTN_IN"
+		(shape bidirectional)
+		(at 44.45 100.33 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "52a5972c-69fc-5a64-a10e-f503d69756aa")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 44.45 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 46.99 102.87)
+		(uuid "5d4a83ab-373a-5c2a-a17b-eb88a4ca0892")
+	)
+	(wire
+		(pts
+			(xy 64.77 97.79)
+			(xy 67.31 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f11b406d-99fc-531a-ae85-0c85729cf750")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 67.31 97.79 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "33fd1533-7c1c-556b-9e94-71d58c513e87")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 100.33)
+			(xy 67.31 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "522092db-aaa3-5eb2-aa3e-a29574e8f00c")
+	)
+	(global_label "LED_IN_R"
+		(shape bidirectional)
+		(at 67.31 100.33 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3bd8262a-3675-5360-9173-aa9056ede8ae")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 102.87)
+			(xy 67.31 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70512eab-75be-5660-960a-fbc90f4aaee6")
+	)
+	(global_label "LED_IN_G"
+		(shape bidirectional)
+		(at 67.31 102.87 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "cda80614-4e6b-5cc5-a58e-7e98a56c23d8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 105.41)
+			(xy 67.31 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6eea0bb-048c-5e4e-b26c-53726b993ab6")
+	)
+	(global_label "LED_IN_B"
+		(shape bidirectional)
+		(at 67.31 105.41 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "42b6558e-ff36-50d0-879b-d36184750fe2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 121.92 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "957a2075-cb86-59de-8b3f-943899127f6d")
+		(property "Reference" "SW21"
+			(at 132.08 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "OUT"
+			(at 132.08 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 121.92 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 121.92 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 121.92 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 121.92 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 121.92 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8110e7f3-5ae6-511f-b3f9-d47581368e99")
+		)
+		(pin "2"
+			(uuid "3057bb0a-0274-5e53-bce7-0c903f934f32")
+		)
+		(pin "3"
+			(uuid "aad54b95-6699-5837-875a-789a2188812e")
+		)
+		(pin "A"
+			(uuid "e4feeb6f-d384-5f14-bf6c-db33e2a8f818")
+		)
+		(pin "R"
+			(uuid "d64d01b9-7d00-5617-a3d8-ef3e5c38381e")
+		)
+		(pin "G"
+			(uuid "562fcc4c-0669-508b-9530-38105cfaf374")
+		)
+		(pin "B"
+			(uuid "a03b0189-003e-54dc-bb08-73bf43f2d4d3")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 113.03 97.79)
+			(xy 110.49 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "161bf0b0-7d4d-5b82-8512-e5632dc9ccc2")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 110.49 97.79 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "dc5a663e-d94c-55b0-aa00-924e84e0c904")
+		(property "Reference" "#PWR6012"
+			(at 110.49 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 110.49 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 110.49 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 110.49 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "35dbd897-1d5e-5846-a724-760662b002df")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 113.03 100.33)
+			(xy 110.49 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f46064c4-de2d-548c-a037-ed63d05b6bd9")
+	)
+	(global_label "BTN_OUT"
+		(shape bidirectional)
+		(at 110.49 100.33 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "74f76e92-3d78-5328-92f7-b9f655093c43")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 110.49 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 113.03 102.87)
+		(uuid "bc9c10a6-d628-5e16-97fb-5d8a0ed04e43")
+	)
+	(wire
+		(pts
+			(xy 130.81 97.79)
+			(xy 133.35 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48ee1675-28d0-5840-8c57-c43701c8595b")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 133.35 97.79 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "be079090-5e3e-54dc-ab79-135fa7543f69")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 100.33)
+			(xy 133.35 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2958d1b6-e222-5c38-8e8f-a0469a2820e2")
+	)
+	(global_label "LED_OUT_R"
+		(shape bidirectional)
+		(at 133.35 100.33 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "85880550-2bfa-5614-9ba2-0d8a153fa03b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 102.87)
+			(xy 133.35 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "062f337c-212b-5489-8fe7-4b8ad91dc38a")
+	)
+	(global_label "LED_OUT_G"
+		(shape bidirectional)
+		(at 133.35 102.87 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6326c6f1-8766-54bb-97db-70375697d96c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 105.41)
+			(xy 133.35 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b107f624-178e-59fb-a718-5311f5de96f8")
+	)
+	(global_label "LED_OUT_B"
+		(shape bidirectional)
+		(at 133.35 105.41 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6e67669e-3af5-59d4-8944-2707b8d4b889")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 182.88 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cf4e06a7-0cb2-5103-8bd9-0e837063e463")
+		(property "Reference" "SW22"
+			(at 193.04 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TAKE"
+			(at 193.04 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 182.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 182.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 182.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 182.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "919a74de-d209-56ed-92d8-dc025de13f0b")
+		)
+		(pin "2"
+			(uuid "fc066218-d47e-5b09-a850-1e8479895329")
+		)
+		(pin "3"
+			(uuid "495e5352-f517-52bd-8086-7f442ed01fc9")
+		)
+		(pin "A"
+			(uuid "8bbed73c-3ba9-5b34-a538-6399af7f80b3")
+		)
+		(pin "R"
+			(uuid "f0eadfbf-a886-5ec9-9a9c-b4e2f3a86849")
+		)
+		(pin "G"
+			(uuid "c117d56b-68a2-537e-bfca-be7b8517efe7")
+		)
+		(pin "B"
+			(uuid "1dc938e1-19ac-5199-a7c3-b2cd9963a5cb")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 97.79)
+			(xy 171.45 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bedf08b6-99da-5a09-8f9a-8b01629885b9")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 171.45 97.79 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "639904da-a9b6-5c86-b9ed-2df8804caeaf")
+		(property "Reference" "#PWR6013"
+			(at 171.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 171.45 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6ec86693-5cff-52cd-a0d9-2f41dd6c77a3")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 100.33)
+			(xy 171.45 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9fac3b27-4393-523e-8cf6-788be0fcaf79")
+	)
+	(global_label "BTN_TAKE"
+		(shape bidirectional)
+		(at 171.45 100.33 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "74a72568-e076-5c2a-86a4-c11f847a17c0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 171.45 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 173.99 102.87)
+		(uuid "ad87ef08-226f-590a-abdf-093784ded268")
+	)
+	(wire
+		(pts
+			(xy 191.77 97.79)
+			(xy 194.31 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77b2c316-978b-53b5-9da2-b20bc579d2cd")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 194.31 97.79 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "42e76401-3fb6-52a5-b957-3ac75e27098d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 100.33)
+			(xy 194.31 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fd9f3705-f9c2-504c-af12-9dc7a1e825bf")
+	)
+	(global_label "LED_TAKE_R"
+		(shape bidirectional)
+		(at 194.31 100.33 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "97c74fb6-5967-5c87-b591-2e2988db1bc3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 102.87)
+			(xy 194.31 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e51c8a69-e58d-52b7-880c-fe5d28aedbe3")
+	)
+	(global_label "LED_TAKE_G"
+		(shape bidirectional)
+		(at 194.31 102.87 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f9c71e4d-07c2-507f-b56f-7c7d5e206431")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 105.41)
+			(xy 194.31 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0609f659-f8eb-53f0-a86b-a6967856cef0")
+	)
+	(global_label "LED_TAKE_B"
+		(shape bidirectional)
+		(at 194.31 105.41 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "eaca28f9-9ec3-510b-9999-5a878296c4c5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 246.38 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c0ab08b5-1224-53d0-a5b5-3dd8e961b3f7")
+		(property "Reference" "SW23"
+			(at 256.54 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "PLAY"
+			(at 256.54 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 246.38 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 246.38 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 246.38 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 246.38 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 246.38 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8dc89baa-91ed-590a-9216-92a5aebd764a")
+		)
+		(pin "2"
+			(uuid "f957f135-1e81-5888-9871-36d4e6255f66")
+		)
+		(pin "3"
+			(uuid "cc7d59c4-08e9-5105-b8d1-f441d1c2d1fe")
+		)
+		(pin "A"
+			(uuid "5f2514a8-e544-5bf3-8403-d5f5b70f8e4b")
+		)
+		(pin "R"
+			(uuid "82b6484f-931a-5940-9b46-3dd15c6600bc")
+		)
+		(pin "G"
+			(uuid "ac7daf15-aab9-5b25-a4dd-3db2a909ca27")
+		)
+		(pin "B"
+			(uuid "17b988d3-fd35-5289-ae37-016b81f6a686")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 237.49 97.79)
+			(xy 234.95 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d440249f-9dfc-547e-8239-c40d8432f310")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 234.95 97.79 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "af9b7ffb-90d1-597b-b6db-d17afbaeb16e")
+		(property "Reference" "#PWR6014"
+			(at 234.95 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 234.95 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 234.95 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 234.95 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1f040d11-930f-5294-8866-b7c0da1dae8a")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 237.49 100.33)
+			(xy 234.95 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "332d15f6-851b-5c7c-ab42-a20aed85c738")
+	)
+	(global_label "BTN_PLAY"
+		(shape bidirectional)
+		(at 234.95 100.33 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "69c9e94c-06c9-550d-bc15-2d605bdbe7a4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 234.95 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 237.49 102.87)
+		(uuid "0cf6c56d-c9b4-5764-aae8-aecc44135f2a")
+	)
+	(wire
+		(pts
+			(xy 255.27 97.79)
+			(xy 257.81 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1016e278-da0d-5ae1-b5cd-6cc6f22fea7e")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 257.81 97.79 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "cf9007df-d4de-5c79-a3ea-5eae1d1a6e7c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 100.33)
+			(xy 257.81 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c5afdee-4918-5b4a-a1f8-afbbc551e272")
+	)
+	(global_label "LED_PLAY_R"
+		(shape bidirectional)
+		(at 257.81 100.33 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "01932919-0366-5c1f-9cd8-154e11fa63d5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 102.87)
+			(xy 257.81 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8041a59b-8dab-5e7e-b203-dc745bb3d16a")
+	)
+	(global_label "LED_PLAY_G"
+		(shape bidirectional)
+		(at 257.81 102.87 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "fda01dd3-b874-5848-bb47-ca629398dde6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 105.41)
+			(xy 257.81 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e175e687-10b8-5686-96fe-e2193623a4de")
+	)
+	(global_label "LED_PLAY_B"
+		(shape bidirectional)
+		(at 257.81 105.41 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2fab7034-f160-5e1b-9625-679608f792fe")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 309.88 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "37930ae8-3aa8-52c5-9ea0-734a5ac324ad")
+		(property "Reference" "SW24"
+			(at 320.04 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LAST_CUE"
+			(at 320.04 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 309.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 309.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 309.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 309.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 309.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2c06f548-5dd1-502d-a965-310904f3344d")
+		)
+		(pin "2"
+			(uuid "33be1215-c020-5571-b859-e44985438693")
+		)
+		(pin "3"
+			(uuid "bea62904-bfcd-530c-9d8e-92d8c92e5296")
+		)
+		(pin "A"
+			(uuid "ecfaf439-ee83-5bcf-ad5d-f530b6794851")
+		)
+		(pin "R"
+			(uuid "e2de5415-60c0-5498-8fc0-faea6413ed36")
+		)
+		(pin "G"
+			(uuid "4691bfa1-ddec-5b9b-9d6f-cbbc6e26ae2d")
+		)
+		(pin "B"
+			(uuid "c8e44957-a6de-52ef-9351-9b1504773495")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 300.99 97.79)
+			(xy 298.45 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d4d61a8-bd3c-5728-8e17-ccb2701efe73")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 298.45 97.79 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "1ab8e06e-4584-5e3a-9e0f-2ecc708cc81f")
+		(property "Reference" "#PWR6015"
+			(at 298.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 298.45 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 298.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 298.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "13c765cb-225f-506f-baeb-0e299a8e6fa8")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 300.99 100.33)
+			(xy 298.45 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d443e4e-58d7-5a4d-b4c5-558cc715d16a")
+	)
+	(global_label "BTN_LAST_CUE"
+		(shape bidirectional)
+		(at 298.45 100.33 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3e4e18a8-c710-54cb-bca9-8dd2604b9806")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 298.45 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 300.99 102.87)
+		(uuid "9dc8d732-5b21-5c1a-ab23-01ab3de6fcbe")
+	)
+	(wire
+		(pts
+			(xy 318.77 97.79)
+			(xy 321.31 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37c4275d-c716-5dac-9573-65f9283b29ea")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 321.31 97.79 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c7d1987e-362f-51b0-947a-ca0f3703b850")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 100.33)
+			(xy 321.31 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "58b2ab4b-10ce-57cd-b702-77f4967e42b3")
+	)
+	(global_label "LED_LAST_CUE_R"
+		(shape bidirectional)
+		(at 321.31 100.33 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "92831d4c-baba-53be-a648-148e23030af9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 102.87)
+			(xy 321.31 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b502778-5e6d-54ad-b970-ab61a3a4455e")
+	)
+	(global_label "LED_LAST_CUE_G"
+		(shape bidirectional)
+		(at 321.31 102.87 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "300ebb44-b906-5713-a4ae-6ed975aac3e9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 318.77 105.41)
+			(xy 321.31 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ccf12c2d-e5c1-54bc-8d0f-26f7d858bf35")
+	)
+	(global_label "LED_LAST_CUE_B"
+		(shape bidirectional)
+		(at 321.31 105.41 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "836ce2af-74f8-5b55-9bba-9b73a8815892")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 55.88 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "58e56eb4-b6a5-50b9-8293-882a31d2e650")
+		(property "Reference" "SW25"
+			(at 66.04 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MARK"
+			(at 66.04 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 55.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 55.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 55.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ff94594d-66a2-5ff0-89f3-34cb67bae051")
+		)
+		(pin "2"
+			(uuid "15626c57-c099-5819-b3e4-61f11266deb5")
+		)
+		(pin "3"
+			(uuid "2127f307-3f5b-5c61-bcf8-084ffb590293")
+		)
+		(pin "A"
+			(uuid "b7817e51-b0d9-5ab3-a9e4-ba42cce0e33d")
+		)
+		(pin "R"
+			(uuid "2c8452d2-3063-56bb-9583-2a64065b8235")
+		)
+		(pin "G"
+			(uuid "9c0f6c3e-6fcd-592d-899a-000b1587391f")
+		)
+		(pin "B"
+			(uuid "ef9e3bb4-d8ce-5bb5-8f77-4b3bd86e9602")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 46.99 123.19)
+			(xy 44.45 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "715a217a-8242-521a-9f5e-72817be8b0af")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 44.45 123.19 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "c653de5a-71bf-5f34-bd53-29cb0f073a9c")
+		(property "Reference" "#PWR6016"
+			(at 44.45 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 44.45 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 44.45 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "eaad3d3a-aada-5703-a9a2-9a2cd7e7de32")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 46.99 125.73)
+			(xy 44.45 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "18f4e1a3-fbb9-595d-97b7-db9d41b5c26f")
+	)
+	(global_label "BTN_MARK"
+		(shape bidirectional)
+		(at 44.45 125.73 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "eca4a08f-fea1-5e79-8d2a-c6aef0c60ea9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 44.45 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 46.99 128.27)
+		(uuid "996b98c1-ad84-5670-bd95-15c4c091feb7")
+	)
+	(wire
+		(pts
+			(xy 64.77 123.19)
+			(xy 67.31 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79527492-d150-5cd3-9c2c-9167de37f7bc")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 67.31 123.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a0bb761c-e8f8-5dc6-9adc-b4c8d728765f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 125.73)
+			(xy 67.31 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20edc264-c600-5f3a-bfe8-5e54f26b74da")
+	)
+	(global_label "LED_MARK_R"
+		(shape bidirectional)
+		(at 67.31 125.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "11c06138-aa58-5844-a890-067d97b6bb30")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 128.27)
+			(xy 67.31 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6939009a-93ad-5666-adc5-50c54e4d5600")
+	)
+	(global_label "LED_MARK_G"
+		(shape bidirectional)
+		(at 67.31 128.27 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "53a40dfc-317b-598a-b392-63d5ff01e897")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 130.81)
+			(xy 67.31 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "743ed95c-83a4-5774-adae-e27bc8a648bf")
+	)
+	(global_label "LED_MARK_B"
+		(shape bidirectional)
+		(at 67.31 130.81 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ae6504c7-dd2f-5787-82f2-2ed2c97a88f6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 67.31 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 121.92 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3008c423-b723-5eca-951e-083944f3ffa2")
+		(property "Reference" "SW26"
+			(at 132.08 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "RECORD"
+			(at 132.08 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 121.92 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 121.92 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 121.92 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 121.92 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 121.92 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "30586681-c47b-5555-848f-da6d6e86947c")
+		)
+		(pin "2"
+			(uuid "32da218d-0669-51e0-ad3f-929f7fed8fd1")
+		)
+		(pin "3"
+			(uuid "9172af6a-4eeb-5229-af81-d2dd11c5b37f")
+		)
+		(pin "A"
+			(uuid "31bb0a41-0730-59a6-96f3-9ba086883226")
+		)
+		(pin "R"
+			(uuid "0109b181-d1fd-5f42-94f1-60e6650e7245")
+		)
+		(pin "G"
+			(uuid "731be4f4-d27a-52c6-80ce-6c937a0c3926")
+		)
+		(pin "B"
+			(uuid "95dca4a2-6621-57cb-9f2e-e9fb56638a45")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 113.03 123.19)
+			(xy 110.49 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17675342-97ac-5e5a-a8ff-be3e04715d0c")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 110.49 123.19 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "2ae0f639-a8c8-5490-acd4-87cc274e37da")
+		(property "Reference" "#PWR6017"
+			(at 110.49 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 110.49 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 110.49 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 110.49 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "74d1fe0b-a641-5de1-8bd7-00611225eeee")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 113.03 125.73)
+			(xy 110.49 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3845d93-cdc9-57d1-bb54-9efb774e126b")
+	)
+	(global_label "BTN_RECORD"
+		(shape bidirectional)
+		(at 110.49 125.73 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "cf2f1665-6e4b-535f-8a8d-143ab23b5c8b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 110.49 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 113.03 128.27)
+		(uuid "9a81cf81-0316-5933-96ea-92ec53b1aad9")
+	)
+	(wire
+		(pts
+			(xy 130.81 123.19)
+			(xy 133.35 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b62f68e2-c442-5894-ae6a-ba416aedf37c")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 133.35 123.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d14d5bb4-953c-5a93-8169-410b83fa07a3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 125.73)
+			(xy 133.35 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7eec1a28-7597-5af6-b8b8-59073a9c3c17")
+	)
+	(global_label "LED_RECORD_R"
+		(shape bidirectional)
+		(at 133.35 125.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2eff6c92-6850-53c2-819a-ce1d78ac03bf")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 128.27)
+			(xy 133.35 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8bdd080f-6cad-5e89-8c32-e560ab35e04f")
+	)
+	(global_label "LED_RECORD_G"
+		(shape bidirectional)
+		(at 133.35 128.27 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a29ebafd-ce82-50f4-bef3-fdd362b8922e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 130.81 130.81)
+			(xy 133.35 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c3f7fed6-2d49-5074-ad8b-bcbd2eba3d06")
+	)
+	(global_label "LED_RECORD_B"
+		(shape bidirectional)
+		(at 133.35 130.81 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "de7424d1-8c84-5855-9b5c-4783fd11b4f0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 133.35 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:PB26-13M-RGB")
+		(at 182.88 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "444ba1a8-a4cd-5f28-9530-8a07d4e18694")
+		(property "Reference" "SW27"
+			(at 193.04 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "PRV_CTL"
+			(at 193.04 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:PB26-13M-RGB"
+			(at 182.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 182.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 182.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PB26-13M-B-WT-RGB-N"
+			(at 182.88 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "85de506c-6b9f-5ba3-9e22-47f4d3bad41f")
+		)
+		(pin "2"
+			(uuid "78d860ac-f784-5111-930a-acf3233dba88")
+		)
+		(pin "3"
+			(uuid "1604c076-bc8a-5970-aac4-54091446c9fb")
+		)
+		(pin "A"
+			(uuid "64a5f7cf-567b-508c-bae8-241d16276b4e")
+		)
+		(pin "R"
+			(uuid "8a9a8d95-0388-5410-9772-0bbfbdc5ff27")
+		)
+		(pin "G"
+			(uuid "9534d67d-33c4-5468-931d-3718576acd2d")
+		)
+		(pin "B"
+			(uuid "b7378930-da1b-508b-8e71-a48b1f751f24")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 123.19)
+			(xy 171.45 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a6c6a2f-417d-525f-8090-11d6cb40e7bf")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 171.45 123.19 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "2a7b5e7a-be42-5310-9e62-07560389504f")
+		(property "Reference" "#PWR6018"
+			(at 171.45 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 171.45 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c8d14c49-f1ba-5303-b48d-1f18625ce1b0")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6018")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 173.99 125.73)
+			(xy 171.45 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1719c7b3-7d90-59b7-aa6e-b9b8d29c6b77")
+	)
+	(global_label "BTN_PRV_CTL"
+		(shape bidirectional)
+		(at 171.45 125.73 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4cc04d04-646c-5b46-a07f-03c95eb09009")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 171.45 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 173.99 128.27)
+		(uuid "d4ebf957-f98f-5bb2-9d64-8f319fe29473")
+	)
+	(wire
+		(pts
+			(xy 191.77 123.19)
+			(xy 194.31 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74ae6dcf-417f-5401-8df7-f6b1b77aa11c")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 194.31 123.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "09e6bb05-dcbe-5588-b08a-7162a5939888")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 125.73)
+			(xy 194.31 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9cc691dc-8b84-5b8e-bc46-8f95730798e6")
+	)
+	(global_label "LED_PRV_CTL_R"
+		(shape bidirectional)
+		(at 194.31 125.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2e4fe72b-578e-5e0a-bbee-65ae7ee1d832")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 128.27)
+			(xy 194.31 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76617e15-824c-550c-bb9b-dcd5ec6f6f41")
+	)
+	(global_label "LED_PRV_CTL_G"
+		(shape bidirectional)
+		(at 194.31 128.27 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2125a12a-f3b0-5d5f-94ab-fb5266afc4d4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 191.77 130.81)
+			(xy 194.31 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52564a7d-3879-5dbb-8b74-68594a9339b4")
+	)
+	(global_label "LED_PRV_CTL_B"
+		(shape bidirectional)
+		(at 194.31 130.81 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b3c3cec0-a959-5eb9-bfb8-e220f9551c8a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 246.38 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "631e1b64-8ac4-5b93-a43a-4cf127cda599")
+		(property "Reference" "SW30"
+			(at 255.27 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F1"
+			(at 255.27 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 246.38 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 246.38 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 246.38 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 246.38 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 246.38 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3a5b1607-8dcf-5fd1-8c08-4ecfe493e2fa")
+		)
+		(pin "2"
+			(uuid "6f912813-3c13-535d-85e8-cc629511d8b3")
+		)
+		(pin "3"
+			(uuid "6a5eb76c-0a55-540a-bed7-6c802a127804")
+		)
+		(pin "4"
+			(uuid "c6714b53-c4d3-52c6-af86-c99d3d2570d7")
+		)
+		(pin "6"
+			(uuid "c404c67a-91fa-5f7c-8079-3b3922795a4c")
+		)
+		(pin "5"
+			(uuid "dbabf8d8-92cb-5c23-b2af-3a8a1831b3e2")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 238.76 123.19)
+			(xy 236.22 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7dcb222-4115-547b-a803-19fabc990b9e")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 236.22 123.19 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "3e5d29e7-02e1-5d7c-a4bf-9561f6315c30")
+		(property "Reference" "#PWR6019"
+			(at 236.22 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 236.22 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e5f504a-1cb8-50d1-896b-1a906ffb96e9")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6019")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 238.76 125.73)
+			(xy 236.22 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0195099f-639f-51bf-ae99-34aca0e2084c")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 236.22 125.73 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "222b8339-cbad-5102-8817-a88a3d36ac23")
+		(property "Reference" "#PWR6020"
+			(at 236.22 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 236.22 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1980f99c-709e-5f98-9fc4-4b87fb06330e")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6020")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 238.76 128.27)
+			(xy 236.22 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0105d66-713c-5941-a912-f78aeb15d97a")
+	)
+	(global_label "BTN_F1"
+		(shape bidirectional)
+		(at 236.22 128.27 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "25d5197d-72c6-504b-ac72-bcf79f95d863")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 236.22 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 238.76 130.81)
+			(xy 236.22 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "af926782-4945-54cf-bcba-4f4b95840f4e")
+	)
+	(global_label "BTN_F1"
+		(shape bidirectional)
+		(at 236.22 130.81 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e53c11f7-2452-5ab4-a3ef-d4bf6cd689b7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 236.22 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 254 123.19)
+			(xy 256.54 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4214953d-b751-5781-9dbf-817a2f188fb8")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 256.54 123.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9f8784e4-864e-58e1-b3f0-072f22594a87")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 256.54 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 254 125.73)
+			(xy 256.54 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2658dd2f-92a4-53fe-b05e-088b4b4c1d0c")
+	)
+	(global_label "LED_F1"
+		(shape bidirectional)
+		(at 256.54 125.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4426c3dc-89be-5f0a-a5b7-a2a016843d10")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 256.54 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 307.34 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4346f069-fb79-50c6-a862-186d250e0088")
+		(property "Reference" "SW31"
+			(at 316.23 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F2"
+			(at 316.23 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 307.34 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 307.34 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 307.34 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 307.34 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 307.34 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "31008543-4660-5938-a98c-17b59a30eb2b")
+		)
+		(pin "2"
+			(uuid "fbc23310-fb05-5367-8c79-abfb6ed7a66b")
+		)
+		(pin "3"
+			(uuid "349c4e62-2259-5536-8afd-b8e9103c507b")
+		)
+		(pin "4"
+			(uuid "a2c88c27-c056-580b-84b6-f2f8ffef0ccb")
+		)
+		(pin "6"
+			(uuid "27def85a-41f3-5d47-90f2-a7abb1200001")
+		)
+		(pin "5"
+			(uuid "8de33897-aac6-5e03-9f4a-941703a5a24d")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW31")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 299.72 123.19)
+			(xy 297.18 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8696ccc-59db-51c6-88b7-776251d7a613")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 297.18 123.19 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "6363c536-0f24-5c5a-9622-0831370929ce")
+		(property "Reference" "#PWR6021"
+			(at 297.18 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 297.18 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 297.18 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 297.18 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b8f97f45-0c34-59da-b771-2ecba37636d5")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 299.72 125.73)
+			(xy 297.18 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc430ff9-1e75-5905-b6e2-a8d8fce7daa7")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 297.18 125.73 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "6b737c59-2e1c-5f2d-8053-6937641f7297")
+		(property "Reference" "#PWR6022"
+			(at 297.18 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 297.18 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 297.18 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 297.18 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "52427728-3d2e-5a3c-82e6-e62a5999b2e5")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 299.72 128.27)
+			(xy 297.18 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd252044-f391-53a9-8f05-2e1985a68185")
+	)
+	(global_label "BTN_F2"
+		(shape bidirectional)
+		(at 297.18 128.27 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6fef7259-a3a0-576d-b973-4133889c7e4b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 297.18 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 299.72 130.81)
+			(xy 297.18 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c5f44ba-c285-5fff-a148-d96d317bdc7c")
+	)
+	(global_label "BTN_F2"
+		(shape bidirectional)
+		(at 297.18 130.81 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c87141a1-45fc-576c-a272-c3a9f3f605ad")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 297.18 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 314.96 123.19)
+			(xy 317.5 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d12f8b0b-5d1e-5a43-9e68-8633d94a9cda")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 317.5 123.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8847f69d-0f8b-55f1-b477-7576cba3cd78")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 317.5 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 314.96 125.73)
+			(xy 317.5 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c3cc775c-b5d8-5b8a-a786-1488950b4d92")
+	)
+	(global_label "LED_F2"
+		(shape bidirectional)
+		(at 317.5 125.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a31e7ea8-7433-5512-b7ce-37a182f07a23")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 317.5 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 368.3 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "874b23dd-a00a-5a85-aec9-dc369ef34fcc")
+		(property "Reference" "SW32"
+			(at 377.19 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F3"
+			(at 377.19 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 368.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 368.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 368.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 368.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 368.3 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "44ba5594-6524-5c17-aeb8-b78e6280a08b")
+		)
+		(pin "2"
+			(uuid "b30d3aed-edf2-5020-8922-a722ee5a69fc")
+		)
+		(pin "3"
+			(uuid "3b943a3f-8213-54ea-85d5-b9512f72fb93")
+		)
+		(pin "4"
+			(uuid "8b41d09b-2f32-5961-be62-52e60b93b86e")
+		)
+		(pin "6"
+			(uuid "0a3287ae-9721-5c92-8854-324b573f3d1c")
+		)
+		(pin "5"
+			(uuid "d3f4c15a-7e8b-5415-abf9-4aefdf6e82e0")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 360.68 123.19)
+			(xy 358.14 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de7cf961-cf7d-5b60-98e4-382ea596c7eb")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 358.14 123.19 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "08214719-ef79-56e6-afee-895820933d93")
+		(property "Reference" "#PWR6023"
+			(at 358.14 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 358.14 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 358.14 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 358.14 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7b92651f-04fb-53ac-8ef4-be2003957552")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 360.68 125.73)
+			(xy 358.14 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd342b9a-9157-5837-9dc3-46a3844b9ffa")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 358.14 125.73 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "cfafe365-8873-5b21-95c1-5f0573773fa8")
+		(property "Reference" "#PWR6024"
+			(at 358.14 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 358.14 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 358.14 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 358.14 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7e40b840-b2ac-5759-a289-51b56c54efa5")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6024")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 360.68 128.27)
+			(xy 358.14 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ca3a6ae-29e8-593d-906a-f07626572f0f")
+	)
+	(global_label "BTN_F3"
+		(shape bidirectional)
+		(at 358.14 128.27 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "88e4a92e-f1c3-5437-af1e-49e686077835")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 358.14 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 360.68 130.81)
+			(xy 358.14 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd38ae1a-c250-52e9-8281-cd9e91b1849a")
+	)
+	(global_label "BTN_F3"
+		(shape bidirectional)
+		(at 358.14 130.81 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1534de3d-debf-516e-a367-7817823599a0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 358.14 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 375.92 123.19)
+			(xy 378.46 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f75e094-fc9b-507c-ae3c-ca3aa77c365a")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 378.46 123.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "66d74c7a-0d01-5cc0-9bed-f366a9a63d05")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 378.46 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 375.92 125.73)
+			(xy 378.46 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a20e6d6-09b8-577c-94dd-1202b609487f")
+	)
+	(global_label "LED_F3"
+		(shape bidirectional)
+		(at 378.46 125.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "52f16738-d8fa-5e71-b4b2-ec14e03120b2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 378.46 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 55.88 157.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "313d5e1d-db61-518a-a07f-10bedc02ac14")
+		(property "Reference" "SW33"
+			(at 64.77 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F4"
+			(at 64.77 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 55.88 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 55.88 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 55.88 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c3e2957d-a775-5b58-87d1-0bc496de3580")
+		)
+		(pin "2"
+			(uuid "f58c0268-9b7d-52cd-815f-dc488af7f6bc")
+		)
+		(pin "3"
+			(uuid "73432b9a-c67c-5e3a-a442-7f59988446ad")
+		)
+		(pin "4"
+			(uuid "363d8406-4787-5a00-91fb-37055fc4c2d4")
+		)
+		(pin "6"
+			(uuid "e2434c93-5784-52e7-94ef-70d17d05c530")
+		)
+		(pin "5"
+			(uuid "9bfb4a01-1575-5c74-9673-9072b60be2eb")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 48.26 153.67)
+			(xy 45.72 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8cdccadb-2a8c-59cf-87a3-cc6c3aebe340")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 45.72 153.67 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "ca41678d-7201-50fe-8ff8-0b264ba3f08a")
+		(property "Reference" "#PWR6025"
+			(at 45.72 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 45.72 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "21d87b4c-b853-5690-ba9b-f05390870ac7")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 48.26 156.21)
+			(xy 45.72 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ed889a2-151d-5ab4-98b2-c5708cff8a30")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 45.72 156.21 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "0a10cd37-ef28-501a-8b16-1322c800626b")
+		(property "Reference" "#PWR6026"
+			(at 45.72 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 45.72 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "74e7d526-feeb-5756-9c6e-2c0cb47a4c8c")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6026")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 48.26 158.75)
+			(xy 45.72 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e35476fd-deff-584e-a929-995733b8198e")
+	)
+	(global_label "BTN_F4"
+		(shape bidirectional)
+		(at 45.72 158.75 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b411ff40-3292-5556-baec-23c538cbd980")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 48.26 161.29)
+			(xy 45.72 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f90f9795-051a-538c-8008-fa9b0d3dd753")
+	)
+	(global_label "BTN_F4"
+		(shape bidirectional)
+		(at 45.72 161.29 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "67c4e0e5-4735-5dd9-8257-e307bab1981f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 63.5 153.67)
+			(xy 66.04 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c89fbe66-b878-53f8-82b0-f779035de656")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 66.04 153.67 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d66393e3-1981-5aff-a2e3-5abd9c5319f0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 66.04 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 63.5 156.21)
+			(xy 66.04 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e511447c-f327-56fe-b969-2926dca08d8e")
+	)
+	(global_label "LED_F4"
+		(shape bidirectional)
+		(at 66.04 156.21 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "97f738d1-ac72-59b9-b4b1-8a5a4fd208f2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 66.04 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 116.84 157.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8876c642-30d3-585d-87bc-027aa33b9016")
+		(property "Reference" "SW34"
+			(at 125.73 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F5"
+			(at 125.73 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 116.84 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 116.84 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 116.84 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 116.84 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e73fc999-c44a-561b-929d-edf0055aeb99")
+		)
+		(pin "2"
+			(uuid "4177a143-bbeb-5a27-a05c-126227d9eedf")
+		)
+		(pin "3"
+			(uuid "c694c9df-8291-52d9-9b84-192a83ac8361")
+		)
+		(pin "4"
+			(uuid "42467b9d-537f-52b2-a906-28320ac53d22")
+		)
+		(pin "6"
+			(uuid "0d6d6fc3-f1e9-50ec-afd0-a16e64e3d129")
+		)
+		(pin "5"
+			(uuid "1e2cbe6c-c684-5bca-ba36-d45c46b2794d")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW34")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 109.22 153.67)
+			(xy 106.68 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a71e7736-be15-56bf-a497-34fad29727a9")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 106.68 153.67 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "09078592-a9d1-50a0-a6aa-06aebca9ba88")
+		(property "Reference" "#PWR6027"
+			(at 106.68 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 106.68 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1f42e1a2-4a31-5c20-8424-14841895f9e3")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6027")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 109.22 156.21)
+			(xy 106.68 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "906e8b19-2f8b-58bf-bc4a-aa8932a624fb")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 106.68 156.21 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "db4e6f23-bec7-5bd4-959b-d9c34a5945eb")
+		(property "Reference" "#PWR6028"
+			(at 106.68 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 106.68 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "78a492b3-3ad0-5a3c-b640-41a44cc2845b")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6028")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 109.22 158.75)
+			(xy 106.68 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "749c8134-a832-5a36-a876-38a1454f009e")
+	)
+	(global_label "BTN_F5"
+		(shape bidirectional)
+		(at 106.68 158.75 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0e7302db-08e6-50c5-a182-0a04dbea02dd")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.68 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 109.22 161.29)
+			(xy 106.68 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73ac7f61-737b-558c-9e4c-73dbc893a75a")
+	)
+	(global_label "BTN_F5"
+		(shape bidirectional)
+		(at 106.68 161.29 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "081d2fdb-724a-5ed4-aac6-1f4b901aa893")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.68 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 124.46 153.67)
+			(xy 127 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78a66cc4-2175-5781-aa92-27f30271e711")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 127 153.67 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e730a8a3-0373-521c-a055-800ce2efca50")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 127 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 124.46 156.21)
+			(xy 127 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0f52ac8-fbd8-5db8-b2cf-cc7f9559a71d")
+	)
+	(global_label "LED_F5"
+		(shape bidirectional)
+		(at 127 156.21 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c0702f57-21eb-59a9-807c-ee96177db352")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 127 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 177.8 157.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "84aac945-7e16-5385-8c1d-549267274c90")
+		(property "Reference" "SW35"
+			(at 186.69 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F6"
+			(at 186.69 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 177.8 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 177.8 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 177.8 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 177.8 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 177.8 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ed7ef904-1629-568d-8bdd-1b114059a43e")
+		)
+		(pin "2"
+			(uuid "b1fb3e3c-85dc-548e-9fc3-e04b43b2bcfd")
+		)
+		(pin "3"
+			(uuid "971d8c59-d54d-5a86-b267-8aacfc654279")
+		)
+		(pin "4"
+			(uuid "7021cf15-544c-5ae5-b85e-d03085f50974")
+		)
+		(pin "6"
+			(uuid "2f7bf445-4345-53a2-83c5-30aebdfc029c")
+		)
+		(pin "5"
+			(uuid "eaee4886-771f-538f-903f-f10054db5965")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 170.18 153.67)
+			(xy 167.64 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "91f05df3-d90b-5afb-973a-82f704c29f63")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 167.64 153.67 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "21771de3-f138-549c-ab67-c266bcf0806b")
+		(property "Reference" "#PWR6029"
+			(at 167.64 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 167.64 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bf2abac1-347c-5979-9da0-bc9c31b74bb8")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 170.18 156.21)
+			(xy 167.64 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07d9519c-2905-571d-a9bf-deb28c638809")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 167.64 156.21 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "39f7761f-83d4-5e7a-aca9-75798b5cabe0")
+		(property "Reference" "#PWR6030"
+			(at 167.64 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 167.64 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c24006d1-f99c-5a7d-a7c0-c89de93350e8")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6030")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 170.18 158.75)
+			(xy 167.64 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b41ce33-8b1b-5259-a32f-1ebb6cb76634")
+	)
+	(global_label "BTN_F6"
+		(shape bidirectional)
+		(at 167.64 158.75 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9ebaef48-0cae-5eb0-a349-7936b1b850cb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 167.64 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 170.18 161.29)
+			(xy 167.64 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47bb8934-ad0a-59e7-a998-8db660d0cdb4")
+	)
+	(global_label "BTN_F6"
+		(shape bidirectional)
+		(at 167.64 161.29 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d74c71f3-8fac-5f7e-9bac-ad49fac447b1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 167.64 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 185.42 153.67)
+			(xy 187.96 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c33b4956-1a0e-5441-bfcf-1498ee3c9a00")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 187.96 153.67 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3c00120e-c480-5348-a8c0-472be4f112e6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 187.96 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 185.42 156.21)
+			(xy 187.96 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46172af1-7c73-5802-b174-2bff1fd2a259")
+	)
+	(global_label "LED_F6"
+		(shape bidirectional)
+		(at 187.96 156.21 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c663a196-f2f8-5ae1-bdf7-53ae00daa2c8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 187.96 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 238.76 157.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "19dc32a8-ff7d-5503-9303-f7d5bc940ad9")
+		(property "Reference" "SW36"
+			(at 247.65 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F7"
+			(at 247.65 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 238.76 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 238.76 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 238.76 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 238.76 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 238.76 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8ec886aa-b247-58e6-95fe-89bcc41367da")
+		)
+		(pin "2"
+			(uuid "b07cf2cd-743c-5aa7-9616-e84411225395")
+		)
+		(pin "3"
+			(uuid "c4a58912-f862-551c-bf29-c1e0251e945e")
+		)
+		(pin "4"
+			(uuid "6e83f72a-6bda-5e41-9fe8-fae42f221b21")
+		)
+		(pin "6"
+			(uuid "e5d0cf07-4eae-5b91-8fc4-f12c924375b3")
+		)
+		(pin "5"
+			(uuid "bb7b99ce-5e98-5935-bd0c-c1efb9da9e0f")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 231.14 153.67)
+			(xy 228.6 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f89ce2ed-a1f9-5c0c-8eae-97a3cc2ae60d")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 228.6 153.67 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "146b6936-707f-5266-857c-31d618eda659")
+		(property "Reference" "#PWR6031"
+			(at 228.6 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 228.6 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2926aba8-abb3-5e97-a1bf-35ff91855be8")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6031")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 231.14 156.21)
+			(xy 228.6 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0efed91f-3d0c-5b50-9762-bf79a502b40c")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 228.6 156.21 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "2b5bc837-1f9e-530c-a124-c0f056b277f5")
+		(property "Reference" "#PWR6032"
+			(at 228.6 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 228.6 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "951cb6d9-a37c-5c1c-80f1-e5907bd456fc")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6032")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 231.14 158.75)
+			(xy 228.6 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e96b9876-7f83-56e6-9c97-74eb88563493")
+	)
+	(global_label "BTN_F7"
+		(shape bidirectional)
+		(at 228.6 158.75 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c32dc4ea-4e7c-5252-b59b-3a4aeef7d51f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 228.6 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 231.14 161.29)
+			(xy 228.6 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "344e4232-0985-51d5-b7c1-4cb49fabd3df")
+	)
+	(global_label "BTN_F7"
+		(shape bidirectional)
+		(at 228.6 161.29 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "637ae7df-25e4-5bf6-a8fd-7f994bb6a824")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 228.6 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 246.38 153.67)
+			(xy 248.92 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "645b22c3-9587-57ef-a836-6952c6fa934b")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 248.92 153.67 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "526d6a4c-00ad-5223-8670-45e12228c265")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 248.92 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 246.38 156.21)
+			(xy 248.92 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "916cbdbc-1733-5e50-8ce8-b95826f31c66")
+	)
+	(global_label "LED_F7"
+		(shape bidirectional)
+		(at 248.92 156.21 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e9f5c028-078e-534e-97bc-c5d75cfe2443")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 248.92 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 299.72 157.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e0229bfd-736e-5716-babb-a1f48a51343b")
+		(property "Reference" "SW37"
+			(at 308.61 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F8"
+			(at 308.61 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 299.72 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 299.72 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 299.72 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 299.72 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 299.72 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7872dfab-3a2f-5d6a-b7e4-567f932162c8")
+		)
+		(pin "2"
+			(uuid "c85a3169-17c7-59f7-8ae1-e12587442177")
+		)
+		(pin "3"
+			(uuid "92abf019-bb09-5d27-a42d-09faadea0f9c")
+		)
+		(pin "4"
+			(uuid "519f2424-2e72-5edc-87c7-9a9258c6ebe5")
+		)
+		(pin "6"
+			(uuid "dec0816c-f72e-5dd9-86a4-d013051172ce")
+		)
+		(pin "5"
+			(uuid "c7765110-4bd8-5d2a-9f01-744afd21a9ae")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 292.1 153.67)
+			(xy 289.56 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e8a6027-ccd5-52e2-ad14-de55ddab976c")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 153.67 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "f10b2bfc-bffa-5d05-ace1-2b2dc7b98406")
+		(property "Reference" "#PWR6033"
+			(at 289.56 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 289.56 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1a1c0c0f-6146-532b-997c-a7419cda958c")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 292.1 156.21)
+			(xy 289.56 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7f5c0c2-832e-5f77-9554-b04e54fd9755")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 156.21 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "eb37ec13-0c92-532f-ad9a-b2da987ae946")
+		(property "Reference" "#PWR6034"
+			(at 289.56 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 289.56 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9c853f23-2c6f-5a87-ae7d-171b97239a1c")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 292.1 158.75)
+			(xy 289.56 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7dbba6ad-6e4e-5aef-8790-cce59745cc52")
+	)
+	(global_label "BTN_F8"
+		(shape bidirectional)
+		(at 289.56 158.75 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3ce4e7ae-b511-5240-a685-6b627cbd6615")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 289.56 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 292.1 161.29)
+			(xy 289.56 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ebc1a93e-081f-5276-aede-c53ff94196df")
+	)
+	(global_label "BTN_F8"
+		(shape bidirectional)
+		(at 289.56 161.29 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "bad1ad0d-fd96-5fc0-8036-a269c88ce795")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 289.56 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 307.34 153.67)
+			(xy 309.88 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbc1ab95-45eb-5dce-b111-90d49e2efae1")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 309.88 153.67 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9700b2e1-7b2b-542f-a111-a16eee738740")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 309.88 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 307.34 156.21)
+			(xy 309.88 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d7fc8bb-3d12-5432-a551-9298809c8f81")
+	)
+	(global_label "LED_F8"
+		(shape bidirectional)
+		(at 309.88 156.21 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ee2025ee-aac7-540b-908a-bd2d1842757e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 309.88 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 360.68 157.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "caeec997-f347-5c94-825a-caecef4aef09")
+		(property "Reference" "SW38"
+			(at 369.57 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F9"
+			(at 369.57 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 360.68 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 360.68 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 360.68 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 360.68 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 360.68 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "789e54c0-fea2-552f-b81d-506fa8a0f6c1")
+		)
+		(pin "2"
+			(uuid "2f89e854-ae6e-5881-8468-7912816532c9")
+		)
+		(pin "3"
+			(uuid "ff269edb-fa7b-5eec-ad5c-8d7304b83baa")
+		)
+		(pin "4"
+			(uuid "7e8c49d1-d37d-5122-8338-768b6beb128d")
+		)
+		(pin "6"
+			(uuid "1fb4ca70-4c81-5161-9fdc-97dc864b088e")
+		)
+		(pin "5"
+			(uuid "d9abe1a3-a3cd-5984-81b6-138ce69601e3")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 353.06 153.67)
+			(xy 350.52 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "579bccd3-44a5-59e3-8b03-56531450e507")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 350.52 153.67 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "b970a098-cc5a-56dd-8959-ec0ab6990b91")
+		(property "Reference" "#PWR6035"
+			(at 350.52 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 350.52 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 350.52 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 350.52 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fb9df670-9ac9-5eec-a293-d9b0259b34ff")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6035")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 353.06 156.21)
+			(xy 350.52 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b9681507-8750-5ed0-ab85-4f91427cb204")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 350.52 156.21 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "09010930-5f9c-5c2f-a4c8-8570618f9f57")
+		(property "Reference" "#PWR6036"
+			(at 350.52 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 350.52 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 350.52 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 350.52 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "05979697-cb5a-5297-bf8d-ddadaef1f4d8")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 353.06 158.75)
+			(xy 350.52 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46183476-083b-5853-974e-aea6e60eac0d")
+	)
+	(global_label "BTN_F9"
+		(shape bidirectional)
+		(at 350.52 158.75 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "720b1be9-194e-5af9-bd8f-ff70e5642261")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 350.52 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 353.06 161.29)
+			(xy 350.52 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "453bcab1-5e98-586a-817f-4e406de0c084")
+	)
+	(global_label "BTN_F9"
+		(shape bidirectional)
+		(at 350.52 161.29 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "bc5e7c0a-13d4-51ba-bbf2-87eacd8afcc2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 350.52 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 368.3 153.67)
+			(xy 370.84 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d5ac0a6-9471-5391-8aa7-393dfdeeea39")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 370.84 153.67 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f5620cfb-1cf7-5fc8-be4a-a607f8b8ad3c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 370.84 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 368.3 156.21)
+			(xy 370.84 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c7de407-ed3d-5da7-8b26-426982d88060")
+	)
+	(global_label "LED_F9"
+		(shape bidirectional)
+		(at 370.84 156.21 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b1bb19db-f9c3-5db3-8298-176576795ced")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 370.84 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "vrc:TS5-LED")
+		(at 55.88 182.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "30404c74-c1c4-57af-b681-8608d5cb0f9a")
+		(property "Reference" "SW39"
+			(at 64.77 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F10"
+			(at 64.77 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "vrc:TS5-9.2mm-LED"
+			(at 55.88 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Assembly" "ruční pájení"
+			(at 55.88 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5 yellow"
+			(at 55.88 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "660e78af-81ec-5777-9d29-f03d54b4907c")
+		)
+		(pin "2"
+			(uuid "929c0910-205b-5789-a518-5468b4425de3")
+		)
+		(pin "3"
+			(uuid "84b2c98b-c7b7-5b03-b0e2-93f016f66190")
+		)
+		(pin "4"
+			(uuid "cc683ee3-7d43-5156-8258-bf9bf477f58e")
+		)
+		(pin "6"
+			(uuid "7621a970-b0e3-5e47-8798-e6a3f96c3aac")
+		)
+		(pin "5"
+			(uuid "3ebd54e2-e9fb-5340-b9b2-5e7e96cc3278")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "SW39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 48.26 179.07)
+			(xy 45.72 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df912e2a-bc45-5d82-8195-333a1d287e9c")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 45.72 179.07 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "58a17fed-a7f2-5b92-b67b-80a850ed200f")
+		(property "Reference" "#PWR6037"
+			(at 45.72 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 45.72 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ff03494f-23de-59c6-ae2e-619a412b4cd5")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6037")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 48.26 181.61)
+			(xy 45.72 181.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f08359c-8a5a-5c0b-a38a-8daad6e320c5")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 45.72 181.61 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "4044c213-1843-5131-b968-46093a32e4f9")
+		(property "Reference" "#PWR6038"
+			(at 45.72 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 45.72 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b5d1edb3-fddf-5481-af57-6d36dece467f")
+		)
+		(instances
+			(project "vmix-replay-controller"
+				(path "/28d4050f-b2c6-5ca3-b680-f42181077030/02de0205-124e-5114-bf2f-eb41b8d0e34f"
+					(reference "#PWR6038")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 48.26 184.15)
+			(xy 45.72 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "417c384e-523e-5ef3-a918-f5bea865abf4")
+	)
+	(global_label "BTN_F10"
+		(shape bidirectional)
+		(at 45.72 184.15 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "03ec2f05-ce40-5c4e-b9f1-856bca39fc55")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 48.26 186.69)
+			(xy 45.72 186.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c78e2797-484a-52a4-947a-199d191ef317")
+	)
+	(global_label "BTN_F10"
+		(shape bidirectional)
+		(at 45.72 186.69 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0caa5876-366a-55b6-af54-d127ebbf1f12")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 63.5 179.07)
+			(xy 66.04 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d9ea139a-3ecf-554f-a1bf-f6307b784db8")
+	)
+	(global_label "+5V_LED"
+		(shape bidirectional)
+		(at 66.04 179.07 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d9d9f9b5-6855-5c53-b5ad-5d38c53a85eb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 66.04 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 63.5 181.61)
+			(xy 66.04 181.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d2a0b50-7e1f-573a-9f0b-54725929e6e2")
+	)
+	(global_label "LED_F10"
+		(shape bidirectional)
+		(at 66.04 181.61 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "900135f1-1ea6-56f4-9705-d81f927e4689")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 66.04 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(text "Tlačítka se pájí ručně. Spínač: COM = GND, NO = vstup expandéru (interní pull-up 100k).
+LED: společná anoda na +5V_LED, katody na kanály IS31FL3236A."
+		(exclude_from_sim no)
+		(at 25.4 15.24 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "9c24982e-8860-52f7-bc6e-531d94ec9a8a")
+	)
+	(embedded_fonts no)
+)
