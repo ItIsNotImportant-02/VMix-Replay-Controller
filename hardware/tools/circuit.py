@@ -97,10 +97,11 @@ def build(prj):
     s.add(C("C3", "10uF", "+5V_LED"))
     s.add(C("C4", "10uF", "+5V_LED"))
     s.add(C("C5", "100nF", "+5V_LED"))
-    # LDL1117S33R has the same pinout as AMS1117 (1 GND, 2 VOUT + tab, 3 VIN)
-    s.add(Part("U2", "Regulator_Linear:AMS1117-3.3", "LDL1117S33R", "Package_TO_SOT_SMD:SOT-223-3_TabPin2",
-               pins={"VI": "+5V", "GND": "GND", "VO": "+3V3"}, lcsc="C435835", mpn="LDL1117S33R",
-               desc="LDO 3.3 V 1.2 A, low dropout (ST LDL1117), Cout >= 4.7 uF"))
+    # TLV76133DCYR: stabilní s libovolnými keramickými C na výstupu (1-220 uF, ESR 2-500 mOhm).
+    # LDL1117 vyžaduje ESR >= ~11-20 mOhm (obr. 20/21 datasheetu) a s ~30 uF MLCC na 3V3 by byl na hraně stability.
+    s.add(Part("U2", "Regulator_Linear:TLV76133DCY", "TLV76133DCYR", "Package_TO_SOT_SMD:SOT-223-3_TabPin2",
+               pins={"VI": "+5V", "GND": "GND", "VO": "+3V3"}, lcsc="C7527500", mpn="TLV76133DCYR",
+               desc="LDO 3.3 V 1 A (TI), Cout 1-220 uF keramika, dropout ~0,25 V @ 300 mA"))
     s.add(C("C6", "10uF", "+3V3"))
     s.add(C("C7", "100nF", "+3V3"))
     s.add(R("R5", "1k", "+3V3", "PWR_LED_A"))   # červená Vf ~1,9 V -> ~1,4 mA

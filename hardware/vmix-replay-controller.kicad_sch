@@ -2618,21 +2618,22 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Regulator_Linear:AMS1117-3.3"
+		(symbol "Regulator_Linear:TLV76133DCY"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(embedded_fonts no)
 			(property "Reference" "U"
-				(at -3.81 3.175 0)
+				(at -7.62 6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "AMS1117-3.3"
-				(at 0 3.175 0)
+			(property "Value" "TLV76133DCY"
+				(at -1.27 6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2641,7 +2642,7 @@
 				)
 			)
 			(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
-				(at 0 5.08 0)
+				(at 0 -11.43 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2649,8 +2650,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "http://www.advanced-monolithic.com/pdf/ds1117.pdf"
-				(at 2.54 -6.35 0)
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv761.pdf"
+				(at 0 -13.97 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2658,7 +2659,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "1A Low Dropout regulator, positive, 3.3V fixed output, SOT-223"
+			(property "Description" "3.3V, 1A, Low Noise, High-PSRR LDO Regulator, 2.5V...16V input, SOT-223"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2667,7 +2668,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "linear regulator ldo fixed positive"
+			(property "ki_keywords" "voltage fixed low-dropout"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2676,7 +2677,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "SOT?223*TabPin2*"
+			(property "ki_fp_filters" "SOT*223*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2685,7 +2686,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "AMS1117-3.3_0_1"
+			(symbol "TLV76133DCY_0_1"
 				(rectangle
 					(start -5.08 -5.08)
 					(end 5.08 1.905)
@@ -2698,7 +2699,7 @@
 					)
 				)
 			)
-			(symbol "AMS1117-3.3_1_1"
+			(symbol "TLV76133DCY_1_1"
 				(pin power_in line
 					(at -7.62 0 0)
 					(length 2.54)
@@ -13525,7 +13526,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Regulator_Linear:AMS1117-3.3")
+		(lib_id "Regulator_Linear:TLV76133DCY")
 		(at 124.46 68.58 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13542,7 +13543,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LDL1117S33R"
+		(property "Value" "TLV76133DCYR"
 			(at 116.84 65.675 0)
 			(effects
 				(font
@@ -13569,7 +13570,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LDO 3.3 V 1.2 A, low dropout (ST LDL1117), Cout >= 4.7 uF"
+		(property "Description" "LDO 3.3 V 1 A (TI), Cout 1-220 uF keramika, dropout ~0,25 V @ 300 mA"
 			(at 124.46 68.58 0)
 			(effects
 				(font
@@ -13578,7 +13579,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C435835"
+		(property "LCSC" "C7527500"
 			(at 124.46 68.58 0)
 			(effects
 				(font
@@ -13587,7 +13588,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "LDL1117S33R"
+		(property "MPN" "TLV76133DCYR"
 			(at 124.46 68.58 0)
 			(effects
 				(font

@@ -22,7 +22,7 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 
 ## Rozhodnutí v návrhu
 
-- **LDO místo AMS1117:** ST LDL1117S33R (LCSC C435835, skladem) má úbytek pod 0,3 V při 200 mA a je v SOT-223, takže se neuvaří (odběr 3,3 V větve ~200 mA, W5500 bere nejvíc). AP2112K v SOT-23-5 by při 0,3 W topil přes 70 °C nad okolí.
+- **LDO místo AMS1117:** TI TLV76133DCYR (LCSC C7527500, SOT-223, 1 A): úbytek ~0,25 V při 300 mA, stabilní s libovolnými keramickými kondenzátory 1–220 µF (ESR 2–500 mΩ). Původní ST LDL1117 potřebuje podle obr. 20/21 datasheetu ESR ≥ ~11–20 mΩ a nad 22 µF není charakterizovaný; s ~30 µF MLCC na +3V3 by byl na hraně stability (na fóru ST je případ oscilací). AMS1117 má úbytek ~1,1 V a stabilitu zaručuje jen s 22 µF tantalem. Ztráta ~0,35 W → +33 °C v SOT-223.
 - **IS31FL3236A na 5 V:** výstupy OUTx snesou max. VCC + 0,3 V. Anody LED jsou na 5 V (modrá a zelená potřebují až 3,6 V), takže VCC budiče musí být 5 V. Logické vstupy mají pevné prahy (VIH 1,4 V), I2C na 3,3 V tedy funguje.
 - **Senzory MT6701 (ověřeno proti datasheetu Rev. 1.8):** napájení 3,0–5,5 V, my 3,3 V, takže výstupy (push-pull) jsou 3,3V a jdou přímo do RP2040. Piny 6/7/8 jsou podle režimu A/B/Z, SDA/SCL nebo DO/CLK/CSN; MODE má vnitřní pull-up 200k a datasheet neuvádí, která úroveň volí který režim → MODE řídí MCU (GP5, GP15). **Oba senzory čteme přes SSI** (14bitový absolutní úhel + stav magnetu + CRC, CLK max 15,6 MHz): páka přes SPI1, jog přes PIO na GP2–4. Jog se počítá z rozdílu úhlů (16384 kroků na otáčku), takže není potřeba ABZ ani zápis do EEPROM – ten by podle datasheetu vyžadoval VDD 4,5–5,5 V, což při napájení 3,3 V nejde. Fyzicky jsou to stejné vodiče jako A/B/Z, takže ABZ zůstává jako záloha. OUT (analog/PWM) přes 1k + 10 nF do ADC jako záloha; 1k odděluje kapacitu (datasheet: CL ≤ 1 nF přímo na pinu). Destička senzoru (samostatný projekt `hardware/sensor-board/`): 100 nF + TVS 6 V na VDD (doporučení datasheetu), magnet Ø6 × 2,5 mm diametrálně magnetovaný, mezera 0,5–2 mm, max. 0,3 mm mimo osu.
 - **Debug bez prototypu:** SWD + UART konektor, testovací body na všech napájeních a na I2C/INT/SDB, rezervní GPIO (GP10, 11, 22, 23, 24, 28) a 4 volné vstupy expandéru na konektoru J3 spolu s I2C (např. pro OLED později).
@@ -39,20 +39,20 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 ## Díly JLCPCB (ověřeno 11. 11. 2026 přes API JLCPCB, celý katalog Basic + Preferred)
 
 - JLC osazuje 128 dílů, všechny mají LCSC číslo a jsou skladem. Basic a Preferred díly jsou bez poplatku, každý typ Extended stojí cca 3 USD za založení.
-- **Extended zůstává 8 typů (~24 USD):** RP2040, W5500, IS31FL3236A, TCA9555 (I/O expandér v Basic/Preferred neexistuje), krystal Y1, USB-C J1, LDO U2 a polyswitch F1 (Basic/Preferred neobsahuje žádné konektory ani vratné pojistky).
+- **Extended zůstává 8 typů (~24 USD):** RP2040, W5500, IS31FL3236A, TCA9555 (I/O expandér v Basic/Preferred neexistuje), krystal Y1, USB-C J1, LDO U2 (TLV76133, kvůli stabilitě s keramikou) a polyswitch F1 (Basic/Preferred neobsahuje žádné konektory ani vratné pojistky).
   - Y1: jediný Basic 12 MHz (C9002) má CL 20 pF a ESR 80 Ω, mimo doporučení RP2040 → zůstává ABM8-272-T3 (237 ks skladem, na pár desek stačí).
-  - U2: jediný Basic je AMS1117-3.3 (úbytek ~1,1 V, při USB 4,5 V by byl na hraně) → zůstává LDL1117S33R.
+  - U2: jediný Basic je AMS1117-3.3 (úbytek ~1,1 V, stabilní jen s tantalem) → TLV76133DCYR.
 - **Nahrazeno kvůli poplatku:**
   - EXRES1 12,4k → R20 10k + R36 2,4k v sérii (obě Basic 1 %, součet přesně 12,40k).
   - Sériové 3,3R v TX/RX (R24, R25, R29, R30) → 0R (Basic); W5500 je nepotřebuje, footprint zůstává pro případnou změnu.
   - LED: D2 (napájení) červená KT-0603R (C2286, Basic) z +3V3 přes 1k ≈ 1,4 mA; D3 (stav) žlutá NCD0603Y2 (C89811, Preferred) přes 1k ≈ 1,3 mA. Zelená/modrá 0603 v Basic není.
-  - U1 ESD: SRV05-4 (C7420376, Preferred) místo USBLC6-2SC6, stejné pouzdro SOT-23-6, každá datová linka má dvě diody (1+4 D+, 3+6 D−), VP na VBUS.
+  - U1 ESD: SRV05-4 (C7420376, Preferred) místo USBLC6-2SC6, stejné pouzdro SOT-23-6, každá datová linka má dvě diody (1+4 D+, 3+6 D−), VP na VBUS. Ověřeno v datasheetu Hongjiacheng Rev 2.1: pinout 1 I/O1, 2 GND, 3 I/O2, 4 I/O3, 5 VCC, 6 I/O4; Cj 1 pF typ na kanál → 2 pF na linku (USB FS bez problému; pozor na fóru EEVblog: TVS SM712 se 70 pF USB rozbil); VRWM 5 V, IR max 5 µA.
   - D1 TVS: SMF5.0A od hongjiacheng (C19077497, Preferred), stejné parametry i pouzdro.
   - FB1: Murata BLM18PG121SN1D (C14709, Basic, 0603, 2 A, 50 mΩ, 120 Ω @ 100 MHz). Méně tlumí než 600 Ω, pro napájení LED to stačí.
-- **Ručně pájené, kupují se zvlášť (AliExpress):** J4 RJ45 HR911105A, J5/J6 JST PH 8P SMD (S8B-PH-SM4-TB), tlačítka PB26/TS5, J2/J3. Ušetří to i příplatek za THT osazení RJ45.
+- **Ručně pájené, kupují se zvlášť:** J4 RJ45 HR911105A (koupit originál HanRun z TME/LCSC, ne levnou kopii z AliExpressu: na fóru Arduino je případ, kdy s náhradní „HR911105A“ nešel link), J5/J6 JST PH 8P SMD (S8B-PH-SM4-TB), tlačítka PB26/TS5, J2/J3. Ušetří to i příplatek za THT osazení RJ45.
 - **RN1–RN7:** UNI-ROYAL 4D03WGJ0472T5E (C1980, Basic, 5 %): odpory 1–8, 2–7, 3–6, 4–5, stejně jako symbol R_Pack04.
 - **Footprinty porovnané s EasyEDA** (souřadnice padů): QFN-56, QFN-44, WQFN-24, LQFP-48, SOIC-8, SOT-223, SOT-23-6, krystaly 3225, SOD-123F, 1206, TS-1187A, JST PH, HR911105A, USB-C HRO, RN 0603. Rozměry sedí; rozdíly jsou jen v natočení (pin 1 u EasyEDA dole vlevo) a v počátku u J1, obojí řeší `tools/jlc.py`.
-- V náhledu osazení JLCPCB zkontrolovat polaritu D2/D3 (katoda = pad 1 v KiCadu) a natočení U1 (SRV05-4 od jiného výrobce než ověřený footprint).
+- V náhledu osazení JLCPCB zkontrolovat polaritu D2/D3 (katoda = pad 1 v KiCadu) a natočení U1 a U2 (pin 1 SRV05-4 je podle datasheetu vlevo dole, stejně jako u ověřeného footprintu SOT-23-6).
 
 ## Export pro JLCPCB
 
@@ -70,4 +70,8 @@ Po rozmístění a routování: Gerbery a vrtání z KiCadu (Fabrication Outputs
 - **W5500:** po zapnutí tvrdý reset (RST v nule ≥ 500 µs, pak čekat na PLL ≤ 1 ms), počkat na link (PHYCFGR.LNK), až pak DHCP; DHCP opakovat, při ztrátě linku znovu připojit; volitelně pevná IP. SPI režim 0, začít na ~20 MHz.
 - **I2C sběrnice:** po startu RP2040 provést obnovu sběrnice (9 pulzů SCL, pak STOP), protože TCA9555 nemá reset a po resetu MCU uprostřed přenosu může držet SDA v nule. IS31FL3236A resetuje I2C náběžnou hranou SDB.
 - **TCA9555 INT:** INT se nuluje jen čtením vstupního registru portu, který ho vyvolal (0x00 pro P0, 0x01 pro P1) → při INT číst vždy oba. Přerušení během ACK se může ztratit, proto navíc pomalé pravidelné čtení (např. každých 20 ms) jako záloha. Debounce softwarově.
-- **IS31FL3236A:** PWM 22 kHz (registr 0x4B = 1) kvůli pískání MLCC; po nastavení registrů SDB do 1; celkový proud LED držet pod limitem USB podle měření VSENSE_5V.
+- **RP2040 krystal:** stejný obvod jako Pico (ABM8-272-T3, 2× 15 pF, 1k), přesto v boardu nastavit `PICO_XOSC_STARTUP_DELAY_MULTIPLIER 64` (jako řada desek třetích stran) – nic to nestojí a pokrývá pomalejší náběh při nízké teplotě.
+- **TCA9555 robustnost:** INT obou čipů je spojený → při INT číst všechny 4 vstupní registry (0x20 i 0x21, port 0 i 1). Každých ~1 s zkontrolovat konfigurační registry (0x06/0x07 = 0xFF) a polaritu (0x04/0x05 = 0) a při neshodě přepsat (případ z fóra TI: „zaseknutý“ vstup byl přepsaná konfigurace).
+- **MT6701 SSI:** zarovnání dat v rámci závisí na tom, na které hraně CLK se vzorkuje (knihovna SimpleFOC posouvá data o 1 nebo 2 bity podle platformy, na STM32 to dávalo nesmysly). PIO vzorkovat podle časování z datasheetu a vždy ověřit CRC.
+- **W5500 kontrola linku:** po resetu přečíst VERSIONR (= 0x04, ověří SPI) a PHYCFGR (bit 0 LNK, bit 1 rychlost, bit 2 duplex). Fungující SPI neznamená fungující krystal ani analogovou část – link ukáže jen PHYCFGR.
+- **IS31FL3236A:** po zapnutí je v softwarovém shutdownu (registr 0x00 = 0) → zapsat 0x00 = 0x01; změny PWM/LED registrů se projeví až zápisem 0x00 do 0x25. PWM 22 kHz (registr 0x4B = 1) kvůli pískání MLCC; po nastavení registrů SDB do 1; celkový proud LED držet pod limitem USB podle měření VSENSE_5V.
