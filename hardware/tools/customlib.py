@@ -51,6 +51,35 @@ def box_symbol(name, ref, value, left, right, top=(), bottom=(), width=20.32, fo
             [Sym("symbol"), name + "_1_1"] + pins]
 
 
+def power_symbols():
+    """+5V_LED and +3V3A power-net symbols, cloned from KiCad's power:+5V / power:+3V3."""
+    import copy, os
+    from sexpr import parse, find, findall
+    src = parse(open(os.path.join(os.environ.get("KICAD9_SYMBOL_DIR", "/usr/share/kicad/symbols"), "power.kicad_sym"),
+                     encoding="utf-8").read())
+    base = {x[1]: x for x in findall(src, "symbol")}
+    out = []
+    for new, old in (("+5V_LED", "+5V"), ("+3V3A", "+3V3")):
+        sym = copy.deepcopy(base[old])
+        sym[1] = new
+
+        def walk(node):
+            for i, x in enumerate(node):
+                if isinstance(x, list):
+                    if x and x[0] == "symbol" and isinstance(x[1], str) and x[1].startswith(old + "_"):
+                        x[1] = new + x[1][len(old):]
+                    if x and x[0] == "property" and x[1] == "Value":
+                        x[2] = new
+                    if x and x[0] == "property" and x[1] == "Description":
+                        x[2] = 'Power symbol creates a global label with name "%s"' % new
+                    if x and x[0] == "name" and len(x) > 1 and x[1] == old:
+                        x[1] = new
+                    walk(x)
+        walk(sym)
+        out.append(sym)
+    return out
+
+
 def build():
     syms = []
     # IS31FL3236A, QFN-44 5x5 (pin table from Lumissil datasheet Rev. I)
@@ -82,6 +111,7 @@ def build():
                            [("6", "LED+", "passive"), ("5", "LED-", "passive")],
                            width=10.16, footprint="vrc:TS5-9.2mm-LED",
                            desc="Honyone TS5 9.2x9.2 mm tact switch with LED (hand soldered)"))
+    syms += power_symbols()
     lib = [Sym("kicad_symbol_lib"), [Sym("version"), 20241209], [Sym("generator"), "vrc_customlib"],
            [Sym("generator_version"), "9.0"]] + syms
     return lib

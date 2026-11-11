@@ -11,3 +11,5 @@ firmware/build/
 # KiCad generated outputs
 hardware/build/
 hardware/*.rpt
+__pycache__/
+hardware/build/

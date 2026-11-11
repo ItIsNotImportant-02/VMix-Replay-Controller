@@ -4,28 +4,21 @@ Podle [SPEC-v1](../docs/SPEC-v1.md) a layoutu [v0.5](../docs/layout/panel-layout
 
 ## Jak se schéma vyrábí
 
-Schéma není kreslené ručně. Popis zapojení je v Pythonu ([tools/circuit.py](tools/circuit.py)) a skript [tools/gen.py](tools/gen.py) z něj vygeneruje KiCad 9 soubory (`*.kicad_sch`), knihovnu `lib/vrc.kicad_sym` a `PINMAP.md`. Každý pin má krátký vývod s globálním labelem nebo napájecím symbolem, takže se schéma dá číst i kontrolovat v KiCadu (ERC).
+Schéma je jedna stránka A2 rozdělená do orámovaných bloků (napájení, MCU, Ethernet, flash, LED budiče, expandéry, tlačítka, senzory, ladění). Bloky mezi sebou propojují lokální labely se stejným jménem, napájení napájecí symboly.
 
-Proč takto: změna (např. přehození tlačítka na jiný kanál kvůli routování) je jeden řádek, všechny listy i tabulky se přegenerují a nic se nezapomene. Ruční úpravy v KiCadu by se při dalším generování přepsaly, proto se mění `circuit.py`.
+Schéma se nekreslí ručně. Zapojení (kdo je s kým spojený) je v [tools/circuit.py](tools/circuit.py), rozmístění bloků a kreslení v [tools/layout.py](tools/layout.py). Skript [tools/gen.py](tools/gen.py) z toho vygeneruje `vmix-replay-controller.kicad_sch`, knihovnu `lib/vrc.kicad_sym` a `PINMAP.md`. [tools/verify.py](tools/verify.py) pak vyexportuje netlist z hotového schématu a porovná ho s `circuit.py`, takže se nestane, že by nakreslené dráty spojily něco jiného, než je v popisu.
 
-Spuštění (KiCad 9 v Dockeru, stejně jako v cloudu):
+Proč takto: změna (např. přehození tlačítka na jiný kanál kvůli routování) je jeden řádek, schéma i tabulky se přegenerují a kontrola ověří, že nic nechybí. Ruční úpravy v KiCadu by se při dalším generování přepsaly, proto se mění `circuit.py` / `layout.py`.
+
+Spuštění (KiCad 9 v Dockeru):
 
 ```
 docker run --rm -u $(id -u) -v $PWD/hardware:/hw -w /hw kicad/kicad:9.0 python3 tools/gen.py
+docker run --rm -u $(id -u) -v $PWD/hardware:/hw -w /hw kicad/kicad:9.0 python3 tools/verify.py
 docker run --rm -u $(id -u) -v $PWD/hardware:/hw -w /hw kicad/kicad:9.0 kicad-cli sch erc vmix-replay-controller.kicad_sch
 ```
 
-## Bloky
-
-| List | Obsah |
-|---|---|
-| Power and USB | USB-C (HRO TYPE-C-31-M-12), 2× 5,1k na CC, ESD USBLC6-2SC6, 27R v D+/D−, polyswitch 0,75 A, TVS 5 V, ferit → `+5V_LED`, LDO LDL1117S33R (SOT-223) → `+3V3`, dělič 5 V do ADC, testovací body |
-| MCU | RP2040, 16 MB flash W25Q128JV, krystal 12 MHz, BOOTSEL a RESET, stavová LED, debug konektor (SWD + UART), rozšiřující konektor 2×8 |
-| Ethernet | W5500 + RJ45 HR911105A s magnetikou, analogová část podle reference WIZnet, `+3V3A` přes ferit |
-| LED drivers | 2× IS31FL3236A (QFN-44), VCC = 5 V, R_EXT 3,9k (max 19,5 mA/kanál), I2C pull-upy 2,2k na 3,3 V |
-| Buttons | 18× PB26-13M RGB, 10× TS5 (ruční pájení) |
-| Inputs | 2× TCA9555 (0x20, 0x21), společné INT |
-| Sensors | 2× JST-PH 8pin pro destičky s MT6701 (páka, jog), sériové 33R, pull-upy 10k, RC filtr na analogový výstup |
+Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmístěná podle starého hierarchického schématu. Před routováním se v KiCadu udělá *Update PCB from Schematic* (párování podle referencí).
 
 ## Rozhodnutí v návrhu
 

@@ -27,14 +27,14 @@ def parse(text):
             cur.append(done)
         elif m.group(3) is not None:
             s = m.group(3)[1:-1]
-            cur.append(s.replace('\\"', '"').replace("\\\\", "\\"))
+            cur.append(s.replace('\\"', '"').replace("\\n", "\n").replace("\\\\", "\\"))
         else:
             cur.append(Sym(m.group(4)))
     return cur[0] if len(cur) == 1 else cur
 
 
 def q(s):
-    return '"' + str(s).replace("\\", "\\\\").replace('"', '\\"') + '"'
+    return '"' + str(s).replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n") + '"'
 
 
 def fmt_num(v):

@@ -11,10 +11,13 @@ customlib.write(LIB)
 import footprints
 footprints.write(os.path.join(HW, "lib", "vrc.pretty"))
 libs = schgen.SymbolLibs(extra_libs={"vrc": LIB})
-prj = schgen.Project("vmix-replay-controller", libs, paper="A3", title="vMix Replay Controller", rev="1.0")
-circuit.build(prj)
-prj.write(HW)
-print("ok")
+import layout
+d, _ = layout.build(libs, "vMix Replay Controller - hlavní deska", "1.1", "2026-11-11")
+d.write(os.path.join(HW, "vmix-replay-controller.kicad_sch"))
+missing = d.check_all_done()
+if missing or d.pin_on_wire:
+    sys.exit("unhandled pins: %s / pins lying on wires: %s" % (missing, d.pin_on_wire))
+print("schematic ok")
 
 # ---- PINMAP.md (generated tables for firmware) ----------------------------
 import re
