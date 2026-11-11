@@ -41,4 +41,4 @@ Rozhodnuto 11. 11. 2026: řada F1–F10 (banky / klipy) použije 10 ks TS5, kter
 - 6 vývodů: 1–4 spínač (tact, SPST), 6 = LED +, 5 = LED −, rozteč 5,08 mm.
 - LED bez vestavěného rezistoru, jednobarevná žlutá → jeden kanál budiče na klávesu.
 - Zdvih jen cca 0,5 mm (membránový pocit), jiný pocit než PB26.
-- Celkem LED kanálů: 15 × 3 (PB26 RGB) + 10 (TS5) = 55 → stačí 2× IS31FL3236A (72 kanálů).
+- Celkem LED kanálů (layout v0.4): 18 × 3 (PB26 RGB, z 20 ks, 2 rezerva) + 10 (TS5) = 64 → stačí 2× IS31FL3236A (72 kanálů).
