@@ -137,10 +137,11 @@ def build(prj):
     s.add(C("C%d" % n, "100nF", "+1V1")); n += 1              # DVDD
     s.add(C("C%d" % n, "10uF", "+3V3")); n += 1               # bulk
     s.add(Part("Y1", "Device:Crystal_GND24", "12MHz", "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
-               pins={"1": "XIN", "3": "XTAL_OUT", "2": "GND", "4": "GND"}, lcsc="C9002", mpn="X322512MSB4SI (CL 20 pF)"))
+               pins={"1": "XIN", "3": "XTAL_OUT", "2": "GND", "4": "GND"}, lcsc="C20625731", mpn="ABM8-272-T3",
+               desc="12 MHz, CL 10 pF, ESR 50R, +-30 ppm; krystal doporučený v Hardware design with RP2040"))
     s.add(R("R10", "1k", "XOUT", "XTAL_OUT"))
-    s.add(C("C%d" % n, "27pF", "XIN")); n += 1      # CL 20 pF crystal
-    s.add(C("C%d" % n, "27pF", "XTAL_OUT")); n += 1
+    s.add(C("C%d" % n, "15pF", "XIN")); n += 1      # CL 10 pF: 15/2 + ~3 pF parazitní = 10,5 pF (C0G)
+    s.add(C("C%d" % n, "15pF", "XTAL_OUT")); n += 1
     s.add(Part("U4", "Memory_Flash:W25Q128JVS", "W25Q128JVSIQ", "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm",
                pins={"1": "QSPI_SS", "2": "QSPI_SD1", "3": "QSPI_SD2", "4": "GND", "5": "QSPI_SD0",
                      "6": "QSPI_SCLK", "7": "QSPI_SD3", "8": "+3V3"}, lcsc="C97521"))
@@ -151,7 +152,7 @@ def build(prj):
     s.add(R("R12", "10k", "+3V3", "RUN"))
     s.add(Part("SW2", "Switch:SW_Push", "RESET", "Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A",
                pins={"1": "RUN", "2": "GND"}, lcsc="C318884"))
-    s.add(R("R13", "1k", "STATUS_LED", "STATUS_LED_A"))
+    s.add(R("R13", "220R", "STATUS_LED", "STATUS_LED_A"))   # modrá Vf ~2,9 V -> ~2 mA
     s.add(Part("D3", "Device:LED", "blue", LED0603, pins={"A": "STATUS_LED_A", "K": "GND"}, lcsc="?"))
     s.add(Part("J2", "Connector_Generic:Conn_01x07", "DEBUG", "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical",
                pins={"1": "+3V3", "2": "SWCLK", "3": "SWDIO", "4": "GND", "5": "RUN", "6": "UART_TX", "7": "UART_RX"},

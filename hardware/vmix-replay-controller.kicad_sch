@@ -16580,7 +16580,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "12 MHz, CL 10 pF, ESR 50R, +-30 ppm; krystal doporučený v Hardware design with RP2040"
 			(at 233.68 157.48 0)
 			(effects
 				(font
@@ -16589,7 +16589,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C9002"
+		(property "LCSC" "C20625731"
 			(at 233.68 157.48 0)
 			(effects
 				(font
@@ -16598,7 +16598,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "X322512MSB4SI (CL 20 pF)"
+		(property "MPN" "ABM8-272-T3"
 			(at 233.68 157.48 0)
 			(effects
 				(font
@@ -16722,7 +16722,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "27pF"
+		(property "Value" "15pF"
 			(at 226.79 165.43 0)
 			(effects
 				(font
@@ -16856,7 +16856,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "27pF"
+		(property "Value" "15pF"
 			(at 244.57 165.43 0)
 			(effects
 				(font
@@ -24540,7 +24540,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "220R"
 			(at 154.94 155.3 90)
 			(effects
 				(font
@@ -24584,7 +24584,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C21190"
+		(property "LCSC" "?"
 			(at 154.94 152.4 0)
 			(effects
 				(font

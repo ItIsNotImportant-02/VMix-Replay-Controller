@@ -26,6 +26,7 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 - **IS31FL3236A na 5 V:** výstupy OUTx snesou max. VCC + 0,3 V. Anody LED jsou na 5 V (modrá a zelená potřebují až 3,6 V), takže VCC budiče musí být 5 V. Logické vstupy mají pevné prahy (VIH 1,4 V), I2C na 3,3 V tedy funguje.
 - **Senzory:** MT6701 má piny 6/7/8 sdílené mezi ABZ, SSI a I2C a pin MODE volí ABZ nebo I2C/SSI. MODE proto řídí MCU, aby šlo jog jednou naprogramovat přes I2C (rozlišení ABZ v EEPROM) a pak číst ABZ, a páku číst přes SSI. Analogový/PWM výstup jde do ADC jako záloha. Destičky senzorů jsou samostatný malý projekt (bude v `hardware/sensor-board/`).
 - **Debug bez prototypu:** SWD + UART konektor, testovací body na všech napájeních a na I2C/INT/SDB, rezervní GPIO (GP10, 11, 22, 23, 24, 28) a 4 volné vstupy expandéru na konektoru J3 spolu s I2C (např. pro OLED později).
+- **Krystal RP2040:** Abracon ABM8-272-T3 (12 MHz, CL 10 pF, ESR max. 50 Ω, LCSC C20625731, Extended) s 2× 15 pF C0G a 1 kΩ v sérii z XOUT, přesně podle *Hardware design with RP2040*. Oscilátor RP2040 je slabý, krystal s CL 20 pF by se rozkmitával hůř; 1 kΩ chrání krystal před přebuzením při IOVDD 3,3 V.
 - **Firmware kompatibilita:** W5500 na stejných pinech jako WIZnet W5500-EVB-Pico (SPI0, GP16–21), takže jdou použít jejich knihovny beze změn.
 
 ## Co je ještě potřeba ověřit před objednávkou
@@ -34,5 +35,5 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 2. **Footprint QFN-44 5×5 pro IS31FL3236A**: podle výkresu z datasheetu.
 3. **LCSC čísla** označená `?` v `circuit.py` (pasivní součástky, krystaly, LDO, polyswitch, TVS, ferity, JST): doplnit a zkontrolovat skladovost a Basic/Extended.
 4. **W5500 TOCAP a 1V2O**: podle datasheetu TOCAP 4,7 µF, 1V2O 10 nF (některé moduly mají opačně), ověřit v aktuálním datasheetu.
-5. **Zátěžové kondenzátory krystalů**: 12 MHz X322512MSB4SI má CL 20 pF (27 pF), 25 MHz X322525MOB4SI má CL 12 pF (15 pF). Ověřit, že RP2040 rozkmitá krystal s CL 20 pF (alternativa: 12 MHz s CL 10 pF a 15 pF).
+5. **Krystal W5500**: 25 MHz X322525MOB4SI má CL 12 pF (15 pF), ověřit proti datasheetu W5500 (projde se u bloku 4).
 6. **Polarita pinu MODE u MT6701** (datasheet ji v textu neuvádí); deska to řeší tím, že MODE řídí MCU.
