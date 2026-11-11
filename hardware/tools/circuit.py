@@ -15,17 +15,19 @@ TP = "TestPoint:TestPoint_Pad_D1.5mm"
 
 # --- LCSC numbers (JLCPCB). "?" = still to be verified before ordering -------
 LCSC_R = {"10k": "C25804", "1k": "C21190", "5.1k": "C23186", "100k": "C25803", "2.2k": "C4190",
-          "4.7k": "C23162", "27R": "?", "33R": "?", "49.9R 1%": "?", "12.4k 1%": "?", "3.9k 1%": "?", "4.7k 1%": "?",
-          "1M": "?", "10R": "?"}
-LCSC_C = {"100nF": "C14663", "1uF": "C15849", "10uF": "C15850", "4.7uF": "?", "10nF": "?", "22nF": "?",
-          "6.8nF": "?", "15pF": "?", "27pF": "?"}
+          "4.7k": "C23162", "4.7k 1%": "C23162", "27R": "C25190", "33R": "C23140", "49.9R 1%": "C23185",
+          "12.4k 1%": "C22865", "1M": "C22935", "10R": "C22859", "3.3R": "C2930016", "220R": "C22962",
+          "330R": "C23138"}
+# all 0603 resistors above are 1 % thick film (UNI-ROYAL 0603WAF / FOJAN FRC0603F), verified on JLCPCB 2026-11-11
+LCSC_C = {"100nF": "C14663", "1uF": "C15849", "10uF": "C15850", "4.7uF": "C19666", "10nF": "C57112",
+          "22nF": "C21122", "6.8nF": "C1631", "15pF": "C1644", "18pF": "C1647"}
 
 _n = {"R": 0, "C": 0}
 
 
 def R(ref, value, a, b, fp=R0603):
     return Part(ref, "Device:R", value.split(" ")[0], fp, pins={"1": a, "2": b},
-                lcsc=LCSC_R.get(value, "?"), fields={"Tolerance": "1%" if "1%" in value else "5%"} if True else None)
+                lcsc=LCSC_R.get(value, "?"), fields={"Tolerance": "1%"})
 
 
 def C(ref, value, a, b="GND", fp=None):
@@ -100,8 +102,9 @@ def build(prj):
                desc="LDO 3.3 V 1.2 A, low dropout (ST LDL1117), Cout >= 4.7 uF"))
     s.add(C("C6", "10uF", "+3V3"))
     s.add(C("C7", "100nF", "+3V3"))
-    s.add(R("R5", "1k", "+3V3", "PWR_LED_A"))
-    s.add(Part("D2", "Device:LED", "green", LED0603, pins={"A": "PWR_LED_A", "K": "GND"}, lcsc="?"))
+    s.add(R("R5", "1k", "+5V", "PWR_LED_A"))   # zelená InGaN Vf ~2,8 V: z 3,3 V by svítila nejistě, z 5 V ~2 mA
+    s.add(Part("D2", "Device:LED", "green", LED0603, pins={"A": "PWR_LED_A", "K": "GND"}, lcsc="C965804",
+               mpn="XL-1608UGC-04"))
     s.add(R("R6", "10k", "+5V", "VSENSE_5V"))
     s.add(R("R7", "10k", "VSENSE_5V", "GND"))
     s.add(C("C8", "100nF", "VSENSE_5V"))
@@ -155,7 +158,8 @@ def build(prj):
     s.add(Part("SW2", "Switch:SW_Push", "RESET", "Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A",
                pins={"1": "RUN", "2": "GND"}, lcsc="C318884"))
     s.add(R("R13", "220R", "STATUS_LED", "STATUS_LED_A"))   # modrá Vf ~2,9 V -> ~2 mA
-    s.add(Part("D3", "Device:LED", "blue", LED0603, pins={"A": "STATUS_LED_A", "K": "GND"}, lcsc="?"))
+    s.add(Part("D3", "Device:LED", "blue", LED0603, pins={"A": "STATUS_LED_A", "K": "GND"}, lcsc="C965807",
+               mpn="XL-1608UBC-04"))
     s.add(Part("J2", "Connector_Generic:Conn_01x07", "DEBUG", "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical",
                pins={"1": "+3V3", "2": "SWCLK", "3": "SWDIO", "4": "GND", "5": "RUN", "6": "UART_TX", "7": "UART_RX"},
                in_bom=False, desc="SWD + UART debug header (osadit ručně jen při ladění)"))
@@ -284,7 +288,7 @@ def build(prj):
         pins = {str(k + 1): "BTN_%s" % nm for k, nm in enumerate(names)}
         pins.update({"5": "+3V3", "6": "+3V3", "7": "+3V3", "8": "+3V3"})
         s.add(Part("RN%d" % (i + 1), "Device:R_Pack04", "4.7k", "Resistor_SMD:R_Array_Convex_4x0603",
-                   pins=pins, lcsc="?", desc="4x 4,7k pull-up, convex 4x0603"))
+                   pins=pins, lcsc="C1980", mpn="4D03WGJ0472T5E", desc="4x 4,7k pull-up, convex 4x0603, 5 %"))
 
     # ======================================================================
     s = prj.sheet("Sensors", "sensors.kicad_sch", "Konektory páky a jogu (MT6701)")

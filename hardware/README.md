@@ -4,5 +4,5 @@ Hlavní deska ovladače. Popis návrhu a otevřené body: [DESIGN.md](DESIGN.md)
 
 - `vmix-replay-controller.kicad_pro` a `vmix-replay-controller.kicad_sch`: projekt a jednostránkové blokové schéma (generované z `tools/circuit.py` + `tools/layout.py`, needitovat ručně)
 - `lib/`: vlastní symboly a footprinty (PB26, TS5, IS31FL3236A QFN-44)
-- `tools/`: generátor schématu a footprintů (`gen.py`) a kontrola netlistu (`verify.py`)
+- `tools/`: generátor schématu a footprintů (`gen.py`), kontrola netlistu (`verify.py`), rozmístění desky ze schématu (`pcb.py`) a export BOM + CPL pro JLCPCB (`jlc.py`)
 - `production/`: výrobní data pro JLCPCB (Gerber, BOM, CPL), doplní se po návrhu desky

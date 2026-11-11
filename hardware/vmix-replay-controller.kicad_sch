@@ -12079,7 +12079,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 71.12 35.56 0)
 			(effects
 				(font
@@ -12232,7 +12232,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 81.28 35.56 0)
 			(effects
 				(font
@@ -12625,7 +12625,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 124.46 91.44 0)
 			(effects
 				(font
@@ -12634,7 +12634,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C25190"
 			(at 124.46 91.44 0)
 			(effects
 				(font
@@ -12730,7 +12730,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 124.46 101.6 0)
 			(effects
 				(font
@@ -12739,7 +12739,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C25190"
 			(at 124.46 101.6 0)
 			(effects
 				(font
@@ -13906,7 +13906,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 167.64 68.58 0)
 			(effects
 				(font
@@ -13940,7 +13940,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3V3")
+		(lib_id "power:+5V")
 		(at 167.64 64.77 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13957,7 +13957,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+5V"
 			(at 167.64 61.21 0)
 			(effects
 				(font
@@ -14049,7 +14049,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C965804"
+			(at 167.64 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "XL-1608UGC-04"
 			(at 167.64 83.82 0)
 			(effects
 				(font
@@ -14183,7 +14192,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 180.34 68.58 0)
 			(effects
 				(font
@@ -14326,7 +14335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 180.34 86.36 0)
 			(effects
 				(font
@@ -16869,7 +16878,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 233.68 139.7 0)
 			(effects
 				(font
@@ -17145,7 +17154,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1644"
 			(at 224.79 163.83 0)
 			(effects
 				(font
@@ -17279,7 +17288,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1644"
 			(at 242.57 163.83 0)
 			(effects
 				(font
@@ -19880,7 +19889,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 518.16 35.56 0)
 			(effects
 				(font
@@ -20033,7 +20042,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 525.78 35.56 0)
 			(effects
 				(font
@@ -20186,7 +20195,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 533.4 35.56 0)
 			(effects
 				(font
@@ -20348,7 +20357,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C22865"
 			(at 543.56 35.56 0)
 			(effects
 				(font
@@ -20492,7 +20501,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C19666"
 			(at 553.72 35.56 0)
 			(effects
 				(font
@@ -20636,7 +20645,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C57112"
 			(at 566.42 35.56 0)
 			(effects
 				(font
@@ -21554,7 +21563,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 500.38 73.66 0)
 			(effects
 				(font
@@ -21563,7 +21572,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C2930016"
 			(at 500.38 73.66 0)
 			(effects
 				(font
@@ -21659,7 +21668,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 500.38 82.55 0)
 			(effects
 				(font
@@ -21668,7 +21677,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C2930016"
 			(at 500.38 82.55 0)
 			(effects
 				(font
@@ -21764,7 +21773,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 500.38 91.44 0)
 			(effects
 				(font
@@ -21773,7 +21782,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C2930016"
 			(at 500.38 91.44 0)
 			(effects
 				(font
@@ -21869,7 +21878,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 500.38 100.33 0)
 			(effects
 				(font
@@ -21878,7 +21887,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C2930016"
 			(at 500.38 100.33 0)
 			(effects
 				(font
@@ -21974,7 +21983,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 500.38 109.22 0)
 			(effects
 				(font
@@ -21983,7 +21992,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23138"
 			(at 500.38 109.22 0)
 			(effects
 				(font
@@ -22079,7 +22088,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 500.38 118.11 0)
 			(effects
 				(font
@@ -22088,7 +22097,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23138"
 			(at 500.38 118.11 0)
 			(effects
 				(font
@@ -22193,7 +22202,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23185"
 			(at 538.48 68.58 0)
 			(effects
 				(font
@@ -22288,7 +22297,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23185"
 			(at 538.48 76.2 0)
 			(effects
 				(font
@@ -22439,7 +22448,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23185"
 			(at 538.48 86.36 0)
 			(effects
 				(font
@@ -22534,7 +22543,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23185"
 			(at 538.48 93.98 0)
 			(effects
 				(font
@@ -22630,7 +22639,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1631"
 			(at 538.48 104.14 0)
 			(effects
 				(font
@@ -22726,7 +22735,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1631"
 			(at 538.48 111.76 0)
 			(effects
 				(font
@@ -22822,7 +22831,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 538.48 121.92 0)
 			(effects
 				(font
@@ -22831,7 +22840,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C22859"
 			(at 538.48 121.92 0)
 			(effects
 				(font
@@ -22975,7 +22984,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C21122"
 			(at 544.83 128.27 0)
 			(effects
 				(font
@@ -23109,7 +23118,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C57112"
 			(at 566.42 127 0)
 			(effects
 				(font
@@ -23837,7 +23846,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1647"
 			(at 420.37 166.37 0)
 			(effects
 				(font
@@ -23971,7 +23980,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1647"
 			(at 438.15 166.37 0)
 			(effects
 				(font
@@ -24103,7 +24112,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 429.26 149.86 0)
 			(effects
 				(font
@@ -24112,7 +24121,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C22935"
 			(at 429.26 149.86 0)
 			(effects
 				(font
@@ -24671,7 +24680,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 99.06 152.4 0)
 			(effects
 				(font
@@ -24902,7 +24911,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 99.06 177.8 0)
 			(effects
 				(font
@@ -25193,7 +25202,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 154.94 152.4 0)
 			(effects
 				(font
@@ -25202,7 +25211,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C22962"
 			(at 154.94 152.4 0)
 			(effects
 				(font
@@ -25288,7 +25297,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C965807"
+			(at 172.72 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "XL-1608UBC-04"
 			(at 172.72 152.4 0)
 			(effects
 				(font
@@ -25893,7 +25911,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23162"
 			(at 229.87 236.22 0)
 			(effects
 				(font
@@ -27072,7 +27090,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23162"
 			(at 326.39 236.22 0)
 			(effects
 				(font
@@ -27804,7 +27822,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 378.46 289.56 0)
 			(effects
 				(font
@@ -27957,7 +27975,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 388.62 289.56 0)
 			(effects
 				(font
@@ -28110,7 +28128,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 398.78 289.56 0)
 			(effects
 				(font
@@ -30183,7 +30201,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 571.5 218.44 0)
 			(effects
 				(font
@@ -30325,7 +30343,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "4x 4,7k pull-up, convex 4x0603"
+		(property "Description" "4x 4,7k pull-up, convex 4x0603, 5 %"
 			(at 472.44 288.29 0)
 			(effects
 				(font
@@ -30334,7 +30352,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1980"
+			(at 472.44 288.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "4D03WGJ0472T5E"
 			(at 472.44 288.29 0)
 			(effects
 				(font
@@ -30533,7 +30560,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "4x 4,7k pull-up, convex 4x0603"
+		(property "Description" "4x 4,7k pull-up, convex 4x0603, 5 %"
 			(at 472.44 300.99 0)
 			(effects
 				(font
@@ -30542,7 +30569,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1980"
+			(at 472.44 300.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "4D03WGJ0472T5E"
 			(at 472.44 300.99 0)
 			(effects
 				(font
@@ -30741,7 +30777,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "4x 4,7k pull-up, convex 4x0603"
+		(property "Description" "4x 4,7k pull-up, convex 4x0603, 5 %"
 			(at 505.46 288.29 0)
 			(effects
 				(font
@@ -30750,7 +30786,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1980"
+			(at 505.46 288.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "4D03WGJ0472T5E"
 			(at 505.46 288.29 0)
 			(effects
 				(font
@@ -30949,7 +30994,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "4x 4,7k pull-up, convex 4x0603"
+		(property "Description" "4x 4,7k pull-up, convex 4x0603, 5 %"
 			(at 505.46 300.99 0)
 			(effects
 				(font
@@ -30958,7 +31003,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1980"
+			(at 505.46 300.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "4D03WGJ0472T5E"
 			(at 505.46 300.99 0)
 			(effects
 				(font
@@ -31157,7 +31211,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "4x 4,7k pull-up, convex 4x0603"
+		(property "Description" "4x 4,7k pull-up, convex 4x0603, 5 %"
 			(at 538.48 288.29 0)
 			(effects
 				(font
@@ -31166,7 +31220,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1980"
+			(at 538.48 288.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "4D03WGJ0472T5E"
 			(at 538.48 288.29 0)
 			(effects
 				(font
@@ -31365,7 +31428,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "4x 4,7k pull-up, convex 4x0603"
+		(property "Description" "4x 4,7k pull-up, convex 4x0603, 5 %"
 			(at 538.48 300.99 0)
 			(effects
 				(font
@@ -31374,7 +31437,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1980"
+			(at 538.48 300.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "4D03WGJ0472T5E"
 			(at 538.48 300.99 0)
 			(effects
 				(font
@@ -31573,7 +31645,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "4x 4,7k pull-up, convex 4x0603"
+		(property "Description" "4x 4,7k pull-up, convex 4x0603, 5 %"
 			(at 571.5 288.29 0)
 			(effects
 				(font
@@ -31582,7 +31654,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C1980"
+			(at 571.5 288.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "4D03WGJ0472T5E"
 			(at 571.5 288.29 0)
 			(effects
 				(font
@@ -39358,7 +39439,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 220.98 0)
 			(effects
 				(font
@@ -39367,7 +39448,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23140"
 			(at 139.7 220.98 0)
 			(effects
 				(font
@@ -39463,7 +39544,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 228.6 0)
 			(effects
 				(font
@@ -39472,7 +39553,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23140"
 			(at 139.7 228.6 0)
 			(effects
 				(font
@@ -39568,7 +39649,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 236.22 0)
 			(effects
 				(font
@@ -39577,7 +39658,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23140"
 			(at 139.7 236.22 0)
 			(effects
 				(font
@@ -39673,7 +39754,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 243.84 0)
 			(effects
 				(font
@@ -39682,7 +39763,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23140"
 			(at 139.7 243.84 0)
 			(effects
 				(font
@@ -39778,7 +39859,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 251.46 0)
 			(effects
 				(font
@@ -40075,7 +40156,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 35.56 236.22 0)
 			(effects
 				(font
@@ -40228,7 +40309,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 45.72 236.22 0)
 			(effects
 				(font
@@ -40381,7 +40462,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 55.88 236.22 0)
 			(effects
 				(font
@@ -40534,7 +40615,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C57112"
 			(at 71.12 236.22 0)
 			(effects
 				(font
@@ -41058,7 +41139,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 271.78 0)
 			(effects
 				(font
@@ -41067,7 +41148,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23140"
 			(at 139.7 271.78 0)
 			(effects
 				(font
@@ -41163,7 +41244,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 279.4 0)
 			(effects
 				(font
@@ -41172,7 +41253,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23140"
 			(at 139.7 279.4 0)
 			(effects
 				(font
@@ -41268,7 +41349,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 287.02 0)
 			(effects
 				(font
@@ -41277,7 +41358,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23140"
 			(at 139.7 287.02 0)
 			(effects
 				(font
@@ -41373,7 +41454,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 294.64 0)
 			(effects
 				(font
@@ -41382,7 +41463,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C23140"
 			(at 139.7 294.64 0)
 			(effects
 				(font
@@ -41478,7 +41559,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 139.7 302.26 0)
 			(effects
 				(font
@@ -41775,7 +41856,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 35.56 287.02 0)
 			(effects
 				(font
@@ -41928,7 +42009,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 45.72 287.02 0)
 			(effects
 				(font
@@ -42081,7 +42162,7 @@
 				(hide yes)
 			)
 		)
-		(property "Tolerance" "5%"
+		(property "Tolerance" "1%"
 			(at 55.88 287.02 0)
 			(effects
 				(font
@@ -42234,7 +42315,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "?"
+		(property "LCSC" "C57112"
 			(at 71.12 287.02 0)
 			(effects
 				(font

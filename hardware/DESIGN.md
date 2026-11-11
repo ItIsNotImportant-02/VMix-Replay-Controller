@@ -36,11 +36,25 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 - **Metalová tlačítka na panelu:** PB26 mají kovové pouzdro. Kovový čelní panel spojit se zemí desky (šrouby/distanční sloupky na GND), aby výboj z prstu šel do země a ne do vstupů expandérů (ty mají jen ±2 kV HBM).
 - **Firmware kompatibilita:** W5500 na stejných pinech jako WIZnet W5500-EVB-Pico (SPI0, GP16–21), takže jdou použít jejich knihovny beze změn.
 
+## Díly JLCPCB (ověřeno 11. 11. 2026 přes API JLCPCB)
+
+- Všech 130 osazovaných dílů má LCSC číslo, všechny jsou skladem. Odpory 0603 jsou 1 % (UNI-ROYAL 0603WAF, Basic). Bez Basic varianty: 27R (C25190, Preferred, bez poplatku), 12,4k (C22865) a 3,3R (C2930016, FOJAN). Kondenzátory Samsung/Fenghua/Yageo, všechny Basic.
+- Extended dílů je 17 (JLC účtuje za každý typ poplatek za založení, u Economic PCBA cca 3 USD).
+- Málo skladem: krystal Y1 ABM8-272-T3 (C20625731, 237 ks; na pár desek stačí, náhrada se stejnými parametry 12 MHz / CL 10 pF / ESR ≤ 50 Ω), IS31FL3236A (5 850 ks), MH3261-601Y (8 373 ks).
+- **LED D2/D3:** XINGLIGHT XL-1608UGC-04 / XL-1608UBC-04 (Basic 0603 LED už JLC nemá skladem). Katoda = pad 1 (datasheet str. 7, symbol EasyEDA K = 1), sedí s KiCadem. Vf zelené při 2 mA ~2,6 V, proto D2 napájená z +5V přes 1k (~2,4 mA); z 3,3 V by svítila nejistě. D3 z GPIO přes 220R ~2–3 mA. Max. trvalý proud 20 mA.
+- **RN1–RN7:** UNI-ROYAL 4D03WGJ0472T5E (C1980, Basic, 5 %): odpory 1–8, 2–7, 3–6, 4–5, stejně jako symbol R_Pack04.
+- **Footprinty porovnané s EasyEDA** (souřadnice padů): QFN-56, QFN-44, WQFN-24, LQFP-48, SOIC-8, SOT-223, SOT-23-6, krystaly 3225, SOD-123F, 1206, TS-1187A, JST PH, HR911105A, USB-C HRO, LED a RN 0603. Rozměry sedí; rozdíly jsou jen v natočení (pin 1 u EasyEDA dole vlevo) a v počátku u J1/J4, obojí řeší `tools/jlc.py`. JST PH: montážní pady KiCad ±9,35 mm, EasyEDA ±9,85 mm, překryv 1 mm, ponechán KiCad (generovaný z výkresu JST).
+- J1 (USB-C) a J4 (RJ45) mají THT vývody: JLC je zapájí jako THT (příplatek). Tlačítka PB26/TS5 a konektory J2/J3 nejsou v BOM, pájí se ručně.
+
+## Export pro JLCPCB
+
+Po rozmístění a routování: Gerbery a vrtání z KiCadu (Fabrication Outputs, nebo `kicad-cli pcb export gerbers/drill`), pak `python3 tools/jlc.py` → `build/jlc/BOM-JLCPCB.csv` a `CPL-JLCPCB.csv`. Skript nepotřebuje KiCad, čte přímo `.kicad_pcb`, a skončí chybou, pokud nějaký osazovaný díl nemá LCSC číslo.
+
 ## Co je ještě potřeba ověřit před objednávkou
 
 1. **Footprinty PB26-13M a TS5** (vlastní, `lib/vrc.pretty`): rozteče vývodů podle popisu prodejce, ověří se vytištěním 1:1 a přiložením skutečného tlačítka.
-3. **LCSC čísla** označená `?` v `circuit.py` (pasivní součástky, krystaly, LDO, polyswitch, TVS, ferity, JST): doplnit a zkontrolovat skladovost a Basic/Extended.
-6. **Polarita pinu MODE u MT6701** (datasheet ji v textu neuvádí); deska to řeší tím, že MODE řídí MCU.
+2. **Náhled osazení v JLCPCB** před zaplacením: zkontrolovat hlavně U5–U9, U2, U4, U1, RN1–RN7, J1 a J4 (opravy rotace a počátku jsou v `tools/jlc.py`, odvozené z footprintů EasyEDA, ale náhled je poslední kontrola).
+3. **Polarita pinu MODE u MT6701** (datasheet ji v textu neuvádí); deska to řeší tím, že MODE řídí MCU.
 
 ## Poznámky pro firmware (z datasheetů)
 
