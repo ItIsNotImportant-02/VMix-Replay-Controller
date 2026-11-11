@@ -1,6 +1,6 @@
 # Specifikace v1: vMix Replay Controller (EVS-like)
 
-Stav: **návrh ke schválení** (krok 2.6). Po schválení se podle ní kreslí schéma.
+Stav: **schváleno 11. 11. 2026** (krok 2.6). Podle ní se kreslí schéma.
 
 ## 1. Panel
 
