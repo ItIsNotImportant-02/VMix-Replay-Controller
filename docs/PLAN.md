@@ -30,9 +30,13 @@ Hardware, firmware, vMix a mechanika běží po rozhodnutí o architektuře **pa
 
 ## Rozhodnuto (11. 11. 2026)
 
-- **15 RGB tlačítek** PB26-13M (viz [hardware/buttons-PB26-13M-RGB.md](hardware/buttons-PB26-13M-RGB.md)).
+- **Zhruba 15 RGB tlačítek** PB26-13M, přesný počet určí layout (viz [hardware/buttons-PB26-13M-RGB.md](hardware/buttons-PB26-13M-RGB.md)).
 - **Páka bez motoru**, se snímačem polohy. Navržený snímač: bezkontaktní magnetický snímač úhlu (např. AS5600) na čepu páky, bez opotřebení. Kalibrace jako u EVS: po zapnutí sjet pákou dolů a nahoru, firmware si zapamatuje rozsah. Poslední kalibrace se uloží do flash jako záloha, kdyby se krok vynechal.
 - **Napájení z USB-C 5 V**, žádných 230 V uvnitř krabičky. Odhad spotřeby: 15 × 3 × ~8 mA ≈ 0,36 A pro LED, celkem pod 0,5 A, takže stačí běžný USB port.
+
+## Výsledky Deep Research #1
+
+Shrnutí a návrh architektury: [research/DR1-summary.md](research/DR1-summary.md). Navrženo: RP2040/RP2350 + Ethernet (W5500) přímo na vMix TCP API, USB-C pro napájení a servis.
 
 ## Výchozí technické poznatky (před Deep Research)
 
@@ -70,7 +74,7 @@ Gemini Deep Research: vMix API a replay, EVS LSM, komponenty. Analýza výsledk�
 
 | # | Krok | Kdo | Stav | Poznámka |
 |---|---|---|---|---|
-| 1.1 | Deep Research #1: vMix API a replay ovladače | Ty | `todo` | Spusť prompt v Gemini Deep Research a vlož výsledek do vlákna. Prompt: [docs/research/DR1-vmix-api-prompt.md](research/DR1-vmix-api-prompt.md). |
+| 1.1 | Deep Research #1: vMix API a replay ovladače | Ty | `done` | Spusť prompt v Gemini Deep Research a vlož výsledek do vlákna. Prompt: [docs/research/DR1-vmix-api-prompt.md](research/DR1-vmix-api-prompt.md). |
 | 1.2 | Deep Research #2: EVS LSM ovladač | Oba | `todo` | Rozložení, chování páky (rychlostní křivka), jog/shuttle, barvy tlačítek, workflow operátora. Prompt připravím po DR1. |
 | 1.3 | Deep Research #3: komponenty a JLCPCB | Oba | `todo` | MCU, Ethernet/USB, ovladače LED, motorové fadery, enkodéry, dostupnost v JLCPCB Basic/Extended. Prompt připravím po DR1. |
 | 1.4 | Rešerše KiCad MCP a AI workflow | Claude | `todo` | Ověřit KiCAD-MCP-Server (mixelpixx) a alternativy, co umí (schéma, PCB, export), jak ho napojit. |
