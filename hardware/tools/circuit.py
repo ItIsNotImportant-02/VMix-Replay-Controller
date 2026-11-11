@@ -15,7 +15,7 @@ TP = "TestPoint:TestPoint_Pad_D1.5mm"
 
 # --- LCSC numbers (JLCPCB). "?" = still to be verified before ordering -------
 LCSC_R = {"10k": "C25804", "1k": "C21190", "5.1k": "C23186", "100k": "C25803", "2.2k": "C4190",
-          "4.7k": "C23162", "27R": "?", "33R": "?", "49.9R 1%": "?", "12.4k 1%": "?", "3.9k 1%": "?",
+          "4.7k": "C23162", "27R": "?", "33R": "?", "49.9R 1%": "?", "12.4k 1%": "?", "3.9k 1%": "?", "4.7k 1%": "?",
           "1M": "?", "10R": "?"}
 LCSC_C = {"100nF": "C14663", "1uF": "C15849", "10uF": "C15850", "4.7uF": "?", "10nF": "?", "22nF": "?",
           "6.8nF": "?", "15pF": "?", "27pF": "?"}
@@ -223,7 +223,7 @@ def build(prj):
 
     # ======================================================================
     s = prj.sheet("LED drivers", "leds.kicad_sch", "2x IS31FL3236A")
-    s.note("I_MAX = 58,5 x 1,3 V / R_EXT = 19,5 mA pro R_EXT 3,9k. Jas a celkový odběr omezuje firmware.\n"
+    s.note("I_MAX = 58,5 x 1,3 V / R_EXT = 16,2 mA pro R_EXT 4,7k. Jas a celkový odběr omezuje firmware.\n"
            "U6 adresa 0x3C (AD=GND), U7 0x3F (AD=VCC). SDB stažený do nuly: LED po startu zhasnuté.")
     for chip, ad in (("U6", "GND"), ("U7", "+5V_LED")):
         pins = {"VCC": "+5V_LED", "GND": "GND", "EP": "GND", "SDA": "I2C_SDA", "SCL": "I2C_SCL",
@@ -235,8 +235,8 @@ def build(prj):
                 pins["OUT%d" % ch] = net
         s.add(Part(chip, "vrc:IS31FL3236A-QFN44", "IS31FL3236A", "vrc:QFN-44-1EP_5x5mm_P0.4mm",
                    pins=pins, lcsc="C246443", mpn="IS31FL3236A-QFLS2-TR"))
-    s.add(R("R40", "3.9k 1%", "U6_REXT", "GND"))
-    s.add(R("R41", "3.9k 1%", "U7_REXT", "GND"))
+    s.add(R("R40", "4.7k 1%", "U6_REXT", "GND"))
+    s.add(R("R41", "4.7k 1%", "U7_REXT", "GND"))
     n = 60
     for i in range(2):
         s.add(C("C%d" % n, "1uF", "+5V_LED")); n += 1
@@ -278,6 +278,13 @@ def build(prj):
     s.add(C("C70", "100nF", "+3V3"))
     s.add(C("C71", "100nF", "+3V3"))
     s.add(R("R50", "10k", "+3V3", "BTN_INT"))
+    # externí pull-upy 4,7k na tlačítka: ~0,7 mA přes kontakt (wetting current) místo ~33 uA z interních 100k
+    for i in range(7):
+        names = BTN_INPUTS[4 * i:4 * i + 4]
+        pins = {str(k + 1): "BTN_%s" % nm for k, nm in enumerate(names)}
+        pins.update({"5": "+3V3", "6": "+3V3", "7": "+3V3", "8": "+3V3"})
+        s.add(Part("RN%d" % (i + 1), "Device:R_Pack04", "4.7k", "Resistor_SMD:R_Array_Convex_4x0603",
+                   pins=pins, lcsc="?", desc="4x 4,7k pull-up, convex 4x0603"))
 
     # ======================================================================
     s = prj.sheet("Sensors", "sensors.kicad_sch", "Konektory páky a jogu (MT6701)")

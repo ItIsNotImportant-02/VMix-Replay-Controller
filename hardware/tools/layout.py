@@ -465,7 +465,7 @@ def block_ethernet(d, ox, oy):
 def block_leds(d, ox, oy):
     b = B(d, ox, oy)
     d.block("5  Budiče LED 2x IS31FL3236A (I2C, 22 kHz PWM, bez multiplexu)", g(ox), g(oy), g(ox + 78), g(oy + 47),
-            note="I_MAX = 58,5 x 1,3 V / R_EXT = 19,5 mA (3,9k). U6 adresa 0x3C (AD=GND), U7 0x3F (AD=VCC).\n"
+            note="I_MAX = 58,5 x 1,3 V / R_EXT = 16,2 mA (4,7k, LED v tlačítkách max. 20 mA). U6 adresa 0x3C (AD=GND), U7 0x3F (AD=VCC).\n"
                  "VCC = 5 V, protože OUTx nesmí přesáhnout VCC + 0,3 V (anody LED jsou na 5 V). SDB stažený k zemi = LED po startu zhasnuté.")
     for i, U in enumerate(("U6", "U7")):
         x0 = 14 + 38 * i
@@ -522,6 +522,14 @@ def block_inputs(d, ox, oy):
     b.v2("C70", 4, 7)
     b.v2("C71", 37, 7)
     b.v2("R50", 62, 9, Lb=1)
+    for i in range(7):
+        rn = "RN%d" % (i + 1)
+        x = 23 + 13 * (i // 2)
+        y = 36.5 + 5 * (i % 2)
+        b.place(rn, x, y, 270, ref_at=(x, y - 2.6), val_at=(x, y + 2.7))
+        for p in ("1", "2", "3", "4"):
+            b.term(rn, p, 1)
+        b.column(rn, ["5", "6", "7", "8"], x + 3, "right")
 
 
 TCA_PORTS_ALL = ["P00", "P01", "P02", "P03", "P04", "P05", "P06", "P07",
