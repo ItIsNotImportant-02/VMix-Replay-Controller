@@ -28,6 +28,12 @@ flowchart LR
 
 Hardware, firmware, vMix a mechanika běží po rozhodnutí o architektuře **paralelně**. Firmware se začne psát na devboardu (krok 7.1) dřív, než přijde deska, takže až deska dorazí, bude software skoro hotový.
 
+## Rozhodnuto (11. 11. 2026)
+
+- **15 RGB tlačítek** PB26-13M (viz [hardware/buttons-PB26-13M-RGB.md](hardware/buttons-PB26-13M-RGB.md)).
+- **Páka bez motoru**, se snímačem polohy. Navržený snímač: bezkontaktní magnetický snímač úhlu (např. AS5600) na čepu páky, bez opotřebení. Kalibrace jako u EVS: po zapnutí sjet pákou dolů a nahoru, firmware si zapamatuje rozsah. Poslední kalibrace se uloží do flash jako záloha, kdyby se krok vynechal.
+- **Napájení z USB-C 5 V**, žádných 230 V uvnitř krabičky. Odhad spotřeby: 15 × 3 × ~8 mA ≈ 0,36 A pro LED, celkem pod 0,5 A, takže stačí běžný USB port.
+
 ## Výchozí technické poznatky (před Deep Research)
 
 - **vMix nabízí několik cest ovládání:** HTTP Web API, **TCP API na portu 8099** (obousměrné, umí odběr stavů přes `SUBSCRIBE TALLY` a `SUBSCRIBE ACTS`), nativní MIDI mapování s MIDI feedbackem, X-Keys a gamepady. Replay se ovládá shortcut funkcemi typu `ReplayMarkIn`, `ReplayMarkOut`, `ReplayPlay`, `ReplayLive`, `ReplaySetSpeed`, `ReplayJumpFrames` a dalšími.
@@ -55,8 +61,8 @@ Plán, dashboard, struktura repozitáře a inventář dílů, které už máš.
 |---|---|---|---|---|
 | 0.1 | Fázovaný plán a dashboard | Claude | `done` | Tento plán (docs/PLAN.md) a vizuální dashboard pro sledování postupu. |
 | 0.2 | Struktura repozitáře | Claude | `todo` | Složky docs/, hardware/ (KiCad), firmware/, host/ (případný bridge), vmix/ (konfigurace), mechanics/ (STL/STEP). |
-| 0.3 | Inventář EVS RGB tlačítek | Ty | `todo` | Pošli typ/odkaz, rozměry, výšku, zapojení LED (společná anoda/katoda, nebo adresovatelné), proud LED, typ spínače a ideálně fotky z obou stran. Na tom závisí celé schéma. |
-| 0.4 | Seznam přání a priorit | Ty | `todo` | Kolik tlačítek, displej ano/ne, motorová páka nutná, nebo nice-to-have, rozpočet, cílová velikost panelu. |
+| 0.3 | Inventář EVS RGB tlačítek | Ty | `done` | Pošli typ/odkaz, rozměry, výšku, zapojení LED (společná anoda/katoda, nebo adresovatelné), proud LED, typ spínače a ideálně fotky z obou stran. Na tom závisí celé schéma. |
+| 0.4 | Seznam přání a priorit | Ty | `done` | Kolik tlačítek, displej ano/ne, motorová páka nutná, nebo nice-to-have, rozpočet, cílová velikost panelu. |
 
 ### U1 · Výzkum
 
@@ -102,7 +108,7 @@ MCU, USB-C, napájení, tlačítka a RGB LED, páka, jog, motor, komunikace.
 | 4.1 | MCU, USB-C, ESD, LDO | Claude | `todo` | Jádro: MCU, krystal, flash, USB-C s ESD ochranou, 3,3 V regulátor, BOOT/RESET, SWD/UART header. |
 | 4.2 | Tlačítka a RGB LED | Claude | `todo` | Matice nebo IO expandery pro spínače, budiče LED (podle typu tlačítek), odpory, konektory/footprinty pro ruční pájení. |
 | 4.3 | Páka a analogové vstupy | Claude | `todo` | Vstup potenciometru/hall senzoru, RC filtr, reference ADC. |
-| 4.4 | Jog enkodér a motor driver | Claude | `todo` | Vstupy enkodéru, případně H-můstek pro motorizovanou páku a touch sense. |
+| 4.4 | Jog enkodér a snímač páky | Claude | `todo` | Vstupy enkodéru jogu, I2C/analog pro magnetický snímač úhlu páky. Bez motoru. |
 | 4.5 | Komunikace a volitelné prvky | Claude | `todo` | Ethernet (W5500 + magjack) podle rozhodnutí 2.1, OLED/displej pro timecode, rozšiřující konektory. |
 | 4.6 | ERC a review schématu | Oba | `todo` | Electrical Rules Check, společná kontrola, oprava. |
 
@@ -179,7 +185,6 @@ Kontrola desky, ruční pájení, nahrání firmwaru, test s vMixem, ladění.
 - **Typ EVS tlačítek** (rozměr, zapojení LED) určuje footprinty i budiče LED. Bez inventáře (0.3) nejde kreslit schéma.
 - **Plynulost páky a jogu ve vMixu** je největší neznámá na straně softwaru. Proto prototyp 7.1 před objednávkou desky.
 - **Dostupnost dílů v JLCPCB**: preferovat Basic díly, Extended jen kde je to nutné (příplatek za díl).
-- **Motorizovaná páka** zvyšuje složitost (napájení, driver, mechanika). Může být až ve verzi 2.
 
 ## Co je potřeba od tebe teď
 
