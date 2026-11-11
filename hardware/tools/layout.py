@@ -404,7 +404,9 @@ def block_ethernet(d, ox, oy):
     b.v2("R22", 47, 9, Lb=1)
     b.v2("R23", 50, 9, Lb=1)
     b.v2("R35", 53, 9, Lb=1)
-    b.v2("R20", 57, 9, Lt=1)
+    b.v2("R20", 57, 9, Lt=1, Lb=False)
+    b.v2("R36", 57, 13, Lt=False)
+    b.d.link("R20", b.side("R20", "down"), "R36", b.side("R36", "up"))
     b.v2("C48", 61, 9, Lt=1)
     b.v2("C49", 66, 9, Lt=1)
     # the chip: everything by labels

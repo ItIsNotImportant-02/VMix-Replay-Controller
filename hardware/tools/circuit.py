@@ -16,7 +16,7 @@ TP = "TestPoint:TestPoint_Pad_D1.5mm"
 # --- LCSC numbers (JLCPCB). "?" = still to be verified before ordering -------
 LCSC_R = {"10k": "C25804", "1k": "C21190", "5.1k": "C23186", "100k": "C25803", "2.2k": "C4190",
           "4.7k": "C23162", "4.7k 1%": "C23162", "27R": "C25190", "33R": "C23140", "49.9R 1%": "C23185",
-          "12.4k 1%": "C22865", "1M": "C22935", "10R": "C22859", "3.3R": "C2930016", "220R": "C22962",
+          "2.4k": "C22940", "0R": "C21189", "1M": "C22935", "10R": "C22859", "220R": "C22962",
           "330R": "C23138"}
 # all 0603 resistors above are 1 % thick film (UNI-ROYAL 0603WAF / FOJAN FRC0603F), verified on JLCPCB 2026-11-11
 LCSC_C = {"100nF": "C14663", "1uF": "C15849", "10uF": "C15850", "4.7uF": "C19666", "10nF": "C57112",
@@ -79,20 +79,21 @@ def build(prj):
                lcsc="C165948", mpn="TYPE-C-31-M-12"))
     s.add(R("R1", "5.1k", "USB_CC1", "GND"))
     s.add(R("R2", "5.1k", "USB_CC2", "GND"))
-    s.add(Part("U1", "Power_Protection:USBLC6-2SC6", "USBLC6-2SC6", "Package_TO_SOT_SMD:SOT-23-6",
-               pins={"1": "USB_CONN_DP", "6": "USB_CONN_DP", "3": "USB_CONN_DM", "4": "USB_CONN_DM",
-                     "5": "VBUS", "2": "GND"}, lcsc="C7519"))
+    # SRV05-4 (Preferred, bez poplatku) místo USBLC6-2SC6: stejné pouzdro, 4 nezávislé diody, každá datová linka má 2
+    s.add(Part("U1", "Power_Protection:SRV05-4", "SRV05-4", "Package_TO_SOT_SMD:SOT-23-6",
+               pins={"1": "USB_CONN_DP", "4": "USB_CONN_DP", "3": "USB_CONN_DM", "6": "USB_CONN_DM",
+                     "5": "VBUS", "2": "GND"}, lcsc="C7420376", mpn="hongjiacheng SRV05-4"))
     s.add(R("R3", "27R", "USB_CONN_DP", "USB_DP"))
     s.add(R("R4", "27R", "USB_CONN_DM", "USB_DM"))
     s.add(Part("F1", "Device:Polyfuse", "0.75A", "Fuse:Fuse_1206_3216Metric", pins={"1": "VBUS", "2": "+5V"},
                lcsc="C2830242", mpn="JK-nSMD075/6V", desc="PTC resettable fuse, 0.75 A hold, 1206"))
-    s.add(Part("D1", "Device:D", "SMF5.0A", "Diode_SMD:D_SOD-123F", pins={"1": "+5V", "2": "GND"}, lcsc="C2857263",
-               desc="TVS 5 V unidirectional"))
+    s.add(Part("D1", "Device:D", "SMF5.0A", "Diode_SMD:D_SOD-123F", pins={"1": "+5V", "2": "GND"}, lcsc="C19077497",
+               mpn="hongjiacheng SMF5.0A", desc="TVS 5 V unidirectional, Preferred"))
     s.add(C("C1", "10uF", "+5V"))
     s.add(C("C2", "100nF", "+5V"))
-    s.add(Part("FB1", "Device:FerriteBead_Small", "600R@100MHz 2A", "Inductor_SMD:L_1206_3216Metric",
-               pins={"1": "+5V", "2": "+5V_LED"}, lcsc="C840591", mpn="MH3261-601Y",
-               desc="Bourns, 2 A, DCR 100 mOhm (C1017 má jen 500 mA a 300 mOhm, na proud LED nestačí)"))
+    s.add(Part("FB1", "Device:FerriteBead_Small", "120R@100MHz 2A", "Inductor_SMD:L_0603_1608Metric",
+               pins={"1": "+5V", "2": "+5V_LED"}, lcsc="C14709", mpn="BLM18PG121SN1D",
+               desc="Murata, 2 A, DCR 50 mOhm, Basic (C1017 má jen 500 mA a 300 mOhm, na proud LED nestačí)"))
     s.add(C("C3", "10uF", "+5V_LED"))
     s.add(C("C4", "10uF", "+5V_LED"))
     s.add(C("C5", "100nF", "+5V_LED"))
@@ -102,9 +103,9 @@ def build(prj):
                desc="LDO 3.3 V 1.2 A, low dropout (ST LDL1117), Cout >= 4.7 uF"))
     s.add(C("C6", "10uF", "+3V3"))
     s.add(C("C7", "100nF", "+3V3"))
-    s.add(R("R5", "1k", "+5V", "PWR_LED_A"))   # zelená InGaN Vf ~2,8 V: z 3,3 V by svítila nejistě, z 5 V ~2 mA
-    s.add(Part("D2", "Device:LED", "green", LED0603, pins={"A": "PWR_LED_A", "K": "GND"}, lcsc="C965804",
-               mpn="XL-1608UGC-04"))
+    s.add(R("R5", "1k", "+3V3", "PWR_LED_A"))   # červená Vf ~1,9 V -> ~1,4 mA
+    s.add(Part("D2", "Device:LED", "red", LED0603, pins={"A": "PWR_LED_A", "K": "GND"}, lcsc="C2286",
+               mpn="KENTO KT-0603R"))
     s.add(R("R6", "10k", "+5V", "VSENSE_5V"))
     s.add(R("R7", "10k", "VSENSE_5V", "GND"))
     s.add(C("C8", "100nF", "VSENSE_5V"))
@@ -157,9 +158,9 @@ def build(prj):
     s.add(R("R12", "10k", "+3V3", "RUN"))
     s.add(Part("SW2", "Switch:SW_Push", "RESET", "Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A",
                pins={"1": "RUN", "2": "GND"}, lcsc="C318884"))
-    s.add(R("R13", "220R", "STATUS_LED", "STATUS_LED_A"))   # modrá Vf ~2,9 V -> ~2 mA
-    s.add(Part("D3", "Device:LED", "blue", LED0603, pins={"A": "STATUS_LED_A", "K": "GND"}, lcsc="C965807",
-               mpn="XL-1608UBC-04"))
+    s.add(R("R13", "1k", "STATUS_LED", "STATUS_LED_A"))   # žlutá Vf ~2 V -> ~1,3 mA
+    s.add(Part("D3", "Device:LED", "yellow", LED0603, pins={"A": "STATUS_LED_A", "K": "GND"}, lcsc="C89811",
+               mpn="NationStar NCD0603Y2"))
     s.add(Part("J2", "Connector_Generic:Conn_01x07", "DEBUG", "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical",
                pins={"1": "+3V3", "2": "SWCLK", "3": "SWDIO", "4": "GND", "5": "RUN", "6": "UART_TX", "7": "UART_RX"},
                in_bom=False, desc="SWD + UART debug header (osadit ručně jen při ladění)"))
@@ -190,7 +191,9 @@ def build(prj):
     s.add(C("C%d" % n, "100nF", "+3V3")); n += 1
     s.add(C("C%d" % n, "4.7uF", "W_TOCAP")); n += 1
     s.add(C("C%d" % n, "10nF", "W_1V2O")); n += 1
-    s.add(R("R20", "12.4k 1%", "W_EXRES", "GND"))
+    # EXRES1 12,4k 1 % (Basic neexistuje) = 10k + 2,4k v sérii, obě Basic 1 %
+    s.add(R("R20", "10k", "W_EXRES", "W_EXRES_B"))
+    s.add(R("R36", "2.4k", "W_EXRES_B", "GND"))
     s.add(Part("Y2", "Device:Crystal_GND24", "25MHz", "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
                pins={"1": "W_XI", "3": "W_XO", "2": "GND", "4": "GND"}, lcsc="C9006", mpn="X322525MOB4SI (CL 12 pF)"))
     s.add(C("C%d" % n, "18pF", "W_XI")); n += 1    # CL 12 pF: 18/2 + ~3 pF = 12 pF (jako WIZ850io)
@@ -200,15 +203,15 @@ def build(prj):
     s.add(R("R23", "10k", "+3V3", "ETH_RST"))
     s.add(R("R35", "10k", "+3V3", "ETH_CS"))   # W5500 odpojený od SPI, dokud RP2040 nenastaví GPIO
     # TX
-    s.add(R("R24", "3.3R", "W_TXP", "ETH_TDP"))
-    s.add(R("R25", "3.3R", "W_TXN", "ETH_TDN"))
+    s.add(R("R24", "0R", "W_TXP", "ETH_TDP"))
+    s.add(R("R25", "0R", "W_TXN", "ETH_TDN"))
     s.add(R("R26", "49.9R 1%", "ETH_TDP", "+3V3A"))
     s.add(R("R27", "49.9R 1%", "ETH_TDN", "+3V3A"))
     s.add(R("R28", "10R", "+3V3A", "ETH_TCT"))
     s.add(C("C%d" % n, "22nF", "ETH_TCT")); n += 1
     # RX
-    s.add(R("R29", "3.3R", "W_RXP", "ETH_RXP_T"))
-    s.add(R("R30", "3.3R", "W_RXN", "ETH_RXN_T"))
+    s.add(R("R29", "0R", "W_RXP", "ETH_RXP_T"))
+    s.add(R("R30", "0R", "W_RXN", "ETH_RXN_T"))
     s.add(R("R31", "49.9R 1%", "ETH_RXP_T", "ETH_RCT"))
     s.add(R("R32", "49.9R 1%", "ETH_RXN_T", "ETH_RCT"))
     s.add(C("C%d" % n, "6.8nF", "ETH_RXP_T", "ETH_RDP")); n += 1
@@ -222,7 +225,7 @@ def build(prj):
     s.add(Part("J4", "Connector:RJ45_Hanrun_HR911105A_Horizontal", "HR911105A", "Connector_RJ:RJ45_Hanrun_HR911105A_Horizontal",
                pins={"1": "ETH_TDP", "2": "ETH_TDN", "3": "ETH_RDP", "4": "ETH_TCT", "5": "ETH_RCT", "6": "ETH_RDN",
                      "8": "GND", "9": "+3V3", "10": "ETH_ACT_K", "11": "ETH_LINK_K", "12": "+3V3", "SH": "GND"},
-               lcsc="C12074"))
+               lcsc="C12074", in_bom=False, fields={"Assembly": "ruční pájení"}))
     prj.flag("+3V3A", s.name)
 
     # ======================================================================
@@ -304,7 +307,7 @@ def build(prj):
                    "Connector_JST:JST_PH_S8B-PH-SM4-TB_1x08-1MP_P2.00mm_Horizontal",
                    pins={"1": "+3V3", "2": "GND", "3": pre + "_C_MODE", "4": pre + "_C_P6", "5": pre + "_C_P7",
                          "6": pre + "_C_P8", "7": pre + "_C_OUT", "8": "GND", "MP": "GND"}, lcsc="C265121",
-                   mpn="S8B-PH-SM4-TB"))
+                   mpn="S8B-PH-SM4-TB", in_bom=False, fields={"Assembly": "ruční pájení"}))
         for net, cn in ((mode, "_C_MODE"), (p6, "_C_P6"), (p7, "_C_P7"), (p8, "_C_P8")):
             s.add(R("R%d" % rn, "33R", net, pre + cn)); rn += 1
         for cn in ("_C_P6", "_C_P7", "_C_P8"):
