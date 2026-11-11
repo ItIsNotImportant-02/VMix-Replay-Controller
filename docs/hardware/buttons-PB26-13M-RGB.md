@@ -34,3 +34,11 @@ LED je **se společnou anodou a bez vestavěných rezistorů** (prodejce varuje,
 4. **Spínač:** použijeme jen COM a NO. Čtení přes matici s diodami nebo přes IO expandéry / posuvné registry, rozhodne se podle počtu tlačítek.
 5. **Footprint:** udělám vlastní footprint podle výkresu (15,3 × 15,3 mm, 3 piny spínače + 4 piny LED). Před objednávkou desky ho ověříme vytištěním 1:1 na papír a přiložením tlačítka, případně posuvkou.
 6. Prodejce má i obdélníkovou verzi **PB26-13M-E 15 × 26 mm RGB**, kdyby se hodila na širší tlačítka jako na EVS (např. PLAY / LIVE).
+
+## F1–F10: TS5 (Honyone), 9,2 × 9,2 mm, žlutá LED
+
+Rozhodnuto 11. 11. 2026: řada F1–F10 (banky / klipy) použije 10 ks TS5, které už máš.
+- 6 vývodů: 1–4 spínač (tact, SPST), 6 = LED +, 5 = LED −, rozteč 5,08 mm.
+- LED bez vestavěného rezistoru, jednobarevná žlutá → jeden kanál budiče na klávesu.
+- Zdvih jen cca 0,5 mm (membránový pocit), jiný pocit než PB26.
+- Celkem LED kanálů: 15 × 3 (PB26 RGB) + 10 (TS5) = 55 → stačí 2× IS31FL3236A (72 kanálů).
