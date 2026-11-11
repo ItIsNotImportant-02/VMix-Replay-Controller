@@ -449,12 +449,12 @@ def block_ethernet(d, ox, oy):
     b.v2("C55", gx + 14, gy + 23, Lt=1)
     # RJ45 with magnetics
     b.place("J4", 50, 60)
-    for p in ("1", "2", "3", "4", "5", "6", "9", "11"):
+    for p in ("1", "2", "3", "4", "5", "6", "10", "11"):
         b.term("J4", p, 1)
-    for p, dy in (("12", -1.5), ("10", 1.5)):
+    for p in ("12", "9"):
         px, py, _ = b.pin("J4", p)
-        b.wire((px, py), (px + 1, py), (px + 1, py + dy))
-        b.power("+3V3", px + 1, py + dy, "up" if dy < 0 else "down")
+        b.wire((px, py), (px + 4, py), (px + 4, py - 1))
+        b.power("+3V3", px + 4, py - 1, "up")
         d._mark("J4", p)
     b.term("J4", "8", 0)
     b.term("J4", "SH", 0)

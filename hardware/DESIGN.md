@@ -27,6 +27,8 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 - **Senzory:** MT6701 má piny 6/7/8 sdílené mezi ABZ, SSI a I2C a pin MODE volí ABZ nebo I2C/SSI. MODE proto řídí MCU, aby šlo jog jednou naprogramovat přes I2C (rozlišení ABZ v EEPROM) a pak číst ABZ, a páku číst přes SSI. Analogový/PWM výstup jde do ADC jako záloha. Destičky senzorů jsou samostatný malý projekt (bude v `hardware/sensor-board/`).
 - **Debug bez prototypu:** SWD + UART konektor, testovací body na všech napájeních a na I2C/INT/SDB, rezervní GPIO (GP10, 11, 22, 23, 24, 28) a 4 volné vstupy expandéru na konektoru J3 spolu s I2C (např. pro OLED později).
 - **Krystal RP2040:** Abracon ABM8-272-T3 (12 MHz, CL 10 pF, ESR max. 50 Ω, LCSC C20625731, Extended) s 2× 15 pF C0G a 1 kΩ v sérii z XOUT, přesně podle *Hardware design with RP2040*. Oscilátor RP2040 je slabý, krystal s CL 20 pF by se rozkmitával hůř; 1 kΩ chrání krystal před přebuzením při IOVDD 3,3 V.
+- **W5500 (ověřeno proti datasheetu v1.1.0):** TOCAP 4,7 µF, 1V2O 10 nF, EXRES1 12,4k 1 %, VBG nezapojený, PMODE = 111 (auto-negotiation), RSVD 23 na GND. RSVD 38–42 jsou od revize 1.0.2 „NC“ (dřív „tie to GND“), na GND zůstávají, vyhovuje to oběma revizím. LED výstupy jsou aktivní v nule a snesou ~8 mA, proto 330R. Krystal 25 MHz, datasheet chce ±30 ppm. W5500 neumí auto-MDIX; PC i switche ho mají, takže to nevadí.
+- **FB1 (ferit pro LED):** Bourns MH3261-601Y (2 A, 100 mΩ). Původní GZ2012D601TF (C1017) má jen 500 mA a 300 mΩ, při plném proudu LED by byl přetížený.
 - **Firmware kompatibilita:** W5500 na stejných pinech jako WIZnet W5500-EVB-Pico (SPI0, GP16–21), takže jdou použít jejich knihovny beze změn.
 
 ## Co je ještě potřeba ověřit před objednávkou
@@ -34,6 +36,5 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 1. **Footprinty PB26-13M a TS5** (vlastní, `lib/vrc.pretty`): rozteče vývodů podle popisu prodejce, ověří se vytištěním 1:1 a přiložením skutečného tlačítka.
 2. **Footprint QFN-44 5×5 pro IS31FL3236A**: podle výkresu z datasheetu.
 3. **LCSC čísla** označená `?` v `circuit.py` (pasivní součástky, krystaly, LDO, polyswitch, TVS, ferity, JST): doplnit a zkontrolovat skladovost a Basic/Extended.
-4. **W5500 TOCAP a 1V2O**: podle datasheetu TOCAP 4,7 µF, 1V2O 10 nF (některé moduly mají opačně), ověřit v aktuálním datasheetu.
-5. **Krystal W5500**: 25 MHz X322525MOB4SI má CL 12 pF (15 pF), ověřit proti datasheetu W5500 (projde se u bloku 4).
+4. **LED piny HR911105A**: zapojení (anody 12 a 9, katody 11 a 10) je podle symbolu z knihovny KiCadu; datasheet HanRun se nepodařilo strojově přečíst, ověřit ve výkresu.
 6. **Polarita pinu MODE u MT6701** (datasheet ji v textu neuvádí); deska to řeší tím, že MODE řídí MCU.

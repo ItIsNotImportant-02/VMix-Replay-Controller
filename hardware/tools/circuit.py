@@ -88,7 +88,9 @@ def build(prj):
                desc="TVS 5 V unidirectional"))
     s.add(C("C1", "10uF", "+5V"))
     s.add(C("C2", "100nF", "+5V"))
-    s.add(Part("FB1", "Device:FerriteBead_Small", "600R@100MHz", L0805, pins={"1": "+5V", "2": "+5V_LED"}, lcsc="C1017"))
+    s.add(Part("FB1", "Device:FerriteBead_Small", "600R@100MHz 2A", "Inductor_SMD:L_1206_3216Metric",
+               pins={"1": "+5V", "2": "+5V_LED"}, lcsc="C840591", mpn="MH3261-601Y",
+               desc="Bourns, 2 A, DCR 100 mOhm (C1017 má jen 500 mA a 300 mOhm, na proud LED nestačí)"))
     s.add(C("C3", "10uF", "+5V_LED"))
     s.add(C("C4", "10uF", "+5V_LED"))
     s.add(C("C5", "100nF", "+5V_LED"))
@@ -208,11 +210,12 @@ def build(prj):
     s.add(C("C%d" % n, "6.8nF", "ETH_RXN_T", "ETH_RDN")); n += 1
     s.add(C("C%d" % n, "10nF", "ETH_RCT")); n += 1
     # LEDs
-    s.add(R("R33", "1k", "W_LINKLED", "ETH_LINK_K"))
-    s.add(R("R34", "1k", "W_ACTLED", "ETH_ACT_K"))
+    # LED anody 12 a 9 na +3V3, katody 11 a 10 přes 330R do W5500 (aktivní v nule, max. 8 mA)
+    s.add(R("R33", "330R", "W_LINKLED", "ETH_LINK_K"))
+    s.add(R("R34", "330R", "W_ACTLED", "ETH_ACT_K"))
     s.add(Part("J4", "Connector:RJ45_Hanrun_HR911105A_Horizontal", "HR911105A", "Connector_RJ:RJ45_Hanrun_HR911105A_Horizontal",
                pins={"1": "ETH_TDP", "2": "ETH_TDN", "3": "ETH_RDP", "4": "ETH_TCT", "5": "ETH_RCT", "6": "ETH_RDN",
-                     "8": "GND", "9": "ETH_ACT_K", "10": "+3V3", "11": "ETH_LINK_K", "12": "+3V3", "SH": "GND"},
+                     "8": "GND", "9": "+3V3", "10": "ETH_ACT_K", "11": "ETH_LINK_K", "12": "+3V3", "SH": "GND"},
                lcsc="C12074"))
     prj.flag("+3V3A", s.name)
 

@@ -12422,7 +12422,7 @@
 				)
 			)
 		)
-		(property "Value" "600R@100MHz"
+		(property "Value" "600R@100MHz 2A"
 			(at 121.92 47.752 90)
 			(effects
 				(font
@@ -12430,7 +12430,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
+		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
 			(at 121.92 43.18 0)
 			(effects
 				(font
@@ -12448,7 +12448,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Bourns, 2 A, DCR 100 mOhm (C1017 má jen 500 mA a 300 mOhm, na proud LED nestačí)"
 			(at 121.92 43.18 0)
 			(effects
 				(font
@@ -12457,7 +12457,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1017"
+		(property "LCSC" "C840591"
+			(at 121.92 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MH3261-601Y"
 			(at 121.92 43.18 0)
 			(effects
 				(font
@@ -21321,7 +21330,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "330R"
 			(at 500.38 112.12 90)
 			(effects
 				(font
@@ -21365,7 +21374,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C21190"
+		(property "LCSC" "?"
 			(at 500.38 109.22 0)
 			(effects
 				(font
@@ -21426,7 +21435,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "330R"
 			(at 500.38 121.01 90)
 			(effects
 				(font
@@ -21470,7 +21479,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C21190"
+		(property "LCSC" "?"
 			(at 500.38 118.11 0)
 			(effects
 				(font
@@ -22753,7 +22762,7 @@
 		(uuid "def144ab-63c5-59d4-83f3-9a4033444973")
 	)
 	(label "ETH_ACT_K"
-		(at 551.18 167.64 0)
+		(at 551.18 170.18 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22774,7 +22783,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 551.18 153.67 0)
+		(at 558.8 154.94 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -22782,7 +22791,7 @@
 		(dnp no)
 		(uuid "6abf137a-0b83-51fe-94dd-903b6b0ac9e9")
 		(property "Reference" "#PWR074"
-			(at 551.18 153.67 0)
+			(at 558.8 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22791,7 +22800,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 551.18 150.11 0)
+			(at 558.8 151.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22799,7 +22808,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 551.18 153.67 0)
+			(at 558.8 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22808,7 +22817,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 551.18 153.67 0)
+			(at 558.8 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22830,7 +22839,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 551.18 173.99 180)
+		(at 558.8 165.1 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -22838,7 +22847,7 @@
 		(dnp no)
 		(uuid "2c101ca7-bd1b-5675-87c8-a3ca5c7e5a04")
 		(property "Reference" "#PWR075"
-			(at 551.18 173.99 0)
+			(at 558.8 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22847,7 +22856,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 551.18 177.55 0)
+			(at 558.8 161.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22855,7 +22864,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 551.18 173.99 0)
+			(at 558.8 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22864,7 +22873,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 551.18 173.99 0)
+			(at 558.8 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -44377,14 +44386,14 @@
 	)
 	(wire
 		(pts
-			(xy 548.64 167.64)
-			(xy 551.18 167.64)
+			(xy 548.64 170.18)
+			(xy 551.18 170.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ddbca49d-db48-528b-91ea-21680247c31e")
+		(uuid "d7231108-25d8-5f2c-b6ac-2f77d2111ffc")
 	)
 	(wire
 		(pts
@@ -44400,46 +44409,46 @@
 	(wire
 		(pts
 			(xy 548.64 157.48)
-			(xy 551.18 157.48)
+			(xy 558.8 157.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "df4a4938-13b4-5759-ade7-c852470c5d06")
+		(uuid "691c75b3-3287-50b2-977f-bc9bc89a3213")
 	)
 	(wire
 		(pts
-			(xy 551.18 157.48)
-			(xy 551.18 153.67)
+			(xy 558.8 157.48)
+			(xy 558.8 154.94)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "218ca0e3-989b-55ac-b9a5-60fec2c16070")
+		(uuid "604f9d12-90e4-5dc0-80cf-d2d3d60c16a8")
 	)
 	(wire
 		(pts
-			(xy 548.64 170.18)
-			(xy 551.18 170.18)
+			(xy 548.64 167.64)
+			(xy 558.8 167.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d1a05bb3-c9d0-55b4-8cd7-f4a1943adeb1")
+		(uuid "54086436-d181-5fc9-9fb4-6fbe3c03cc53")
 	)
 	(wire
 		(pts
-			(xy 551.18 170.18)
-			(xy 551.18 173.99)
+			(xy 558.8 167.64)
+			(xy 558.8 165.1)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "891bf8c7-95a1-56ca-b78a-fae133d32a2b")
+		(uuid "6d9b3445-d3b6-5b1b-a706-c597bbed0887")
 	)
 	(wire
 		(pts
