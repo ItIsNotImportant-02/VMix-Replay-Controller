@@ -31,6 +31,8 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 - **HR911105A (ověřeno z výkresu HanRun):** P1 TD+, P2 TD−, P3 RD+, P6 RD−, P4 TCT, P5 RCT (oddělené), P7 NC, P8 CHS GND (interní 4× 75R + 1000 pF/2 kV, „connect to PCB ground“). Zelená LED: anoda 9, katoda 10; žlutá: anoda 12, katoda 11. Pozor: WIZnet reference s J1B1211CCD má zelenou obráceně, nekopírovat. W5500 neumí auto-MDIX; PC i switche ho mají, takže to nevadí.
 - **FB1 (ferit pro LED):** Bourns MH3261-601Y (2 A, 100 mΩ). Původní GZ2012D601TF (C1017) má jen 500 mA a 300 mΩ, při plném proudu LED by byl přetížený.
 - **IS31FL3236A (ověřeno proti datasheetu Rev. I, 10/2024):** pinout QFN-44 sedí se symbolem. Footprint je 1:1 podle doporučeného land patternu (pady 0,25 × 1,0, rohové 0,8 se zaoblením, EP 2,45 mm). I_MAX = 58,5 × 1,3 V / R_EXT, 3,9k → 19,5 mA (datasheet: min. R_EXT 2k, max. 38 mA). OUTx max VCC + 0,3 V → VCC = +5V_LED. Logika VIH 1,4 V pevně, I2C max 400 kHz. 1 µF + 100 nF na VCC a 100k pull-down na SDB jako v aplikačním zapojení. θJA 32,7 °C/W: při všech LED naplno bílé by jeden čip ztrácel ~1,5 W (+50 °C); firmware omezuje celkový proud, PWM 22 kHz (méně pískání MLCC, datasheet to doporučuje).
+- **TCA9555 (ověřeno proti datasheetu TI SCPS200E):** VCC 1,65–5,5 V, I2C 400 kHz, SDA/SCL VIH 0,7 × VCC (na 3,3 V v pořádku). Po zapnutí jsou všechny piny vstupy s interním pull-upem (~100 kΩ), tlačítka spínají proti GND. INT je open-drain, pull-up 10k (R50) jako v datasheetu. A0–A2 nesmí plavat → U8 000 (0x20), U9 A0 = 1 (0x21). Thermal pad: GND nebo nezapojený, máme GND. ESD ±2 kV HBM. Nemá reset pin.
+- **Metalová tlačítka na panelu:** PB26 mají kovové pouzdro. Kovový čelní panel spojit se zemí desky (šrouby/distanční sloupky na GND), aby výboj z prstu šel do země a ne do vstupů expandérů (ty mají jen ±2 kV HBM).
 - **Firmware kompatibilita:** W5500 na stejných pinech jako WIZnet W5500-EVB-Pico (SPI0, GP16–21), takže jdou použít jejich knihovny beze změn.
 
 ## Co je ještě potřeba ověřit před objednávkou
@@ -38,3 +40,10 @@ Deska plošného spoje (`vmix-replay-controller.kicad_pcb`) je zatím jen rozmí
 1. **Footprinty PB26-13M a TS5** (vlastní, `lib/vrc.pretty`): rozteče vývodů podle popisu prodejce, ověří se vytištěním 1:1 a přiložením skutečného tlačítka.
 3. **LCSC čísla** označená `?` v `circuit.py` (pasivní součástky, krystaly, LDO, polyswitch, TVS, ferity, JST): doplnit a zkontrolovat skladovost a Basic/Extended.
 6. **Polarita pinu MODE u MT6701** (datasheet ji v textu neuvádí); deska to řeší tím, že MODE řídí MCU.
+
+## Poznámky pro firmware (z datasheetů)
+
+- **W5500:** po zapnutí tvrdý reset (RST v nule ≥ 500 µs, pak čekat na PLL ≤ 1 ms), počkat na link (PHYCFGR.LNK), až pak DHCP; DHCP opakovat, při ztrátě linku znovu připojit; volitelně pevná IP. SPI režim 0, začít na ~20 MHz.
+- **I2C sběrnice:** po startu RP2040 provést obnovu sběrnice (9 pulzů SCL, pak STOP), protože TCA9555 nemá reset a po resetu MCU uprostřed přenosu může držet SDA v nule. IS31FL3236A resetuje I2C náběžnou hranou SDB.
+- **TCA9555 INT:** INT se nuluje jen čtením vstupního registru portu, který ho vyvolal (0x00 pro P0, 0x01 pro P1) → při INT číst vždy oba. Přerušení během ACK se může ztratit, proto navíc pomalé pravidelné čtení (např. každých 20 ms) jako záloha. Debounce softwarově.
+- **IS31FL3236A:** PWM 22 kHz (registr 0x4B = 1) kvůli pískání MLCC; po nastavení registrů SDB do 1; celkový proud LED držet pod limitem USB podle měření VSENSE_5V.
