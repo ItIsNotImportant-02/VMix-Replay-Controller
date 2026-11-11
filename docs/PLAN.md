@@ -35,6 +35,10 @@ Hardware, firmware, vMix a mechanika běží po rozhodnutí o architektuře **pa
 - **Komunikace: Ethernet (W5500) přímo na vMix TCP API**, USB-C pro napájení a servis ([ADR-001](decisions/ADR-001-komunikace.md)).
 - **Napájení z USB-C 5 V**, žádných 230 V uvnitř krabičky. Odhad spotřeby: 15 × 3 × ~8 mA ≈ 0,36 A pro LED, celkem pod 0,5 A, takže stačí běžný USB port.
 
+## Specifikace
+
+Návrh specifikace v1 (layout, elektronika, chování, mapa tlačítek): [SPEC-v1.md](SPEC-v1.md).
+
 ## Výsledky Deep Research #1
 
 Shrnutí a návrh architektury: [research/DR1-summary.md](research/DR1-summary.md). Navrženo: RP2040/RP2350 + Ethernet (W5500) přímo na vMix TCP API, USB-C pro napájení a servis.
