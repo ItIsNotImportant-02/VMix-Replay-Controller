@@ -209,6 +209,7 @@ def build(prj):
     s.add(C("C%d" % n, "6.8nF", "ETH_RXP_T", "ETH_RDP")); n += 1
     s.add(C("C%d" % n, "6.8nF", "ETH_RXN_T", "ETH_RDN")); n += 1
     s.add(C("C%d" % n, "10nF", "ETH_RCT")); n += 1
+    s.add(C("C56", "10uF", "+3V3"))   # bulk u VDD W5500 (reference WIZnet má 2x 10 uF)
     # LEDs
     # LED anody 12 a 9 na +3V3, katody 11 a 10 přes 330R do W5500 (aktivní v nule, max. 8 mA)
     s.add(R("R33", "330R", "W_LINKLED", "ETH_LINK_K"))
