@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="245mm" height="150mm" viewBox="0 0 245 150" font-family="Arial, sans-serif">
+<rect x="0.5" y="0.5" width="244" height="149" rx="6" fill="#fafafa" stroke="#222" stroke-width="0.6"/>
+<text x="8" y="9" font-size="4" fill="#555">vMix Replay Controller · layout v0.1 · měřítko 1:1 (tisk 100 %, bez přizpůsobení)</text>
+<rect x="14.35" y="16.35" width="15.3" height="15.3" rx="1.2" fill="#e8f0ff" stroke="#222" stroke-width="0.4"/>
+<rect x="14.50" y="16.50" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="22.00" y="25.10" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">CAM 1</text>
+<rect x="33.85" y="16.35" width="15.3" height="15.3" rx="1.2" fill="#e8f0ff" stroke="#222" stroke-width="0.4"/>
+<rect x="34.00" y="16.50" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="41.50" y="25.10" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">CAM 2</text>
+<rect x="14.35" y="35.85" width="15.3" height="15.3" rx="1.2" fill="#e8f0ff" stroke="#222" stroke-width="0.4"/>
+<rect x="14.50" y="36.00" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="22.00" y="44.60" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">CAM 3</text>
+<rect x="33.85" y="35.85" width="15.3" height="15.3" rx="1.2" fill="#e8f0ff" stroke="#222" stroke-width="0.4"/>
+<rect x="34.00" y="36.00" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="41.50" y="44.60" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">CAM 4</text>
+<rect x="14.35" y="55.35" width="15.3" height="15.3" rx="1.2" fill="#fff1d6" stroke="#222" stroke-width="0.4"/>
+<rect x="14.50" y="55.50" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="22.00" y="64.10" font-size="2.5" text-anchor="middle" font-weight="bold" fill="#111">PGM/PRV</text>
+<rect x="33.85" y="55.35" width="15.3" height="15.3" rx="1.2" fill="#fff1d6" stroke="#222" stroke-width="0.4"/>
+<rect x="34.00" y="55.50" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="41.50" y="64.10" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">TAKE</text>
+<rect x="14.35" y="74.85" width="15.3" height="15.3" rx="1.2" fill="#eeeeee" stroke="#222" stroke-width="0.4"/>
+<rect x="14.50" y="75.00" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="22.00" y="83.60" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">SHIFT</text>
+<rect x="152.35" y="16.35" width="15.3" height="15.3" rx="1.2" fill="#ffe3e3" stroke="#222" stroke-width="0.4"/>
+<rect x="152.50" y="16.50" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="160.00" y="25.10" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">IN</text>
+<rect x="171.85" y="16.35" width="15.3" height="15.3" rx="1.2" fill="#ffe3e3" stroke="#222" stroke-width="0.4"/>
+<rect x="172.00" y="16.50" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="179.50" y="25.10" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">OUT</text>
+<rect x="191.35" y="16.35" width="15.3" height="15.3" rx="1.2" fill="#ffe3e3" stroke="#222" stroke-width="0.4"/>
+<rect x="191.50" y="16.50" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="199.00" y="25.10" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">−5 s</text>
+<rect x="210.85" y="16.35" width="15.3" height="15.3" rx="1.2" fill="#e3ffe9" stroke="#222" stroke-width="0.4"/>
+<rect x="211.00" y="16.50" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="218.50" y="25.10" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">PLAY</text>
+<rect x="152.35" y="35.85" width="15.3" height="15.3" rx="1.2" fill="#f1e6ff" stroke="#222" stroke-width="0.4"/>
+<rect x="152.50" y="36.00" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="160.00" y="44.60" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">PREV</text>
+<rect x="171.85" y="35.85" width="15.3" height="15.3" rx="1.2" fill="#f1e6ff" stroke="#222" stroke-width="0.4"/>
+<rect x="172.00" y="36.00" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="179.50" y="44.60" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">NEXT</text>
+<rect x="191.35" y="35.85" width="15.3" height="15.3" rx="1.2" fill="#e3ffe9" stroke="#222" stroke-width="0.4"/>
+<rect x="191.50" y="36.00" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="199.00" y="44.60" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">FAST</text>
+<rect x="210.85" y="35.85" width="15.3" height="15.3" rx="1.2" fill="#e3ffe9" stroke="#222" stroke-width="0.4"/>
+<rect x="211.00" y="36.00" width="15" height="15" rx="1" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="0.8 0.6"/>
+<text x="218.50" y="44.60" font-size="3.2" text-anchor="middle" font-weight="bold" fill="#111">LIVE</text>
+<rect x="72" y="16" width="62" height="24" rx="1.5" fill="none" stroke="#666" stroke-width="0.4" stroke-dasharray="2 1.2"/>
+<text x="103" y="29.5" font-size="3" text-anchor="middle" fill="#666">OLED (volitelně) · timecode / stav</text>
+<rect x="144" y="72" width="12" height="60" rx="6" fill="#ddd" stroke="#222" stroke-width="0.5"/>
+<rect x="136" y="116" width="28" height="10" rx="2" fill="#555"/>
+<text x="150" y="122.5" font-size="3" text-anchor="middle" fill="#fff">PÁKA</text>
+<text x="150" y="70" font-size="2.6" text-anchor="middle" fill="#444">100 %</text>
+<text x="150" y="136" font-size="2.6" text-anchor="middle" fill="#444">0 % (k sobě)</text>
+<circle cx="203" cy="102" r="30" fill="#e6e6e6" stroke="#222" stroke-width="0.6"/>
+<circle cx="221" cy="90" r="5" fill="#cfcfcf" stroke="#555" stroke-width="0.3"/>
+<text x="203" y="103" font-size="3.6" text-anchor="middle" font-weight="bold">JOG Ø60</text>
+<text x="31.75" y="13.5" font-size="2.8" text-anchor="middle" fill="#555">KAMERY</text>
+<text x="189" y="13.5" font-size="2.8" text-anchor="middle" fill="#555">ZNAČKY · TRANSPORT · UDÁLOSTI</text>
+<line x1="10" y1="140" x2="60" y2="140" stroke="#000" stroke-width="0.5"/><line x1="10" y1="138" x2="10" y2="142" stroke="#000" stroke-width="0.5"/><line x1="60" y1="138" x2="60" y2="142" stroke="#000" stroke-width="0.5"/>
+<text x="35" y="137" font-size="2.8" text-anchor="middle">kontrola tisku: tato úsečka = 50 mm</text>
+<text x="237" y="145" font-size="2.6" text-anchor="end" fill="#666">panel 245 × 150 mm · rozteč tlačítek 19.5 mm · tlačítko 15,3 mm</text>
+</svg>
