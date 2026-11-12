@@ -100,14 +100,21 @@ def pb26():
 
 
 def ts5():
-    # PLACEHOLDER: pin positions not confirmed. Seller: pins 1-4 switch, 5 LED-, 6 LED+, pitch 5.08 mm.
-    pads = [("1", -2.54, -2.54), ("2", 2.54, -2.54), ("3", -2.54, 2.54), ("4", 2.54, 2.54),
-            ("5", -2.54, 0), ("6", 2.54, 0)]
+    """Podle výkresu Honyone TS5-2X-XA-1XS rev. A1 (PCB layout, pohled shora): 1 a 2 nahoře, 3 a 4 dole,
+    rastr 5,08 x 5,08 mm, otvory spínače Ø1,0; LED uprostřed: 6 (+) vlevo, 5 (-) vpravo, otvory Ø0,8.
+    Uvnitř jsou spojené 1-2 a 3-4. Rastr je souměrný, takže tlačítko jde zasunout i otočené o 180°:
+    spínači je to jedno, LED by ale byla obráceně -> na desce je u padu 6 značka "+".
+    Ještě ověřit na skutečném kusu (multimetr: polarita LED, propojení vývodů)."""
+    pads = [("1", -2.54, -2.54), ("2", 2.54, -2.54), ("3", -2.54, 2.54), ("4", 2.54, 2.54)]
     items = [_pad(num, "thru_hole", "rect" if num == "1" else "circle", x, y, 1.7, 1.7, THT, drill=1.0)
              for num, x, y in pads]
+    items += [_pad("6", "thru_hole", "circle", -2.54, 0, 1.5, 1.5, THT, drill=0.9),
+              _pad("5", "thru_hole", "circle", 2.54, 0, 1.5, 1.5, THT, drill=0.9)]
     h = 4.6
-    items += [_rect(-h, -h, h, h, "F.SilkS"), _rect(-h, -h, h, h, "F.Fab", 0.1), _rect(-5, -5, 5, 5, "F.CrtYd", 0.05)]
-    return footprint("TS5-9.2mm-LED", "Honyone TS5 9.2x9.2 mm tact switch with LED. PLACEHOLDER pin positions, VERIFY.",
+    items += [_rect(-h, -h, h, h, "F.SilkS"), _rect(-h, -h, h, h, "F.Fab", 0.1), _rect(-5, -5, 5, 5, "F.CrtYd", 0.05),
+              _line(-4.3, 0, -3.7, 0, "F.SilkS", 0.15), _line(-4.0, -0.3, -4.0, 0.3, "F.SilkS", 0.15),
+              _line(-4.3, 0, -3.7, 0, "B.SilkS", 0.15), _line(-4.0, -0.3, -4.0, 0.3, "B.SilkS", 0.15)]
+    return footprint("TS5-9.2mm-LED", "Honyone TS5 9.2x9.2 mm tact switch with LED, per drawing TS5-2X-XA-1XS A1. VERIFY on the real part.",
                      ["through_hole"], items, 9.2)
 
 

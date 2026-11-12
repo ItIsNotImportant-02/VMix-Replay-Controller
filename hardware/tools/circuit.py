@@ -143,9 +143,11 @@ def build(prj):
     s.add(C("C%d" % n, "100nF", "+1V1")); n += 1              # DVDD
     s.add(C("C%d" % n, "100nF", "+1V1")); n += 1              # DVDD
     s.add(C("C%d" % n, "10uF", "+3V3")); n += 1               # bulk
+    # ABM8-272-T3 (doporučený v Hardware design with RP2040) má JLC skladem 1 ks (12. 11. 2026) -> náhrada se stejnou
+    # zatěžovací kapacitou 10 pF, takže obvod (2x 15 pF + 1k) zůstává; ESR max 60 R místo 50 R.
     s.add(Part("Y1", "Device:Crystal_GND24", "12MHz", "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
-               pins={"1": "XIN", "3": "XTAL_OUT", "2": "GND", "4": "GND"}, lcsc="C20625731", mpn="ABM8-272-T3",
-               desc="12 MHz, CL 10 pF, ESR 50R, +-30 ppm; krystal doporučený v Hardware design with RP2040"))
+               pins={"1": "XIN", "3": "XTAL_OUT", "2": "GND", "4": "GND"}, lcsc="C5310728", mpn="TX322512M4DBDE2T",
+               desc="Yajingxin 12 MHz, CL 10 pF, ESR max 60R, +-10 ppm, -30..85 C; pady 1 a 3 krystal, 2 a 4 GND"))
     s.add(R("R10", "1k", "XOUT", "XTAL_OUT"))
     s.add(C("C%d" % n, "15pF", "XIN")); n += 1      # CL 10 pF: 15/2 + ~3 pF parazitní = 10,5 pF (C0G)
     s.add(C("C%d" % n, "15pF", "XTAL_OUT")); n += 1
@@ -266,7 +268,10 @@ def build(prj):
                    mpn="PB26-13M-B-WT-RGB-N", in_bom=False, fields={"Assembly": "ruční pájení"}))
     for i, name in enumerate(FKEYS):
         s.add(Part("SW%d" % (30 + i), "vrc:TS5-LED", name, "vrc:TS5-9.2mm-LED",
-                   pins={"1": "GND", "2": "GND", "3": "BTN_%s" % name, "4": "BTN_%s" % name,
+                   # Jen úhlopříčné vývody 1 a 4: u tact spínače jsou úhlopříčné vývody vždy na opačných
+                   # kontaktech, ať jsou uvnitř spojené dvojice 1-2/3-4 nebo 1-3/2-4. Zapojení všech čtyř
+                   # (1+2 = GND, 3+4 = vstup) by při párování 1-3/2-4 dalo trvalý zkrat = klávesa stále stisknutá.
+                   pins={"1": "GND", "2": None, "3": None, "4": "BTN_%s" % name,
                          "6": "+5V_LED", "5": "LED_%s" % name},
                    mpn="TS5 yellow", in_bom=False, fields={"Assembly": "ruční pájení"}))
 

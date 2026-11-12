@@ -3,7 +3,8 @@
 	(generator "vrc_footprints")
 	(generator_version "9.0")
 	(layer "F.Cu")
-	(descr "Honyone TS5 9.2x9.2 mm tact switch with LED. PLACEHOLDER pin positions, VERIFY.")
+	(descr "Honyone TS5 9.2x9.2 mm tact switch with LED, per drawing TS5-2X-XA-1XS A1. VERIFY on the real part."
+	)
 	(property "Reference" "REF**"
 		(at 0 -6.1 0)
 		(layer "F.SilkS")
@@ -49,16 +50,16 @@
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
 	)
-	(pad "5" thru_hole circle
+	(pad "6" thru_hole circle
 		(at -2.54 0)
-		(size 1.7 1.7)
-		(drill 1)
+		(size 1.5 1.5)
+		(drill 0.9)
 		(layers "*.Cu" "*.Mask")
 	)
-	(pad "6" thru_hole circle
+	(pad "5" thru_hole circle
 		(at 2.54 0)
-		(size 1.7 1.7)
-		(drill 1)
+		(size 1.5 1.5)
+		(drill 0.9)
 		(layers "*.Cu" "*.Mask")
 	)
 	(fp_rect
@@ -90,5 +91,41 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start -4.3 0)
+		(end -3.7 0)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -4 -0.3)
+		(end -4 0.3)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -4.3 0)
+		(end -3.7 0)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "B.SilkS")
+	)
+	(fp_line
+		(start -4 -0.3)
+		(end -4 0.3)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "B.SilkS")
 	)
 )
