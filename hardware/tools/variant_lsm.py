@@ -23,6 +23,7 @@ FPITCH = (R - L) / 9                      # F1 under MENU, F10 under ENTER
 NOTCH_X1, NOTCH_Y = 38.0, 57.0            # lever cut-out, open to the left and to the front edge
 COL_X, COL_Y0, COL_DY = 47.5, 68.0, 18.5  # PLST..TAKE column right of the lever
 JOG = (98.0, 113.0, 22.0, 36.0)           # cx, cy, bearing hole r, knob r (Ø72 knob on the panel)
+USB_X0, RJ_X0 = 39.5, 84.75               # left edges of the jack bodies (drawing only)
 
 PB26 = {"MENU": (L, ROW1), "SHIFT": (L + 18.0, ROW1), "CLEAR": (R - 18.0, ROW1), "ENTER": (R, ROW1),
         "CAM_A": (L, CAMROW), "CAM_B": (L + 16.5, CAMROW), "CAM_C": (L + 33.0, CAMROW), "CAM_D": (L + 49.5, CAMROW),
@@ -70,7 +71,7 @@ def panel_svg(path):
         o.append('<rect x="%g" y="%g" width="9.2" height="9.2" rx="1" fill="#fff4c2" stroke="#222" stroke-width="0.35"/>'
                  % (x - 4.6, FROW - 4.6))
         o.append('<text x="%g" y="%g" font-size="2.4" text-anchor="middle" font-weight="bold">F%d</text>' % (x, FROW + 0.9, i + 1))
-    for label, x0, w in (("USB-C", 39.5, 9.0), ("RJ45", 84.75, 16.0)):
+    for label, x0, w in (("USB-C", USB_X0, 9.0), ("RJ45", RJ_X0, 16.0)):
         o.append('<rect x="%g" y="-1" width="%g" height="%g" fill="#cfe0ff" stroke="#225" stroke-width="0.35"/>'
                  % (x0, w, 8 if label == "USB-C" else 21))
         o.append('<text x="%g" y="-3" font-size="3" text-anchor="middle">%s</text>' % (x0 + w / 2, label))
