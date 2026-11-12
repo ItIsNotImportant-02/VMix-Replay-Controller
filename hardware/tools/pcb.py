@@ -83,6 +83,7 @@ OUT_PCB = os.path.join(HW, "build", "placed.kicad_pcb")
 LAYERS = 4
 EDGE_CONN = {"J1": "left", "J4": "right"}   # edge connectors snapped to a board edge
 EDGE_OVERHANG = 1.0
+BOTTOM = set()                             # hand-soldered parts mounted on the bottom side
 
 POWER_NETS = {"GND", "+3V3", "+5V", "+5V_LED", "VBUS", "+1V1", "+3V3A"}
 NETCLASS_POWER = {"+5V", "+5V_LED", "VBUS", "+3V3", "+3V3A", "+1V1", "GND"}
@@ -127,7 +128,7 @@ def load_fp(fpid):
 def court_bbox(fp, margin=0.25):
     """Courtyard bounding box in mm (x0,y0,x1,y1), falling back to the item bbox."""
     try:
-        sh = fp.GetCourtyard(pcbnew.F_CrtYd)
+        sh = fp.GetCourtyard(pcbnew.B_CrtYd if fp.IsFlipped() else pcbnew.F_CrtYd)
         bb = sh.BBox() if sh.OutlineCount() else fp.GetBoundingBox(False)
     except Exception:
         bb = fp.GetBoundingBox(False)
@@ -278,8 +279,12 @@ def place():
 
     def put(ref, x, y, rot=0):
         fp = fps[ref]
+        if ref in BOTTOM and not fp.IsFlipped():
+            fp.Flip(fp.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)
         fp.SetOrientationDegrees(rot)
         fp.SetPosition(P(x, y))
+        if ref in BOTTOM and all(p.GetAttribute() == pcbnew.PAD_ATTRIB_SMD for p in fp.Pads()):
+            return            # SMD on the bottom: the top side above it stays free
         placed.append(court_bbox(fp, 0.0))
 
     # buttons

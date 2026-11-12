@@ -54,9 +54,11 @@ def main():
     pcb.MOUNT_HOLES = [(mid, CAMROW), (W - 4.5, CAMROW + P), (v.COL_X + 13.0, H - 4.5), (W - 4.5, H - 4.5)]
     pcb.EDGE_CONN = {"J1": "top", "J4": "top"}
     pcb.EDGE_OVERHANG = 1.0
+    # hand-soldered connectors on the bottom (USB-C stays on top: JLC assembles it, 0.5 mm pitch)
+    pcb.BOTTOM = {"J4", "J5", "J6", "J2", "J3"}
     pcb.FIXED = {
         "J1": (v.USB_X0 + 4.5, None, 180),   # USB-C, rear edge right of SHIFT
-        "J4": (v.RJ_X0 + 12.45, None, 180),  # RJ45 left of CLEAR (origin = pin 1, body centre 4.45 mm left)
+        "J4": (v.RJ_X0 + 3.55, None, 0)  ,  # RJ45 left of CLEAR (origin = pin 1, body centre 4.45 mm left)
         "U5": (88.0, 13.0, 0),        # W5500 between the jacks
         "U2": (64.0, 17.0, 0),        # LDO next to the USB input
         "U3": (mid - 2.0, CAMROW + 16.0, 0),     # RP2040 right of the column
@@ -69,7 +71,7 @@ def main():
         "J5": (v.COL_X + 14.0, H - 26.0, 270),   # lever sensor connector (cable under the column to the lever)
         "J6": (W - 9.0, cy + 8.0, 90),           # jog sensor connector
         "J2": (cx - 14.0, H - 4.5, 90),          # debug header
-        "J3": (cx + 6.0, H - 4.5, 90),           # expansion header
+        "J3": (cx + 10.0, H - 4.5, 90),           # expansion header
     }
     pcb.place()
     v.panel_svg(os.path.join(v.OUT, "panel.svg"))
