@@ -19,11 +19,11 @@ FPDIR = "/usr/share/kicad/footprints"
 OX, OY = 20.0, 20.0          # board offset on the KiCad page
 
 # ---------------------------------------------------------------- layout ----
-BOARD = (4.0, 4.0, 246.0, 186.0)            # x0, y0, x1, y1 (panel coords)
+BOARD = (24.0, 12.0, 226.0, 154.0)          # x0, y0, x1, y1 (panel coords): smallest rectangle around the buttons and the jog
 CORNER_R = 4.0
 LEVER_NOTCH = (42.0, 58.0, 76.0)            # x0, y_top, x1 : open notch down to the bottom edge
 JOG_HOLE = (192.0, 126.0, 22.0)             # cx, cy, r : bearing housing of the jog shaft
-MOUNT_HOLES = [(10, 62), (10, 180), (84, 180), (150, 9), (240, 100), (240, 180), (150, 180), (88, 120)]
+MOUNT_HOLES = [(29, 56), (33, 149), (82, 62), (120, 149), (131, 33), (220, 60), (220, 149)]
 
 # Panel buttons: name -> (x, y) centre, from the approved layout v0.5
 PB26_POS = {"MENU": (33.95, 22.0), "SHIFT": (52.45, 22.0), "CLEAR": (197.55, 22.0), "ENTER": (216.05, 22.0),
@@ -35,19 +35,19 @@ FKEY_X0, FKEY_DX, FKEY_Y = 68.75, 12.5, 22.0
 
 # Fixed parts: ref -> (x, y, rotation). Edge connectors are snapped to the board edge in code.
 FIXED = {
-    "J1": (14.0, None, 180),      # USB-C, rear edge, top-left
-    "J4": (240.0, None, 180),     # RJ45, rear edge, top-right
+    "J1": (None, 76.0, 270),      # USB-C, left edge (the rear edge is full of buttons)
+    "J4": (None, 80.0, 90),       # RJ45, right edge
     "U3": (135.0, 88.0, 0),       # RP2040
     "U4": (135.0, 104.0, 0),      # flash
-    "U5": (224.0, 58.0, 0),       # W5500
+    "U5": (196.0, 95.0, 0),       # W5500, close to the RJ45
     "U6": (88.0, 92.0, 0),        # LED driver, left
     "U7": (145.0, 46.0, 0),       # LED driver, right
     "U8": (88.0, 66.0, 0),        # expander, left
     "U9": (124.0, 46.0, 0),       # expander, right
-    "U2": (14.0, 30.0, 0),        # LDO
-    "J5": (88.0, 150.0, 270),     # lever sensor connector, cable towards the notch
+    "U2": (33.0, 95.0, 0),        # LDO, below the USB-C
+    "J5": (88.0, 132.0, 270),     # lever sensor connector, cable towards the notch
     "J6": (160.0, 112.0, 90),     # jog sensor connector
-    "J2": (126.0, 140.0, 0),      # debug header
+    "J2": (126.0, 122.0, 0),      # debug header
     "J3": (140.0, 128.0, 0),      # expansion header
     "SW1": (122.0, 112.0, 0), "SW2": (148.0, 112.0, 0),
 }
@@ -285,13 +285,14 @@ def place():
     for i in range(10):
         put(value_to_ref["F%d" % (i + 1)], FKEY_X0 + i * FKEY_DX, FKEY_Y)
     # edge connectors: snap the courtyard to the rear edge
-    for ref in ("J1", "J4"):
-        x, _, rot = FIXED[ref]
-        put(ref, x, 30, rot)
+    for ref, side in (("J1", "left"), ("J4", "right")):
+        _, y, rot = FIXED[ref]
+        x = (BOARD[0] + 15) if side == "left" else (BOARD[2] - 15)
+        put(ref, x, y, rot)
         placed.pop()
         bb = court_bbox(fps[ref], 0.0)
-        dy = (BOARD[1] - 1.0) - bb[1]
-        fps[ref].SetPosition(P(x, 30 + dy))
+        dx = (BOARD[0] - 1.0 - bb[0]) if side == "left" else (BOARD[2] + 1.0 - bb[2])
+        fps[ref].SetPosition(P(x + dx, y))
         placed.append(court_bbox(fps[ref], 0.0))
     for ref, (x, y, rot) in FIXED.items():
         if ref in ("J1", "J4") or ref not in fps:

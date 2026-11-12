@@ -2,6 +2,10 @@
 
 Sbírka požadavků z datasheetů a referenčních návrhů, které se projeví až na DPS. Doplňuje se při procházení schématu blok po bloku.
 
+## Rozměr a konektory
+- Deska 202 × 142 mm (nejmenší obdélník kolem tlačítek a ložiska jogu; cena JLC se počítá z obdélníku). Zadní hrana je celá plná tlačítek, proto USB-C (J1) vystupuje levou a RJ45 (J4) pravou boční hranou. Krabička s tím musí počítat.
+- 7 montážních otvorů M3 na GND; panel s tlačítky drží deska přes distanční sloupky.
+
 ## Napájení (blok 1)
 - FB1 (BLM18PG121SN1D, 0603, 2 A) nese celý proud LED (až ~0,75 A při zásahu pojistky): široké cesty nebo polygon +5V / +5V_LED.
 - U2 (SOT-223): tab = VOUT, pod ním měděná plocha jako chladič (ztráta ~0,35 W), C6/C7 přímo u výstupu.
