@@ -1,6 +1,6 @@
 """Export JLCPCB assembly files (BOM + CPL) from the board.
 
-    python3 tools/jlc.py [board.kicad_pcb]      ->  build/jlc/BOM-JLCPCB.csv, build/jlc/CPL-JLCPCB.csv
+    python3 tools/jlc.py [board.kicad_pcb [outdir]]   ->  build/jlc/BOM-JLCPCB.csv, build/jlc/CPL-JLCPCB.csv
 
 Plain Python 3, no KiCad needed (reads the .kicad_pcb directly), so it runs on Windows too.
 Run it again after every change of placement: the CPL holds positions.
@@ -59,7 +59,7 @@ def footprints(path):
 
 def main():
     board = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HW, "vmix-replay-controller.kicad_pcb")
-    out = os.path.join(HW, "build", "jlc")
+    out = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HW, "build", "jlc")
     os.makedirs(out, exist_ok=True)
     bom = OrderedDict()
     cpl = []

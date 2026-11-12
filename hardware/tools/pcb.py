@@ -77,6 +77,13 @@ for r in ("R33", "R34"):
 for i in range(1, 8):
     HOME["RN%d" % i] = "U8" if i <= 4 else "U9"
 
+# overridable by variant scripts (tools/variant_2boards.py)
+NETLIST = os.path.join(HW, "build", "net.net")
+OUT_PCB = os.path.join(HW, "build", "placed.kicad_pcb")
+LAYERS = 4
+EDGE_CONN = {"J1": "left", "J4": "right"}   # edge connectors snapped to a board edge
+EDGE_OVERHANG = 1.0
+
 POWER_NETS = {"GND", "+3V3", "+5V", "+5V_LED", "VBUS", "+1V1", "+3V3A"}
 NETCLASS_POWER = {"+5V", "+5V_LED", "VBUS", "+3V3", "+3V3A", "+1V1", "GND"}
 
@@ -182,9 +189,9 @@ def outline(board):
 
 
 def setup_board(board):
-    board.SetCopperLayerCount(4)
+    board.SetCopperLayerCount(LAYERS)
     ds = board.GetDesignSettings()
-    ds.SetCopperLayerCount(4)
+    ds.SetCopperLayerCount(LAYERS)
     # JLCPCB 4-layer capabilities with margin
     ds.m_TrackMinWidth = mm(0.127)
     ds.m_MinClearance = mm(0.127)
@@ -230,7 +237,7 @@ def add_zone(board, netname, layer, prio=0, poly=None):
 
 
 def place():
-    comps, nets = read_netlist(os.path.join(HW, "build", "net.net"))
+    comps, nets = read_netlist(NETLIST)
     board = pcbnew.CreateEmptyBoard()
     setup_board(board)
     outline(board)
@@ -280,22 +287,35 @@ def place():
     for ref, c in comps.items():
         if c["footprint"].startswith("vrc:PB26") or c["footprint"].startswith("vrc:TS5"):
             value_to_ref[c["value"]] = ref
-    for name, (x, y) in PB26_POS.items():
-        put(value_to_ref[name], x, y)
-    for i in range(10):
-        put(value_to_ref["F%d" % (i + 1)], FKEY_X0 + i * FKEY_DX, FKEY_Y)
-    # edge connectors: snap the courtyard to the rear edge
-    for ref, side in (("J1", "left"), ("J4", "right")):
-        _, y, rot = FIXED[ref]
-        x = (BOARD[0] + 15) if side == "left" else (BOARD[2] - 15)
+    if value_to_ref:
+        for name, (x, y) in PB26_POS.items():
+            put(value_to_ref[name], x, y)
+        for i in range(10):
+            put(value_to_ref["F%d" % (i + 1)], FKEY_X0 + i * FKEY_DX, FKEY_Y)
+    # edge connectors: snap the courtyard to a board edge
+    for ref, side in EDGE_CONN.items():
+        if ref not in fps:
+            continue
+        x, y, rot = FIXED[ref]
+        if side in ("left", "right"):
+            x = (BOARD[0] + 15) if side == "left" else (BOARD[2] - 15)
+        else:
+            y = (BOARD[1] + 15) if side == "top" else (BOARD[3] - 15)
         put(ref, x, y, rot)
         placed.pop()
         bb = court_bbox(fps[ref], 0.0)
-        dx = (BOARD[0] - 1.0 - bb[0]) if side == "left" else (BOARD[2] + 1.0 - bb[2])
-        fps[ref].SetPosition(P(x + dx, y))
+        o = EDGE_OVERHANG
+        if side == "left":
+            fps[ref].SetPosition(P(x + BOARD[0] - o - bb[0], y))
+        elif side == "right":
+            fps[ref].SetPosition(P(x + BOARD[2] + o - bb[2], y))
+        elif side == "top":
+            fps[ref].SetPosition(P(x, y + BOARD[1] - o - bb[1]))
+        else:
+            fps[ref].SetPosition(P(x, y + BOARD[3] + o - bb[3]))
         placed.append(court_bbox(fps[ref], 0.0))
     for ref, (x, y, rot) in FIXED.items():
-        if ref in ("J1", "J4") or ref not in fps:
+        if ref in EDGE_CONN or ref not in fps:
             continue
         put(ref, x, y, rot)
     # mounting holes
@@ -344,7 +364,7 @@ def place():
                 for pad in fps[r2].Pads():
                     if pad.GetNetname() in my_nets and pad.GetNetname() != "GND":
                         return pcbnew.ToMM(pad.GetPosition().x) - OX, pcbnew.ToMM(pad.GetPosition().y) - OY
-        p = fps[home or "U3"].GetPosition()
+        p = fps[home or ("U3" if "U3" in fps else sorted(r for r in fps if r.startswith("U"))[0])].GetPosition()
         return pcbnew.ToMM(p.x) - OX, pcbnew.ToMM(p.y) - OY
 
     def sort_key(r):
@@ -383,13 +403,13 @@ def place():
         put(ref, *best)
 
     # planes: In1 = GND, In2 = +5V_LED (everything 5 V for the LEDs and drivers), outer GND pours
-    add_zone(board, "GND", pcbnew.In1_Cu)
-    add_zone(board, "+5V_LED", pcbnew.In2_Cu)
+    if LAYERS == 4:
+        add_zone(board, "GND", pcbnew.In1_Cu)
+        add_zone(board, "+5V_LED", pcbnew.In2_Cu)
     add_zone(board, "GND", pcbnew.F_Cu)
     add_zone(board, "GND", pcbnew.B_Cu)
-    out = os.path.join(HW, "build", "placed.kicad_pcb")
-    board.Save(out)
-    pcbnew.ExportSpecctraDSN(board, os.path.join(HW, "build", "board.dsn"))
+    board.Save(OUT_PCB)
+    pcbnew.ExportSpecctraDSN(board, os.path.splitext(OUT_PCB)[0] + ".dsn")
     print("placed", len(fps), "footprints")
 
 
