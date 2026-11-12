@@ -4,9 +4,9 @@ Stav: **schváleno 11. 11. 2026** (krok 2.6). Podle ní se kreslí schéma.
 
 ## 1. Panel
 
-Layout: [layout/panel-layout-v0.5.pdf](layout/panel-layout-v0.5.pdf) (schváleno 11. 11. 2026), předloha: [layout/evs-lsm-reference-photo.jpg](layout/evs-lsm-reference-photo.jpg).
+Layout: [layout/panel-layout-v0.6.pdf](layout/panel-layout-v0.6.pdf) (schváleno 12. 11. 2026, rozložení podle EVS LSM VIA; nahrazuje [v0.5](layout/panel-layout-v0.5.pdf)), předloha: [layout/evs-lsm-reference-photo.jpg](layout/evs-lsm-reference-photo.jpg).
 
-- Panel cca 250 × 190 mm, bez displeje.
+- Deska 160 × 155 mm (tvar L, páka v levém dolním rohu), panel o pár mm větší, bez displeje.
 - 18× PB26-13M RGB (15 × 15 mm, SPDT, RGB se společnou anodou), 2 ks rezerva.
 - 10× TS5 (9,2 × 9,2 mm, žlutá LED) pro F1–F10.
 - Páka: bez motoru, drží polohu třením, zdvih cca 100 mm, magnetický snímač úhlu MT6701 na čepu.

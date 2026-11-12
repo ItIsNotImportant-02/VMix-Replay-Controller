@@ -2,9 +2,13 @@
 
 Sbírka požadavků z datasheetů a referenčních návrhů, které se projeví až na DPS. Doplňuje se při procházení schématu blok po bloku.
 
-## Rozměr a konektory
-- Deska 202 × 142 mm (nejmenší obdélník kolem tlačítek a ložiska jogu; cena JLC se počítá z obdélníku). Zadní hrana je celá plná tlačítek, proto USB-C (J1) vystupuje levou a RJ45 (J4) pravou boční hranou. Krabička s tím musí počítat.
-- 7 montážních otvorů M3 na GND; panel s tlačítky drží deska přes distanční sloupky.
+## Rozměr a konektory (layout v0.6 podle EVS LSM VIA, schváleno 12. 11. 2026)
+- Deska 160 × 155 mm, tvar L: levý dolní roh chybí (výřez pro páku, 63 × 96 mm), v něm páka. Cena JLC se počítá z obdélníku 160 × 155. Výkres panelu 1:1: [panel-layout-v0.6.svg](../docs/layout/panel-layout-v0.6.pdf).
+- Mezery mezi tlačítky: PB26 rozteč 19 mm (mezera 3,7 mm), F1–F10 rozteč 15,7 mm (mezera 6,5 mm).
+- Zadní hrana: MENU, SHIFT, USB-C (J1), RJ45 (J4), CLEAR, ENTER. Místo programovatelných tlačítek LSM VIA jsou tu konektory.
+- **Horní strana:** všechno, co osazuje JLC (včetně USB-C J1, rozteč 0,5 mm, ručně se špatně pájí), a tlačítka do panelu.
+- **Spodní strana (ruční pájení):** RJ45 J4, konektory senzorů J5 (páka) a J6 (jog), hřebínky J2 (debug) a J3 (rozšíření). JLC Economic osazuje jen jednu stranu, takže na spodní straně nesmí být žádný díl z BOM. USB-C je nad deskou a RJ45 pod ní, otvory v zadní stěně krabičky jsou tedy v různé výšce.
+- 4 montážní otvory M3 na GND; panel s tlačítky drží deska přes distanční sloupky.
 
 ## Napájení (blok 1)
 - FB1 (BLM18PG121SN1D, 0603, 2 A) nese celý proud LED (až ~0,75 A při zásahu pojistky): široké cesty nebo polygon +5V / +5V_LED.

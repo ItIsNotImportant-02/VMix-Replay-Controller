@@ -6,8 +6,10 @@ Run inside the kicad/kicad:9.0 container from hardware/:
     (freerouting on build/board.dsn -> build/board.ses)
     python3 tools/pcb.py finish     # import routes, fill zones -> vmix-replay-controller.kicad_pcb
 
-Coordinates in the layout section are panel coordinates in mm (panel-layout-v0.5.svg),
-origin top-left of the 250 x 190 mm panel; y grows towards the operator.
+    python3 tools/pcb.py panel      # 1:1 panel drawing -> docs/layout/panel-layout-v0.6.svg
+
+Coordinates in the layout section are board coordinates in mm, origin top-left of the board
+(rear edge), y grows towards the operator. The panel uses the same coordinates.
 """
 import math, os, sys
 import pcbnew
@@ -19,38 +21,63 @@ FPDIR = "/usr/share/kicad/footprints"
 OX, OY = 20.0, 20.0          # board offset on the KiCad page
 
 # ---------------------------------------------------------------- layout ----
-BOARD = (24.0, 12.0, 226.0, 154.0)          # x0, y0, x1, y1 (panel coords): smallest rectangle around the buttons and the jog
-CORNER_R = 4.0
-LEVER_NOTCH = (42.0, 58.0, 76.0)            # x0, y_top, x1 : open notch down to the bottom edge
-JOG_HOLE = (192.0, 126.0, 22.0)             # cx, cy, r : bearing housing of the jog shaft
-MOUNT_HOLES = [(29, 56), (33, 149), (82, 62), (120, 149), (131, 33), (220, 60), (220, 149)]
+# Layout v0.6 after the EVS LSM VIA (docs/layout/panel-layout-v0.6.svg):
+#   rear row   MENU SHIFT  [USB-C ... RJ45]  CLEAR ENTER   (the LSM's programmable keys -> the jacks)
+#   F1-F10     across the full width, F1 under MENU, F10 under ENTER
+#   CAM A-D    left, above the lever, CAM D half over the PLST..TAKE column;  PLAY LAST CUE MARK right
+#   RECORD PRV_CTL under the right block, offset by half a key
+#   lever in the open lower-left corner, PLST..TAKE column next to it, jog right
+# Every PB26 gap is 3.7 mm (pitch 19 mm). The board is the smallest rectangle around all of it.
+PITCH = 19.0                                # PB26 15.3 mm + 3.7 mm gap
+KEY_L = 9.5                                 # outer key centre from the board edge (courtyard 16 mm)
+ROW1, FKEY_Y, CAMROW = 10.5, 30.0, 49.5
+CAMD_X = KEY_L + 3 * PITCH                  # CAM D centre = left edge of the column
+COL_X = CAMD_X + 7.65
+COL_Y0 = CAMROW + PITCH
+JOG_X = COL_X + 7.65 + 4.0 + 36.0           # Ø72 knob 4 mm right of the column
+W = JOG_X + 36.0 + 2.0
+H = COL_Y0 + 4 * PITCH + 7.65 + 2.5
+KEY_R = W - KEY_L
+BOARD = (0.0, 0.0, W, H)                    # x0, y0, x1, y1 (panel = board coordinates, y towards the operator)
+CORNER_R = 0.0
+LEVER_NOTCH = (-20.0, CAMROW + 7.65 + 1.5, COL_X - 7.65 - 1.5)   # open lower-left corner: x0 (keep-out only), y_top, x1
+JOG_HOLE = (JOG_X, COL_Y0 + 7.65 + 3.0 + 36.0, 22.0)             # cx, cy, r : bearing housing of the jog shaft
+JOG_KNOB_R = 36.0
+USB_X0, RJ_X0 = 46.0, 104.0                 # left edges of the jack bodies on the rear edge
+_MID = (COL_X + 7.65 + KEY_R - 1.5 * PITCH - 7.65) / 2           # between the column and RECORD
+MOUNT_HOLES = [(_MID, CAMROW), (W - 4.5, CAMROW + PITCH), (COL_X + 13.0, H - 4.5), (W - 4.5, H - 4.5)]
 
-# Panel buttons: name -> (x, y) centre, from the approved layout v0.5
-PB26_POS = {"MENU": (33.95, 22.0), "SHIFT": (52.45, 22.0), "CLEAR": (197.55, 22.0), "ENTER": (216.05, 22.0),
-            "CAM_A": (33.95, 44.0), "CAM_B": (50.45, 44.0), "CAM_C": (66.95, 44.0), "CAM_D": (83.45, 44.0),
-            "PLST": (107.45, 70.0), "BROWSE": (107.45, 88.5), "IN": (107.45, 107.0), "OUT": (107.45, 125.5),
-            "TAKE": (107.45, 144.0), "PLAY": (160.0, 44.0), "LAST_CUE": (178.5, 44.0), "MARK": (197.0, 44.0),
-            "RECORD": (169.0, 62.5), "PRV_CTL": (187.5, 62.5)}
-FKEY_X0, FKEY_DX, FKEY_Y = 68.75, 12.5, 22.0
+# Panel buttons: name -> (x, y) centre
+PB26_POS = {"MENU": (KEY_L, ROW1), "SHIFT": (KEY_L + PITCH, ROW1),
+            "CLEAR": (KEY_R - PITCH, ROW1), "ENTER": (KEY_R, ROW1),
+            "CAM_A": (KEY_L, CAMROW), "CAM_B": (KEY_L + PITCH, CAMROW), "CAM_C": (KEY_L + 2 * PITCH, CAMROW),
+            "CAM_D": (CAMD_X, CAMROW),
+            "PLAY": (KEY_R - 2 * PITCH, CAMROW), "LAST_CUE": (KEY_R - PITCH, CAMROW), "MARK": (KEY_R, CAMROW),
+            "RECORD": (KEY_R - 1.5 * PITCH, CAMROW + PITCH), "PRV_CTL": (KEY_R - 0.5 * PITCH, CAMROW + PITCH)}
+for _i, _n in enumerate(("PLST", "BROWSE", "IN", "OUT", "TAKE")):
+    PB26_POS[_n] = (COL_X, COL_Y0 + _i * PITCH)
+FKEY_X0, FKEY_DX = KEY_L, (KEY_R - KEY_L) / 9
 
 # Fixed parts: ref -> (x, y, rotation). Edge connectors are snapped to the board edge in code.
+_CX, _CY = JOG_HOLE[0], JOG_HOLE[1]
 FIXED = {
-    "J1": (None, 76.0, 270),      # USB-C, left edge (the rear edge is full of buttons)
-    "J4": (None, 80.0, 90),       # RJ45, right edge
-    "U3": (135.0, 88.0, 0),       # RP2040
-    "U4": (135.0, 104.0, 0),      # flash
-    "U5": (196.0, 95.0, 0),       # W5500, close to the RJ45
-    "U6": (88.0, 92.0, 0),        # LED driver, left
-    "U7": (145.0, 46.0, 0),       # LED driver, right
-    "U8": (88.0, 66.0, 0),        # expander, left
-    "U9": (124.0, 46.0, 0),       # expander, right
-    "U2": (33.0, 95.0, 0),        # LDO, below the USB-C
-    "J5": (88.0, 132.0, 270),     # lever sensor connector, cable towards the notch
-    "J6": (160.0, 112.0, 90),     # jog sensor connector
-    "J2": (126.0, 122.0, 0),      # debug header
-    "J3": (140.0, 128.0, 0),      # expansion header
-    "SW1": (122.0, 112.0, 0), "SW2": (148.0, 112.0, 0),
+    "J1": (USB_X0 + 4.5, None, 180),          # USB-C on the rear edge right of SHIFT (top side, JLC assembles it)
+    "J4": (RJ_X0 + 3.55, None, 0),            # RJ45 on the rear edge left of CLEAR, bottom side (origin = pin 1)
+    "U5": (88.0, 13.0, 0),                    # W5500 between the jacks
+    "U2": (64.0, 17.0, 0),                    # LDO next to the USB input
+    "U3": (_MID - 2.0, CAMROW + 16.0, 0),     # RP2040 right of the column
+    "U4": (_MID - 2.0, CAMROW + 30.0, 0),     # flash
+    "SW1": (_MID + 9.0, CAMROW + 12.0, 0), "SW2": (_MID + 9.0, CAMROW + 20.0, 0),
+    "U9": (_MID - 9.0, CAMROW - 1.0, 0),      # expander (RN5-RN7) between CAM D and PLAY
+    "U8": (COL_X + 14.0, CAMROW + 46.0, 0),   # expander (RN1-RN4) next to the column
+    "U6": (COL_X + 14.0, CAMROW + 62.0, 0),   # LED driver, left
+    "U7": (KEY_R - PITCH, CAMROW + PITCH + 14.0, 0),   # LED driver, right
+    "J5": (COL_X + 14.0, H - 26.0, 270),      # lever sensor connector, bottom side
+    "J6": (W - 9.0, _CY + 8.0, 90),           # jog sensor connector, bottom side
+    "J2": (_CX - 14.0, H - 4.5, 90),          # debug header, bottom side
+    "J3": (_CX + 10.0, H - 4.5, 90),          # expansion header, bottom side
 }
+
 # Passives are placed next to the pad they connect to; these overrides pick the "home" part.
 HOME = {}
 for r in ("C80", "C81", "R60", "R61", "R62", "R63", "R64", "R65", "R66", "R67"):
@@ -77,13 +104,13 @@ for r in ("R33", "R34"):
 for i in range(1, 8):
     HOME["RN%d" % i] = "U8" if i <= 4 else "U9"
 
-# overridable by variant scripts (tools/variant_2boards.py)
+# overridable by variant scripts
 NETLIST = os.path.join(HW, "build", "net.net")
 OUT_PCB = os.path.join(HW, "build", "placed.kicad_pcb")
 LAYERS = 4
-EDGE_CONN = {"J1": "left", "J4": "right"}   # edge connectors snapped to a board edge
+EDGE_CONN = {"J1": "top", "J4": "top"}      # edge connectors snapped to a board edge
 EDGE_OVERHANG = 1.0
-BOTTOM = set()                             # hand-soldered parts mounted on the bottom side
+BOTTOM = {"J4", "J5", "J6", "J2", "J3"}    # hand-soldered connectors on the bottom (USB-C stays on top: 0.5 mm pitch, JLC)
 
 POWER_NETS = {"GND", "+3V3", "+5V", "+5V_LED", "VBUS", "+1V1", "+3V3A"}
 NETCLASS_POWER = {"+5V", "+5V_LED", "VBUS", "+3V3", "+3V3A", "+1V1", "GND"}
@@ -161,32 +188,56 @@ def in_keepout(bb):
 
 # ---------------------------------------------------------------- build -----
 def outline(board):
+    """Rectangle without the lower-left corner (lever), plus the jog bearing hole."""
     x0, y0, x1, y1 = BOARD
-    nx0, ny, nx1 = LEVER_NOTCH
-    r = CORNER_R
-    pts = [(x0 + r, y0), (x1 - r, y0), ("arc", x1, y0, 1), (x1, y0 + r), (x1, y1 - r), ("arc", x1, y1, 2),
-           (x1 - r, y1), (nx1, y1), (nx1, ny), (nx0, ny), (nx0, y1), (x0 + r, y1), ("arc", x0, y1, 3),
-           (x0, y1 - r), (x0, y0 + r), ("arc", x0, y0, 4)]
-    corners = {1: ((x1 - r, y0), (x1, y0 + r), (x1 - r, y0 + r)), 2: ((x1, y1 - r), (x1 - r, y1), (x1 - r, y1 - r)),
-               3: ((x0 + r, y1), (x0, y1 - r), (x0 + r, y1 - r)), 4: ((x0, y0 + r), (x0 + r, y0), (x0 + r, y0 + r))}
-    seq = [p for p in pts]
-    # straight segments
-    straight = [((x0 + r, y0), (x1 - r, y0)), ((x1, y0 + r), (x1, y1 - r)), ((x1 - r, y1), (nx1, y1)),
-                ((nx1, y1), (nx1, ny)), ((nx1, ny), (nx0, ny)), ((nx0, ny), (nx0, y1)), ((nx0, y1), (x0 + r, y1)),
-                ((x0, y1 - r), (x0, y0 + r))]
-    for a, b in straight:
+    _, ny, nx1 = LEVER_NOTCH
+    pts = [(x0, y0), (x1, y0), (x1, y1), (nx1, y1), (nx1, ny), (x0, ny), (x0, y0)]
+    for a, b in zip(pts, pts[1:]):
         s = pcbnew.PCB_SHAPE(board, pcbnew.SHAPE_T_SEGMENT)
         s.SetStart(P(*a)); s.SetEnd(P(*b)); s.SetLayer(pcbnew.Edge_Cuts); s.SetWidth(mm(0.1))
-        board.Add(s)
-    for k, (a, b, c) in corners.items():
-        s = pcbnew.PCB_SHAPE(board, pcbnew.SHAPE_T_ARC)
-        s.SetCenter(P(*c)); s.SetStart(P(*a)); s.SetArcAngleAndEnd(pcbnew.EDA_ANGLE(90, pcbnew.DEGREES_T))
-        s.SetLayer(pcbnew.Edge_Cuts); s.SetWidth(mm(0.1))
         board.Add(s)
     cx, cy, rr = JOG_HOLE
     s = pcbnew.PCB_SHAPE(board, pcbnew.SHAPE_T_CIRCLE)
     s.SetCenter(P(cx, cy)); s.SetEnd(P(cx + rr, cy)); s.SetLayer(pcbnew.Edge_Cuts); s.SetWidth(mm(0.1))
     board.Add(s)
+
+
+def panel(path=None):
+    """1:1 drawing of the panel layout over the board outline (no KiCad needed)."""
+    path = path or os.path.join(os.path.dirname(HW), "docs", "layout", "panel-layout-v0.6.svg")
+    x0, y0, x1, y1 = BOARD
+    _, ny, nx1 = LEVER_NOTCH
+    w, h = x1 + 12, y1 + 26
+    o = ['<svg xmlns="http://www.w3.org/2000/svg" width="%gmm" height="%gmm" viewBox="-6 -16 %g %g" '
+         'font-family="Arial, sans-serif">' % (w, h, w, h),
+         '<rect x="-6" y="-16" width="%g" height="%g" fill="#fff"/>' % (w, h),
+         '<path d="M0 0H%g V%g H%g V%g H0 Z" fill="#e8f3ea" stroke="#2c7a3f" stroke-width="0.5"/>' % (x1, y1, nx1, ny)]
+    cx, cy, r = JOG_HOLE
+    o.append('<circle cx="%g" cy="%g" r="%g" fill="#ddd" fill-opacity="0.7" stroke="#222" stroke-width="0.5"/>' % (cx, cy, JOG_KNOB_R))
+    o.append('<circle cx="%g" cy="%g" r="%g" fill="#fff" stroke="#2c7a3f" stroke-width="0.4" stroke-dasharray="1 1"/>' % (cx, cy, r))
+    o.append('<text x="%g" y="%g" font-size="4" text-anchor="middle" font-weight="bold">JOG Ø72</text>' % (cx, cy + 1.5))
+    lx = nx1 / 2
+    o.append('<rect x="%g" y="%g" width="14" height="%g" rx="2" fill="#555"/>' % (lx - 7, ny + 6, y1 - ny - 12))
+    o.append('<text x="%g" y="%g" font-size="3.2" fill="#fff" text-anchor="middle" transform="rotate(-90 %g %g)">PÁKA</text>'
+             % (lx, (ny + y1) / 2, lx, (ny + y1) / 2))
+    for name, (x, y) in PB26_POS.items():
+        o.append('<rect x="%g" y="%g" width="15.3" height="15.3" rx="1" fill="#eef" stroke="#222" stroke-width="0.35"/>' % (x - 7.65, y - 7.65))
+        o.append('<text x="%g" y="%g" font-size="2.4" text-anchor="middle" font-weight="bold">%s</text>' % (x, y + 0.9, name.replace("_", " ")))
+    for i in range(10):
+        x = FKEY_X0 + i * FKEY_DX
+        o.append('<rect x="%g" y="%g" width="9.2" height="9.2" rx="1" fill="#fff4c2" stroke="#222" stroke-width="0.35"/>' % (x - 4.6, FKEY_Y - 4.6))
+        o.append('<text x="%g" y="%g" font-size="2.4" text-anchor="middle" font-weight="bold">F%d</text>' % (x, FKEY_Y + 0.9, i + 1))
+    for label, xx, bw, bh, note in (("USB-C", USB_X0, 9.0, 8, "horní strana"), ("RJ45", RJ_X0, 16.0, 21, "spodní strana")):
+        o.append('<rect x="%g" y="-1" width="%g" height="%g" fill="#cfe0ff" stroke="#225" stroke-width="0.35" stroke-dasharray="%s"/>'
+                 % (xx, bw, bh, "none" if label == "USB-C" else "1 0.6"))
+        o.append('<text x="%g" y="-3" font-size="3" text-anchor="middle">%s (%s)</text>' % (xx + bw / 2, label, note))
+    o.append('<text x="0" y="-9" font-size="3.4" fill="#333">vMix Replay Controller · layout v0.6 podle EVS LSM VIA · deska %.0f × %.0f mm · '
+             '1:1 (tisk 100 %%) · zadní hrana nahoře</text>' % (x1, y1))
+    o.append('<line x1="0" y1="%g" x2="50" y2="%g" stroke="#222" stroke-width="0.4"/>' % (y1 + 6, y1 + 6))
+    o.append('<text x="25" y="%g" font-size="2.8" text-anchor="middle">kontrola tisku: 50 mm</text>' % (y1 + 9.5))
+    o.append('</svg>')
+    open(path, "w", encoding="utf-8").write("\n".join(o) + "\n")
+    print("panel ->", path)
 
 
 def setup_board(board):
@@ -453,4 +504,4 @@ def finish():
 
 
 if __name__ == "__main__":
-    {"place": place, "finish": finish}[sys.argv[1]]()
+    {"place": place, "finish": finish, "panel": panel}[sys.argv[1]]()

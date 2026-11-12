@@ -1,6 +1,6 @@
 # Návrh hlavní desky (schéma v1)
 
-Podle [SPEC-v1](../docs/SPEC-v1.md) a layoutu [v0.5](../docs/layout/panel-layout-v0.5.pdf). Přiřazení pinů, tlačítek a LED kanálů: [PINMAP.md](PINMAP.md).
+Podle [SPEC-v1](../docs/SPEC-v1.md) a layoutu [v0.6](../docs/layout/panel-layout-v0.6.pdf) (podle EVS LSM VIA, deska 160 × 155 mm, 4 vrstvy; dřívější [v0.5](../docs/layout/panel-layout-v0.5.pdf)). Přiřazení pinů, tlačítek a LED kanálů: [PINMAP.md](PINMAP.md).
 
 ## Jak se schéma vyrábí
 
