@@ -62,7 +62,7 @@ Po rozmístění a routování: Gerbery a vrtání z KiCadu (Fabrication Outputs
 
 1. **Footprinty PB26-13M a TS5** (vlastní, `lib/vrc.pretty`): rozteče vývodů podle popisu prodejce, ověří se vytištěním 1:1 a přiložením skutečného tlačítka.
 2. **Náhled osazení v JLCPCB** před zaplacením: zkontrolovat hlavně U5–U9, U2, U4, U1, RN1–RN7, J1 a J4 (opravy rotace a počátku jsou v `tools/jlc.py`, odvozené z footprintů EasyEDA, ale náhled je poslední kontrola).
-3. **Tlačítka multimetrem (test diod / průchodnost)** před objednáním: u PB26 který vývod je společná anoda a které barvy jsou na ostatních (výkres výrobce se nepodařilo najít; footprint se 13. 11. 2026 shoduje s vlastním footprintem FB26_RGB uživatele, otočeným o 90°: COM = pad 1, NO = pad 2, NC = pad 3, LED A/R/G/B sedí); u TS5 polarita LED (podle výkresu Honyone TS5-2X-XA-1XS: 6 = +, 5 = −) a že jsou spojené vývody 1–2 a 3–4.
+3. **Tlačítka multimetrem (test diod / průchodnost)** před objednáním: u PB26 který vývod je společná anoda a které barvy jsou na ostatních (výkres výrobce se nepodařilo najít; footprint se 13. 11. 2026 shoduje s vlastním footprintem FB26_RGB uživatele, otočeným o 90°: COM = pad 1, NO = pad 2, NC = pad 3, LED A/R/G/B sedí; ten footprint byl na vyrobené desce a tlačítko do něj pasovalo, takže rozměry jsou ověřené, multimetrem zbývá jen funkce vývodů); u TS5 polarita LED (podle výkresu Honyone TS5-2X-XA-1XS: 6 = +, 5 = −) a že jsou spojené vývody 1–2 a 3–4.
 4. **Rozběh krystalu Y1** při oživení (náhrada za ABM8-272-T3, viz výše).
 
 ## Poznámky pro firmware (z datasheetů)
