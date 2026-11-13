@@ -86,6 +86,8 @@ def qfn44():
 def pb26():
     # Pin positions from espena/kicad-libs SW_PUSH_Honyone_PB26_13M_B_WT_RGB_N (third party). VERIFY on a real button.
     # Seller: L2 = common anode, L1 = red, L4 = green, L3 = blue.
+    # Cross-checked 13. 11. 2026 against the owner's own FB26_RGB footprint (rotated 90 deg): identical positions,
+    # pad 1 here = COM, 2 = NO, 3 = NC; LED A/R/G/B match his LED+/Red-/Green-/Blue-.
     pads = [("1", -5.08, 5.08), ("2", 0, 5.08), ("3", 5.08, 5.08),
             ("R", 2.54, 1.27), ("A", -2.54, 1.27), ("B", -2.54, -1.27), ("G", 2.54, -1.27)]
     items = []
