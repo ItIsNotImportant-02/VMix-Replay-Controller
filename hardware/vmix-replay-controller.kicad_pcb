@@ -1385,6 +1385,17 @@
 			(uuid "17a4961b-d303-4bbf-a558-7f9a555d3410")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -1707,6 +1718,17 @@
 			(uuid "95e28cb7-c22f-40af-8d28-03a8743dcdde")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
@@ -6301,6 +6323,17 @@
 			(uuid "7ef84c75-b8a2-413f-a53e-3f59553fa056")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "vrc:PB26-13M-RGB"
 		(layer "F.Cu")
@@ -6475,6 +6508,17 @@
 			(uuid "dca425d9-f762-4b45-ad60-8b71e7448f6e")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Diode_SMD:D_SOD-123F"
 		(layer "F.Cu")
@@ -8813,6 +8857,17 @@
 			(uuid "fde6e3b2-dc59-4807-908f-654643777793")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -10203,6 +10258,17 @@
 			(uuid "14c021b3-2168-42b9-9d6b-5b80401b2d55")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
@@ -10673,6 +10739,17 @@
 			(uuid "b77cc3bd-e08e-4f88-a4aa-6b5366e42bca")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -12596,6 +12673,17 @@
 			(uuid "e9dcf66f-1766-42e6-bc25-804da34142e3")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
@@ -16561,6 +16649,17 @@
 			(uuid "4d17b54f-1e68-41c1-b8df-14f70d173d6b")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -20235,6 +20334,17 @@
 			(uuid "7aa34dff-8c93-4a1b-b7ea-1bd9658b2cf7")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -21692,6 +21802,17 @@
 			(uuid "4fd94f0a-8872-4ac1-8463-e9c685b59146")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
@@ -25203,6 +25324,17 @@
 			(uuid "e16d1043-05a6-4a1b-bc33-fb0abbc3a67a")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "TestPoint:TestPoint_Pad_D1.5mm"
 		(layer "F.Cu")
@@ -26194,6 +26326,17 @@
 			(uuid "73a9fcd9-4667-4c13-92a0-de61b9141118")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "vrc:PB26-13M-RGB"
 		(layer "F.Cu")
@@ -26368,6 +26511,17 @@
 			(uuid "6e309155-de81-4b9b-9f0d-325f024fcf27")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_Array_Convex_4x0603"
 		(layer "F.Cu")
@@ -27439,6 +27593,17 @@
 			(uuid "dfb144f0-703b-4261-8f77-4352808fcfbb")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -29672,6 +29837,17 @@
 			(uuid "47ea9c62-081b-4b58-8604-7cbe5a7362b7")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -31827,6 +32003,17 @@
 			(uuid "02494ec6-5d6c-4d36-9634-408fbc12c293")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "vrc:PB26-13M-RGB"
 		(layer "F.Cu")
@@ -32001,6 +32188,17 @@
 			(uuid "ee3ebd17-c229-4bd8-bfa4-7be28afd6e7a")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+			(offset
+				(xyz -7.675 -7.675 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Connector_RJ:RJ45_Hanrun_HR911105A_Horizontal"
 		(layer "B.Cu")

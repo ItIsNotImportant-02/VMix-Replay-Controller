@@ -97,7 +97,14 @@ def pb26():
     items += [_rect(-h, -h, h, h, "F.SilkS"), _rect(-h, -h, h, h, "F.Fab", 0.1), _rect(-8, -8, 8, 8, "F.CrtYd", 0.05),
               [Sym("fp_text"), Sym("user"), "COM NO NC", [Sym("at"), 0, 6.9, 0], [Sym("layer"), "F.Fab"],
                [Sym("effects"), [Sym("font"), [Sym("size"), 0.8, 0.8], [Sym("thickness"), 0.12]]]]]
-    return footprint("PB26-13M-RGB", "Honyone PB26-13M 15x15 mm SPDT push button with RGB LED (common anode). Pin positions VERIFY.",
+    # 3D model: the owner's Fusion model (lib/3d/PB26-13M-RGB.step). Its origin is the body corner with the switch
+    # pin row along the model's -y side, i.e. the same orientation as this footprint; pins measured from the STEP:
+    # switch row 5.08 below the body centre, LED pins at ±2.54 / ±1.27 -> only a shift to the body centre is needed.
+    items.append([Sym("model"), "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step",
+                  [Sym("offset"), [Sym("xyz"), -7.675, -7.675, 0]], [Sym("scale"), [Sym("xyz"), 1, 1, 1]],
+                  [Sym("rotate"), [Sym("xyz"), 0, 0, 0]]])
+    return footprint("PB26-13M-RGB", "Honyone PB26-13M 15x15 mm SPDT push button with RGB LED (common anode). "
+                     "Pin positions match the owner's FB26_RGB footprint that fitted on a manufactured board.",
                      ["through_hole"], items, 15.3)
 
 

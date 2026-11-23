@@ -3,7 +3,7 @@
 	(generator "vrc_footprints")
 	(generator_version "9.0")
 	(layer "F.Cu")
-	(descr "Honyone PB26-13M 15x15 mm SPDT push button with RGB LED (common anode). Pin positions VERIFY."
+	(descr "Honyone PB26-13M 15x15 mm SPDT push button with RGB LED (common anode). Pin positions match the owner's FB26_RGB footprint that fitted on a manufactured board."
 	)
 	(property "Reference" "REF**"
 		(at 0 -9.15 0)
@@ -106,6 +106,17 @@
 				(size 0.8 0.8)
 				(thickness 0.12)
 			)
+		)
+	)
+	(model "${KIPRJMOD}/lib/3d/PB26-13M-RGB.step"
+		(offset
+			(xyz -7.675 -7.675 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
 		)
 	)
 )
