@@ -13,3 +13,7 @@ hardware/build/
 hardware/*.rpt
 __pycache__/
 hardware/build/
+
+# sensor board intermediates
+hardware/sensor-board/build/
+hardware/sensor-board/jlc/gerber/

@@ -80,6 +80,17 @@ Po rozmístění a routování: Gerbery a vrtání z KiCadu (Fabrication Outputs
 - **Adresy I2C:** IS31FL3236A 0x3C (U6) a 0x3F (U7), TCA9555 0x20 a 0x21. OLED SSD1306 má výchozí 0x3C, tedy kolizi s U6: případný displej na J3 přepnout na 0x3D (propojka na modulu).
 - **Rozpočet proudu:** 3,3V část bere ~230 mA (W5500 ~130 mA, RP2040 ~40 mA, 2× MT6701 ~25 mA, zbytek drobnosti). Na LED zbývá z USB 2.0 portu (500 mA) ~250 mA, pojistka F1 drží 0,75 A. Všech 64 kanálů naplno by bylo ~1 A → firmware musí hlídat součet PWM × proud.
 
+## Destička snímače (páka, jog)
+
+Jedna destička pro páku i jog, 2 kusy: `hardware/sensor-board/` (generuje `tools/sensor_board.py`, postup v hlavičce skriptu; spoje z Freeroutingu). Mechanické rozhraní a stavba jogu a páky jsou v dokumentu *Mechanika jogu a páky*.
+
+- **Rozměr a uchycení:** 28 × 28 mm, 2 vrstvy, otvory Ø3,2 na čtverci 22 × 22 mm (±11). Strana bez konektoru: šrouby M3, strana s konektorem: vytištěné středicí kolíky (max. 1,5 mm dlouhé). Přední strana (čip) dosedá na sloupky držáku a je referenční plochou.
+- **MT6701CT-STD-R** (LCSC C3003196, 448 ks skladem 23. 11. 2026; varianta bez -R má 0 ks): střed pouzdra přesně ve středu desky. Podle datasheetu v1.9 je citlivý bod ve geometrickém středu pouzdra, magnet Ø6 × 2,5 diametrální, vzduchová mezera 0,5–2 mm (typ. 1,0), excentricita max. 0,3 mm. Na desce: čelo magnetu 3,0 ± 0,5 mm nad přední stranou desky, tj. ~1,3 mm nad čipem.
+- **Pinout SOP-8** (datasheet v1.9): 1 VDD, 2 MODE (200k pull-up, H = I2C/SSI, L = ABZ), 3 OUT, 4 GND, 5 PUSH (nezapojen), 6 A/SDA/DO, 7 B/SCL/CLK, 8 Z/CSN (200k pull-up).
+- **Pasivy:** 100 nF (C14663) podle obr. 22 datasheetu, 1 µF (C15849, X5R, Basic) navíc, ESD/TVS H3V3HD3U (C20615801, unidirekční 3,3 V, Preferred; datasheet doporučuje TVS na VDD „for better reliability“).
+- **Konektor:** JST S8B-PH-K-S (C157915, boční vstup, THT, na zadní straně, pájí se ručně), pinout stejný jako J5/J6, kabel PH 8 pin 1:1 („same direction“). Vývody, které projdou na přední stranu, zastřihnout na 1,5 mm.
+- **JLC:** BOM/CPL v `sensor-board/jlc/` (4 osazované díly, všechny nahoře). Rotaci MT6701 (SOIC-8 3,9 mm, korekce 270° v `tools/jlc.py`) a D1 zkontrolovat v náhledu osazení.
+
 ## Nezávislá revize zapojení (12. 11. 2026)
 
 Celé zapojení prošlé z netlistu, sporné body ověřené v originálních datasheetech (TLV761 SBVS349D, HR911105A rev. A/2, WIZ850io V1.1 + referenční schéma W5500 v1.1, TCA9555 SCPS200E, IS31FL3236A Rev. I, MT6701 Rev. 1.9, Hardware design with RP2040, výkres Honyone TS5). Pinouty U2, U5, U6/U7, U8/U9, J4 a analogová část Ethernetu sedí. Změny po revizi:

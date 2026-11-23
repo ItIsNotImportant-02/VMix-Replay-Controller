@@ -25,6 +25,7 @@ CORRECTIONS = [
     ("QFN-44-1EP_5x5mm_P0.4mm", 270, (0, 0)),          # IS31FL3236A: EasyEDA pin 1 bottom-left
     ("Texas_RTW_WQFN-24-1EP*", 270, (0, 0)),           # TCA9555: EasyEDA pin 1 bottom-left
     ("SOIC-8_5.3x5.3mm_P1.27mm", 270, (0, 0)),         # W25Q128: EasyEDA pin 1 bottom-left
+    ("SOIC-8_3.9x4.9mm_P1.27mm", 270, (0, 0)),         # MT6701 (sensor board): EasyEDA SOP-8 pin 1 bottom-left, CHECK preview
     ("SOT-23-6", 270, (0, 0)),                         # USBLC6: EasyEDA pin 1 bottom-left
     ("SOT-223-3_TabPin2", 180, (0, 0)),                # LDL1117: EasyEDA tab on the left
     ("USB_C_Receptacle_HRO_TYPE-C-31-M-12", 0, (0, -1.39)),   # origin at the locating pegs + 1.21
