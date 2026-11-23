@@ -491,6 +491,11 @@ def place():
             raise RuntimeError("no place for " + ref)
         put(ref, *best)
 
+    # hand placement of the ICs' support parts (rules in tools/arrange.py)
+    import arrange
+    for prob in arrange.apply(board, in_keepout):
+        print("arrange:", prob)
+
     # planes: In1 = GND, In2 = +5V_LED (everything 5 V for the LEDs and drivers), outer GND pours
     if LAYERS == 4:
         add_zone(board, "GND", pcbnew.In1_Cu)

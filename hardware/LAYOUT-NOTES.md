@@ -34,3 +34,13 @@ Sbírka požadavků z datasheetů a referenčních návrhů, které se projeví 
 - C60–C63 (1 µF + 100 nF) těsně u VCC (pin 38), R40/R41 u R_EXT (pin 40), krátká zem.
 - Výstupy OUTx vedou proud LED (max ~20 mA) – stačí běžné signálové cesty.
 - Pozor na rotaci v CPL pro JLCPCB: pin 1 je v našem footprintu vlevo nahoře; JLC knihovna (EasyEDA) má pouzdro otočené o 90°. Před objednávkou zkontrolovat náhled osazení v JLCPCB.
+
+## Rozmístění podpůrných součástek (v0.7, `tools/arrange.py`)
+Pasivní součástky už nerozmisťuje automat „kam se vejdou“, ale `tools/arrange.py` podle pevných pravidel (pcb.py ho volá na konci `place`):
+- Každý blokovací kondenzátor u svého napájecího pinu, napájecí plošku k pinu, GND plošku od čipu (tam patří prokov do GND vrstvy In1).
+- RP2040 (otočení 0° jako v referenčním návrhu): flash vlevo nahoře u QSPI pinů 51–56 (CS/SD1/SD2 nejblíž), krystal Y1 vlevo dole u XIN/XOUT s R10 a C23/C24 přímo u krystalu, 1 µF na VREG_VIN/VREG_VOUT a 100 nF na DVDD nad horní stranou. USB D−/D+ (piny 46/47) jdou rovně nahoru k R3/R4, mezi nimi a QSPI nesmí nic stát. C16 (USB_VDD 48 + IOVDD 49) je kvůli místu o řadu výš, cesta k němu vede mezi C21 a USB párem.
+- W5500 otočený o 180°: ethernetové piny 1–12 míří k RJ45. Vpravo od čipu v pořadí pinů EXRES, AVDD, RX pár (0R, 6,8 nF), AVDD, TX pár (0R, 49,9R); 49,9R RX a TCT/RCT součástky u pinů RJ45. Krystal Y2 vlevo u XI/XO, TOCAP/1V2O/AVDD kondenzátory v řadě nad čipem v pořadí pinů.
+- Napájení v jednom směru: USB-C → ESD (U1) těsně za datovými piny, CC rezistory u CC pinů → F1 → TVS D1 a vstupní kondenzátory → LDO U2 (výstupní kondenzátory u tabu) a FB1 s kondenzátory +5V_LED.
+- Expandéry: pull-up pole vedle čipu v řadě, I2C pull-upy R43/R44 u RP2040. LED budiče: 1 µF + 100 nF u VCC, R_EXT u pinu 40.
+- Senzorové konektory J5/J6 (dole): sériové 33R, pull-upy a RC na výstupu ve dvou řadách nad konektorem v pořadí jeho pinů.
+- Potisk: jen označení. Označení pasivních součástek je na F.Fab (v KiCadu je vidět), na potisku jsou u čipů, konektorů, krystalů, tlačítek a testovacích bodů. Pole LCSC/MPN se netisknou.
