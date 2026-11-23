@@ -142,6 +142,28 @@ def read_netlist(path):
     return comps, nets
 
 
+# 3D models that KiCad's library does not ship (sources and alignment: lib/3d/SOURCES.md)
+MODEL_OVERRIDES = {
+    "USB_C_Receptacle_HRO_TYPE-C-31-M-12": ("HRO_TYPE-C-31-M-12.step", (-4.47, -3.645, 0), (-90, 0, 0)),
+    "RJ45_Hanrun_HR911105A_Horizontal": ("HanRun_HR911105A.step", (4.45, -6.355, 0), (0, 0, 0)),
+    "SW_Push_1P1T_XKB_TS-1187A": ("XKB_TS-1187A.step", (0, 0, 0), (0, 0, 0)),
+    "JST_PH_S8B-PH-SM4-TB_1x08-1MP_P2.00mm_Horizontal": ("JST_S8B-PH-SM4-TB.step", (0, -1.35, 0), (0, 0, 0)),
+}
+
+
+def set_model(fp, name):
+    if name not in MODEL_OVERRIDES:
+        return False
+    f, off, rot = MODEL_OVERRIDES[name]
+    m = pcbnew.FP_3DMODEL()
+    m.m_Filename = "${KIPRJMOD}/lib/3d/" + f
+    m.m_Offset = pcbnew.VECTOR3D(*off)
+    m.m_Rotation = pcbnew.VECTOR3D(*rot)
+    fp.Models().clear()
+    fp.Models().push_back(m)
+    return True
+
+
 def load_fp(fpid):
     lib, name = fpid.split(":")
     path = os.path.join(HW, "lib", "vrc.pretty") if lib == "vrc" else os.path.join(FPDIR, lib + ".pretty")
@@ -149,7 +171,17 @@ def load_fp(fpid):
     if fp is None:
         raise RuntimeError("footprint not found: " + fpid)
     fp.SetFPID(pcbnew.LIB_ID(lib, name))
+    set_model(fp, name)
     return fp
+
+
+def models():
+    """Put the MODEL_OVERRIDES on the routed board in place (keeps placement and routing)."""
+    p = os.path.join(HW, "vmix-replay-controller.kicad_pcb")
+    board = pcbnew.LoadBoard(p)
+    n = sum(set_model(fp, str(fp.GetFPID().GetLibItemName())) for fp in board.GetFootprints())
+    board.Save(p)
+    print("models set on %d footprints" % n)
 
 
 def court_bbox(fp, margin=0.25):
@@ -504,4 +536,4 @@ def finish():
 
 
 if __name__ == "__main__":
-    {"place": place, "finish": finish, "panel": panel}[sys.argv[1]]()
+    {"place": place, "finish": finish, "panel": panel, "models": models}[sys.argv[1]]()

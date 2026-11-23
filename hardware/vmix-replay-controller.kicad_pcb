@@ -3332,15 +3332,15 @@
 			(uuid "1ccd5798-e5a9-421e-86be-331483b288dd")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Connector_USB.3dshapes/USB_C_Receptacle_HRO_TYPE-C-31-M-12.step"
+		(model "${KIPRJMOD}/lib/3d/HRO_TYPE-C-31-M-12.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz -4.47 -3.645 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -90 0 0)
 			)
 		)
 	)
@@ -7738,7 +7738,7 @@
 			(uuid "817c8f0a-ba35-4463-9aee-2c645f46031a")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_Push_1P1T_XKB_TS-1187A.step"
+		(model "${KIPRJMOD}/lib/3d/XKB_TS-1187A.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -16464,7 +16464,7 @@
 			(uuid "c3de0781-8756-48c2-96f3-655effcb36a4")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_Push_1P1T_XKB_TS-1187A.step"
+		(model "${KIPRJMOD}/lib/3d/XKB_TS-1187A.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -32677,9 +32677,9 @@
 			(uuid "40120f58-46b7-4134-995a-68321f029b87")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Connector_RJ.3dshapes/RJ45_Hanrun_HR911105A_Horizontal.step"
+		(model "${KIPRJMOD}/lib/3d/HanRun_HR911105A.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz 4.45 -6.355 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -33594,9 +33594,9 @@
 			(uuid "aa233417-3f85-431f-bba2-b3b2254ba626")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Connector_JST.3dshapes/JST_PH_S8B-PH-SM4-TB_1x08-1MP_P2.00mm_Horizontal.step"
+		(model "${KIPRJMOD}/lib/3d/JST_S8B-PH-SM4-TB.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz 0 -1.35 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -34142,9 +34142,9 @@
 			(uuid "73385a6b-0126-45f1-83aa-103abec6a03b")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Connector_JST.3dshapes/JST_PH_S8B-PH-SM4-TB_1x08-1MP_P2.00mm_Horizontal.step"
+		(model "${KIPRJMOD}/lib/3d/JST_S8B-PH-SM4-TB.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz 0 -1.35 0)
 			)
 			(scale
 				(xyz 1 1 1)
