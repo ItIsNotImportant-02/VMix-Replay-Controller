@@ -5317,6 +5317,17 @@
 			(uuid "1905bf7d-5ea7-4063-8394-6e5d94756423")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -5659,6 +5670,17 @@
 			(uuid "806d7385-7312-486b-b0c5-15e6806396c4")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "vrc:TS5-9.2mm-LED"
 		(layer "F.Cu")
@@ -5853,6 +5875,17 @@
 			(uuid "146d444b-14e8-40e1-b51d-d5e32d6d8e8d")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -8387,6 +8420,17 @@
 			(uuid "a40330c0-234d-4ca7-b5c3-1a2eed2f1df2")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
@@ -13322,6 +13366,17 @@
 			(uuid "532a8023-5199-445c-acee-7c67035e15cb")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
@@ -18593,6 +18648,17 @@
 			(uuid "54e74753-33a2-4a80-b7c0-701de970b2c3")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -19705,6 +19771,17 @@
 			(uuid "8fa6f0f1-638c-46ae-a731-7a29b4e41f3a")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Inductor_SMD:L_0603_1608Metric"
 		(layer "F.Cu")
@@ -25150,6 +25227,17 @@
 			(uuid "991668b2-02eb-4044-a705-c684a0029c14")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "vrc:PB26-13M-RGB"
 		(layer "F.Cu")
@@ -27271,6 +27359,17 @@
 			(uuid "6906694d-b203-409a-a910-66fdb3710657")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -30941,6 +31040,17 @@
 			(uuid "d152559c-4474-42db-8a50-9b5c7623b804")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/3d/Honyone_TS5.step"
+			(offset
+				(xyz 6 2.16 -4.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")

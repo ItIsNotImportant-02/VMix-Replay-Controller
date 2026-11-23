@@ -146,6 +146,7 @@ def read_netlist(path):
 MODEL_OVERRIDES = {
     "USB_C_Receptacle_HRO_TYPE-C-31-M-12": ("HRO_TYPE-C-31-M-12.step", (-4.47, -3.645, 0), (-90, 0, 0)),
     "RJ45_Hanrun_HR911105A_Horizontal": ("HanRun_HR911105A.step", (4.45, -6.355, 0), (0, 0, 0)),
+    "TS5-9.2mm-LED": ("Honyone_TS5.step", (6.0, 2.16, -4.6), (0, 0, 0)),
     "SW_Push_1P1T_XKB_TS-1187A": ("XKB_TS-1187A.step", (0, 0, 0), (0, 0, 0)),
     "JST_PH_S8B-PH-SM4-TB_1x08-1MP_P2.00mm_Horizontal": ("JST_S8B-PH-SM4-TB.step", (0, -1.35, 0), (0, 0, 0)),
 }
