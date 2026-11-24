@@ -192,14 +192,19 @@ def seg_dist(px, py, x0, y0, x1, y1):
 
 
 def seg_seg_dist(a, b, c, d):
+    def orient(p, q, r):
+        return (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0])
+    if orient(a, b, c) * orient(a, b, d) < 0 and orient(c, d, a) * orient(c, d, b) < 0:
+        return 0.0                                   # proper crossing
     return min(seg_dist(a[0], a[1], c[0], c[1], d[0], d[1]), seg_dist(b[0], b[1], c[0], c[1], d[0], d[1]),
                seg_dist(c[0], c[1], a[0], a[1], b[0], b[1]), seg_dist(d[0], d[1], a[0], a[1], b[0], b[1]))
 
 
 def rect_seg_dist(x0, y0, x1, y1, a, b):
     best = 1e9
-    for i in range(11):
-        t = i / 10
+    n = max(10, int(math.hypot(b[0] - a[0], b[1] - a[1]) / 0.05))
+    for i in range(n + 1):
+        t = i / n
         x, y = a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t
         dx = max(x0 - x, 0, x - x1)
         dy = max(y0 - y, 0, y - y1)
@@ -560,10 +565,53 @@ def crit():
             n += 1
     board.Save(PREP)
     pcbnew.ExportSpecctraDSN(board, DSN)
-    strip_dsn_nets(DSN, ["GND", "+5V_LED"])
-    if os.environ.get("OPEN_IN2"):       # experiment: gave shorts on In2, not used
-        open_in2(DSN)
+    if os.environ.get("IN2_SIGNAL"):
+        strip_dsn_nets(DSN, ["GND"])
+        in2_signal(DSN)
+    elif os.environ.get("IN2_CORRIDOR"):
+        strip_dsn_nets(DSN, ["GND"])
+        in2_corridor(DSN)
+    else:
+        strip_dsn_nets(DSN, ["GND", "+5V_LED"])
     print("locked %d critical segments/vias ->" % n, DSN)
+
+
+# Signal corridor on In2 along the MCU/expander/LED-driver spine (board coordinates, mm):
+# open to the front edge, so the +5V_LED plane around it stays one piece (a U).
+IN2_CORRIDOR = (75.0, 35.0, 112.0)        # x0, y_top, x1
+
+
+def in2_signal(path):
+    """Full 4-layer use: In1 stays a solid GND plane (reference for every signal layer), In2 becomes
+    a third signal layer. +5V_LED is routed as tracks (class PLANE, 0.5 mm) so its connectivity
+    never depends on the pour; after routing the In2 +5V_LED pour fills the free space."""
+    s = open(path, encoding="utf-8").read()
+    s = re.sub(r"(\(layer In2\.Cu\s*\(type )power\)", r"\1signal)", s)
+    s, k = re.subn(r"\(plane \+5V_LED \(polygon In2\.Cu[^)]*\)\)", "", s)
+    assert k == 1, "plane +5V_LED not found"
+    open(path, "w", encoding="utf-8").write(s)
+
+
+def in2_corridor(path, corr=IN2_CORRIDOR):
+    """In2 = +5V_LED plane everywhere except the corridor, where Freerouting may run signals.
+    +5V_LED stays in the network, so its vias and pads are known obstacles/targets."""
+    import pcb
+    s = open(path, encoding="utf-8").read()
+    s = re.sub(r"(\(layer In2\.Cu\s*\(type )power\)", r"\1signal)", s)
+    x0, yt, x1 = [(v + 20.0) * 1000 for v in corr]
+    X1, Y1 = (pcb.W + 20.0) * 1000, (pcb.H + 20.0) * 1000
+    pts = [(20000, 20000), (X1, 20000), (X1, Y1), (x1, Y1), (x1, yt), (x0, yt), (x0, Y1), (20000, Y1)]
+    poly = "(plane +5V_LED (polygon In2.Cu 0  " + "  ".join("%d %d" % (x, -y) for x, y in pts) + "))"
+    s, k = re.subn(r"\(plane \+5V_LED \(polygon In2\.Cu[^)]*\)\)", poly, s)
+    assert k == 1, "plane +5V_LED not found"
+    # the plane alone does not stop other nets on a signal layer: wire keep-outs outside the
+    # corridor (wire_ only, so through vias stay allowed everywhere)
+    B = 400000
+    ko = ["(wire_keepout \"\" (rect In2.Cu %d %d %d %d))" % r for r in (
+        (-B, B, x0, -B), (x1, B, B, -B), (x0, B, x1, -yt))]
+    i = s.index("(keepout")
+    s = s[:i] + "\n    ".join(ko) + "\n    " + s[i:]
+    open(path, "w", encoding="utf-8").write(s)
 
 
 def add_outer_pours(board):
@@ -724,6 +772,40 @@ def trial1(src, net):
     print("RESULT", len(failed))
 
 
+BUS = r"^/(BTN_(?!INT$)|LED_(?!SDB$))"      # long key buses: routed last, around the locked local nets
+DSN_LOCAL, SES_LOCAL = os.path.join(BUILD, "local.dsn"), os.path.join(BUILD, "local.ses")
+
+
+def stage(ses, out):
+    """Planned order: import an autorouter stage, lock it, export the DSN for the next stage.
+    After the critical nets come the short local nets of the MCU/expander spine (out=local),
+    then the key buses over what is left (out=full)."""
+    board = pcbnew.LoadBoard(PREP)
+    pcbnew.ImportSpecctraSES(board, ses)
+    board.Save(PREP)
+    board = pcbnew.LoadBoard(PREP)
+    n = 0
+    for t in board.GetTracks():
+        if not t.IsLocked():
+            t.SetLocked(True)
+            n += 1
+    board.Save(PREP)
+    mcu = sorted({p.GetNetname() for fp in board.GetFootprints() if fp.GetReference() == "U3"
+                  for p in fp.Pads()} - {"", "GND", "+3V3", "+3V3A", "+1V1", "+5V_LED"})
+    pcbnew.ExportSpecctraDSN(board, DSN)
+    if os.environ.get("IN2_SIGNAL"):
+        strip_dsn_nets(DSN, ["GND"])
+        in2_signal(DSN)
+    else:
+        strip_dsn_nets(DSN, ["GND", "+5V_LED"])
+    if out == "mcu":                     # every RP2040 signal net, end to end, before anything else
+        keep_dsn_nets(DSN, DSN_LOCAL, ["^" + re.escape(n) + "$" for n in mcu])
+        print("mcu nets:", len(mcu))
+    if out == "local":
+        keep_dsn_nets(DSN, DSN_LOCAL, [r"^(?!" + BUS[1:] + r")"])
+    print("locked %d segments/vias, next stage: %s" % (n, out))
+
+
 def again():
     """Second autorouter round: the routed board (without pours) back to Freerouting, which now
     only has to finish the open connections and may push the existing tracks aside."""
@@ -735,4 +817,5 @@ def again():
 
 if __name__ == "__main__":
     {"prep": prep, "crit": crit, "finish": finish, "again": again, "polish": lambda: polish(sys.argv[2]), "pour": pour, "trials": lambda: trials(sys.argv[2]), "trial1": lambda: trial1(sys.argv[2], sys.argv[3]), "inner": lambda: polish(sys.argv[2], inner=True),
-     "finish2": lambda: finish(ROUTED, SES2)}[sys.argv[1]]()
+     "finish2": lambda: finish(ROUTED, SES2),
+     "stage": lambda: stage(sys.argv[2], sys.argv[3])}[sys.argv[1]]()

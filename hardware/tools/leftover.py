@@ -22,6 +22,7 @@ def extra(net):
     return 0.05 if net in HI else 0.0
 VIA_D, VIA_DRILL = 0.6, 0.3
 SKIP = {"GND", "+5V_LED"}      # plane nets, connected through the inner layers
+MAIN = None                    # optional test: item connected through the In2 +5V_LED pour
 LAYERS = (pcbnew.F_Cu, pcbnew.B_Cu, pcbnew.In2_Cu)   # In2 only as a last resort (inner=True)
 NL = len(LAYERS)
 INNER_COST = 3.0
@@ -170,6 +171,10 @@ def clusters(net_items):
                 touch = shape_dist_pt(a.shape, *pts(b)[0]) <= 0
             if touch:
                 par[f(i)] = f(j)
+    if MAIN is not None:            # copper that already sits in the In2 plane is one piece
+        roots = [i for i in range(n) if MAIN(net_items[i])]
+        for i in roots[1:]:
+            par[f(i)] = f(roots[0])
     groups = {}
     for i in range(n):
         groups.setdefault(f(i), []).append(net_items[i])
@@ -543,7 +548,7 @@ def prune(board, g, nets):
     return n
 
 
-def run(board, only=None, lock=False, ripup=True, max_rips=3, inner=False, escape=False, escape_nets=None, max_rounds=3):
+def run(board, only=None, lock=False, ripup=True, max_rips=3, inner=False, escape=False, escape_nets=None, max_rounds=3, max_victims=2):
     """only: regex of nets to route (default all); lock: mark the new copper locked;
     ripup: when a connection has no free path, go through other nets' autorouted copper
     (at a cost), tear that copper out and queue its nets again (negotiated rip-up)."""
@@ -611,7 +616,7 @@ def run(board, only=None, lock=False, ripup=True, max_rips=3, inner=False, escap
                   victims = conflicts(g, net, path_shapes(g, net, w2, path))
                   vnets = {v.net for v in victims}
                   # targeted only: at most two other nets, each torn up at most twice in the whole run
-                  if len(vnets) > 2 or any(ripped.get(n, 0) >= 2 for n in vnets):
+                  if len(vnets) > max_victims or any(ripped.get(n, 0) >= 2 for n in vnets):
                       print("  %s FAILED (rip-up would hit %s)" % (net, sorted(vnets)))
                       tree = tree + c
                       continue
