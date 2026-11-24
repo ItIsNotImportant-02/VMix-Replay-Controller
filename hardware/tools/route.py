@@ -18,6 +18,7 @@ import pcbnew
 
 HW = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PCB = os.path.join(HW, "vmix-replay-controller.kicad_pcb")
+BUILD = os.path.join(HW, "build")
 PREP = os.path.join(HW, "build", "prep.kicad_pcb")
 DSN = os.path.join(HW, "build", "route.dsn")
 SES = os.path.join(HW, "build", "route.ses")
@@ -212,6 +213,45 @@ def pad_xy(p):
     return T(q.x), T(q.y)
 
 
+def led_vcc(board, add):
+    """LED driver VCC pin -> the decoupling cap sitting straight in front of it (pin stub + track).
+    Also used after the session import: Freerouting tends to drop the short stub inside the pad."""
+    fps = {fp.GetReference(): fp for fp in board.GetFootprints()}
+    for ic, caps in (("U6", ("C60", "C61")), ("U7", ("C62", "C63"))):
+        for cref in caps:
+            cp = [p for p in fps[cref].Pads() if p.GetNetname() == "+5V_LED"][0]
+            cx, cy = pad_xy(cp)
+            pins = [p for p in fps[ic].Pads() if p.GetNetname() == "+5V_LED"]
+            pin = min(pins, key=lambda p: math.hypot(pad_xy(p)[0] - cx, pad_xy(p)[1] - cy))
+            px, py = pad_xy(pin)
+            # leave the pin straight outwards (perpendicular to its side), then go to the cap
+            ic_c = fps[ic].GetPosition()
+            side_lr = abs(px - T(ic_c.x)) > abs(py - T(ic_c.y))   # pin on the left / right side
+            # only a cap sitting straight in front of the pin gets a track; one further along the
+            # side would have to pass next to the neighbouring pins -> it keeps its own plane via
+            if (abs(cy - py) if side_lr else abs(cx - px)) > 0.8:
+                continue
+            if side_lr:
+                mid = (px + math.copysign(min(abs(cx - px), 1.0), px - T(ic_c.x)), py)
+            else:
+                mid = (px, py + math.copysign(min(abs(cy - py), 1.0), py - T(ic_c.y)))
+            add((px, py), mid, "+5V_LED", 0.2)
+            add(mid, (cx, cy), "+5V_LED", 0.3)
+
+
+def plain_track(board):
+    def add(a, b, net, w):
+        t = pcbnew.PCB_TRACK(board)
+        t.SetStart(pcbnew.VECTOR2I(mm(a[0]), mm(a[1])))
+        t.SetEnd(pcbnew.VECTOR2I(mm(b[0]), mm(b[1])))
+        t.SetWidth(mm(w))
+        t.SetLayer(pcbnew.F_Cu)
+        t.SetNet(board.FindNet(net))
+        t.SetLocked(True)
+        board.Add(t)
+    return add
+
+
 def fanout(board):
     sp = Space(board)
     report = []
@@ -281,27 +321,8 @@ def fanout(board):
         sp.add_via(vx, vy, "GND")
     report.append("U5: %d GND via groups under the body" % len(groups))
 
-    # 3) LED driver supply: straight track VCC pin -> its caps (they sit radially at the pin)
-    for ic, caps in (("U6", ("C60", "C61")), ("U7", ("C62", "C63"))):
-        for cref in caps:
-            cp = [p for p in fps[cref].Pads() if p.GetNetname() == "+5V_LED"][0]
-            cx, cy = pad_xy(cp)
-            pins = [p for p in fps[ic].Pads() if p.GetNetname() == "+5V_LED"]
-            pin = min(pins, key=lambda p: math.hypot(pad_xy(p)[0] - cx, pad_xy(p)[1] - cy))
-            px, py = pad_xy(pin)
-            # leave the pin straight outwards (perpendicular to its side), then go to the cap
-            ic_c = fps[ic].GetPosition()
-            side_lr = abs(px - T(ic_c.x)) > abs(py - T(ic_c.y))   # pin on the left / right side
-            # only a cap sitting straight in front of the pin gets a track; one further along the
-            # side would have to pass next to the neighbouring pins -> it keeps its own plane via
-            if (abs(cy - py) if side_lr else abs(cx - px)) > 0.8:
-                continue
-            if side_lr:
-                mid = (px + math.copysign(min(abs(cx - px), 1.0), px - T(ic_c.x)), py)
-            else:
-                mid = (px, py + math.copysign(min(abs(cy - py), 1.0), py - T(ic_c.y)))
-            sp.add_track((px, py), mid, "+5V_LED", 0.2)
-            sp.add_track(mid, (cx, cy), "+5V_LED", 0.3)
+    # 3) LED driver supply: straight track VCC pin -> the cap in front of it
+    led_vcc(board, sp.add_track)
 
     # 4) every other SMD pad on GND / +5V_LED gets its own via, as close as possible
     done = set()
@@ -472,7 +493,7 @@ def edge_keepouts(board, w=0.35):
     return n
 
 
-CRITICAL = [r"^/USB_", r"^(/XIN|/XOUT|/W_XI|/W_XO)$", r"^/QSPI_",          # in this order
+CRITICAL = [r"^(VBUS|\+5V)$", r"^/USB_", r"^(/XIN|/XOUT|/W_XI|/W_XO)$", r"^/QSPI_",          # in this order
             r"^(/W_(TX|RX)[PN]|/ETH_(TD|RD)[PN]|/ETH_R[XN][PN]?_T)$", r"^\+1V1$"]
 
 
@@ -616,15 +637,91 @@ def finish(src=PREP, ses=SES):
         pcbnew.ImportSpecctraSES(board, ses)
     board.Save(PREP)
     board = pcbnew.LoadBoard(PREP)       # fresh wrappers after the import
+    led_vcc(board, plain_track(board))   # restore the LED driver VCC stubs (dropped by the import)
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import leftover                      # connections the autorouter left open
     leftover.run(board)
     board.Save(ROUTED)
+    board = pcbnew.LoadBoard(ROUTED)     # fresh wrappers after rip-up (removing items breaks SWIG)
     add_outer_pours(board)
     print("stitching vias:", stitch(board))
     pcbnew.ZONE_FILLER(board).Fill(board.Zones())
     board.Save(PCB)
     print("saved", PCB)
+
+
+def sidecar(pcb):
+    """LoadBoard takes the rules from the .kicad_pro next to the file and Save writes it back,
+    so a board without its own copy would silently fall back to default rules."""
+    import shutil
+    pro = os.path.splitext(pcb)[0] + ".kicad_pro"
+    if os.path.abspath(pro) != os.path.abspath(os.path.join(HW, "vmix-replay-controller.kicad_pro")):
+        shutil.copy(os.path.join(HW, "vmix-replay-controller.kicad_pro"), pro)
+
+
+def pour():
+    """Pours and stitching on the routed board."""
+    sidecar(ROUTED)
+    board = pcbnew.LoadBoard(ROUTED)
+    add_outer_pours(board)
+    print("stitching vias:", stitch(board))
+    pcbnew.ZONE_FILLER(board).Fill(board.Zones())
+    board.Save(PCB)
+    print("saved", PCB)
+
+
+def polish(src, inner=False):
+    """Another grid-router pass (with rip-up) over an already routed board, then pours.
+    inner: connections still open may take a short hop on In2 (cut out of the +5V_LED plane)."""
+    sidecar(src)
+    sidecar(ROUTED)
+    board = pcbnew.LoadBoard(src)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import leftover
+    leftover.run(board, inner=inner)
+    board.Save(ROUTED)
+    board = pcbnew.LoadBoard(ROUTED)
+    add_outer_pours(board)
+    print("stitching vias:", stitch(board))
+    pcbnew.ZONE_FILLER(board).Fill(board.Zones())
+    board.Save(PCB)
+    print("saved", PCB)
+
+
+def trials(src):
+    """Escape attempts one net at a time; an attempt is kept only if fewer nets stay open."""
+    import shutil, subprocess
+    best = os.path.join(BUILD, "trial_best.kicad_pcb")
+    shutil.copy(src, best)
+    sidecar(best)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import leftover
+    todo = sys.argv[3].split(",")
+    n_best = len(todo)
+    print("start:", n_best, todo, flush=True)
+    for net in todo:
+        r = subprocess.run([sys.executable, "-u", __file__, "trial1", best, net], capture_output=True, text=True)
+        line = [l for l in r.stdout.splitlines() if l.startswith("RESULT")]
+        if not line:
+            print(net, "crashed", r.stderr[-300:], flush=True)
+            continue
+        n = int(line[0].split()[1])
+        print(net, "->", n, "open", "(kept)" if n < n_best else "", flush=True)
+        if n < n_best:
+            n_best = n
+            shutil.copy(os.path.join(BUILD, "trial_try.kicad_pcb"), best)
+    print("best:", n_best)
+
+
+def trial1(src, net):
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import leftover
+    board = pcbnew.LoadBoard(src)
+    failed = leftover.run(board, inner=True, escape=True, escape_nets={net}, max_rounds=1)
+    out = os.path.join(BUILD, "trial_try.kicad_pcb")
+    sidecar(out)
+    board.Save(out)
+    print("RESULT", len(failed))
 
 
 def again():
@@ -637,5 +734,5 @@ def again():
 
 
 if __name__ == "__main__":
-    {"prep": prep, "crit": crit, "finish": finish, "again": again,
+    {"prep": prep, "crit": crit, "finish": finish, "again": again, "polish": lambda: polish(sys.argv[2]), "pour": pour, "trials": lambda: trials(sys.argv[2]), "trial1": lambda: trial1(sys.argv[2], sys.argv[3]), "inner": lambda: polish(sys.argv[2], inner=True),
      "finish2": lambda: finish(ROUTED, SES2)}[sys.argv[1]]()

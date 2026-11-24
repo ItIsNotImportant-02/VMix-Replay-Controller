@@ -22,7 +22,11 @@ def extra(net):
     return 0.05 if net in HI else 0.0
 VIA_D, VIA_DRILL = 0.6, 0.3
 SKIP = {"GND", "+5V_LED"}      # plane nets, connected through the inner layers
-LAYERS = (pcbnew.F_Cu, pcbnew.B_Cu)
+LAYERS = (pcbnew.F_Cu, pcbnew.B_Cu, pcbnew.In2_Cu)   # In2 only as a last resort (inner=True)
+NL = len(LAYERS)
+INNER_COST = 3.0
+BIG_EXP = 30_000_000            # expansion cap of the whole-board search
+ESC_R = 0.6                    # escape pass: foreign copper this close to an unreached pin is torn out               # a step on In2 costs this much more (keeps the +5V_LED plane whole)
 VIA_COST = 24                  # in grid steps (= 1.2 mm of track)
 WINDOW = 6.0
 DEBUG = False                  # search window margin around the two clusters, mm
@@ -111,7 +115,7 @@ def collect(board):
             hole = T(p.GetDrillSize().x) / 2 if p.GetDrillSize().x > 0 else 0.0
             if p.GetAttribute() == pcbnew.PAD_ATTRIB_NPTH:
                 c = p.GetPosition()
-                items.append(Item("hole", "", ("cap", T(c.x), T(c.y), T(c.x), T(c.y), hole), [0, 1], p, hole))
+                items.append(Item("hole", "", ("cap", T(c.x), T(c.y), T(c.x), T(c.y), hole), [0, 1, 2], p, hole))
                 continue
             if layers:
                 items.append(Item("pad", p.GetNetname(), pad_shapes(p), layers, p, hole))
@@ -119,7 +123,7 @@ def collect(board):
         if t.GetClass() == "PCB_VIA":
             c = t.GetPosition()
             r = T(t.GetWidth(pcbnew.F_Cu)) / 2
-            items.append(Item("via", t.GetNetname(), ("cap", T(c.x), T(c.y), T(c.x), T(c.y), r), [0, 1], t,
+            items.append(Item("via", t.GetNetname(), ("cap", T(c.x), T(c.y), T(c.x), T(c.y), r), [0, 1, 2], t,
                               T(t.GetDrillValue()) / 2))
         elif t.GetLayer() in LAYERS:
             s, e = t.GetStart(), t.GetEnd()
@@ -186,8 +190,8 @@ class Grid:
         self.th = {w: CLR + w / 2 for w in self.widths}
         self.th["via"] = CLR + VIA_D / 2
         self.th["via_hi"] = CLR + 0.05 + VIA_D / 2      # vias of the 0.2 mm clearance class
-        self.cnt = {k: np.zeros((2, self.ny, self.nx), np.int16) for k in self.th}
-        self.rcnt = {k: np.zeros((2, self.ny, self.nx), np.int16) for k in self.th}
+        self.cnt = {k: np.zeros((NL, self.ny, self.nx), np.int16) for k in self.th}
+        self.rcnt = {k: np.zeros((NL, self.ny, self.nx), np.int16) for k in self.th}
         self.edge_mask()
 
     def xy(self, ix, iy):
@@ -268,15 +272,16 @@ def path_to_points(path):
 SOFT = 25        # extra cost per grid step through ripable copper of another net
 
 
-def astar(g, net, w, src, dst, anchor, soft=False):
+def astar(g, net, w, src, dst, anchor, soft=False, big=False, inner=False):
     """src/dst: lists of copper items; the search window spans src and the anchor item of dst.
     Returns list of (layer, ix, iy) or None."""
     xs0, ys0, xs1, ys1 = 1e9, 1e9, -1e9, -1e9
     for it in src + [anchor]:
         a, b, c, d = bbox(it.shape, 0)
         xs0, ys0, xs1, ys1 = min(xs0, a), min(ys0, b), max(xs1, c), max(ys1, d)
-    i0, j0 = g.idx(xs0 - WINDOW, ys0 - WINDOW)
-    i1, j1 = g.idx(xs1 + WINDOW, ys1 + WINDOW)
+    m = 1000.0 if big else WINDOW        # big: the whole board (long detours, e.g. round the jog hole)
+    i0, j0 = g.idx(xs0 - m, ys0 - m)
+    i1, j1 = g.idx(xs1 + m, ys1 + m)
     i0, j0, i1, j1 = max(i0, 0), max(j0, 0), min(i1, g.nx - 1), min(j1, g.ny - 1)
     W, H = i1 - i0 + 1, j1 - j0 + 1
     # own-net copper never blocks: subtract it locally
@@ -298,15 +303,18 @@ def astar(g, net, w, src, dst, anchor, soft=False):
                     rblk[L] -= hit
     free_t = (blk_t <= 0) & ~g.edge[wk][None, j0:j1 + 1, i0:i1 + 1]
     free_v = (blk_v <= 0).all(axis=0) & ~g.edge["via"][j0:j1 + 1, i0:i1 + 1]
+    if not inner:
+        free_t[2] = False
     if soft:     # cells blocked only by ripable copper of other nets
         soft_t = ((blk_t - rblk_t) <= 0) & ~free_t & ~g.edge[wk][None, j0:j1 + 1, i0:i1 + 1]
+        soft_t[2] = False
         soft_v = ((blk_v - rblk_v) <= 0).all(axis=0) & ~free_v & ~g.edge["via"][j0:j1 + 1, i0:i1 + 1]
     else:
         soft_t = np.zeros_like(free_t)
         soft_v = np.zeros_like(free_v)
     # source / target cells: inside own copper (centre line may start anywhere on the copper)
     def cells(items):
-        m = np.zeros((2, H, W), bool)
+        m = np.zeros((NL, H, W), bool)
         for it in items:
             inside = dist_field(it.shape, X, Y) <= -min(0.05, (it.shape[5] if it.shape[0] == "cap" else 0.1) * 0.5)
             for L in it.layers:
@@ -322,16 +330,17 @@ def astar(g, net, w, src, dst, anchor, soft=False):
         return None
     tx = (tgt[:, 2].min() + tgt[:, 2].max()) / 2
     ty = (tgt[:, 1].min() + tgt[:, 1].max()) / 2
-    ft = free_t.ravel().tolist()
-    fv = free_v.ravel().tolist()
-    sft = soft_t.ravel().tolist()
-    sfv = soft_v.ravel().tolist()
-    dd = D.ravel().tolist()
+    ft = free_t.astype(np.uint8).ravel().tobytes()
+    fv = free_v.astype(np.uint8).ravel().tobytes()
+    sft = soft_t.astype(np.uint8).ravel().tobytes()
+    sfv = soft_v.astype(np.uint8).ravel().tobytes()
+    dd = D.astype(np.uint8).ravel().tobytes()
     N = W * H
     INF = float("inf")
-    gscore = [INF] * (2 * N)
-    prev = [-1] * (2 * N)
-    HW_ = 1.3                   # weighted A*: a little longer paths, far fewer expansions
+    import array
+    gscore = array.array("d", [INF]) * (NL * N)
+    prev = array.array("i", [-1]) * (NL * N)
+    HW_ = 2.0 if big else 1.3   # weighted A*: a little longer paths, far fewer expansions
     heap = []
     for L, y, x in np.argwhere(S):
         s = L * N + y * W + x
@@ -349,7 +358,7 @@ def astar(g, net, w, src, dst, anchor, soft=False):
             found = s
             break
         expanded += 1
-        if expanded > 1_500_000:
+        if expanded > (BIG_EXP if big else 1_500_000):
             break
         L, r = divmod(s, N)
         y, x = divmod(r, W)
@@ -362,7 +371,7 @@ def astar(g, net, w, src, dst, anchor, soft=False):
                 continue          # no squeezing diagonally between two blocked cells
             t = L * N + ny_ * W + nx_
             if ft[t] or dd[t]:
-                ng = gs + c
+                ng = gs + c * (INNER_COST if L == 2 else 1.0)
             elif sft[t]:
                 ng = gs + c + SOFT
             else:
@@ -379,12 +388,15 @@ def astar(g, net, w, src, dst, anchor, soft=False):
                 prev[t] = s
                 heapq.heappush(heap, (ng + HW_ * math.hypot(nx_ - tx, ny_ - ty), ng, t))
         if fv[r] or sfv[r]:
-            t = (1 - L) * N + r
-            ng = gs + VIA_COST + (0 if fv[r] else SOFT * 4)
-            if (ft[t] or dd[t] or sft[t]) and ng < gscore[t]:
-                gscore[t] = ng
-                prev[t] = s
-                heapq.heappush(heap, (ng + HW_ * math.hypot(x - tx, y - ty), ng, t))
+            for L2 in range(NL):
+                if L2 == L:
+                    continue
+                t = L2 * N + r
+                ng = gs + VIA_COST + (0 if fv[r] else SOFT * 4)
+                if (ft[t] or dd[t] or sft[t]) and ng < gscore[t]:
+                    gscore[t] = ng
+                    prev[t] = s
+                    heapq.heappush(heap, (ng + HW_ * math.hypot(x - tx, y - ty), ng, t))
     if found is None:
         if DEBUG:
             print("    fail %s: S=%d Sfree=%d D=%d expanded=%d window=%dx%d" % (net, S.sum(), (S & free_t).sum(), D.sum(), expanded, W, H))
@@ -430,6 +442,20 @@ def astar(g, net, w, src, dst, anchor, soft=False):
     return out
 
 
+def path_shapes(g, net, w, path):
+    """The copper a path would add, as Items without board objects (to test before committing)."""
+    out = []
+    for a, b in zip(path, path[1:]):
+        if a[0] != b[0]:
+            x, y = g.xy(a[1], a[2])
+            out.append(Item("via", net, ("cap", x, y, x, y, VIA_D / 2), [0, 1, 2], None, VIA_DRILL / 2))
+        else:
+            xa, ya = g.xy(a[1], a[2])
+            xb, yb = g.xy(b[1], b[2])
+            out.append(Item("track", net, ("cap", xa, ya, xb, yb, w / 2), [a[0]], None))
+    return out
+
+
 def add_path(board, g, net, w, path, lock=False):
     netinfo = board.FindNet(net)
     new = []
@@ -444,7 +470,7 @@ def add_path(board, g, net, w, path, lock=False):
             v.SetNet(netinfo)
             v.SetLocked(lock)
             board.Add(v)
-            new.append(Item("via", net, ("cap", x, y, x, y, VIA_D / 2), [0, 1], v, VIA_DRILL / 2))
+            new.append(Item("via", net, ("cap", x, y, x, y, VIA_D / 2), [0, 1, 2], v, VIA_DRILL / 2))
             continue
         xa, ya = g.xy(a[1], a[2])
         xb, yb = g.xy(b[1], b[2])
@@ -517,7 +543,7 @@ def prune(board, g, nets):
     return n
 
 
-def run(board, only=None, lock=False, ripup=True, max_rips=4):
+def run(board, only=None, lock=False, ripup=True, max_rips=3, inner=False, escape=False, escape_nets=None, max_rounds=3):
     """only: regex of nets to route (default all); lock: mark the new copper locked;
     ripup: when a connection has no free path, go through other nets' autorouted copper
     (at a cost), tear that copper out and queue its nets again (negotiated rip-up)."""
@@ -533,8 +559,11 @@ def run(board, only=None, lock=False, ripup=True, max_rips=4):
     print("raster %.0fs" % (time.time() - t0))
     nets = sorted(n for n in g.net_items if n and n not in SKIP and (only is None or re.search(only, n)))
     queue = [n for n in nets if len(clusters(g.net_items[n])) > 1]
+    if escape_nets is not None:     # trial mode: straight to the escape of the given nets
+        queue = []
     print("nets with open connections:", len(queue), "%.0fs" % (time.time() - t0))
     rips = {}
+    ripped = {}
     touched = set()
     done = 0
 
@@ -543,51 +572,98 @@ def run(board, only=None, lock=False, ripup=True, max_rips=4):
         return ((s_[1] + s_[3]) / 2, (s_[2] + s_[4]) / 2)
 
     steps = 0
-    while queue and steps < 600:
-        steps += 1
-        net = queue.pop(0)
-        cl = clusters(g.net_items[net])
-        if len(cl) < 2:
-            continue
-        w = width_of(net)
-        cl.sort(key=len, reverse=True)
-        tree, rest = cl[0], cl[1:]
-        while rest:
-            rest.sort(key=lambda c: min(math.dist(centre([a]), centre([b])) for a in tree for b in c))
-            c = rest.pop(0)
-            t1 = time.time()
-            anchor = min(tree, key=lambda a: min(math.dist(centre([a]), centre([b])) for b in c))
-            path, w2, soft = None, w, False
-            for ww in ([w, 0.15] if w > 0.15 else [w]):
-                path = astar(g, net, ww, c, tree, anchor)
-                if path:
-                    w2 = ww
-                    break
-            if path is None and ripup and rips.get(net, 0) < max_rips:
-                path = astar(g, net, 0.15 if w <= 0.28 else w, c, tree, anchor, soft=True)
-                w2, soft = (0.15 if w <= 0.28 else w), True
-            if path is None:
-                print("  %s FAILED" % net)
-                tree = tree + c
-                continue
-            new = add_path(board, g, net, w2, path, lock)
-            if soft:
-                victims = conflicts(g, net, new)
-                for v in victims:
-                    g.raster(v, -1)
-                    g.net_items[v.net].remove(v)
-                    board.Remove(v.obj)
-                    touched.add(v.net)
-                    if v.net not in queue:
-                        queue.append(v.net)
-                rips[net] = rips.get(net, 0) + 1
-                print("  %s ok via rip-up of %s" % (net, sorted({v.net for v in victims})))
-            for it in new:
-                g.raster(it)
-                g.net_items[net].append(it)
-            tree = tree + c + new
-            done += 1
-            touched.add(net)
+    escaped = set()
+    rounds = 0
+    while True:
+      while queue and steps < 600:
+          steps += 1
+          net = queue.pop(0)
+          cl = clusters(g.net_items[net])
+          if len(cl) < 2:
+              continue
+          w = width_of(net)
+          cl.sort(key=len, reverse=True)
+          tree, rest = cl[0], cl[1:]
+          while rest:
+              rest.sort(key=lambda c: min(math.dist(centre([a]), centre([b])) for a in tree for b in c))
+              c = rest.pop(0)
+              t1 = time.time()
+              anchor = min(tree, key=lambda a: min(math.dist(centre([a]), centre([b])) for b in c))
+              path, w2, soft = None, w, False
+              for ww in ([w, 0.15] if w > 0.15 else [w]):
+                  path = astar(g, net, ww, c, tree, anchor)
+                  if path is None:
+                      path = astar(g, net, ww, c, tree, anchor, big=True)
+                  if path:
+                      w2 = ww
+                      break
+              if path is None and inner:      # last resort: a short hop on In2
+                  path = astar(g, net, 0.15, c, tree, anchor, big=True, inner=True)
+                  w2 = 0.15
+              if path is None and ripup and rips.get(net, 0) < max_rips:
+                  path = astar(g, net, 0.15 if w <= 0.28 else w, c, tree, anchor, soft=True)
+                  w2, soft = (0.15 if w <= 0.28 else w), True
+              if path is None:
+                  print("  %s FAILED" % net)
+                  tree = tree + c
+                  continue
+              if soft:
+                  victims = conflicts(g, net, path_shapes(g, net, w2, path))
+                  vnets = {v.net for v in victims}
+                  # targeted only: at most two other nets, each torn up at most twice in the whole run
+                  if len(vnets) > 2 or any(ripped.get(n, 0) >= 2 for n in vnets):
+                      print("  %s FAILED (rip-up would hit %s)" % (net, sorted(vnets)))
+                      tree = tree + c
+                      continue
+                  for n in vnets:
+                      ripped[n] = ripped.get(n, 0) + 1
+              new = add_path(board, g, net, w2, path, lock)
+              if soft:
+                  for v in victims:
+                      g.raster(v, -1)
+                      g.net_items[v.net].remove(v)
+                      board.Remove(v.obj)
+                      touched.add(v.net)
+                      if v.net not in queue:
+                          queue.append(v.net)
+                  rips[net] = rips.get(net, 0) + 1
+                  print("  %s ok via rip-up of %s" % (net, sorted({v.net for v in victims})))
+              for it in new:
+                  g.raster(it)
+                  g.net_items[net].append(it)
+              tree = tree + c + new
+              done += 1
+              touched.add(net)
+      # escape pass: pins boxed in by other nets' copper. Tear out the foreign autorouted copper
+      # right round the unreached pins, route this net first, then the torn nets again.
+      failed = [n for n in nets if len(clusters(g.net_items[n])) > 1 and n not in escaped
+                and (escape_nets is None or n in escape_nets)]
+      rounds += 1
+      if not escape or not failed or rounds > max_rounds:
+          break
+      queue = []
+      for net in failed:
+          escaped.add(net)
+          cl = sorted(clusters(g.net_items[net]), key=len, reverse=True)
+          probe = []
+          for c in cl[1:] if len(cl) > 2 or net.startswith("+") else cl:
+              for it in c:
+                  if it.kind == "pad":
+                      sh = it.shape
+                      x, y = ((sh[1] + sh[3]) / 2, (sh[2] + sh[4]) / 2)
+                      probe.append(Item("track", net, ("cap", x, y, x, y, ESC_R), [0, 1, 2]))
+          victims = conflicts(g, net, probe)
+          for v in victims:
+              if v not in g.net_items[v.net]:
+                  continue
+              g.raster(v, -1)
+              g.net_items[v.net].remove(v)
+              board.Remove(v.obj)
+              touched.add(v.net)
+              if v.net not in queue and v.net not in failed:
+                  queue.append(v.net)
+          print("  escape %s: tore out %d items of %s" % (net, len(victims), sorted({v.net for v in victims})))
+      queue = failed + queue
     pruned = prune(board, g, touched)
     failed = sorted(n for n in nets if len(clusters(g.net_items[n])) > 1)
     print("connections made:", done, "dangling ends pruned:", pruned, "still open:", len(failed), failed)

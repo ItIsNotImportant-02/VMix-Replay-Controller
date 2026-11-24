@@ -73,7 +73,7 @@ FIXED = {
     "U6": (COL_X + 14.0, CAMROW + 62.0, 0),   # LED driver, left
     "U7": (KEY_R - PITCH, CAMROW + PITCH + 14.0, 0),   # LED driver, right
     "J5": (COL_X + 14.0, H - 26.0, 270),      # lever sensor connector, bottom side
-    "J6": (W - 9.0, _CY + 8.0, 90),           # jog sensor connector, bottom side
+    "J6": (W - 6.0, _CY + 8.0, 90),           # jog sensor connector, bottom side (plug faces the jog tower: keep it 5 mm clear)
     "J2": (_CX - 14.0, H - 4.5, 90),          # debug header, bottom side
     "J3": (_CX + 10.0, H - 4.5, 90),          # expansion header, bottom side
 }

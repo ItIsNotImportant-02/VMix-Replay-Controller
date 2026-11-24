@@ -42,7 +42,7 @@ def TPt(ref, net):
 
 # ---------------------------------------------------------------------------
 # Buttons: name, TCA9555 (chip, port pin), LED driver channels
-# Order matters: the first 11 go to the left/centre LED driver U6, the rest to U7 (see LED_MAP).
+# Which chip and pin each button uses is in TCA_MAP / LED_ASSIGN below (chosen by board geometry).
 PB26 = ["MENU", "SHIFT", "CAM_A", "CAM_B", "CAM_C", "CAM_D", "PLST", "BROWSE", "IN", "OUT", "TAKE",
         "CLEAR", "ENTER", "PLAY", "LAST_CUE", "MARK", "RECORD", "PRV_CTL"]
 U6_BUTTONS = 11
@@ -52,19 +52,85 @@ TCA_PORTS = ["P00", "P01", "P02", "P03", "P04", "P05", "P06", "P07",
              "P10", "P11", "P12", "P13", "P14", "P15", "P16", "P17"]
 # U8 (0x20): left/centre buttons + F1-F5 ; U9 (0x21): right buttons + F6-F10, 4 spare
 BTN_INPUTS = PB26[:U6_BUTTONS] + FKEYS[:5] + PB26[U6_BUTTONS:] + FKEYS[5:]
-TCA_MAP = {}
-for i, name in enumerate(BTN_INPUTS):
-    TCA_MAP[name] = ("U8", TCA_PORTS[i]) if i < 16 else ("U9", TCA_PORTS[i - 16])
-SPARE_EXP = [("U9", p) for p in TCA_PORTS[12:]]
+# Assignment by board geometry (tools/plan_map.py, 2026-11-24): pins taken in the same order round the chip as
+# the buttons lie round it, so the traces fan out without crossing (LED 381 -> 36 crossings, buttons 53 -> 38).
+# The channels of the IS31FL3236A and the ports of the TCA9555 are all equivalent; firmware reads PINMAP.md.
+TCA_MAP = {
+    "BROWSE": ("U8", "P10"),
+    "CAM_A": ("U9", "P14"),
+    "CAM_B": ("U9", "P15"),
+    "CAM_C": ("U9", "P16"),
+    "CAM_D": ("U9", "P17"),
+    "CLEAR": ("U9", "P07"),
+    "ENTER": ("U9", "P06"),
+    "F1": ("U9", "P13"),
+    "F10": ("U9", "P03"),
+    "F2": ("U9", "P12"),
+    "F3": ("U9", "P11"),
+    "F4": ("U8", "P01"),
+    "F5": ("U8", "P00"),
+    "F6": ("U8", "P17"),
+    "F7": ("U8", "P16"),
+    "F8": ("U9", "P05"),
+    "F9": ("U9", "P04"),
+    "IN": ("U8", "P11"),
+    "LAST_CUE": ("U9", "P01"),
+    "MARK": ("U9", "P02"),
+    "MENU": ("U9", "P10"),
+    "OUT": ("U8", "P12"),
+    "PLAY": ("U9", "P00"),
+    "PLST": ("U8", "P03"),
+    "PRV_CTL": ("U8", "P14"),
+    "RECORD": ("U8", "P15"),
+    "SHIFT": ("U8", "P02"),
+    "TAKE": ("U8", "P13"),
+}
+SPARE_EXP = [(c, p) for c in ("U8", "U9") for p in TCA_PORTS if (c, p) not in TCA_MAP.values()]
 
-# LED channels: U6 (0x3C) OUT1-33 = first 11 PB26 (R,G,B) ; U7 (0x3F) OUT1-21 = other 7 PB26, OUT22-31 = F1-F10
+# LED channels: button -> (driver, [OUT for R, G, B]) ; F keys one channel
+LED_ASSIGN = {
+    "BROWSE": ("U6", [6, 5, 7]),
+    "CAM_A": ("U6", [23, 25, 24]),
+    "CAM_B": ("U6", [21, 20, 22]),
+    "CAM_C": ("U6", [13, 12, 14]),
+    "CAM_D": ("U6", [3, 2, 4]),
+    "CLEAR": ("U7", [16, 17, 18]),
+    "ENTER": ("U7", [9, 10, 11]),
+    "F1": ("U6", [19]),
+    "F10": ("U7", [8]),
+    "F2": ("U6", [15]),
+    "F3": ("U6", [8]),
+    "F4": ("U7", [29]),
+    "F5": ("U7", [28]),
+    "F6": ("U7", [27]),
+    "F7": ("U7", [20]),
+    "F8": ("U7", [19]),
+    "F9": ("U7", [12]),
+    "IN": ("U6", [27, 28, 26]),
+    "LAST_CUE": ("U7", [13, 14, 15]),
+    "MARK": ("U7", [5, 6, 7]),
+    "MENU": ("U6", [17, 16, 18]),
+    "OUT": ("U6", [31, 30, 29]),
+    "PLAY": ("U7", [22, 21, 23]),
+    "PLST": ("U6", [36, 1, 35]),
+    "PRV_CTL": ("U7", [3, 4, 2]),
+    "RECORD": ("U7", [25, 24, 26]),
+    "SHIFT": ("U6", [10, 9, 11]),
+    "TAKE": ("U6", [34, 33, 32]),
+}
 LED_MAP = {}
-for i, name in enumerate(PB26):
-    chip, base = ("U6", 3 * i) if i < U6_BUTTONS else ("U7", 3 * (i - U6_BUTTONS))
-    for k, col in enumerate("RGB"):
-        LED_MAP["LED_%s_%s" % (name, col)] = (chip, base + k + 1)
-for i, name in enumerate(FKEYS):
-    LED_MAP["LED_%s" % name] = ("U7", 3 * (len(PB26) - U6_BUTTONS) + 1 + i)
+for _n, (_c, _ks) in LED_ASSIGN.items():
+    if len(_ks) == 1:
+        LED_MAP["LED_%s" % _n] = (_c, _ks[0])
+    else:
+        for _col, _k in zip("RGB", _ks):
+            LED_MAP["LED_%s_%s" % (_n, _col)] = (_c, _k)
+# pull-up arrays: RN1-3 next to U8, RN4-7 next to U9, in port order
+RN_GROUPS = []
+for _c in ("U8", "U9"):
+    _names = [n for p in TCA_PORTS for n, cp in TCA_MAP.items() if cp == (_c, p)]
+    RN_GROUPS += [_names[i:i + 4] for i in range(0, len(_names), 4)]
+assert len(RN_GROUPS) == 7 and all(len(g) == 4 for g in RN_GROUPS)
 
 
 def build(prj):
@@ -118,11 +184,11 @@ def build(prj):
     # ======================================================================
     s = prj.sheet("MCU", "mcu.kicad_sch", "RP2040, flash, krystal, debug")
     s.note("GPIO: viz hardware/DESIGN.md. SPI0 = W5500 (jako W5500-EVB-Pico), I2C1 = LED budiče + expandéry,\n"
-           "SPI1 = páka (MT6701 SSI), GP2-4 = jog (MT6701 SSI přes PIO).")
-    gp = {0: "UART_TX", 1: "UART_RX", 2: "JOG_DO", 3: "JOG_CLK", 4: "JOG_CSN", 5: "JOG_MODE", 6: "I2C_SDA",
+           "SPI1 = páka (MT6701 SSI), GP22-24 = jog (MT6701 SSI přes PIO), GP5 = jog MODE.")
+    gp = {0: "UART_TX", 1: "UART_RX", 2: "GP2", 3: "GP3", 4: "GP4", 5: "JOG_MODE", 6: "I2C_SDA",
           7: "I2C_SCL", 8: "LED_SDB", 9: "BTN_INT", 10: "GP10", 11: "GP11", 12: "LEV_DO", 13: "LEV_CSN",
           14: "LEV_CLK", 15: "LEV_MODE", 16: "ETH_MISO", 17: "ETH_CS", 18: "ETH_SCK", 19: "ETH_MOSI",
-          20: "ETH_RST", 21: "ETH_INT", 22: "GP22", 23: "GP23", 24: "GP24", 25: "STATUS_LED",
+          20: "ETH_RST", 21: "ETH_INT", 22: "JOG_DO", 23: "JOG_CLK", 24: "JOG_CSN", 25: "STATUS_LED",
           26: "LEV_OUT", 27: "JOG_OUT", 28: "GP28", 29: "VSENSE_5V"}
     pins = {"IOVDD": "+3V3", "ADC_AVDD": "+3V3", "VREG_VIN": "+3V3", "USB_VDD": "+3V3", "VREG_VOUT": "+1V1",
             "DVDD": "+1V1", "GND": "GND", "TESTEN": "GND", "XIN": "XIN", "XOUT": "XOUT", "SWCLK": "SWCLK",
@@ -167,8 +233,8 @@ def build(prj):
     s.add(Part("J2", "Connector_Generic:Conn_01x07", "DEBUG", "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical",
                pins={"1": "+3V3", "2": "SWCLK", "3": "SWDIO", "4": "GND", "5": "RUN", "6": "UART_TX", "7": "UART_RX"},
                in_bom=False, desc="SWD + UART debug header (osadit ručně jen při ladění)"))
-    exp = {"1": "+5V", "2": "+3V3", "3": "GND", "4": "GND", "5": "GP10", "6": "GP11", "7": "GP22", "8": "GP23",
-           "9": "GP24", "10": "GP28", "15": "I2C_SDA", "16": "I2C_SCL"}
+    exp = {"1": "+5V", "2": "+3V3", "3": "GND", "4": "GND", "5": "GP10", "6": "GP11", "7": "GP2", "8": "GP3",
+           "9": "GP4", "10": "GP28", "15": "I2C_SDA", "16": "I2C_SCL"}
     for k, (chip, port) in enumerate(SPARE_EXP):
         exp[str(11 + k)] = "EXP_%s" % port
     s.add(Part("J3", "Connector_Generic:Conn_02x08_Odd_Even", "EXPANSION",
@@ -292,8 +358,7 @@ def build(prj):
     s.add(C("C71", "100nF", "+3V3"))
     s.add(R("R50", "10k", "+3V3", "BTN_INT"))
     # externí pull-upy 4,7k na tlačítka: ~0,7 mA přes kontakt (wetting current) místo ~33 uA z interních 100k
-    for i in range(7):
-        names = BTN_INPUTS[4 * i:4 * i + 4]
+    for i, names in enumerate(RN_GROUPS):
         pins = {str(k + 1): "BTN_%s" % nm for k, nm in enumerate(names)}
         pins.update({"5": "+3V3", "6": "+3V3", "7": "+3V3", "8": "+3V3"})
         s.add(Part("RN%d" % (i + 1), "Device:R_Pack04", "4.7k", "Resistor_SMD:R_Array_Convex_4x0603",

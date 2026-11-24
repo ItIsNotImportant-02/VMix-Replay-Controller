@@ -13,6 +13,8 @@ Run inside the kicad/kicad:9.0 container from hardware/:
     python3 tools/sensor_board.py sch
     kicad-cli sch export netlist --format kicadsexpr -o sensor-board/build/net.net sensor-board/sensor-board.kicad_sch
     python3 tools/sensor_board.py pcb
+    (Freerouting on build/board.dsn, import build/board.ses into sensor-board.kicad_pcb)
+    python3 tools/sensor_board.py stitch
 """
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -237,5 +239,25 @@ def pcb():
                       "B" if fp.IsFlipped() else "F")
 
 
+# GND vias next to the ground pads of C1, C2, D1 (short return to the back pour) and stitching round the edge
+STITCH = [(-4.4, -3.0), (-7.9, -3.4), (-3.3, -5.0),
+          (-8, -11), (0, -12.2), (8, -11), (-12.2, -4), (12.2, -4), (-12.2, 4), (12.2, 4), (6, -6), (-9, 0)]
+
+
+def stitch():
+    """After the routes are imported: GND vias, refill, save."""
+    import pcbnew
+    path = os.path.join(OUT, NAME + ".kicad_pcb")
+    b = pcbnew.LoadBoard(path)
+    gnd = b.FindNet("GND")
+    for x, y in STITCH:
+        v = pcbnew.PCB_VIA(b)
+        v.SetPosition(pcbnew.VECTOR2I(pcbnew.FromMM(CX + x), pcbnew.FromMM(CY + y)))
+        v.SetWidth(pcbnew.FromMM(0.6)); v.SetDrill(pcbnew.FromMM(0.3)); v.SetNet(gnd)
+        b.Add(v)
+    pcbnew.ZONE_FILLER(b).Fill(b.Zones())
+    b.Save(path)
+
+
 if __name__ == "__main__":
-    {"sch": sch, "pcb": pcb}[sys.argv[1]]()
+    {"sch": sch, "pcb": pcb, "stitch": stitch}[sys.argv[1]]()

@@ -97,11 +97,11 @@ EXPLICIT = {
     # flash: VCC cap at pin 8, BOOTSEL resistor on CS; BOOTSEL / RESET buttons left below
     "C25": (85.0, 63.4, 0), "R11": (90.0, 54.6, 0),
     "SW1": (108.6, 81.2, 0), "SW2": (116.8, 81.2, 0),      # BOOTSEL, RESET below the RP2040
-    # button expander U9 (right half) and its pull-up arrays
-    "RN5": (85.0, 39.6, 0), "RN6": (88.6, 39.6, 0), "RN7": (92.2, 39.6, 0),
+    # button expander U9 (upper buttons) and its pull-up arrays RN4-7 (16 inputs)
+    "RN4": (81.4, 39.6, 0), "RN5": (85.0, 39.6, 0), "RN6": (88.6, 39.6, 0), "RN7": (92.2, 39.6, 0),
     "TP13": (84.3, 45.0, 0), "TP12": (93.4, 109.5, 0),
-    # button expander U8 (left half): pull-up arrays in a column on its right
-    "RN1": (103.0, 85.6, 0), "RN2": (103.0, 89.4, 0), "RN3": (103.0, 93.2, 0), "RN4": (103.0, 97.0, 0),
+    # button expander U8 (left column, F4-F7, RECORD, PRV_CTL): pull-up arrays RN1-3 on its right
+    "RN1": (103.0, 87.5, 0), "RN2": (103.0, 91.3, 0), "RN3": (103.0, 95.1, 0),
 }
 
 # ------------------------------------------------- decoupling at pins -------
