@@ -25,10 +25,10 @@ IC = {
     "U3": (97.0, 67.5, 0),     # RP2040 as in the reference design: flash upper left, crystal below
     "U4": (88.4, 59.0, 180),   # QSPI flash, CS/SD1/SD2 (pins 1-3) face the QSPI corner of the RP2040
     "U2": (68.0, 14.0, 0),     # LDO: input pin on the left (from the USB), output tab on the right
-    "U9": (89.6, 46.4, 0),     # button expander for the right half
-    "U8": (88.15, 95.5, 0),    # button expander for the left half
-    "U6": (88.15, 111.5, 0),   # LED driver, left half
-    "U7": (131.3, 82.5, 0),    # LED driver, right half
+    "U9": (89.6, 46.4, 180),   # button expander for the right half (rotated: GPIO sides face its buttons)
+    "U8": (97.0, 92.0, 0),     # button expander for the left half (right of the bus corridor)
+    "U6": (88.15, 111.5, 270),  # LED driver, left half (rotated: outputs face the left buttons, control pins right)
+    "U7": (131.3, 82.5, 180),   # LED driver, right half (rotated: outputs face up to its buttons)
 }
 
 # Routing channels kept free of parts by the solver (x0, y0, x1, y1).
@@ -77,7 +77,7 @@ EXPLICIT = {
     "C21": (96.1, 60.4, 90),                                # DVDD pin 50
     "C16": (96.1, 57.2, 90), "C15": (94.5, 57.2, 90),                                # USB_VDD 48 + IOVDD 49 (trace between C21 and USB)
     "C19": (99.4, 60.4, 90), "C18": (101.0, 60.4, 90), "C17": (102.6, 60.4, 90),   # VREG_VOUT 45, VREG_VIN 44, ADC_AVDD 43
-    "R3": (97.8, 56.0, 90), "R4": (99.4, 56.0, 90),         # USB 27R
+    "R3": (97.8, 56.0, 270), "R4": (99.4, 56.0, 270),       # USB 27R, RP2040 side pad down towards pins 46/47
     "C22": (101.2, 55.2, 90),                                # 3V3 bulk 10uF at VREG_VIN
     # RP2040 right side
     "C14": (102.9, 64.9, 0),                                # IOVDD 42
@@ -90,7 +90,7 @@ EXPLICIT = {
     "TP10": (84.0, 65.6, 0), "TP11": (84.0, 68.4, 0),
     # RP2040 bottom: DVDD 23 cap, IOVDD 22 cap behind it, crystal to the lower left
     "C20": (98.2, 73.6, 270), "C12": (97.2, 77.0, 270),
-    "R10": (95.0, 73.6, 0),                                 # XOUT 1k
+    "R10": (95.0, 73.6, 180),                               # XOUT 1k, XOUT pad towards the RP2040
     "Y1": (92.4, 76.8, 0), "C23": (91.3, 80.2, 270), "C24": (95.4, 77.4, 270),
     "R12": (100.6, 75.4, 90),                               # RUN pull-up
     "TP5": (100.8, 78.6, 0), "TP7": (100.8, 81.4, 0),
@@ -98,10 +98,10 @@ EXPLICIT = {
     "C25": (85.0, 63.4, 0), "R11": (90.0, 54.6, 0),
     "SW1": (108.6, 81.2, 0), "SW2": (116.8, 81.2, 0),      # BOOTSEL, RESET below the RP2040
     # button expander U9 (right half) and its pull-up arrays
-    "RN5": (85.0, 51.6, 0), "RN6": (88.6, 51.6, 0), "RN7": (92.2, 51.6, 0),
-    "TP13": (88.7, 42.0, 0), "TP12": (93.4, 109.5, 0),
+    "RN5": (85.0, 39.6, 0), "RN6": (88.6, 39.6, 0), "RN7": (92.2, 39.6, 0),
+    "TP13": (84.3, 45.0, 0), "TP12": (93.4, 109.5, 0),
     # button expander U8 (left half): pull-up arrays in a column on its right
-    "RN1": (93.4, 89.0, 0), "RN2": (93.4, 92.8, 0), "RN3": (93.4, 96.6, 0), "RN4": (93.4, 100.4, 0),
+    "RN1": (103.0, 85.6, 0), "RN2": (103.0, 89.4, 0), "RN3": (103.0, 93.2, 0), "RN4": (103.0, 97.0, 0),
 }
 
 # ------------------------------------------------- decoupling at pins -------
