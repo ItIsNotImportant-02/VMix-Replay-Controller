@@ -44,3 +44,26 @@ Pasivní součástky už nerozmisťuje automat „kam se vejdou“, ale `tools/a
 - Expandéry: pull-up pole vedle čipu v řadě, I2C pull-upy R43/R44 u RP2040. LED budiče: 1 µF + 100 nF u VCC, R_EXT u pinu 40.
 - Senzorové konektory J5/J6 (dole): sériové 33R, pull-upy a RC na výstupu ve dvou řadách nad konektorem v pořadí jeho pinů.
 - Potisk: jen označení. Označení pasivních součástek je na F.Fab (v KiCadu je vidět), na potisku jsou u čipů, konektorů, krystalů, tlačítek a testovacích bodů. Pole LCSC/MPN se netisknou.
+
+## Routování (v0.8, 24. 11. 2026)
+- **Vrstvy:**
+  - F.Cu, In2.Cu a B.Cu jsou signálové.
+  - **In1.Cu je celá GND** (jeden souvislý kus, ověřeno po nalití).
+  - Na In2 je mezi signály nalitá +5V_LED. Kousky +5V_LED, které signály na In2 odřízly, jsou připojené krátkou cestou a prokovem do hlavní plochy.
+  - F.Cu a B.Cu mají GND lití a prošívací prokovy po 6 mm (mimo courtyardy součástek).
+- **Postup** (`tools/route.py prep` → Freerouting 2.5 → grid router `tools/leftover.py` → lití a prošívání):
+  - Freerouting 2.5.0 vyžaduje Javu 25. Běží bez GUI: `java -jar freerouting-2.5.0-executable.jar --gui.enabled=false -de route.dsn -do route.ses -mp 100`.
+  - DSN se exportuje s In2 jako signálovou vrstvou (`IN2_SIGNAL=1`, funkce `in2_signal`).
+  - Odzkoušené horší varianty:
+    - Freerouting 1.9 (32 otevřených spojů).
+    - Nejdřív kritické spoje zamčené, pak zbytek (68 otevřených).
+    - Pokračování Freeroutingu z hotové desky (91 otevřených).
+- **Stav:** DRC bez chyb clearance, **2 nepropojené spoje, dotáhnou se ručně v KiCadu** (interaktivní router, režim Shove):
+  - **SWDIO:** U3 pin 25 (spodní strana RP2040, mezi SWCLK a RUN) → J2 pin 3. SWCLK (pin 24) a RUN (pin 26) vedou ke stejnému J2 (piny 2 a 5), takže SWDIO může jít souběžně s nimi. Je potřeba odsunout jejich výstupy od čipu.
+  - **JOG_DO:** U3 pin 34 (pravá strana, mezi +3V3 pin 33 a JOG_CLK pin 35) → R69 pin 1 u konektoru J6 jogu. Kolem vede svazek ETH SPI a JOG vodičů. Pokud to nepůjde, JOG_DO je na PIO, takže ho jde přehodit na rezervní GP28 (pin 40, teď vyvedený na J3).
+- **Známé kompromisy:**
+  - XIN má i s větví k zatěžovacímu kondenzátoru 11 mm. Krystal a jeho cesty jsou jen na F.Cu, bez prokovů.
+  - ETH RX pár: RXN vede přes In2 (2 prokovy), RXP jen po F.Cu. Délky 14,9 a 15,9 mm.
+  - USB D+/D− mají shodnou délku (7,7 mm), oba vedou přes In2.
+  - 23 krátkých úseků je zúžených na 0,11–0,13 mm. Při šířce 0,15 mm by porušily clearance. JLC 4vrstvá deska zvládne 0,09 mm, DRC je ale hlásí jako porušení pravidla 0,15 mm.
+  - Výrobní data (Gerber, vrtání) se vygenerují až po dotažení posledních dvou spojů. BOM a CPL se nemění, rozmístění je stejné.
