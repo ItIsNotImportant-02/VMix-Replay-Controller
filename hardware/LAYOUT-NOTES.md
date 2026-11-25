@@ -84,9 +84,16 @@ Pasivní součástky už nerozmisťuje automat „kam se vejdou“, ale `tools/a
   - ETH RX pár: 13,9 a 11,2 mm, oba přes In2. Rozdíl 2,7 mm je pro 100BASE-TX v pořádku.
 - **Montážní díry:** H1–H4 (M3, původní) a nově nahoře H5, H6 (M3, deska 41,0 / 4,5 a 71,0 / 5,0 mm) a H7, H8 (M2,5, deska 5,0 / 22,0 a 155,0 / 22,0 mm). Všechny mají prokovené mezikruží na GND a byly umístěné do míst bez cest, takže se nic nepřeroutovávalo.
 - **Podpěry zespodu** (pro 3D tištěnou krabičku):
-  - Volné plochy libovolného tvaru se zaoblenými rohy jsou na B.Silkscreen vyšrafované, obrys je i ve vrstvě User.1. Jsou to 3 plochy, celkem 6 800 mm².
-  - Plochy vynechávají vývody THT dílů (+1 mm na pájku), plošky a součástky na spodní straně (+0,3–0,5 mm) a potisk. Od okraje desky jsou aspoň 1 mm.
-  - Pokrývají vše do 12 mm od středu každého panelového tlačítka.
+  - Vyšrafované plochy na B.Silkscreen (obrys i v User.1) označují místa, kde se deska může opřít o podložku a nic se nepoškodí.
+  - Plochy vynechávají:
+    - cesty na B.Cu (+0,5 mm),
+    - všechny prokovy (+0,5 mm),
+    - vývody THT dílů (+1 mm),
+    - plošky a součástky na spodní straně,
+    - potisk,
+    - okraj desky (1 mm).
+  - Pod plochou je jen GND lití pod maskou.
+  - Je to 29 ploch po celé desce, celkem 8 270 mm². Rohy jsou zaoblené, nejmenší plocha má 15 mm².
   - Kolem děr H1–H8 je v User.1 kroužek Ø 8 mm pro sloupek se šroubem.
-  - Pro CAD: obrys desky, ploch a kroužků v `jlc/podpery.dxf`, body obrysů v mm od levého horního rohu (pohled shora) v `jlc/podpery-obrysy.txt`.
+  - Pro CAD: `jlc/podpery.dxf` a body obrysů v mm od levého horního rohu (pohled shora) v `jlc/podpery-obrysy.txt`.
 - **Výrobní data:** `jlc/` obsahuje Gerbery a vrtání (ZIP), BOM a CPL pro JLCPCB a náhledy `render_top.png` a `render_bot.png`.
