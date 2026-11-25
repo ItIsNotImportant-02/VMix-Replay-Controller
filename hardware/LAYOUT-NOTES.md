@@ -82,4 +82,5 @@ Pasivní součástky už nerozmisťuje automat „kam se vejdou“, ale `tools/a
   - XIN má 12,9 mm a dva prokovy: na B.Cu podbíhá síť XOUT/1k. XOUT má 3,2 mm, jen F.Cu. Pod B.Cu úsekem je souvislá GND rovina In1.
   - USB D− má 15,4 mm (přes In2, 4 prokovy), D+ 7,8 mm (přes B.Cu). RP2040 umí jen full-speed USB (12 Mb/s), kde rozdíl 8 mm (zhruba 50 ps) nehraje roli.
   - ETH RX pár: 13,9 a 11,2 mm, oba přes In2. Rozdíl 2,7 mm je pro 100BASE-TX v pořádku.
+- **Montážní díry:** H1–H4 (M3, původní) a nově nahoře H5, H6 (M3, deska 41,0 / 4,5 a 71,0 / 5,0 mm) a H7, H8 (M2,5, deska 5,0 / 22,0 a 155,0 / 22,0 mm). Všechny mají prokovené mezikruží na GND a byly umístěné do míst bez cest, takže se nic nepřeroutovávalo.
 - **Výrobní data:** `jlc/` obsahuje Gerbery a vrtání (ZIP), BOM a CPL pro JLCPCB a náhledy `render_top.png` a `render_bot.png`.
