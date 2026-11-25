@@ -24,8 +24,9 @@ DSN = os.path.join(HW, "build", "route.dsn")
 SES = os.path.join(HW, "build", "route.ses")
 
 PLANE = {"GND": pcbnew.In1_Cu, "+5V_LED": pcbnew.In2_Cu}
-VIA_D, VIA_DRILL = 0.6, 0.3
+VIA_D, VIA_DRILL = float(os.environ.get("VIA_D") or 0.6), float(os.environ.get("VIA_DRILL") or 0.3)
 CLR = 0.2                      # clearance used when placing vias (rules allow 0.15)
+DEFAULT_W = float(os.environ.get("DEFAULT_W", "0.2"))   # signal tracks; Freerouting necks down to 0.15 at fine-pitch pins
 
 # net classes: name -> (track, clearance, diff pair gap or None, nets regex)
 # USB: 0.28/0.2 on L1 over 0.2 mm 7628 (Er ~4.4) ~ 90 ohm differential; Ethernet 0.22/0.2 ~ 100 ohm.
@@ -66,7 +67,7 @@ def write_rules():
                 "microvia_diameter": 0.3, "microvia_drill": 0.1,
                 "wire_width": 6, "bus_width": 12, "line_style": 0, "priority": prio,
                 "pcb_color": "rgba(0, 0, 0, 0.000)", "schematic_color": "rgba(0, 0, 0, 0.000)"}
-    classes = [nc("Default", 0.15, 0.15, None, 2147483647)]
+    classes = [nc("Default", DEFAULT_W, 0.15, None, 2147483647)]
     pats = []
     for i, (name, w, clr, gap, rx) in enumerate(CLASSES):
         classes.append(nc(name, w, clr, gap, i))

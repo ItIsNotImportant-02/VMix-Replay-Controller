@@ -45,25 +45,41 @@ Pasivní součástky už nerozmisťuje automat „kam se vejdou“, ale `tools/a
 - Senzorové konektory J5/J6 (dole): sériové 33R, pull-upy a RC na výstupu ve dvou řadách nad konektorem v pořadí jeho pinů.
 - Potisk: jen označení. Označení pasivních součástek je na F.Fab (v KiCadu je vidět), na potisku jsou u čipů, konektorů, krystalů, tlačítek a testovacích bodů. Pole LCSC/MPN se netisknou.
 
-## Routování (v0.8, 24. 11. 2026)
+## Routování (v0.9, 25. 11. 2026): plně propojená deska
+- **Stav:** **0 nepropojených spojů, DRC bez chyb** (clearance, zkraty, šířky, okraje, popisky). Zbývají jen varování:
+  - `lib_footprint_mismatch`: u 15 pouzder byly zkráceny rohové značky na potisku, které zasahovaly do masky.
+  - `extra_footprint`: montážní díry H1–H4 nejsou ve schématu.
+- **Rozmístění** (`tools/flow/opt.py`, uložený stav `tools/flow/placement-v11.json`):
+  - Pevné zůstaly konektory, rozměr desky, panelová tlačítka a díry.
+  - Skupiny čipů (RP2040 s okolím, TCA9555 ×2, IS31FL3236A ×2, BOOTSEL/RESET, J2, J3) se posouvaly a otáčely simulovaným žíháním. Hodnotila se délka spojů a přeplnění kanálů.
+  - Kanály LED driverů a porty expanderů se přiřadily znovu podle polohy. Mapování v `PINMAP.md` je aktuální, firmware se musí řídit jím.
+  - Okolí RP2040 (součástky do 5,5 mm od středu) je roztažené o 12 %, tedy asi o 0,5 mm. Blokovací kondenzátory zůstaly u svých pinů.
+- **Pravidla:**
+  - Prokovy 0,5/0,25 mm (dříve 0,6/0,3), aby se vešly vývody kolem QFN.
+  - Signály se routují na 0,15 mm a pak se rozšíří na 0,2 mm všude, kde to clearance dovolí.
+  - Napájení: VBUS a +5V 0,6 mm (druhý pár pinů USB-C 0,45 mm), +3V3 a +1V1 0,25 mm.
+  - Minimální šířka v DRC je 0,1 mm, kvůli zúžení u pinů jemných pouzder. JLC 4vrstvá deska zvládne 0,09 mm.
+- **Šířky signálů (podíl délky):**
+  - 0,2 mm: 67 %
+  - 0,15 mm: 20 %
+  - 0,11 mm: 1,7 %, jen krátké úseky mezi piny
 - **Vrstvy:**
-  - F.Cu, In2.Cu a B.Cu jsou signálové.
-  - **In1.Cu je celá GND** (jeden souvislý kus, ověřeno po nalití).
-  - Na In2 je mezi signály nalitá +5V_LED. Kousky +5V_LED, které signály na In2 odřízly, jsou připojené krátkou cestou a prokovem do hlavní plochy.
-  - F.Cu a B.Cu mají GND lití a prošívací prokovy po 6 mm (mimo courtyardy součástek).
-- **Postup** (`tools/route.py prep` → Freerouting 2.5 → grid router `tools/leftover.py` → lití a prošívání):
-  - Freerouting 2.5.0 vyžaduje Javu 25. Běží bez GUI: `java -jar freerouting-2.5.0-executable.jar --gui.enabled=false -de route.dsn -do route.ses -mp 100`.
-  - DSN se exportuje s In2 jako signálovou vrstvou (`IN2_SIGNAL=1`, funkce `in2_signal`).
-  - Odzkoušené horší varianty:
-    - Freerouting 1.9 (32 otevřených spojů).
-    - Nejdřív kritické spoje zamčené, pak zbytek (68 otevřených).
-    - Pokračování Freeroutingu z hotové desky (91 otevřených).
-- **Stav:** DRC bez chyb clearance, **2 nepropojené spoje, dotáhnou se ručně v KiCadu** (interaktivní router, režim Shove):
-  - **SWDIO:** U3 pin 25 (spodní strana RP2040, mezi SWCLK a RUN) → J2 pin 3. SWCLK (pin 24) a RUN (pin 26) vedou ke stejnému J2 (piny 2 a 5), takže SWDIO může jít souběžně s nimi. Je potřeba odsunout jejich výstupy od čipu.
-  - **JOG_DO:** U3 pin 34 (pravá strana, mezi +3V3 pin 33 a JOG_CLK pin 35) → R69 pin 1 u konektoru J6 jogu. Kolem vede svazek ETH SPI a JOG vodičů. Pokud to nepůjde, JOG_DO je na PIO, takže ho jde přehodit na rezervní GP28 (pin 40, teď vyvedený na J3).
+  - In1.Cu je celá GND, jeden kus.
+  - In2.Cu nese signály a lití +5V_LED. Ostrůvky odříznuté signály jsou připojené cestou a prokovem.
+  - F.Cu a B.Cu mají GND lití a prošívání.
+  - 10 plošek (6 anod LED v tlačítkách, 4 GND) je připojeno k lití naplno, bez tepelných můstků. Jejich můstky vedly do odříznutého ostrůvku.
+- **Postup** (skripty v `tools/flow/`, cesty v nich jsou z cloudového běhu):
+  1. `vrun.sh`: schéma, umístění a DSN. In2 se exportuje jako signálová vrstva, ale s ponechanou rovinou +5V_LED, aby ji Freerouting neroutoval cestami.
+  2. Freerouting 2.5 (Java 25), `-mp 40`.
+  3. `vpost.sh`: grid router `leftover.py` s rip-upem, připojení ostrůvků +5V_LED (`lo3.py`, `link.py`), lití a prošívání (`final.py`).
+  4. `vfull.sh`: rozšíření cest (`wloop.sh`: rozdělení na úseky po 1 mm, rozšíření na 0,2 mm, zúžení kolizních úseků, sloučení), potisk (`silk2.py`), DRC a kontroly (`chk.py`).
+- **Zkoušené varianty:** 4 rozmístění × (0,2 / 0,15 mm, s rovinou i bez, prokovy 0,6 / 0,5 mm). Nejlepší ostatní varianty skončily na 2–3 otevřených spojích, vždy u spodní strany RP2040.
+- **Potisk:**
+  - Označení všech IO, konektorů, tlačítek a testovacích bodů je výška 1 mm.
+  - Pasivní součástky mají označení 0,8 mm, pokud se vešlo do 0,8 mm od součástky (152 ze 171).
+  - Zbylých 19 (např. C16, C25, R4, R7, R13) je jen ve vrstvě F.Fab, v osazovacím výkresu.
 - **Známé kompromisy:**
-  - XIN má i s větví k zatěžovacímu kondenzátoru 11 mm. Krystal a jeho cesty jsou jen na F.Cu, bez prokovů.
-  - ETH RX pár: RXN vede přes In2 (2 prokovy), RXP jen po F.Cu. Délky 14,9 a 15,9 mm.
-  - USB D+/D− mají shodnou délku (7,7 mm), oba vedou přes In2.
-  - 23 krátkých úseků je zúžených na 0,11–0,13 mm. Při šířce 0,15 mm by porušily clearance. JLC 4vrstvá deska zvládne 0,09 mm, DRC je ale hlásí jako porušení pravidla 0,15 mm.
-  - Výrobní data (Gerber, vrtání) se vygenerují až po dotažení posledních dvou spojů. BOM a CPL se nemění, rozmístění je stejné.
+  - XIN má 12,9 mm a dva prokovy: na B.Cu podbíhá síť XOUT/1k. XOUT má 3,2 mm, jen F.Cu. Pod B.Cu úsekem je souvislá GND rovina In1.
+  - USB D− má 15,4 mm (přes In2, 4 prokovy), D+ 7,8 mm (přes B.Cu). RP2040 umí jen full-speed USB (12 Mb/s), kde rozdíl 8 mm (zhruba 50 ps) nehraje roli.
+  - ETH RX pár: 13,9 a 11,2 mm, oba přes In2. Rozdíl 2,7 mm je pro 100BASE-TX v pořádku.
+- **Výrobní data:** `jlc/` obsahuje Gerbery a vrtání (ZIP), BOM a CPL pro JLCPCB a náhledy `render_top.png` a `render_bot.png`.

@@ -7,7 +7,7 @@ construction. The inner layers are never touched (In1 = GND plane, In2 = +5V_LED
 
 usage (inside the KiCad container):  python3 tools/leftover.py <board.kicad_pcb>
 """
-import heapq, math, sys
+import heapq, math, os, sys
 import numpy as np
 import pcbnew
 
@@ -20,7 +20,7 @@ HI = {"VBUS", "+5V"}           # class clearance 0.2 instead of 0.15
 
 def extra(net):
     return 0.05 if net in HI else 0.0
-VIA_D, VIA_DRILL = 0.6, 0.3
+VIA_D, VIA_DRILL = float(os.environ.get("VIA_D") or 0.6), float(os.environ.get("VIA_DRILL") or 0.3)
 SKIP = {"GND", "+5V_LED"}      # plane nets, connected through the inner layers
 MAIN = None                    # optional test: item connected through the In2 +5V_LED pour
 LAYERS = (pcbnew.F_Cu, pcbnew.B_Cu, pcbnew.In2_Cu)   # In2 only as a last resort (inner=True)
