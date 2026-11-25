@@ -83,5 +83,10 @@ Pasivní součástky už nerozmisťuje automat „kam se vejdou“, ale `tools/a
   - USB D− má 15,4 mm (přes In2, 4 prokovy), D+ 7,8 mm (přes B.Cu). RP2040 umí jen full-speed USB (12 Mb/s), kde rozdíl 8 mm (zhruba 50 ps) nehraje roli.
   - ETH RX pár: 13,9 a 11,2 mm, oba přes In2. Rozdíl 2,7 mm je pro 100BASE-TX v pořádku.
 - **Montážní díry:** H1–H4 (M3, původní) a nově nahoře H5, H6 (M3, deska 41,0 / 4,5 a 71,0 / 5,0 mm) a H7, H8 (M2,5, deska 5,0 / 22,0 a 155,0 / 22,0 mm). Všechny mají prokovené mezikruží na GND a byly umístěné do míst bez cest, takže se nic nepřeroutovávalo.
-- **Podpěry zespodu** (pro 3D tištěnou krabičku): 16 kroužků Ø 6 mm (P1–P16) na B.Silkscreen a ve vrstvě User.1, plus kroužky Ø 8 mm kolem děr H1–H8 v User.1. Místa jsou bez vývodů, plošek, součástek a prokovů. Každé panelové tlačítko má podpěru nebo šroub do 12,7 mm od středu. Souřadnice jsou v `jlc/podpery.csv` (od levého horního rohu desky, pohled shora), obrys pro CAD v `jlc/podpery.dxf`.
+- **Podpěry zespodu** (pro 3D tištěnou krabičku):
+  - Volné plochy libovolného tvaru se zaoblenými rohy jsou na B.Silkscreen vyšrafované, obrys je i ve vrstvě User.1. Jsou to 3 plochy, celkem 6 800 mm².
+  - Plochy vynechávají vývody THT dílů (+1 mm na pájku), plošky a součástky na spodní straně (+0,3–0,5 mm) a potisk. Od okraje desky jsou aspoň 1 mm.
+  - Pokrývají vše do 12 mm od středu každého panelového tlačítka.
+  - Kolem děr H1–H8 je v User.1 kroužek Ø 8 mm pro sloupek se šroubem.
+  - Pro CAD: obrys desky, ploch a kroužků v `jlc/podpery.dxf`, body obrysů v mm od levého horního rohu (pohled shora) v `jlc/podpery-obrysy.txt`.
 - **Výrobní data:** `jlc/` obsahuje Gerbery a vrtání (ZIP), BOM a CPL pro JLCPCB a náhledy `render_top.png` a `render_bot.png`.
